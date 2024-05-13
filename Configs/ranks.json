@@ -1,0 +1,128 @@
+[
+    {
+        "name": "Шестёрка",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 50,
+            "standard_deviation": 20
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 2,
+            "standard_deviation": 0.5
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 1,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Прожжённая шестёрка",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 100,
+            "standard_deviation": 20
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 2,
+            "standard_deviation": 0.5
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 2,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Офицер",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 200,
+            "standard_deviation": 20
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 3,
+            "standard_deviation": 0.5
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 3,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Прожжённый офицер",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 400,
+            "standard_deviation": 50
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 4,
+            "standard_deviation": 0.5
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 5,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Мини-босс",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 600,
+            "standard_deviation": 100
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 5,
+            "standard_deviation": 1
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 5,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Босс",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 1000,
+            "standard_deviation": 150
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 6,
+            "standard_deviation": 1
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 6,
+            "standard_deviation": 2
+        }
+    },
+    {
+        "name": "Супер Босс",
+        "cost_distribution": {
+            "type": "normal",
+            "mean": 2000,
+            "standard_deviation": 250
+        },
+        "items_number_distribution": {
+            "type": "normal",
+            "mean": 8,
+            "standard_deviation": 1
+        },
+        "items_type_distribution": {
+            "type": "normal",
+            "mean": 6,
+            "standard_deviation": 2
+        }
+    }
+]
