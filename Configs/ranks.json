@@ -1,128 +1,233 @@
 [
     {
-        "name": "Шестёрка",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 50,
-            "standard_deviation": 20
+        "name": "private",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
         },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 2,
-            "standard_deviation": 0.5
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 1,
-            "standard_deviation": 2
-        }
-    },
-    {
-        "name": "Прожжённая шестёрка",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 100,
-            "standard_deviation": 20
-        },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 2,
-            "standard_deviation": 0.5
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 2,
-            "standard_deviation": 2
-        }
-    },
-    {
-        "name": "Офицер",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 200,
-            "standard_deviation": 20
-        },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 3,
-            "standard_deviation": 0.5
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 3,
-            "standard_deviation": 2
-        }
-    },
-    {
-        "name": "Прожжённый офицер",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 400,
-            "standard_deviation": 50
-        },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 4,
-            "standard_deviation": 0.5
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 5,
-            "standard_deviation": 2
-        }
-    },
-    {
-        "name": "Мини-босс",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 600,
-            "standard_deviation": 100
-        },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 5,
+        "exp_budget": {
+            "mean": 10000,
             "standard_deviation": 1
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 5,
-            "standard_deviation": 2
         }
     },
     {
-        "name": "Босс",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 1000,
-            "standard_deviation": 150
+        "name": "corporal",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
         },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 6,
+        "exp_budget": {
+            "mean": 10000,
             "standard_deviation": 1
-        },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 6,
-            "standard_deviation": 2
         }
     },
     {
-        "name": "Супер Босс",
-        "cost_distribution": {
-            "type": "normal",
-            "mean": 2000,
-            "standard_deviation": 250
+        "name": "lieutenant",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
         },
-        "items_number_distribution": {
-            "type": "normal",
-            "mean": 8,
+        "exp_budget": {
+            "mean": 10000,
             "standard_deviation": 1
+        }
+    },
+    {
+        "name": "captain",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
         },
-        "items_type_distribution": {
-            "type": "normal",
-            "mean": 6,
-            "standard_deviation": 2
+        "exp_budget": {
+            "mean": 10000,
+            "standard_deviation": 1
+        }
+    },
+    {
+        "name": "lieutenant_colonel",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
+        },
+        "exp_budget": {
+            "mean": 10000,
+            "standard_deviation": 1
+        }
+    },
+    {
+        "name": "lieutenant_general",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
+        },
+        "exp_budget": {
+            "mean": 10000,
+            "standard_deviation": 1
+        }
+    },
+    {
+        "name": "general",
+        "items_budget": {
+            "armor": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "weapon": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "cyberware": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "ammo": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "equipment": {
+                "mean": 10000,
+                "standard_deviation": 1
+            },
+            "junk": {
+                "mean": 10000,
+                "standard_deviation": 1
+            }
+        },
+        "exp_budget": {
+            "mean": 10000,
+            "standard_deviation": 1
         }
     }
 ]

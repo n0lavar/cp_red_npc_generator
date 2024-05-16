@@ -1,0 +1,322 @@
+[
+    {
+        "name": "Concentration",
+        "link": "WILL",
+        "type": "awareness"
+    },
+    {
+        "name": "ConcealRevealObject",
+        "link": "INT",
+        "type": "awareness"
+    },
+    {
+        "name": "LipReading",
+        "link": "INT",
+        "type": "awareness"
+    },
+    {
+        "name": "Perception",
+        "link": "INT",
+        "type": "awareness"
+    },
+    {
+        "name": "Tracking",
+        "link": "INT",
+        "type": "awareness"
+    },
+    {
+        "name": "Athletics",
+        "link": "DEX",
+        "type": "body"
+    },
+    {
+        "name": "Contortionist",
+        "link": "DEX",
+        "type": "body"
+    },
+    {
+        "name": "Dance",
+        "link": "DEX",
+        "type": "body"
+    },
+    {
+        "name": "Endurance",
+        "link": "WILL",
+        "type": "body"
+    },
+    {
+        "name": "ResistTortureDrugs",
+        "link": "WILL",
+        "type": "body"
+    },
+    {
+        "name": "Stealth",
+        "link": "DEX",
+        "type": "body"
+    },
+    {
+        "name": "DriveLandVehicle",
+        "link": "REF",
+        "type": "control"
+    },
+    {
+        "name": "PilotAirVehicle",
+        "link": "REF",
+        "type": "control"
+    },
+    {
+        "name": "PilotSeaVehicle",
+        "link": "REF",
+        "type": "control"
+    },
+    {
+        "name": "Riding",
+        "link": "REF",
+        "type": "control"
+    },
+    {
+        "name": "Accounting",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "AnimalHandling",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Bureaucracy",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Business",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Composition",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Criminology",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Cryptography",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Deduction",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Education",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Gamble",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "LibrarySearch",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "LocalExpert",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Tactics",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "WildernessSurvival",
+        "link": "INT",
+        "type": "education"
+    },
+    {
+        "name": "Brawling",
+        "link": "DEX",
+        "type": "fighting"
+    },
+    {
+        "name": "Evasion",
+        "link": "DEX",
+        "type": "fighting"
+    },
+    {
+        "name": "MartialArts",
+        "link": "DEX",
+        "type": "fighting"
+    },
+    {
+        "name": "MeleeWeapon",
+        "link": "DEX",
+        "type": "fighting"
+    },
+    {
+        "name": "Acting",
+        "link": "COOL",
+        "type": "performance"
+    },
+    {
+        "name": "PlayInstrument",
+        "link": "TECH",
+        "type": "performance"
+    },
+    {
+        "name": "Archery",
+        "link": "REF",
+        "type": "ranged_weapon"
+    },
+    {
+        "name": "Autofire",
+        "link": "REF",
+        "type": "ranged_weapon"
+    },
+    {
+        "name": "Handgun",
+        "link": "REF",
+        "type": "ranged_weapon"
+    },
+    {
+        "name": "HeavyWeapons",
+        "link": "REF",
+        "type": "ranged_weapon"
+    },
+    {
+        "name": "ShoulderArms",
+        "link": "REF",
+        "type": "ranged_weapon"
+    },
+    {
+        "name": "Bribery",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "Conversation",
+        "link": "EMP",
+        "type": "social"
+    },
+    {
+        "name": "HumanPerception",
+        "link": "EMP",
+        "type": "social"
+    },
+    {
+        "name": "Interrogation",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "Persuasion",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "PersonalGrooming",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "Streetwise",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "Trading",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "WardrobeStyle",
+        "link": "COOL",
+        "type": "social"
+    },
+    {
+        "name": "AirVehicleTech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "BasicTech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "Cybertech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "Demolitions",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "ElectronicsSecurityTech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "FirstAid",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "Forgery",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "LandVehicleTech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "PaintDrawSculpt",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "Paramedic",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "PhotographyFilm",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "PickLock",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "PickPocket",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "SeaVehicleTech",
+        "link": "TECH",
+        "type": "technique"
+    },
+    {
+        "name": "Weaponstech",
+        "link": "TECH",
+        "type": "technique"
+    }
+]
