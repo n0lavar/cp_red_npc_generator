@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import functools
-import json
 import logging
-from typing import Callable, Optional
+from typing import Callable
 
 from data import *
 
@@ -73,10 +72,10 @@ def create_stats(npc: Npc, npc_template: NpcTemplate) -> Npc:
         mean_1: List[float] = [weight / weights_sum for weight in weights]
         logging.debug(f"\t{name}_{mean_1=}")
 
-        mean_rank: List[float] = [stat * num_points for stat in mean_1]
+        mean_rank: List[float] = [mean * num_points for mean in mean_1]
         logging.debug(f"\t{name}_{mean_rank=}")
 
-        mean_rounded: List[int] = [round(stat) for stat in mean_rank]
+        mean_rounded: List[int] = [round(mean) for mean in mean_rank]
         logging.debug(f"\t{name}_{mean_rounded=}")
 
         mean_clamped: List[int] = list()
@@ -98,7 +97,7 @@ def create_stats(npc: Npc, npc_template: NpcTemplate) -> Npc:
     with open("Configs/stats.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-        streetrat_table: List[List[int]] = data["streetrat_stats"][npc_template.role]
+        streetrat_table: List[List[int]] = data["streetrat_stats"][npc_template.role.name]
         columns: List[List[int]] = list(zip(*streetrat_table))
 
         stats_mean_line: List[float] = [sum(column) / len(column) for column in columns]
@@ -121,7 +120,7 @@ def create_stats(npc: Npc, npc_template: NpcTemplate) -> Npc:
     with open("Configs/skills.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-        role_streetrat_skills = data["streetrat_skills"][npc_template.role]
+        role_streetrat_skills = data["streetrat_skills"][npc_template.role.name]
         role_streetrat_skills_line: List[int] = [x["lvl"] for x in role_streetrat_skills]
         role_streetrat_skills_distributed = distribute_points(role_streetrat_skills_line,
                                                               npc_template.rank.skills_budget.generate(),

@@ -1,0 +1,74 @@
+[
+    {
+        "name": "rockerboy",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "solo",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "netrunner",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 7
+    },
+    {
+        "name": "tech",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "medtech",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "media",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 7
+    },
+    {
+        "name": "exec",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "lawman",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "fixer",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "nomad",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    },
+    {
+        "name": "civilian",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 4
+    },
+    {
+        "name": "booster",
+        "preferred_cyberware": [],
+        "preferred_weapons": [],
+        "preferred_armor_class": 11
+    }
+]
