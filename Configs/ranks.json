@@ -27,6 +27,14 @@
                 "standard_deviation": 1
             }
         },
+        "stats_budget": {
+            "mean": 45,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 50,
+            "standard_deviation": 4
+        },
         "exp_budget": {
             "mean": 10000,
             "standard_deviation": 1
@@ -38,7 +46,7 @@
             "armor": {
                 "mean": 10000,
                 "standard_deviation": 1
-            },
+            },  
             "weapon": {
                 "mean": 10000,
                 "standard_deviation": 1
@@ -60,7 +68,15 @@
                 "standard_deviation": 1
             }
         },
-        "exp_budget": {
+        "stats_budget": {
+            "mean": 50,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 60,
+            "standard_deviation": 4
+        },
+       "exp_budget": {
             "mean": 10000,
             "standard_deviation": 1
         }
@@ -92,6 +108,14 @@
                 "mean": 10000,
                 "standard_deviation": 1
             }
+        },
+        "stats_budget": {
+            "mean": 55,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 70,
+            "standard_deviation": 4
         },
         "exp_budget": {
             "mean": 10000,
@@ -126,7 +150,15 @@
                 "standard_deviation": 1
             }
         },
-        "exp_budget": {
+        "stats_budget": {
+            "mean": 60,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 86,
+            "standard_deviation": 4
+        },
+       "exp_budget": {
             "mean": 10000,
             "standard_deviation": 1
         }
@@ -158,6 +190,14 @@
                 "mean": 10000,
                 "standard_deviation": 1
             }
+        },
+        "stats_budget": {
+            "mean": 65,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 90,
+            "standard_deviation": 4
         },
         "exp_budget": {
             "mean": 10000,
@@ -192,7 +232,15 @@
                 "standard_deviation": 1
             }
         },
-        "exp_budget": {
+        "stats_budget": {
+            "mean": 70,
+            "standard_deviation": 2
+        },
+        "skills_budget": {
+            "mean": 100,
+            "standard_deviation": 4
+        },
+       "exp_budget": {
             "mean": 10000,
             "standard_deviation": 1
         }
@@ -224,6 +272,14 @@
                 "mean": 10000,
                 "standard_deviation": 1
             }
+        },
+        "stats_budget": {
+            "mean": 80,
+            "standard_deviation": 1
+        },
+        "skills_budget": {
+            "mean": 110,
+            "standard_deviation": 4
         },
         "exp_budget": {
             "mean": 10000,
