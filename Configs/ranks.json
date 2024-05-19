@@ -1,14 +1,15 @@
 [
     {
         "name": "private",
+        "min_items_quality": "poor",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 40,
+                "standard_deviation": 7
             },
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 100,
+                "standard_deviation": 7
             },
             "cyberware": {
                 "mean": 10000,
@@ -42,14 +43,15 @@
     },
     {
         "name": "corporal",
+        "min_items_quality": "poor",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 60,
+                "standard_deviation": 7
             },  
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 200,
+                "standard_deviation": 7
             },
             "cyberware": {
                 "mean": 10000,
@@ -83,14 +85,15 @@
     },
     {
         "name": "lieutenant",
+        "min_items_quality": "poor",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 70,
+                "standard_deviation": 7
             },
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 250,
+                "standard_deviation": 7
             },
             "cyberware": {
                 "mean": 10000,
@@ -124,14 +127,15 @@
     },
     {
         "name": "captain",
+        "min_items_quality": "standard",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 195,
+                "standard_deviation": 7
             },
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 650,
+                "standard_deviation": 10
             },
             "cyberware": {
                 "mean": 10000,
@@ -165,14 +169,15 @@
     },
     {
         "name": "lieutenant_colonel",
+        "min_items_quality": "standard",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 300,
+                "standard_deviation": 7
             },
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 1000,
+                "standard_deviation": 10
             },
             "cyberware": {
                 "mean": 10000,
@@ -206,14 +211,15 @@
     },
     {
         "name": "lieutenant_general",
+        "min_items_quality": "excellent",
         "items_budget": {
             "armor": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 1000,
+                "standard_deviation": 10
             },
             "weapon": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 5000,
+                "standard_deviation": 100
             },
             "cyberware": {
                 "mean": 10000,
@@ -247,14 +253,15 @@
     },
     {
         "name": "general",
+        "min_items_quality": "excellent",
         "items_budget": {
             "armor": {
                 "mean": 10000,
-                "standard_deviation": 1
+                "standard_deviation": 100
             },
             "weapon": {
                 "mean": 10000,
-                "standard_deviation": 1
+                "standard_deviation": 150
             },
             "cyberware": {
                 "mean": 10000,

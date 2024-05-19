@@ -57,7 +57,7 @@ def generate_loot(rank_num: int):
         while not item_generated:
             loot_index = math.floor(clamp(
                 rand(rank["items_type_distribution"]), 0, len(loot) - 1))
-            loot_index_cost = loot[loot_index]["cost"]
+            loot_index_cost = loot[loot_index]["price"]
 
             if loot_index_cost > money_left:
                 continue

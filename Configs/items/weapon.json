@@ -1,0 +1,204 @@
+[
+    {
+        "name": "Light Melee Weapon",
+        "possible_names": [
+            "Combat Knife",
+            "Tomahawk"
+        ],
+        "type": "weapon",
+        "price": 50,
+        "damage": "1d6",
+        "rate_of_fire": 2
+    },
+    {
+        "name": "Medium Melee Weapon",
+        "possible_names": [
+            "Baseball Bat",
+            "Crowbar",
+            "Machete"
+        ],
+        "type": "weapon",
+        "price": 50,
+        "damage": "2d6",
+        "rate_of_fire": 2
+    },
+    {
+        "name": "Heavy Melee Weapon",
+        "possible_names": [
+            "Lead Pipe",
+            "Sword",
+            "Spiked Bat"
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "3d6",
+        "rate_of_fire": 2
+    },
+    {
+        "name": "Very Heavy Melee Weapon",
+        "possible_names": [
+            "Chainsaw",
+            "Sledgehammer",
+            "Helicopter Blades",
+            "Naginata"
+        ],
+        "type": "weapon",
+        "price": 50,
+        "damage": "4d6",
+        "rate_of_fire": 1
+    },
+    {
+        "name": "Medium Pistol",
+        "possible_names": [
+            "Dai Lung Streetmaster",
+            "Federated Arms X-9mm",
+            "Militech \"Avenger\""
+        ],
+        "type": "weapon",
+        "price": 50,
+        "damage": "2d6",
+        "rate_of_fire": 2,
+        "magazine": 12
+    },
+    {
+        "name": "Heavy Pistol",
+        "possible_names": [
+            "Dai Lung Magnum",
+            "Mustang Arms \"Mark III\"",
+            "Nova \"Cityhunter\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "3d6",
+        "rate_of_fire": 2,
+        "magazine": 8
+    },
+    {
+        "name": "Very Heavy Pistol",
+        "possible_names": [
+            "Federated Arms \"Super Chief\"",
+            "Sternmeyer P-35",
+            "Militech \"Boomer Buster\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 8
+    },
+    {
+        "name": "Bow",
+        "possible_names": [
+            "GunMart \"Sherwood\"",
+            "Eagletech \"Tomcat\"",
+            "Eagletech \"Bearcat\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "4d6",
+        "rate_of_fire": 1
+    },
+    {
+        "name": "Crossbow",
+        "possible_names": [
+            "GunMart \"Hunter\"",
+            "Eagletech \"Striker\"",
+            "Eagletech \"Scorpion\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "4d6",
+        "rate_of_fire": 1
+    },
+    {
+        "name": "SMG",
+        "possible_names": [
+            "Federated Arms Tech-Assault III",
+            "Militech \"Mini-Gat\"",
+            "Arasaka \"Minami 10\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "2d6",
+        "rate_of_fire": 1,
+        "magazine": 30
+    },
+    {
+        "name": "Heavy SMG",
+        "possible_names": [
+            "Chadran Arms \"City Reaper\"",
+            "Sternmeyer SMG-21",
+            "Militech \"Viper\""
+        ],
+        "type": "weapon",
+        "price": 100,
+        "damage": "3d6",
+        "rate_of_fire": 1,
+        "magazine": 40
+    },
+    {
+        "name": "Shotgun",
+        "possible_names": [
+            "GunMart \"Home Defender\"",
+            "Arasaka \"Rapid Assault\"",
+            "Militech \"Bulldog\""
+        ],
+        "type": "weapon",
+        "price": 500,
+        "damage": "5d6",
+        "rate_of_fire": 1,
+        "magazine": 4
+    },
+    {
+        "name": "Assault Rifle",
+        "possible_names": [
+            "Chadran Arms \"Jungle Reaper\"",
+            "Militech \"Ronin\"",
+            "Militech \"Dragon\""
+        ],
+        "type": "weapon",
+        "price": 500,
+        "damage": "5d6",
+        "rate_of_fire": 1,
+        "magazine": 25
+    },
+    {
+        "name": "Sniper Rifle",
+        "possible_names": [
+            "GunMart \"Snipe-Star\"",
+            "Nomad \"Long Rifle\"",
+            "Arasaka WSSA Sniper System"
+        ],
+        "type": "weapon",
+        "price": 500,
+        "damage": "5d6",
+        "rate_of_fire": 1,
+        "magazine": 4
+    },
+    {
+        "name": "Grenade Launcher",
+        "possible_names": [
+            "Towa Manufacturing Type-G",
+            "Militech \"Mini-Grenade\"",
+            "Tsunami Arms Type-18"
+        ],
+        "type": "weapon",
+        "price": 500,
+        "damage": "6d6",
+        "rate_of_fire": 1,
+        "magazine": 2
+    },
+    {
+        "name": "Rocket Launcher",
+        "possible_names": [
+            "Towa Manufacturing Type-R",
+            "Militech \"Urban\"",
+            "Militech \"Hotshot\""
+        ],
+        "type": "weapon",
+        "price": 500,
+        "damage": "8d6",
+        "rate_of_fire": 1,
+        "magazine": 1
+    }
+]

@@ -485,6 +485,50 @@
             {"skill": "Tracking", "lvl": 6},
             {"skill": "Trading", "lvl": 6},
             {"skill": "WildernessSurvival", "lvl": 6}
+          ],
+          "civilian": [
+            {"skill": "Athletics", "lvl": 2},
+            {"skill": "Brawling", "lvl": 2},
+            {"skill": "Concentration", "lvl": 2},
+            {"skill": "Conversation", "lvl": 6},
+            {"skill": "Education", "lvl": 6},
+            {"skill": "Evasion", "lvl": 6},
+            {"skill": "FirstAid", "lvl": 2},
+            {"skill": "HumanPerception", "lvl": 6},
+            {"skill": "LanguageStreetslang", "lvl": 2},
+            {"skill": "LocalExpertYourHome", "lvl": 2},
+            {"skill": "Perception", "lvl": 2},
+            {"skill": "Persuasion", "lvl": 6},
+            {"skill": "Stealth", "lvl": 2},
+            {"skill": "Accounting", "lvl": 6},
+            {"skill": "Bureaucracy", "lvl": 6},
+            {"skill": "Business", "lvl": 6},
+            {"skill": "Deduction", "lvl": 6},
+            {"skill": "Handgun", "lvl": 6},
+            {"skill": "LipReading", "lvl": 6},
+            {"skill": "PersonalGrooming", "lvl": 4}
+          ],
+          "booster": [
+            {"skill": "Athletics", "lvl": 2},
+            {"skill": "Brawling", "lvl": 2},
+            {"skill": "Concentration", "lvl": 2},
+            {"skill": "Conversation", "lvl": 2},
+            {"skill": "Education", "lvl": 2},
+            {"skill": "Evasion", "lvl": 6},
+            {"skill": "FirstAid", "lvl": 6},
+            {"skill": "HumanPerception", "lvl": 2},
+            {"skill": "LanguageStreetslang", "lvl": 2},
+            {"skill": "LocalExpertYourHome", "lvl": 2},
+            {"skill": "Perception", "lvl": 6},
+            {"skill": "Persuasion", "lvl": 2},
+            {"skill": "Stealth", "lvl": 2},
+            {"skill": "Autofire", "lvl": 6},
+            {"skill": "Handgun", "lvl": 6},
+            {"skill": "Interrogation", "lvl": 6},
+            {"skill": "MeleeWeapon", "lvl": 6},
+            {"skill": "ResistTortureDrugs", "lvl": 6},
+            {"skill": "ShoulderArms", "lvl": 6},
+            {"skill": "Tactics", "lvl": 6}
           ]
-    }
+      }
 }

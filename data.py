@@ -4,9 +4,64 @@
 import json
 from typing import Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
-from enum import StrEnum, auto
+from enum import StrEnum, auto, Enum
 
 from normal_distribution import NormalDistribution
+
+
+class ItemQuality(StrEnum):
+    POOR = auto()
+    STANDARD = auto()
+    EXCELLENT = auto()
+
+
+class PriceCategory(Enum):
+    CHEAP = 0
+    EVERYDAY = 1
+    COSTLY = 2
+    PREMIUM = 3
+    EXPENSIVE = 4
+    VERY_EXPENSIVE = 5
+    LUXURY = 6
+    SUPER_LUXURY = 7
+
+    def get_price(self) -> int:
+        match self:
+            case PriceCategory.CHEAP:
+                return 10
+            case PriceCategory.EVERYDAY:
+                return 20
+            case PriceCategory.COSTLY:
+                return 50
+            case PriceCategory.PREMIUM:
+                return 100
+            case PriceCategory.EXPENSIVE:
+                return 500
+            case PriceCategory.VERY_EXPENSIVE:
+                return 1000
+            case PriceCategory.LUXURY:
+                return 5000
+            case PriceCategory.SUPER_LUXURY:
+                return 10000
+
+
+def price_category_from_price(price: int):
+    if price <= 10:
+        return PriceCategory.CHEAP
+    elif price <= 20:
+        return PriceCategory.EVERYDAY
+    elif price <= 50:
+        return PriceCategory.COSTLY
+    elif price <= 100:
+        return PriceCategory.PREMIUM
+    elif price <= 500:
+        return PriceCategory.EXPENSIVE
+    elif price <= 1000:
+        return PriceCategory.VERY_EXPENSIVE
+    elif price <= 5000:
+        return PriceCategory.LUXURY
+    else:
+        return PriceCategory.SUPER_LUXURY
 
 
 class ItemType(StrEnum):
@@ -97,6 +152,7 @@ def stat_type_from_int(i: int) -> StatType:
 @dataclass
 class Rank:
     name: str = "Empty rank"
+    min_items_quality: ItemQuality = field(default=ItemQuality.POOR)
     items_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
     stats_budget: NormalDistribution = field(default_factory=NormalDistribution)
     skills_budget: NormalDistribution = field(default_factory=NormalDistribution)
@@ -113,7 +169,8 @@ class Role:
     name: str
 
     preferred_cyberware: List[str] = field(default_factory=list, compare=False)
-    preferred_weapons: List[str] = field(default_factory=list, compare=False)
+    preferred_primary_weapons: List[str] = field(default_factory=list, compare=False)
+    preferred_secondary_weapons: List[str] = field(default_factory=list, compare=False)
     # npc won't try to buy armor with a greater armor class
     preferred_armor_class: int = field(default=11, compare=False)
 
@@ -143,17 +200,37 @@ class Modifier:
 class Item:
     name: str = "Empty item"
     type: ItemType = ItemType.JUNK
-    cost: int = 0
-
+    price: int = 0
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
+    quality: Optional[ItemQuality] = field(default=None, compare=False)
+
     armor_class: Optional[int] = field(default=None, compare=False)
 
+    damage: Optional[str] = field(default=None, compare=False)
+    rate_of_fire: Optional[int] = field(default=None, compare=False)
+    magazine: Optional[int] = field(default=None, compare=False)
+
     def __str__(self):
-        value: str = f"{self.name} ({self.cost}eb"
+        value: str = f"{self.name}"
+        info: str = "["
+        if self.price > 0:
+            info += f"{self.price}eb ({price_category_from_price(self.price).name.lower()}), "
         if self.armor_class:
-            value += f", SP={self.armor_class}"
-        value += ")"
-        return value
+            info += f"SP={self.armor_class}, "
+        if self.quality:
+            info += f"{self.quality}, "
+        if self.damage:
+            info += f"Damage={self.damage}, "
+        if self.rate_of_fire:
+            info += f"ROF={self.rate_of_fire}, "
+        if self.magazine:
+            info += f"Mag={self.magazine}, "
+        if len(info) > 1:
+            info = info.removesuffix(", ")
+            info += "]"
+        else:
+            info = ""
+        return f"{value} {info}"
 
 
 @dataclass
@@ -168,15 +245,25 @@ class Npc:
     stats: Dict[StatType, int] = field(default_factory=dict)
     skills: Dict[Skill, int] = field(default_factory=dict)
     cyberware: List[Item] = field(default_factory=list)
-    armor_head: Item = field(default_factory=Item)
-    armor_body: Item = field(default_factory=Item)
-    primary_weapon: Item = field(default_factory=Item)
-    secondary_weapon: Item = field(default_factory=Item)
+    armor_head: Optional[Item] = field(default=None)
+    armor_body: Optional[Item] = field(default=None)
+    primary_weapon: Optional[Item] = field(default=None)
+    secondary_weapon: Optional[Item] = field(default=None)
     inventory: Dict[Item, int] = field(default_factory=dict)
 
     def get_equipped_items(self) -> List[Item]:
         """returns items that may have modifiers"""
-        return self.cyberware + [self.armor_head, self.armor_body, self.primary_weapon, self.secondary_weapon]
+        equipped_items: List[Item] = self.cyberware
+        if self.armor_head:
+            equipped_items.append(self.armor_head)
+        if self.armor_body:
+            equipped_items.append(self.armor_body)
+        if self.primary_weapon:
+            equipped_items.append(self.primary_weapon)
+        if self.secondary_weapon:
+            equipped_items.append(self.secondary_weapon)
+
+        return equipped_items
 
     def get_stat_or_skill_value(self, name: str) -> Tuple[int, int]:
         equipped_items: List[Item] = self.get_equipped_items()
@@ -216,7 +303,30 @@ class Npc:
             npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
 
         npc_str += f"\nArmor:\n"
-        npc_str += f"\t{self.armor_head}\n"
-        npc_str += f"\t{self.armor_body}\n"
+        npc_str += f"\tHead: {self.armor_head}\n"
+        npc_str += f"\tBody: {self.armor_body}\n"
+
+        npc_str += f"\nWeapons:\n"
+        npc_str += f"\t{self.primary_weapon}\n"
+        npc_str += f"\t{self.secondary_weapon}\n"
+
+        stat_value, stat_modifier = self.get_stat_or_skill_value(StatType.BODY.name)
+        total_body = stat_value + stat_modifier
+
+        if total_body <= 4:
+            boxing_dmg = "1d6"
+        elif total_body <= 6:
+            boxing_dmg = "2d6"
+        elif total_body <= 10:
+            boxing_dmg = "3d6"
+        else:
+            boxing_dmg = "4d6"
+        boxing: Item = Item(name="Boxing", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=1)
+        npc_str += f"\t{boxing}\n"
+
+        martial_arts_skill = next((s for s in self.skills if s.name == "MartialArts"), None)
+        if martial_arts_skill:
+            martial_arts: Item = Item(name="Martial Arts", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=2)
+            npc_str += f"\t{martial_arts}\n"
 
         return npc_str

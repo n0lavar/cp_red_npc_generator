@@ -2,73 +2,85 @@
     {
         "name": "rockerboy",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_secondary_weapons": ["Medium Melee Weapon"],
         "preferred_armor_class": 11
     },
     {
         "name": "solo",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
+        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
         "preferred_armor_class": 11
     },
     {
         "name": "netrunner",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Medium Pistol", "SMG"],
+        "preferred_secondary_weapons": ["Light Melee Weapon"],
         "preferred_armor_class": 7
     },
     {
         "name": "tech",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 11
     },
     {
         "name": "medtech",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 11
     },
     {
         "name": "media",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Medium Pistol", "SMG"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 7
     },
     {
         "name": "exec",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Assault Rifle", "Sniper Rifle", "Medium Pistol", "SMG"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 11
     },
     {
         "name": "lawman",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 11
     },
     {
         "name": "fixer",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 11
     },
     {
         "name": "nomad",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
         "preferred_armor_class": 11
     },
     {
         "name": "civilian",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Medium Pistol"],
+        "preferred_secondary_weapons": [],
         "preferred_armor_class": 4
     },
     {
         "name": "booster",
         "preferred_cyberware": [],
-        "preferred_weapons": [],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
+        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
         "preferred_armor_class": 11
     }
 ]

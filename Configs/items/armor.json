@@ -1,98 +1,98 @@
 [
     {
-        "name" : "Leathers",
+        "name": "Leathers",
         "type": "armor",
-        "cost": 20,
+        "price": 20,
         "armor_class": 4
     },
     {
-        "name" : "Kevlar",
+        "name": "Kevlar",
         "type": "armor",
-        "cost": 50,
+        "price": 50,
         "armor_class": 7
     },
     {
-        "name" : "Light Armorjack",
+        "name": "Light Armorjack",
         "type": "armor",
-        "cost": 100,
+        "price": 100,
         "armor_class": 11
     },
     {
-        "name" : "Medium Armorjack",
+        "name": "Medium Armorjack",
         "type": "armor",
-        "cost": 100,
+        "price": 100,
         "armor_class": 12,
         "modifiers": [
             {
-                "name": "REF", 
+                "name": "REF",
                 "value": -2
             },
             {
-                "name": "DEX", 
+                "name": "DEX",
                 "value": -2
             },
             {
-                "name": "MOV", 
+                "name": "MOV",
                 "value": -2
             }
         ]
     },
     {
-        "name" : "Heavy Armorjack",
+        "name": "Heavy Armorjack",
         "type": "armor",
-        "cost": 500,
+        "price": 500,
         "armor_class": 13,
         "modifiers": [
             {
-                "name": "REF", 
+                "name": "REF",
                 "value": -2
             },
             {
-                "name": "DEX", 
+                "name": "DEX",
                 "value": -2
             },
             {
-                "name": "MOV", 
+                "name": "MOV",
                 "value": -2
             }
         ]
     },
     {
-        "name" : "Flak",
+        "name": "Flak",
         "type": "armor",
-        "cost": 500,
+        "price": 500,
         "armor_class": 15,
         "modifiers": [
             {
-                "name": "REF", 
+                "name": "REF",
                 "value": -4
             },
             {
-                "name": "DEX", 
+                "name": "DEX",
                 "value": -4
             },
             {
-                "name": "MOV", 
+                "name": "MOV",
                 "value": -4
             }
         ]
     },
     {
-        "name" : "Metalgear",
+        "name": "Metalgear",
         "type": "armor",
-        "cost": 5000,
+        "price": 5000,
         "armor_class": 18,
         "modifiers": [
             {
-                "name": "REF", 
+                "name": "REF",
                 "value": -4
             },
             {
-                "name": "DEX", 
+                "name": "DEX",
                 "value": -4
             },
             {
-                "name": "MOV", 
+                "name": "MOV",
                 "value": -4
             }
         ]
