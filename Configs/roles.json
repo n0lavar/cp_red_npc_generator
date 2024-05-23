@@ -2,97 +2,388 @@
     {
         "name": "rockerboy",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
-        "preferred_secondary_weapons": ["Medium Melee Weapon"],
-        "preferred_ammo": ["Basic", "Expansive", "Armor-Piercing", "Flashbang"],
-        "preferred_armor_class": 11
+        "preferred_primary_weapons": [
+            "Heavy Pistol",
+            "Medium Pistol",
+            "Very Heavy Pistol"
+        ],
+        "preferred_secondary_weapons": [
+            "Medium Melee Weapon"
+        ],
+        "preferred_ammo": [
+            "Basic",
+            "Expansive",
+            "Armor-Piercing",
+            "Flashbang"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Radio Communicator",
+            "Music Instrument",
+            "Pocket Amplifier",
+            "Agent",
+            "Airhypo",
+            "Radio Scanner / Music Player",
+            "Disposable Cell Phone",
+            "Duct Tape"
+        ]
     },
     {
         "name": "solo",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
-        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
-        "preferred_ammo": ["Basic", "Armor-Piercing", "Expansive", "Flashbang", "Incendiary", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_primary_weapons": [
+            "Shotgun",
+            "Assault Rifle",
+            "Sniper Rifle",
+            "SMG",
+            "Heavy SMG"
+        ],
+        "preferred_secondary_weapons": [
+            "Medium Melee Weapon",
+            "Heavy Melee Weapon"
+        ],
+        "preferred_ammo": [
+            "Basic",
+            "Armor-Piercing",
+            "Expansive",
+            "Flashbang",
+            "Incendiary",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Radio Communicator",
+            "Auto Level Dampening Ear Protectors",
+            "Airhypo",
+            "Anti-Smog Breathing Mask",
+            "Carryall",
+            "Flashlight",
+            "Handcuffs",
+            "Personal CarePak",
+            "Radar Detector"
+        ]
     },
     {
         "name": "netrunner",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Medium Pistol", "SMG"],
-        "preferred_secondary_weapons": ["Light Melee Weapon"],
-        "preferred_ammo": ["Basic", "EMP", "Expansive", "Flashbang", "Smart", "Smoke", "Teargas"],
-        "preferred_armor_class": 7
+        "preferred_primary_weapons": [
+            "Medium Pistol",
+            "SMG"
+        ],
+        "preferred_secondary_weapons": [
+            "Light Melee Weapon"
+        ],
+        "preferred_ammo": [
+            "Basic",
+            "EMP",
+            "Expansive",
+            "Flashbang",
+            "Smart",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 7,
+        "preferred_equipment": [
+            "Cyberdeck",
+            "Virtuality Goggles",
+            "Radio Communicator",
+            "Airhypo",
+            "Braindance Viewer",
+            "Bug Detector",
+            "Carryall",
+            "Radar Detector",
+            "Smart Glasses"
+        ]
     },
     {
         "name": "tech",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "Medium Pistol"],
+        "preferred_primary_weapons": [
+            "Shotgun",
+            "Assault Rifle",
+            "Sniper Rifle",
+            "Medium Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "EMP", "Expansive", "Flashbang", "Smart", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_ammo": [
+            "Basic",
+            "EMP",
+            "Expansive",
+            "Flashbang",
+            "Smart",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Techscanner",
+            "Radio Communicator",
+            "Tech Bag",
+            "Techtool",
+            "Anti-Smog Breathing Mask",
+            "Bug Detector",
+            "Duct Tape",
+            "Flashlight",
+            "Grapple Gun",
+            "Lock Picking Set",
+            "Radar Detector",
+            "Rope (60m/yd)",
+            "Scrambler / Descrambler",
+            "Airhypo"
+        ]
     },
     {
         "name": "medtech",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "Medium Pistol"],
+        "preferred_primary_weapons": [
+            "Shotgun",
+            "Assault Rifle",
+            "Sniper Rifle",
+            "Medium Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Biotoxin", "Expansive", "Poison", "Sleep", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_ammo": [
+            "Basic",
+            "Biotoxin",
+            "Expansive",
+            "Poison",
+            "Sleep",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Medscanner",
+            "Radio Communicator",
+            "Medtech Bag",
+            "Chemical Analyzer",
+            "Flashlight",
+            "Airhypo",
+            "Handcuffs",
+            "Personal CarePak",
+            "Anti-Smog Breathing Mask",
+            "Techscanner",
+            "Techtool"
+        ]
     },
     {
         "name": "media",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Medium Pistol", "SMG"],
+        "preferred_primary_weapons": [
+            "Medium Pistol",
+            "SMG"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Rubber", "Sleep", "Smoke"],
-        "preferred_armor_class": 7
+        "preferred_ammo": [
+            "Basic",
+            "Rubber",
+            "Sleep",
+            "Smoke"
+        ],
+        "preferred_armor_class": 7,
+        "preferred_equipment": [
+            "Agent",
+            "Video Camera",
+            "Computer",
+            "Disposable Cell Phone",
+            "Airhypo",
+            "Audio Recorder",
+            "Binoculars",
+            "Bug Detector",
+            "Flashlight",
+            "Lock Picking Set",
+            "Memory Chip",
+            "Radio Scanner / Music Player"
+        ]
     },
     {
         "name": "exec",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Assault Rifle", "Sniper Rifle", "Medium Pistol"],
+        "preferred_primary_weapons": [
+            "Assault Rifle",
+            "Sniper Rifle",
+            "Medium Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Expansive", "Incendiary", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_ammo": [
+            "Basic",
+            "Expansive",
+            "Incendiary",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Scrambler / Descrambler",
+            "Agent",
+            "Computer",
+            "Audio Recorder",
+            "Braindance Viewer",
+            "Bug Detector",
+            "Airhypo",
+            "Disposable Cell Phone",
+            "Lock Picking Set",
+            "Memory Chip",
+            "Radio Scanner / Music Player"
+        ]
     },
     {
         "name": "lawman",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_primary_weapons": [
+            "Heavy Pistol",
+            "Medium Pistol",
+            "Very Heavy Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Armor-Piercing", "Flashbang", "Incendiary", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_ammo": [
+            "Basic",
+            "Armor-Piercing",
+            "Flashbang",
+            "Incendiary",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Radio Communicator",
+            "Auto Level Dampening Ear Protectors",
+            "Handcuffs",
+            "Anti-Smog Breathing Mask",
+            "Bug Detector",
+            "Carryall",
+            "Chemical Analyzer",
+            "Disposable Cell Phone",
+            "Flashlight",
+            "Airhypo",
+            "Lock Picking Set",
+            "Rope (60m/yd)"
+        ]
     },
     {
         "name": "fixer",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
+        "preferred_primary_weapons": [
+            "Heavy Pistol",
+            "Medium Pistol",
+            "Very Heavy Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Expansive", "Poison", "Rubber"],
-        "preferred_armor_class": 11
+        "preferred_ammo": [
+            "Basic",
+            "Expansive",
+            "Poison",
+            "Rubber"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Computer",
+            "Disposable Cell Phone",
+            "Audio Recorder",
+            "Airhypo",
+            "Braindance Viewer",
+            "Bug Detector",
+            "Carryall",
+            "Handcuffs",
+            "Lock Picking Set",
+            "Memory Chip",
+            "Video Camera"
+        ]
     },
     {
         "name": "nomad",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
-        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
-        "preferred_ammo": ["Basic", "EMP", "Expansive", "Incendiary", "Poison"],
-        "preferred_armor_class": 11
+        "preferred_primary_weapons": [
+            "Heavy Pistol",
+            "Medium Pistol",
+            "Very Heavy Pistol"
+        ],
+        "preferred_secondary_weapons": [
+            "Medium Melee Weapon",
+            "Heavy Melee Weapon"
+        ],
+        "preferred_ammo": [
+            "Basic",
+            "EMP",
+            "Expansive",
+            "Incendiary",
+            "Poison"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Techscanner",
+            "Tent and Camping Equipment",
+            "Radio Communicator",
+            "Anti-Smog Breathing Mask",
+            "Airhypo",
+            "Inflatable Bed & Sleep-bag",
+            "Auto Level Dampening Ear Protectors",
+            "Binoculars",
+            "Carryall",
+            "Duct Tape",
+            "Flashlight",
+            "Personal CarePak",
+            "Rope (60m/yd)",
+            "Techtool"
+        ]
     },
     {
         "name": "civilian",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Medium Pistol"],
+        "preferred_primary_weapons": [
+            "Medium Pistol"
+        ],
         "preferred_secondary_weapons": [],
-        "preferred_ammo": ["Basic", "Rubber"],
-        "preferred_armor_class": 4
+        "preferred_ammo": [
+            "Basic",
+            "Rubber"
+        ],
+        "preferred_armor_class": 4,
+        "preferred_equipment": [
+            "Radio Scanner / Music Player",
+            "Computer",
+            "Duct Tape",
+            "Video Camera",
+            "Flashlight",
+            "Audio Recorder",
+            "Braindance Viewer"
+        ]
     },
     {
         "name": "booster",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
-        "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
-        "preferred_ammo": ["Basic", "Armor-Piercing", "Expansive", "Flashbang", "Incendiary", "Smoke", "Teargas"],
-        "preferred_armor_class": 11
+        "preferred_primary_weapons": [
+            "Shotgun",
+            "Assault Rifle",
+            "Sniper Rifle",
+            "SMG",
+            "Heavy SMG"
+        ],
+        "preferred_secondary_weapons": [
+            "Medium Melee Weapon",
+            "Heavy Melee Weapon"
+        ],
+        "preferred_ammo": [
+            "Basic",
+            "Armor-Piercing",
+            "Expansive",
+            "Flashbang",
+            "Incendiary",
+            "Smoke",
+            "Teargas"
+        ],
+        "preferred_armor_class": 11,
+        "preferred_equipment": [
+            "Radio Communicator",
+            "Auto Level Dampening Ear Protectors",
+            "Airhypo",
+            "Anti-Smog Breathing Mask",
+            "Carryall",
+            "Flashlight",
+            "Handcuffs",
+            "Personal CarePak",
+            "Radar Detector"
+        ]
     }
 ]

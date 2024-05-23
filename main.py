@@ -28,6 +28,7 @@ def main(args) -> int:
     rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
     npc = create_npc(NpcTemplate(rank_data, args.gang, role_data))
+    logging.info(f"{str(args.role).title()}, {str(args.rank).title()}")
     logging.info(f"{npc}")
     return 0
 

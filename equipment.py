@@ -13,6 +13,11 @@ from data import *
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 100
 MAX_AMMO_PER_MODIFICATION: int = 80
+MAX_EQUIPMENT_ITEMS: int = 5
+
+
+def exp_dist_func(lambda_: float, x: float) -> float:
+    return lambda_ * pow(math.e, -lambda_ * x)
 
 
 def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
@@ -205,16 +210,13 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
             logging.debug(f"\t\tMoney left: {ammo_budget}")
             return True
 
-        # add basic ammo
-        if "Bullets" in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
-            try_add_ammo("Bullets", "Basic", max(20, required_ammo_types["Bullets"] * 2))
-        elif "Slugs" in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
-            try_add_ammo("Slugs", "Basic", max(20, required_ammo_types["Slugs"] * 2))
-        elif "Arrows" in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
-            try_add_ammo("Arrows", "Basic", 20)
+        def add_basic_ammo(ammo_type: str) -> bool:
+            if ammo_type in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
+                return try_add_ammo(ammo_type, "Basic", max(20, required_ammo_types[ammo_type] * 2))
+            else:
+                return False
 
-        def exp_dist_func(lambda_: float, x: float) -> float:
-            return lambda_ * pow(math.e, -lambda_ * x)
+        add_basic_ammo("Bullets") or add_basic_ammo("Slugs") or add_basic_ammo("Arrows")
 
         ammo_modifications_weights = [exp_dist_func(0.4, x) for x in range(len(preferred_ammo_modifications))]
         for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
@@ -227,6 +229,36 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
 
 def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
+    logging.debug("\nGenerating equipment...")
+    with open("Configs/items/equipment.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        equipment: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
+        preferred_equipment: List[str] = npc_template.role.preferred_equipment
+        logging.debug(f"\t{preferred_equipment=}")
+
+        equipment_budget: int = round(npc_template.rank.items_budget[ItemType.EQUIPMENT].generate())
+        logging.debug(f"\t{equipment_budget=}")
+        num_equipment_items: int = 0
+        for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+            preferred_equipment_weights = [exp_dist_func(0.4, x) for x in range(len(preferred_equipment))]
+            selected_equipment = random.choices(preferred_equipment, weights=preferred_equipment_weights)[0]
+            logging.debug(f"\tTrying to generate equipment item: {selected_equipment}")
+            equipment_item: Item = next(e for e in equipment if e.name == selected_equipment)
+            if equipment_item.price > equipment_budget:
+                logging.debug(
+                    f"\t\tFailed, not enough money (required: {equipment_item.price}, available: {equipment_budget})")
+                continue
+
+            equipment_budget -= equipment_item.price
+            npc.inventory[equipment_item] = 1
+            preferred_equipment.remove(selected_equipment)
+            logging.debug(f"\t\tSucceed, added {equipment_item}")
+
+            num_equipment_items += 1
+            if num_equipment_items == MAX_EQUIPMENT_ITEMS:
+                logging.debug(f"\tMax number of equipment items reached: {MAX_EQUIPMENT_ITEMS}")
+                break
+
     return npc
 
 

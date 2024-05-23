@@ -1,0 +1,250 @@
+[
+    {
+        "name": "Agent",
+        "type": "equipment",
+        "modifiers": [
+            {
+                "name": "LibrarySearch",
+                "value": 2
+            }
+        ],
+        "price": 100
+    },
+    {
+        "name": "Airhypo",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Anti-Smog Breathing Mask",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Audio Recorder",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Auto Level Dampening Ear Protectors",
+        "type": "equipment",
+        "price": 1000
+    },
+    {
+        "name": "Binoculars",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Braindance Viewer",
+        "type": "equipment",
+        "price": 1000
+    },
+    {
+        "name": "Bug Detector",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Carryall",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Chemical Analyzer",
+        "type": "equipment",
+        "price": 1000
+    },
+    {
+        "name": "Computer",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Cyberdeck",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Disposable Cell Phone",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Duct Tape",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Music Instrument",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Flashlight",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Grapple Gun",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Handcuffs",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Homing Tracer",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Inflatable Bed & Sleep-bag",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Lock Picking Set",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Medscanner",
+        "type": "equipment",
+        "modifiers": [
+            {
+                "name": "FirstAid",
+                "value": 2
+            },
+            {
+                "name": "Paramedic",
+                "value": 2
+            }
+        ],
+        "price": 1000
+    },
+    {
+        "name": "Medtech Bag",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Personal CarePak",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Pocket Amplifier",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Radar Detector",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Radiation Suit",
+        "type": "equipment",
+        "price": 1000
+    },
+    {
+        "name": "Radio Communicator",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Radio Scanner / Music Player",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Rope (60m/yd)",
+        "type": "equipment",
+        "price": 20
+    },
+    {
+        "name": "Scrambler / Descrambler",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Smart Glasses",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Tech Bag",
+        "type": "equipment",
+        "price": 500
+    },
+    {
+        "name": "Techscanner",
+        "type": "equipment",
+        "modifiers": [
+            {
+                "name": "AirVehicleTech",
+                "value": 2
+            },
+            {
+                "name": "BasicTech",
+                "value": 2
+            },
+            {
+                "name": "Cybertech",
+                "value": 2
+            },
+            {
+                "name": "Demolitions",
+                "value": 2
+            },
+            {
+                "name": "ElectronicsSecurityTech",
+                "value": 2
+            },
+            {
+                "name": "Forgery",
+                "value": 2
+            },
+            {
+                "name": "LandVehicleTech",
+                "value": 2
+            },
+            {
+                "name": "PickLock",
+                "value": 2
+            },
+            {
+                "name": "AirVeSeaVehicleTechhicleTech",
+                "value": 2
+            },
+            {
+                "name": "Weaponstech",
+                "value": 2
+            }
+        ],
+        "price": 1000
+    },
+    {
+        "name": "Techtool",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Tent and Camping Equipment",
+        "type": "equipment",
+        "price": 50
+    },
+    {
+        "name": "Video Camera",
+        "type": "equipment",
+        "price": 100
+    },
+    {
+        "name": "Virtuality Goggles",
+        "type": "equipment",
+        "price": 100
+    }
+]

@@ -1,7 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import copy
 import json
+import math
 from typing import Dict, List, Optional, Tuple, Set
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
@@ -174,6 +175,7 @@ class Role:
     preferred_ammo: List[str] = field(default_factory=list, compare=False)
     # npc won't try to buy armor with a greater armor class
     preferred_armor_class: int = field(default=11, compare=False)
+    preferred_equipment: List[str] = field(default_factory=list, compare=False)
 
     @staticmethod
     def load():
@@ -218,7 +220,7 @@ class Item:
         if self.price > 0:
             info += f"{self.price}eb ({price_category_from_price(self.price).name.lower()}), "
         if self.armor_class:
-            info += f"SP={self.armor_class}, "
+            info += f"SP={self.armor_class}/{self.armor_class}, "
         if self.quality:
             info += f"{self.quality}, "
         if self.damage:
@@ -226,7 +228,7 @@ class Item:
         if self.rate_of_fire:
             info += f"ROF={self.rate_of_fire}, "
         if self.magazine:
-            info += f"Mag={self.magazine}, "
+            info += f"Mag=0/{self.magazine}, "
         if len(info) > 1:
             info = info.removesuffix(", ")
             info += "]"
@@ -253,9 +255,9 @@ class Npc:
     secondary_weapon: Optional[Item] = field(default=None)
     inventory: Dict[Item, int] = field(default_factory=dict)
 
-    def get_equipped_items(self) -> List[Item]:
-        """returns items that may have modifiers"""
-        equipped_items: List[Item] = self.cyberware
+    def get_all_items(self) -> List[Item]:
+        equipped_items: List[Item] = copy.deepcopy(self.cyberware)
+        equipped_items += [x for x in self.inventory.keys()]
         if self.armor_head:
             equipped_items.append(self.armor_head)
         if self.armor_body:
@@ -268,7 +270,7 @@ class Npc:
         return equipped_items
 
     def get_stat_or_skill_value(self, name: str) -> Tuple[int, int]:
-        equipped_items: List[Item] = self.get_equipped_items()
+        equipped_items: List[Item] = self.get_all_items()
 
         if name.lower() in StatType and StatType(name.lower()) in self.stats:
             value = self.stats[StatType(name.lower())]
@@ -285,6 +287,13 @@ class Npc:
 
     def __str__(self):
         npc_str: str = ""
+
+        total_price = sum([x.price for x in self.get_all_items()])
+        npc_str += f"Has items total worth of {total_price}\n\n"
+
+        max_hp = 10 + (5 * math.ceil(0.5 * (self.stats[StatType.BODY] + self.stats[StatType.COOL])))
+        npc_str += f"Health:\n"
+        npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: {math.ceil(max_hp / 2)})\n\n"
 
         npc_str += f"Stats: (stat + modifiers)\n\t"
         for stat in self.stats.keys():

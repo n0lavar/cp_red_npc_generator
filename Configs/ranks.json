@@ -20,8 +20,8 @@
                 "standard_deviation": 7
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 30,
+                "standard_deviation": 7
             },
             "junk": {
                 "mean": 10000,
@@ -62,8 +62,8 @@
                 "standard_deviation": 7
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 50,
+                "standard_deviation": 7
             },
             "junk": {
                 "mean": 10000,
@@ -104,8 +104,8 @@
                 "standard_deviation": 7
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 100,
+                "standard_deviation": 7
             },
             "junk": {
                 "mean": 10000,
@@ -146,8 +146,8 @@
                 "standard_deviation": 7
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 200,
+                "standard_deviation": 10
             },
             "junk": {
                 "mean": 10000,
@@ -188,8 +188,8 @@
                 "standard_deviation": 7
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 500,
+                "standard_deviation": 20
             },
             "junk": {
                 "mean": 10000,
@@ -230,8 +230,8 @@
                 "standard_deviation": 10
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 800,
+                "standard_deviation": 100
             },
             "junk": {
                 "mean": 10000,
@@ -272,8 +272,8 @@
                 "standard_deviation": 15
             },
             "equipment": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 1500,
+                "standard_deviation": 100
             },
             "junk": {
                 "mean": 10000,
