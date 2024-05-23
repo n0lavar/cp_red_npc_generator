@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import json
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Set
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
 
@@ -169,8 +169,9 @@ class Role:
     name: str
 
     preferred_cyberware: List[str] = field(default_factory=list, compare=False)
-    preferred_primary_weapons: List[str] = field(default_factory=list, compare=False)
-    preferred_secondary_weapons: List[str] = field(default_factory=list, compare=False)
+    preferred_primary_weapons: Set[str] = field(default_factory=set, compare=False)
+    preferred_secondary_weapons: Set[str] = field(default_factory=set, compare=False)
+    preferred_ammo: List[str] = field(default_factory=list, compare=False)
     # npc won't try to buy armor with a greater armor class
     preferred_armor_class: int = field(default=11, compare=False)
 
@@ -196,7 +197,7 @@ class Modifier:
     value: int = 0
 
 
-@dataclass
+@dataclass(frozen=True, eq=True)
 class Item:
     name: str = "Empty item"
     type: ItemType = ItemType.JUNK
@@ -209,6 +210,7 @@ class Item:
     damage: Optional[str] = field(default=None, compare=False)
     rate_of_fire: Optional[int] = field(default=None, compare=False)
     magazine: Optional[int] = field(default=None, compare=False)
+    ammo_types: Set[str] = field(default_factory=set, compare=False)
 
     def __str__(self):
         value: str = f"{self.name}"
@@ -284,31 +286,43 @@ class Npc:
     def __str__(self):
         npc_str: str = ""
 
-        npc_str += f"Stats: (stat + modifiers)\n"
+        npc_str += f"Stats: (stat + modifiers)\n\t"
         for stat in self.stats.keys():
             stat_value, stat_modifier = self.get_stat_or_skill_value(stat.name)
-            npc_str += f"\t[{stat_value}"
+            npc_str += f"[{stat_value}"
             if stat_modifier != 0:
                 npc_str += f"{stat_modifier:+}={stat_value + stat_modifier}"
-            npc_str += f"] {stat.name}\n"
+            npc_str += f"] {stat.name} | "
+        npc_str = npc_str.removesuffix(" | ") + "\n"
 
         npc_str += f"\nSkills (stat + skill + modifiers):\n"
-        for skill in self.skills.keys():
-            skill_value, skill_modifier = self.get_stat_or_skill_value(skill.name)
-            stat_value, stat_modifier = self.get_stat_or_skill_value(str(skill.link))
-            linked_stat_value = stat_value + stat_modifier
-            npc_str += f"\t[{linked_stat_value}+{skill_value}"
-            if skill_modifier != 0:
-                npc_str += f"{skill_modifier:+}"
-            npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
+
+        types = set(map(lambda s: s.type, self.skills.keys()))
+        skills_by_type = [[s for s in self.skills if s.type == t] for t in types]
+        for skills_of_one_type in skills_by_type:
+            if len(skills_of_one_type) > 0:
+                npc_str += f"\t{skills_of_one_type[0].type.title()}\n"
+
+            for skill in skills_of_one_type:
+                skill_value, skill_modifier = self.get_stat_or_skill_value(skill.name)
+                stat_value, stat_modifier = self.get_stat_or_skill_value(str(skill.link))
+                linked_stat_value = stat_value + stat_modifier
+                npc_str += f"\t\t[{linked_stat_value}+{skill_value}"
+                if skill_modifier != 0:
+                    npc_str += f"{skill_modifier:+}"
+                npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
 
         npc_str += f"\nArmor:\n"
-        npc_str += f"\tHead: {self.armor_head}\n"
-        npc_str += f"\tBody: {self.armor_body}\n"
+        if self.armor_head:
+            npc_str += f"\tHead: {self.armor_head}\n"
+        if self.armor_body:
+            npc_str += f"\tBody: {self.armor_body}\n"
 
         npc_str += f"\nWeapons:\n"
-        npc_str += f"\t{self.primary_weapon}\n"
-        npc_str += f"\t{self.secondary_weapon}\n"
+        if self.primary_weapon:
+            npc_str += f"\t{self.primary_weapon}\n"
+        if self.secondary_weapon:
+            npc_str += f"\t{self.secondary_weapon}\n"
 
         stat_value, stat_modifier = self.get_stat_or_skill_value(StatType.BODY.name)
         total_body = stat_value + stat_modifier
@@ -328,5 +342,12 @@ class Npc:
         if martial_arts_skill:
             martial_arts: Item = Item(name="Martial Arts", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=2)
             npc_str += f"\t{martial_arts}\n"
+
+        npc_str += f"\nInventory:\n"
+        for item, amount in self.inventory.items():
+            npc_str += "\t"
+            if amount != 0:
+                npc_str += f"[{amount}] "
+            npc_str += f"{item}\n"
 
         return npc_str

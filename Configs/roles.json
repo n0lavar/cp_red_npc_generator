@@ -4,6 +4,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
         "preferred_secondary_weapons": ["Medium Melee Weapon"],
+        "preferred_ammo": ["Basic", "Expansive", "Armor-Piercing", "Flashbang"],
         "preferred_armor_class": 11
     },
     {
@@ -11,6 +12,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
         "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
+        "preferred_ammo": ["Basic", "Armor-Piercing", "Expansive", "Flashbang", "Incendiary", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     },
     {
@@ -18,20 +20,23 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Medium Pistol", "SMG"],
         "preferred_secondary_weapons": ["Light Melee Weapon"],
+        "preferred_ammo": ["Basic", "EMP", "Expansive", "Flashbang", "Smart", "Smoke", "Teargas"],
         "preferred_armor_class": 7
     },
     {
         "name": "tech",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle"],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "Medium Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "EMP", "Expansive", "Flashbang", "Smart", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     },
     {
         "name": "medtech",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle"],
+        "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "Medium Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Biotoxin", "Expansive", "Poison", "Sleep", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     },
     {
@@ -39,13 +44,15 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Medium Pistol", "SMG"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Rubber", "Sleep", "Smoke"],
         "preferred_armor_class": 7
     },
     {
         "name": "exec",
         "preferred_cyberware": [],
-        "preferred_primary_weapons": ["Assault Rifle", "Sniper Rifle", "Medium Pistol", "SMG"],
+        "preferred_primary_weapons": ["Assault Rifle", "Sniper Rifle", "Medium Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Expansive", "Incendiary", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     },
     {
@@ -53,6 +60,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Armor-Piercing", "Flashbang", "Incendiary", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     },
     {
@@ -60,6 +68,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Expansive", "Poison", "Rubber"],
         "preferred_armor_class": 11
     },
     {
@@ -67,6 +76,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Heavy Pistol", "Medium Pistol", "Very Heavy Pistol"],
         "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
+        "preferred_ammo": ["Basic", "EMP", "Expansive", "Incendiary", "Poison"],
         "preferred_armor_class": 11
     },
     {
@@ -74,6 +84,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Medium Pistol"],
         "preferred_secondary_weapons": [],
+        "preferred_ammo": ["Basic", "Rubber"],
         "preferred_armor_class": 4
     },
     {
@@ -81,6 +92,7 @@
         "preferred_cyberware": [],
         "preferred_primary_weapons": ["Shotgun", "Assault Rifle", "Sniper Rifle", "SMG", "Heavy SMG"],
         "preferred_secondary_weapons": ["Medium Melee Weapon", "Heavy Melee Weapon"],
+        "preferred_ammo": ["Basic", "Armor-Piercing", "Expansive", "Flashbang", "Incendiary", "Smoke", "Teargas"],
         "preferred_armor_class": 11
     }
 ]

@@ -58,7 +58,8 @@
         "price": 50,
         "damage": "2d6",
         "rate_of_fire": 2,
-        "magazine": 12
+        "magazine": 12,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Heavy Pistol",
@@ -71,7 +72,8 @@
         "price": 100,
         "damage": "3d6",
         "rate_of_fire": 2,
-        "magazine": 8
+        "magazine": 8,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Very Heavy Pistol",
@@ -84,7 +86,8 @@
         "price": 100,
         "damage": "4d6",
         "rate_of_fire": 1,
-        "magazine": 8
+        "magazine": 8,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Bow",
@@ -96,7 +99,8 @@
         "type": "weapon",
         "price": 100,
         "damage": "4d6",
-        "rate_of_fire": 1
+        "rate_of_fire": 1,
+        "ammo_types": ["Arrows"]
     },
     {
         "name": "Crossbow",
@@ -108,7 +112,8 @@
         "type": "weapon",
         "price": 100,
         "damage": "4d6",
-        "rate_of_fire": 1
+        "rate_of_fire": 1,
+        "ammo_types": ["Arrows"]
     },
     {
         "name": "SMG",
@@ -121,7 +126,8 @@
         "price": 100,
         "damage": "2d6",
         "rate_of_fire": 1,
-        "magazine": 30
+        "magazine": 30,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Heavy SMG",
@@ -134,7 +140,8 @@
         "price": 100,
         "damage": "3d6",
         "rate_of_fire": 1,
-        "magazine": 40
+        "magazine": 40,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Shotgun",
@@ -147,7 +154,8 @@
         "price": 500,
         "damage": "5d6",
         "rate_of_fire": 1,
-        "magazine": 4
+        "magazine": 4,
+        "ammo_types": ["Slugs", "Shotgun Shells"]
     },
     {
         "name": "Assault Rifle",
@@ -160,7 +168,8 @@
         "price": 500,
         "damage": "5d6",
         "rate_of_fire": 1,
-        "magazine": 25
+        "magazine": 25,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Sniper Rifle",
@@ -173,7 +182,8 @@
         "price": 500,
         "damage": "5d6",
         "rate_of_fire": 1,
-        "magazine": 4
+        "magazine": 4,
+        "ammo_types": ["Bullets"]
     },
     {
         "name": "Grenade Launcher",
@@ -186,7 +196,8 @@
         "price": 500,
         "damage": "6d6",
         "rate_of_fire": 1,
-        "magazine": 2
+        "magazine": 2,
+        "ammo_types": ["Grenades"]
     },
     {
         "name": "Rocket Launcher",
@@ -199,6 +210,7 @@
         "price": 500,
         "damage": "8d6",
         "rate_of_fire": 1,
-        "magazine": 1
+        "magazine": 1,
+        "ammo_types": ["Rockets"]
     }
 ]

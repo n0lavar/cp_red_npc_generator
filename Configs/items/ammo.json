@@ -1,0 +1,54 @@
+{
+    "Basic": {
+        "types": ["Bullets", "Arrows", "Shotgun Shells", "Slugs"],
+        "price": 10
+    },
+    "Armor-Piercing": {
+        "types": ["Bullets", "Arrows", "Slugs", "Grenades", "Rockets"],
+        "price": 100
+    },
+    "Biotoxin": {
+        "types": ["Arrows", "Grenades"],
+        "price": 500
+    },
+    "EMP": {
+        "types": ["Grenades"],
+        "price": 500
+    },
+    "Expansive": {
+        "types": ["Bullets", "Arrows", "Slugs"],
+        "price": 100
+    },
+    "Flashbang": {
+        "types": ["Grenades"],
+        "price": 100
+    },
+    "Incendiary": {
+        "types": ["Bullets", "Arrows", "Shotgun Shells", "Grenades"],
+        "price": 100
+    },
+    "Poison": {
+        "types": ["Arrows", "Grenades"],
+        "price": 100
+    },
+    "Rubber": {
+        "types": ["Bullets", "Arrows", "Slugs"],
+        "price": 10
+    },
+    "Sleep": {
+        "types": ["Arrows", "Grenades"],
+        "price": 500
+    },
+    "Smart": {
+        "types": ["Bullets", "Arrows", "Rockets"],
+        "price": 500
+    },
+    "Smoke": {
+        "types": ["Grenades"],
+        "price": 50
+    },
+    "Teargas": {
+        "types": ["Grenades"],
+        "price": 50
+    }
+}

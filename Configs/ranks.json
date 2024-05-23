@@ -16,8 +16,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 40,
+                "standard_deviation": 7
             },
             "equipment": {
                 "mean": 10000,
@@ -58,8 +58,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 80,
+                "standard_deviation": 7
             },
             "equipment": {
                 "mean": 10000,
@@ -100,8 +100,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 120,
+                "standard_deviation": 7
             },
             "equipment": {
                 "mean": 10000,
@@ -142,8 +142,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 160,
+                "standard_deviation": 7
             },
             "equipment": {
                 "mean": 10000,
@@ -184,8 +184,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 200,
+                "standard_deviation": 7
             },
             "equipment": {
                 "mean": 10000,
@@ -226,8 +226,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 300,
+                "standard_deviation": 10
             },
             "equipment": {
                 "mean": 10000,
@@ -268,8 +268,8 @@
                 "standard_deviation": 1
             },
             "ammo": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 500,
+                "standard_deviation": 15
             },
             "equipment": {
                 "mean": 10000,

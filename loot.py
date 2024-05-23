@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import sys
 from typing import List
 import json
@@ -28,14 +25,16 @@ def rand(distribution_dict) -> float:
             return 0
 
 
-def generate_loot(rank_num: int):
+def main(args: List[str]):
     random.seed(datetime.now().timestamp())
 
     ranks: List[dict] = list()
-    with open("Configs/ranks.json", "r", encoding="utf-8") as f:
+    with open("ranks.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         for rank_dict in data:
             ranks.append(rank_dict)
+
+    rank_num: int = int(args[1] if len(args) >= 2 else "0")
 
     rank = ranks[rank_num]
     rank_name = rank["name"]
@@ -45,7 +44,7 @@ def generate_loot(rank_num: int):
     print(f"{rank_name} has items worth a total of {money}:")
 
     loot: List[dict] = list()
-    with open("Configs/loot.json", "r", encoding="utf-8") as file:
+    with open("loot.json", "r", encoding="utf-8") as file:
         data = json.load(file)
         for loot_dict in data:
             loot.append(loot_dict)
@@ -57,7 +56,7 @@ def generate_loot(rank_num: int):
         while not item_generated:
             loot_index = math.floor(clamp(
                 rand(rank["items_type_distribution"]), 0, len(loot) - 1))
-            loot_index_cost = loot[loot_index]["price"]
+            loot_index_cost = loot[loot_index]["cost"]
 
             if loot_index_cost > money_left:
                 continue
@@ -81,3 +80,9 @@ def generate_loot(rank_num: int):
 
     print(result)
     return 0
+
+
+if __name__ == "__main__":
+    returncode = main(sys.argv)
+    sys.stdout.flush()
+    exit(returncode)
