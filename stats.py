@@ -2,10 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import functools
+import json
 import logging
-from typing import Callable
+from typing import List, Optional, Callable
 
-from data import *
+from data import NpcTemplate, Npc, stat_type_from_int, Skill, StatType, SkillType
 
 
 def clamp(n, min_value, max_value):

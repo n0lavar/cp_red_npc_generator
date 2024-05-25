@@ -75,33 +75,6 @@ class ItemType(StrEnum):
     JUNK = auto()
 
 
-class GangType(StrEnum):
-    # core book gangs
-    THE_BOZOS = auto()
-    INQUISITORS = auto()
-    IRON_SIGHTS = auto()
-    MAELSTROM = auto()
-    PHILHARMONIC_VAMPIRES = auto()
-    PIRANHAS = auto()
-    THE_PRIME_TIME_PLAYERS = auto()
-    RECKONERS = auto()
-    RED_CHROME_LEGION = auto()
-    SCAVVERS = auto()
-    STEEL_VAQUEROS = auto()
-    TYGER_CLOWS = auto()
-    VOODOO_BOYS = auto()
-    # some additional gangs based on info from the core book
-    ARASAKA = auto()
-    MILITECH = auto()
-    TRAUMA_TEAM = auto()
-    POLICE = auto()
-    MAX_TAC = auto()
-    # "general" gangs
-    CORP = auto()
-    EDGERUNNERS = auto()
-    BOOSTERS = auto()
-
-
 class SkillType(StrEnum):
     AWARENESS = auto()
     BODY = auto()
@@ -243,7 +216,6 @@ class Item:
 @dataclass
 class NpcTemplate:
     rank: Rank = field(default_factory=Rank)
-    gang: GangType = GangType.BOOSTERS
     role: Role = field(default_factory=Role)
 
 
@@ -295,7 +267,7 @@ class Npc:
         npc_str += f"Has items total worth of {total_price}\n\n"
 
         max_hp = 10 + (5 * math.ceil(0.5 * (self.stats[StatType.BODY] + self.stats[StatType.COOL])))
-        npc_str += f"Health:\n"
+        npc_str += f"Health (you can add conditions here):\n"
         npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: {math.ceil(max_hp / 2)})\n\n"
 
         npc_str += f"Stats: (stat + modifiers)\n\t"

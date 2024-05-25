@@ -1,13 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import copy
 import dataclasses
+import json
 import logging
-
+import math
 import dataclass_wizard
 import random
+from typing import List, Optional, Set, Dict
 
-from data import *
+from data import NpcTemplate, Npc, Item, ItemType, ItemQuality, PriceCategory, price_category_from_price
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
 MAX_AMMO_PER_MODIFICATION: int = 80
@@ -80,9 +83,9 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     with open("Configs/items/weapon.json", "r", encoding="utf-8") as f:
         data = json.load(f)
 
-        @dataclass(frozen=True, eq=True)
+        @dataclasses.dataclass(frozen=True, eq=True)
         class ItemWithNames(Item):
-            possible_names: Set[str] = field(default_factory=set)
+            possible_names: Set[str] = dataclasses.field(default_factory=set)
 
         all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in data]
 
@@ -274,6 +277,7 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
             npc.inventory[equipment_item] = 1
             preferred_equipment.remove(selected_equipment)
             logging.debug(f"\t\tSucceed, added {equipment_item}")
+            logging.debug(f"\t\tMoney left: {equipment_budget}")
 
             num_equipment_items += 1
 
@@ -316,15 +320,12 @@ def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
                 npc.inventory.setdefault(drug_item, 0)
                 npc.inventory[drug_item] += 1
                 logging.debug(f"\t\tSucceed, added {drug_item}")
+                logging.debug(f"\t\tMoney left: {drugs_budget}")
 
                 num_drugs_items += 1
     else:
         logging.debug("\tThere is no Airhypo, skipping...")
 
-    return npc
-
-
-def generate_clothes(npc: Npc, npc_template: NpcTemplate) -> Npc:
     return npc
 
 
@@ -366,6 +367,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
             junk_budget -= selected_junk.price
             npc.inventory[selected_junk] = 1
             logging.debug(f"\t\tSucceed, added {selected_junk}")
+            logging.debug(f"\t\tMoney left: {junk_budget}")
 
             num_junk_items += 1
 
@@ -379,6 +381,5 @@ def create_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
     npc = generate_ammo(npc, npc_template)
     npc = generate_equipment(npc, npc_template)
     npc = generate_drugs(npc, npc_template)
-    npc = generate_clothes(npc, npc_template)
     npc = generate_junk(npc, npc_template)
     return npc

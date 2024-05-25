@@ -2,20 +2,18 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-
 import dataclass_wizard
 import logging
-
 import equipment
 import stats
-from data import *
+
+from data import NpcTemplate, Npc, Rank, Role
 
 
 def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"Input:")
     logging.debug(f"\trank: {npc_template.rank.name}")
     logging.debug(f"\trole: {npc_template.role}")
-    logging.debug(f"\tgang: {npc_template.gang}")
 
     npc = Npc()
     npc = stats.create_stats(npc, npc_template)
@@ -27,7 +25,7 @@ def main(args) -> int:
     logging.basicConfig(level=logging.getLevelName(args.log_level), format="%(message)s")
     rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
-    npc = create_npc(NpcTemplate(rank_data, args.gang, role_data))
+    npc = create_npc(NpcTemplate(rank_data, role_data))
     logging.info(f"{str(args.role).title()}, {str(args.rank).title()}")
     logging.info(f"{npc}")
     return 0
@@ -57,13 +55,6 @@ if __name__ == "__main__":
                              "The default value is `booster`. ",
                         choices=[r["name"] for r in roles],
                         default="booster")
-    parser.add_argument("--gang",
-                        type=GangType,
-                        help="The affiliation of this NPC. "
-                             "It can determine equipment preferences. "
-                             "The default value is `boosters`.",
-                        choices=list(GangType),
-                        default=GangType.BOOSTERS)
     parser.add_argument("--log_level",
                         type=str,
                         help="Logging level. Default is INFO.",
