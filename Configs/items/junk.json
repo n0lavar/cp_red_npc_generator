@@ -1,0 +1,507 @@
+[
+    {
+        "name": "Poker Chip",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Dog tags",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Crude drawing on napkin",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Handkerchief",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Condom",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Plastic Earring",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "SafeLok combination",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "A pair of six-sided dice",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Zip Ties",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Bottlecap",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Storage Locker Key",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Class Schedule for Night City University",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Used Plane Ticket",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Pocket Notebook filled with Personal Reminders",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Business Card for Megacorp Exec",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Bullet with initials carved into it",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Scrap of fabric sprayed with perfume/cologne",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Pen",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Fake ID",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Dental Floss",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "NUSA Lapel Pin",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Fortune Cookie (Unopened)",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Pack of matches",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Pebble",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Rock",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "An old coin",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Paper Letter",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Child’s drawing",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Napkin from nightclub with a phone number on it",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Guitar Pick",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Family Photos",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Grenade Pin",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Half-Used Tube of Rouge Noir Lipstick",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Vehicle ad torn from a Magazine/Screen-sheet",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Broken Metal Fangs",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Drink Umbrella",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Stress Ball",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Stapler",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Tattoo Needle",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Old Can",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Damaged Clothes",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Abstract Painting",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Broken Eye Implant",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Fluorescent Lipstick",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Trans-Anal Exxxpress",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Studded Dildo",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Shell Casing Keychain",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Chopsticks",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Bloody Bandage",
+        "type": "junk",
+        "price": 0
+    },
+    {
+        "name": "Lighter",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Food Stick",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Prayer Beads",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Vape-Pen",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Kibble Pack",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Pocket Mirror",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "MRE",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Pack of Playing Cards",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Pack of Breath Mints",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Area Streetmap",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "A small tin filled with Solid Perfume",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Glow Stick",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Memory Chip (Personal Data)",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Road Flare",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Ashtray",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Hygiene Bag",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Hand Fan",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Rosary",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Voodoo Rosary",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Incense",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Omamori",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Hanafuda Cards",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Cheap Beer",
+        "type": "junk",
+        "price": 10
+    },
+    {
+        "name": "Cheap Cigar",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Pack of Cigarettes",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Porcelain Box w/Human Finger Inside",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Cheap Necklace",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Welding Goggles",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Autographed Photograph of Night City Celebrity",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Fossilized Shark tooth",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Glow Paint",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Hair Wax",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Perfume",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Pipe",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Good Beer",
+        "type": "junk",
+        "price": 20
+    },
+    {
+        "name": "Pawnshop Receipt for €$50 Item",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Bees (Queen Bee in Cryostasis Box)",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Locket",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Smokeless tobacco (Tin of snuff/chewing tobacco)",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Braindance Chip (Legal)",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Red Star Vodka",
+        "type": "junk",
+        "price": 50
+    },
+    {
+        "name": "Engagement Ring",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Expensive Cigarette Lighter",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Gold Ring with Engraved Initials",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Expensive Necklace",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Memory Chip (Tactile Boost)",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Flask of Expensive Alcohol",
+        "type": "junk",
+        "price": 100
+    },
+    {
+        "name": "Memory Chip (Skill Chip – x1)",
+        "type": "junk",
+        "price": 500
+    },
+    {
+        "name": "Extreme Braindance Chip (XBD)",
+        "type": "junk",
+        "price": 500
+    },
+    {
+        "name": "Golden Chain",
+        "type": "junk",
+        "price": 500
+    },
+    {
+        "name": "Memory Chip (Pain Editor)",
+        "type": "junk",
+        "price": 1000
+    },
+    {
+        "name": "Memory Chip (Skill Chip – x2)",
+        "type": "junk",
+        "price": 1000
+    }
+]

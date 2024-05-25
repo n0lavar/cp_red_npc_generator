@@ -3,7 +3,8 @@
         "name": "Light Melee Weapon",
         "possible_names": [
             "Combat Knife",
-            "Tomahawk"
+            "Tomahawk",
+            "Brass knuckles"
         ],
         "type": "weapon",
         "price": 50,
@@ -15,7 +16,10 @@
         "possible_names": [
             "Baseball Bat",
             "Crowbar",
-            "Machete"
+            "Machete",
+            "Katana",
+            "Battle axe",
+            "Sword"
         ],
         "type": "weapon",
         "price": 50,
@@ -26,8 +30,11 @@
         "name": "Heavy Melee Weapon",
         "possible_names": [
             "Lead Pipe",
-            "Sword",
-            "Spiked Bat"
+            "Spiked Bat",
+            "Two-handed sword",
+            "Two-handed axe",
+            "War hammer",
+            "Mace"
         ],
         "type": "weapon",
         "price": 100,
@@ -40,7 +47,9 @@
             "Chainsaw",
             "Sledgehammer",
             "Helicopter Blades",
-            "Naginata"
+            "Naginata",
+            "Blacksmith hammer",
+            "Two-handed war hammer"
         ],
         "type": "weapon",
         "price": 50,

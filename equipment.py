@@ -1,23 +1,29 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import copy
 import dataclasses
 import logging
-import math
 
 import dataclass_wizard
 import random
 
 from data import *
 
-RANDOM_GENERATING_NUM_ATTEMPTS: int = 100
+RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
 MAX_AMMO_PER_MODIFICATION: int = 80
-MAX_EQUIPMENT_ITEMS: int = 5
 
 
-def exp_dist_func(lambda_: float, x: float) -> float:
-    return lambda_ * pow(math.e, -lambda_ * x)
+def generate_exponential_random(lambda_param):
+    u = random.random()
+    return -math.log(1 - u) / lambda_param
+
+
+def choose_exponential_random_element(elements):
+    lambda_param = 1.0
+    exp_values = [generate_exponential_random(lambda_param) for _ in elements]
+    total = sum(exp_values)
+    probabilities = [value / total for value in exp_values]
+    return random.choices(elements, weights=probabilities, k=1)[0]
 
 
 def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
@@ -218,11 +224,10 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         add_basic_ammo("Bullets") or add_basic_ammo("Slugs") or add_basic_ammo("Arrows")
 
-        ammo_modifications_weights = [exp_dist_func(0.4, x) for x in range(len(preferred_ammo_modifications))]
         for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
             required_ammo_type, magazine_size = random.choice(list(required_ammo_types.items()))
             try_add_ammo(required_ammo_type,
-                         random.choices(preferred_ammo_modifications, weights=ammo_modifications_weights)[0],
+                         choose_exponential_random_element(preferred_ammo_modifications),
                          magazine_size)
 
     return npc
@@ -238,12 +243,24 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         equipment_budget: int = round(npc_template.rank.items_budget[ItemType.EQUIPMENT].generate())
         logging.debug(f"\t{equipment_budget=}")
+
+        max_equipment_items: int = max(round(npc_template.rank.items_num_budget[ItemType.EQUIPMENT].generate()), 0)
+        logging.debug(f"\t{max_equipment_items=}")
+
         num_equipment_items: int = 0
         for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
-            preferred_equipment_weights = [exp_dist_func(0.4, x) for x in range(len(preferred_equipment))]
-            selected_equipment = random.choices(preferred_equipment, weights=preferred_equipment_weights)[0]
+            if num_equipment_items == max_equipment_items:
+                logging.debug(f"\tMax number of equipment items reached: {max_equipment_items}")
+                break
+
+            selected_equipment = choose_exponential_random_element(preferred_equipment)
             logging.debug(f"\tTrying to generate equipment item: {selected_equipment}")
             equipment_item: Item = next(e for e in equipment if e.name == selected_equipment)
+
+            if equipment_item in npc.inventory:
+                logging.debug(f"\t\tFailed, already has {equipment_item})")
+                continue
+
             if equipment_item.price > equipment_budget:
                 logging.debug(
                     f"\t\tFailed, not enough money (required: {equipment_item.price}, available: {equipment_budget})")
@@ -255,14 +272,59 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
             logging.debug(f"\t\tSucceed, added {equipment_item}")
 
             num_equipment_items += 1
-            if num_equipment_items == MAX_EQUIPMENT_ITEMS:
-                logging.debug(f"\tMax number of equipment items reached: {MAX_EQUIPMENT_ITEMS}")
-                break
 
     return npc
 
 
+def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
+    return npc
+
+
+def generate_clothes(npc: Npc, npc_template: NpcTemplate) -> Npc:
+    return npc
+
+
 def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
+    logging.debug("\nGenerating junk...")
+
+    # junk sources:
+    # https://cyberpunk.fandom.com/wiki/Cyberpunk_2077_Junk
+    # https://www.reddit.com/r/cyberpunkred/comments/13cef95/if_your_murderhobos_are_anything_like_mine_they/
+    with open("Configs/items/junk.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        junk: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
+        junk.sort(key=lambda x: -x.price)
+
+        junk_budget: int = round(npc_template.rank.items_budget[ItemType.JUNK].generate())
+        logging.debug(f"\t{junk_budget=}")
+
+        max_junk_items: int = max(round(npc_template.rank.items_num_budget[ItemType.JUNK].generate()), 0)
+        logging.debug(f"\t{max_junk_items=}")
+
+        num_junk_items: int = 0
+        for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+            if num_junk_items == max_junk_items:
+                logging.debug(f"\tMax number of junk items reached: {max_junk_items}")
+                break
+
+            selected_junk = choose_exponential_random_element(junk)
+            logging.debug(f"\tTrying to generate junk item: {selected_junk}")
+
+            if selected_junk in npc.inventory:
+                logging.debug(f"\t\tFailed, already has {selected_junk})")
+                continue
+
+            if selected_junk.price > junk_budget:
+                logging.debug(
+                    f"\t\tFailed, not enough money (required: {selected_junk.price}, available: {junk_budget})")
+                continue
+
+            junk_budget -= selected_junk.price
+            npc.inventory[selected_junk] = 1
+            logging.debug(f"\t\tSucceed, added {selected_junk}")
+
+            num_junk_items += 1
+
     return npc
 
 
@@ -272,5 +334,7 @@ def create_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
     npc = generate_weapon(npc, npc_template)
     npc = generate_ammo(npc, npc_template)
     npc = generate_equipment(npc, npc_template)
+    npc = generate_drugs(npc, npc_template)
+    npc = generate_clothes(npc, npc_template)
     npc = generate_junk(npc, npc_template)
     return npc

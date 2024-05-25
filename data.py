@@ -155,6 +155,7 @@ class Rank:
     name: str = "Empty rank"
     min_items_quality: ItemQuality = field(default=ItemQuality.POOR)
     items_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
+    items_num_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
     stats_budget: NormalDistribution = field(default_factory=NormalDistribution)
     skills_budget: NormalDistribution = field(default_factory=NormalDistribution)
     exp_budget: NormalDistribution = field(default_factory=NormalDistribution)

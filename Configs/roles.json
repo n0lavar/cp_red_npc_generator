@@ -21,8 +21,8 @@
             "Radio Communicator",
             "Music Instrument",
             "Pocket Amplifier",
-            "Agent",
             "Airhypo",
+            "Agent",
             "Radio Scanner / Music Player",
             "Disposable Cell Phone",
             "Duct Tape"
@@ -88,9 +88,9 @@
             "Cyberdeck",
             "Virtuality Goggles",
             "Radio Communicator",
-            "Airhypo",
             "Braindance Viewer",
             "Bug Detector",
+            "Airhypo",
             "Carryall",
             "Radar Detector",
             "Smart Glasses"
@@ -126,11 +126,11 @@
             "Duct Tape",
             "Flashlight",
             "Grapple Gun",
+            "Airhypo",
             "Lock Picking Set",
             "Radar Detector",
             "Rope (60m/yd)",
-            "Scrambler / Descrambler",
-            "Airhypo"
+            "Scrambler / Descrambler"
         ]
     },
     {
@@ -193,7 +193,6 @@
             "Bug Detector",
             "Flashlight",
             "Lock Picking Set",
-            "Memory Chip",
             "Radio Scanner / Music Player"
         ]
     },
@@ -224,7 +223,6 @@
             "Airhypo",
             "Disposable Cell Phone",
             "Lock Picking Set",
-            "Memory Chip",
             "Radio Scanner / Music Player"
         ]
     },
@@ -287,7 +285,6 @@
             "Carryall",
             "Handcuffs",
             "Lock Picking Set",
-            "Memory Chip",
             "Video Camera"
         ]
     },
