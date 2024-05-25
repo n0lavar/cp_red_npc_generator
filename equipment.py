@@ -201,7 +201,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
                     f"\t\tFailed, not enough money (required: {price_per_amount}, available: {ammo_budget})")
                 return False
 
-            ammo_item: Item = Item(f"{ammo_type} ({ammo_modification})", ItemType.AMMO, price)
+            ammo_item: Item = Item(f"{ammo_type} ({ammo_modification})", ItemType.AMMO, price_per_one)
             if ammo_item in npc.inventory:
                 num_ammo_already_added: int = npc.inventory[ammo_item]
             else:
