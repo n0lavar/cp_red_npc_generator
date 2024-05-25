@@ -18,11 +18,14 @@ def generate_exponential_random(lambda_param):
     return -math.log(1 - u) / lambda_param
 
 
-def choose_exponential_random_element(elements):
+def choose_exponential_random_element(elements, reverse: bool = False):
     lambda_param = 1.0
     exp_values = [generate_exponential_random(lambda_param) for _ in elements]
     total = sum(exp_values)
-    probabilities = [value / total for value in exp_values]
+    probabilities = [v / total for v in exp_values]
+    if reverse:
+        probabilities = [1.0 - p for p in probabilities]
+
     return random.choices(elements, weights=probabilities, k=1)[0]
 
 
@@ -227,7 +230,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
         for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
             required_ammo_type, magazine_size = random.choice(list(required_ammo_types.items()))
             try_add_ammo(required_ammo_type,
-                         choose_exponential_random_element(preferred_ammo_modifications),
+                         choose_exponential_random_element(preferred_ammo_modifications, True),
                          magazine_size)
 
     return npc
@@ -238,6 +241,7 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
     with open("Configs/items/equipment.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         equipment: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
+
         preferred_equipment: List[str] = npc_template.role.preferred_equipment
         logging.debug(f"\t{preferred_equipment=}")
 
@@ -253,7 +257,7 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
                 logging.debug(f"\tMax number of equipment items reached: {max_equipment_items}")
                 break
 
-            selected_equipment = choose_exponential_random_element(preferred_equipment)
+            selected_equipment = choose_exponential_random_element(preferred_equipment, True)
             logging.debug(f"\tTrying to generate equipment item: {selected_equipment}")
             equipment_item: Item = next(e for e in equipment if e.name == selected_equipment)
 
@@ -277,6 +281,46 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
 
 def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
+    logging.debug("\nGenerating drugs...")
+    if len(list(filter(lambda i: i.name == "Airhypo", npc.inventory.keys()))):
+        logging.debug("\tFound Airhypo, continuing...")
+        with open("Configs/items/drugs.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+            drugs: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
+
+            preferred_drugs: List[str] = npc_template.role.preferred_drugs
+            logging.debug(f"\t{preferred_drugs=}")
+
+            drugs_budget: int = round(npc_template.rank.items_budget[ItemType.DRUG].generate())
+            logging.debug(f"\t{drugs_budget=}")
+
+            max_drugs_items: int = max(round(npc_template.rank.items_num_budget[ItemType.DRUG].generate()), 0)
+            logging.debug(f"\t{max_drugs_items=}")
+
+            num_drugs_items: int = 0
+            for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+                if num_drugs_items == max_drugs_items:
+                    logging.debug(f"\tMax number of drugs items reached: {max_drugs_items}")
+                    break
+
+                selected_drug = choose_exponential_random_element(preferred_drugs, True)
+                logging.debug(f"\tTrying to generate drug item: {selected_drug}")
+                drug_item: Item = next(d for d in drugs if d.name == selected_drug)
+
+                if drug_item.price > drugs_budget:
+                    logging.debug(
+                        f"\t\tFailed, not enough money (required: {drug_item.price}, available: {drugs_budget})")
+                    continue
+
+                drugs_budget -= drug_item.price
+                npc.inventory.setdefault(drug_item, 0)
+                npc.inventory[drug_item] += 1
+                logging.debug(f"\t\tSucceed, added {drug_item}")
+
+                num_drugs_items += 1
+    else:
+        logging.debug("\tThere is no Airhypo, skipping...")
+
     return npc
 
 
@@ -293,7 +337,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
     with open("Configs/items/junk.json", "r", encoding="utf-8") as f:
         data = json.load(f)
         junk: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
-        junk.sort(key=lambda x: -x.price)
+        junk.sort(key=lambda x: x.price)
 
         junk_budget: int = round(npc_template.rank.items_budget[ItemType.JUNK].generate())
         logging.debug(f"\t{junk_budget=}")
@@ -307,7 +351,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
                 logging.debug(f"\tMax number of junk items reached: {max_junk_items}")
                 break
 
-            selected_junk = choose_exponential_random_element(junk)
+            selected_junk = choose_exponential_random_element(junk, True)
             logging.debug(f"\tTrying to generate junk item: {selected_junk}")
 
             if selected_junk in npc.inventory:

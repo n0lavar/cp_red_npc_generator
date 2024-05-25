@@ -26,6 +26,12 @@
             "Radio Scanner / Music Player",
             "Disposable Cell Phone",
             "Duct Tape"
+        ],
+        "preferred_drugs": [
+            "Smash",
+            "Synthcoke",
+            "Prime Time",
+            "Blue Glass"
         ]
     },
     {
@@ -62,6 +68,12 @@
             "Handcuffs",
             "Personal CarePak",
             "Radar Detector"
+        ],
+        "preferred_drugs": [
+            "Berserker",
+            "Black Lace",
+            "Timewarp",
+            "Synthcoke"
         ]
     },
     {
@@ -94,6 +106,11 @@
             "Carryall",
             "Radar Detector",
             "Smart Glasses"
+        ],
+        "preferred_drugs": [
+            "Sixgun",
+            "Boost",
+            "Timewarp"
         ]
     },
     {
@@ -131,6 +148,11 @@
             "Radar Detector",
             "Rope (60m/yd)",
             "Scrambler / Descrambler"
+        ],
+        "preferred_drugs": [
+            "Boost",
+            "Black Lace",
+            "Blue Glass"
         ]
     },
     {
@@ -165,6 +187,12 @@
             "Anti-Smog Breathing Mask",
             "Techscanner",
             "Techtool"
+        ],
+        "preferred_drugs": [
+            "Berserker",
+            "Black Lace",
+            "Timewarp",
+            "Synthcoke"
         ]
     },
     {
@@ -194,6 +222,12 @@
             "Flashlight",
             "Lock Picking Set",
             "Radio Scanner / Music Player"
+        ],
+        "preferred_drugs": [
+            "Smash",
+            "Prime Time",
+            "Boost",
+            "Blue Glass"
         ]
     },
     {
@@ -224,6 +258,12 @@
             "Disposable Cell Phone",
             "Lock Picking Set",
             "Radio Scanner / Music Player"
+        ],
+        "preferred_drugs": [
+            "Smash",
+            "Prime Time",
+            "Boost",
+            "Blue Glass"
         ]
     },
     {
@@ -257,6 +297,12 @@
             "Airhypo",
             "Lock Picking Set",
             "Rope (60m/yd)"
+        ],
+        "preferred_drugs": [
+            "Berserker",
+            "Black Lace",
+            "Timewarp",
+            "Synthcoke"
         ]
     },
     {
@@ -286,6 +332,12 @@
             "Handcuffs",
             "Lock Picking Set",
             "Video Camera"
+        ],
+        "preferred_drugs": [
+            "Smash",
+            "Prime Time",
+            "Boost",
+            "Blue Glass"
         ]
     },
     {
@@ -323,6 +375,13 @@
             "Personal CarePak",
             "Rope (60m/yd)",
             "Techtool"
+        ],
+        "preferred_drugs": [
+            "Black Lace",
+            "Synthcoke",
+            "Berserker",
+            "Timewarp",
+            "Blue Glass"
         ]
     },
     {
@@ -345,6 +404,9 @@
             "Flashlight",
             "Audio Recorder",
             "Braindance Viewer"
+        ],
+        "preferred_drugs": [
+            "Blue Glass"
         ]
     },
     {
@@ -381,6 +443,12 @@
             "Handcuffs",
             "Personal CarePak",
             "Radar Detector"
+        ],
+        "preferred_drugs": [
+            "Berserker",
+            "Black Lace",
+            "Timewarp",
+            "Synthcoke"
         ]
     }
 ]

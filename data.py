@@ -71,6 +71,7 @@ class ItemType(StrEnum):
     CYBERWARE = auto()
     AMMO = auto()
     EQUIPMENT = auto()
+    DRUG = auto()
     JUNK = auto()
 
 
@@ -176,6 +177,7 @@ class Role:
     preferred_ammo: List[str] = field(default_factory=list, compare=False)
     # npc won't try to buy armor with a greater armor class
     preferred_armor_class: int = field(default=11, compare=False)
+    preferred_drugs: List[str] = field(default_factory=list, compare=False)
     preferred_equipment: List[str] = field(default_factory=list, compare=False)
 
     @staticmethod

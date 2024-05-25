@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Black Lace",
+        "type": "drug",
+        "price": 50
+    },
+    {
+        "name": "Blue Glass",
+        "type": "drug",
+        "price": 20
+    },
+    {
+        "name": "Boost",
+        "type": "drug",
+        "price": 50
+    },
+    {
+        "name": "Smash",
+        "type": "drug",
+        "price": 10
+    },
+    {
+        "name": "Synthcoke",
+        "type": "drug",
+        "price": 20
+    },
+    {
+        "name": "Berserker",
+        "type": "drug",
+        "price": 100
+    },
+    {
+        "name": "Prime Time",
+        "type": "drug",
+        "price": 50
+    },
+    {
+        "name": "Sixgun",
+        "type": "drug",
+        "price": 100
+    },
+    {
+        "name": "Timewarp",
+        "type": "drug",
+        "price": 100
+    }
+]
