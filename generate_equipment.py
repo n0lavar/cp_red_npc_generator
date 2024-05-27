@@ -11,7 +11,10 @@ import random
 from typing import List, Optional, Set, Dict, Tuple
 from pathlib import Path
 
-from data import NpcTemplate, Npc, Item, ItemType, ItemQuality, PriceCategory, price_category_from_price, StatType
+from item import Item, ItemType, ItemQuality, PriceCategory, price_category_from_price
+from npc import Npc
+from npc_template import NpcTemplate
+from stats import StatType
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
 MAX_AMMO_PER_MODIFICATION: int = 80
@@ -92,6 +95,8 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
             npc.cyberware += picked_cyberware
 
     npc.stats[StatType.EMP] = math.floor(humanity_budget / 10)
+    logging.debug(f"\tHumanity left: {humanity_budget}")
+    logging.debug(f"\tResulting EMP: {npc.stats[StatType.EMP]}")
 
     return npc
 

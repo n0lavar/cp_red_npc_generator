@@ -4,10 +4,11 @@
 import argparse
 import dataclass_wizard
 import logging
-import equipment
-import stats
 
-from data import NpcTemplate, Npc, Rank, Role
+from generate_equipment import create_equipment
+from generate_stats import create_stats
+from npc import Npc
+from npc_template import NpcTemplate, Rank, Role
 
 
 def create_npc(npc_template: NpcTemplate) -> Npc:
@@ -16,8 +17,8 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"\trole: {npc_template.role}")
 
     npc = Npc()
-    npc = stats.create_stats(npc, npc_template)
-    npc = equipment.create_equipment(npc, npc_template)
+    npc = create_stats(npc, npc_template)
+    npc = create_equipment(npc, npc_template)
     return npc
 
 
