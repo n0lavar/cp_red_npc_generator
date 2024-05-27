@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Hardened Shielding",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Plastic Covering",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 0,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Realskinn™ Covering",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 0,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Superchrome® Covering",
+        "type": "cyberware",
+        "price": 1000,
+        "modifiers": [
+            {
+                "name": "WardrobeStyle",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 0,
+        "max_humanity_loss": 2
+    }
+]

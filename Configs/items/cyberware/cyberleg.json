@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Cyberleg",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Meatleg"
+        ],
+        "container_size": 3,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Grip Foot",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Jump Booster",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberleg"
+        ],
+        "size_in_container": 2,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Skate Foot",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Talon Foot",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberleg",
+            "Meatleg"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Web Foot",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    }
+]

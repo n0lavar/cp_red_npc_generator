@@ -1,7 +1,24 @@
 [
     {
         "name": "rockerboy",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "AudioVox",
+            "Amplified Hearing",
+            "Braindance Recorder",
+            "Audio Recorder",
+            "Radio Scanner / Music Player",
+            "Chemskin",
+            "EMP Threading",
+            "Light Tattoo",
+            "Voice Stress Analyzer",
+            "Shift Tacts",
+            "Skinwatch",
+            "Techhair",
+            "Kerenzikov",
+            "Level Damper",
+            "Toxin Binders",
+            "Skin Weave"
+        ],
         "preferred_primary_weapons": [
             "Heavy Pistol",
             "Medium Pistol",
@@ -36,7 +53,25 @@
     },
     {
         "name": "solo",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Grafted Muscle and Bone Lace",
+            "Biomonitor",
+            "Sandevistan",
+            "Pain Editor",
+            "Anti-Dazzle",
+            "Low Light / Infrared / UV",
+            "Targeting Scope",
+            "Level Damper",
+            "Popup Shield",
+            "Radio Communicator",
+            "Radar Detector",
+            "Enhanced Antibodies",
+            "Independent Air Supply",
+            "Radar / Sonar Implant",
+            "Toxin Binders",
+            "Subdermal Armor",
+            "Jump Booster"
+        ],
         "preferred_primary_weapons": [
             "Shotgun",
             "Assault Rifle",
@@ -78,7 +113,21 @@
     },
     {
         "name": "netrunner",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Cyberdeck",
+            "Virtuality",
+            "Interface Plugs",
+            "Internal Agent",
+            "Chyron",
+            "Biomonitor",
+            "Kerenzikov",
+            "Nasal Filters",
+            "Subdermal Armor",
+            "Slice ‘N Dice",
+            "Techscanner",
+            "Tool Hand",
+            "Chipware Socket"
+        ],
         "preferred_primary_weapons": [
             "Medium Pistol",
             "SMG"
@@ -115,7 +164,26 @@
     },
     {
         "name": "tech",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Techscanner",
+            "Tool Hand",
+            "Chipware Socket",
+            "Interface Plugs",
+            "Grafted Muscle and Bone Lace",
+            "MicroOptics",
+            "Grapple Hand",
+            "Kerenzikov",
+            "Chemical Analyzer",
+            "Anti-Dazzle",
+            "Chyron",
+            "Radiation Detector",
+            "Low Light / Infrared / UV",
+            "Level Damper",
+            "Scrambler Descrambler",
+            "Nasal Filters",
+            "Subdermal Armor",
+            "Grip Foot"
+        ],
         "preferred_primary_weapons": [
             "Shotgun",
             "Assault Rifle",
@@ -157,7 +225,18 @@
     },
     {
         "name": "medtech",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Medscanner",
+            "Biomonitor",
+            "Chemical Analyzer",
+            "Toxin Binders",
+            "Interface Plugs",
+            "Kerenzikov",
+            "MicroOptics",
+            "Radio Communicator",
+            "Independent Air Supply",
+            "Tool Hand"
+        ],
         "preferred_primary_weapons": [
             "Shotgun",
             "Assault Rifle",
@@ -176,6 +255,7 @@
         ],
         "preferred_armor_class": 11,
         "preferred_equipment": [
+            "Biomonitor",
             "Medscanner",
             "Radio Communicator",
             "Medtech Bag",
@@ -197,7 +277,28 @@
     },
     {
         "name": "media",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "MicroVideo",
+            "Audio Recorder",
+            "AudioVox",
+            "Voice Stress Analyzer",
+            "Chemskin",
+            "EMP Threading",
+            "Light Tattoo",
+            "Shift Tacts",
+            "Skinwatch",
+            "Techhair",
+            "Braindance Recorder",
+            "Chipware Socket",
+            "Kerenzikov",
+            "Amplified Hearing",
+            "Internal Agent",
+            "Level Damper",
+            "Toxin Binders",
+            "Shoulder Cam",
+            "Skin Weave",
+            "Subdermal Armor"
+        ],
         "preferred_primary_weapons": [
             "Medium Pistol",
             "SMG"
@@ -232,7 +333,25 @@
     },
     {
         "name": "exec",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Braindance Recorder",
+            "Bug Detector",
+            "Amplified Hearing",
+            "Internal Agent",
+            "Chyron",
+            "Biomonitor",
+            "Chemskin",
+            "Voice Stress Analyzer",
+            "EMP Threading",
+            "Light Tattoo",
+            "Shift Tacts",
+            "Skinwatch",
+            "Chipware Socket",
+            "Interface Plugs",
+            "Audio Recorder",
+            "Nasal Filters",
+            "Subdermal Armor"
+        ],
         "preferred_primary_weapons": [
             "Assault Rifle",
             "Sniper Rifle",
@@ -268,7 +387,27 @@
     },
     {
         "name": "lawman",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Pain Editor",
+            "Low Light / Infrared / UV",
+            "Sandevistan",
+            "Grafted Muscle and Bone Lace",
+            "Biomonitor",
+            "Anti-Dazzle",
+            "Chemical Analyzer",
+            "Olfactory Boost",
+            "Tactile Boost",
+            "Targeting Scope",
+            "Bug Detector",
+            "Level Damper",
+            "Radio Communicator",
+            "Enhanced Antibodies",
+            "Independent Air Supply",
+            "Radar / Sonar Implant",
+            "Toxin Binders",
+            "Subdermal Armor",
+            "Jump Booster"
+        ],
         "preferred_primary_weapons": [
             "Heavy Pistol",
             "Medium Pistol",
@@ -307,7 +446,22 @@
     },
     {
         "name": "fixer",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Internal Agent",
+            "Radar Detector",
+            "Chyron",
+            "Bug Detector",
+            "Voice Stress Analyzer",
+            "Chipware Socket",
+            "Chemskin",
+            "Audio Recorder",
+            "EMP Threading",
+            "Light Tattoo",
+            "Shift Tacts",
+            "Skinwatch",
+            "Kerenzikov",
+            "Nasal Filters"
+        ],
         "preferred_primary_weapons": [
             "Heavy Pistol",
             "Medium Pistol",
@@ -342,7 +496,22 @@
     },
     {
         "name": "nomad",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Techscanner",
+            "Tool Hand",
+            "Sandevistan",
+            "Low Light / Infrared / UV",
+            "Interface Plugs",
+            "Anti-Dazzle",
+            "Homing Tracer",
+            "Level Damper",
+            "Radio Communicator",
+            "Enhanced Antibodies",
+            "Nasal Filters",
+            "Toxin Binders",
+            "Grapple Hand",
+            "Jump Booster"
+        ],
         "preferred_primary_weapons": [
             "Heavy Pistol",
             "Medium Pistol",
@@ -386,7 +555,15 @@
     },
     {
         "name": "civilian",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Chemskin",
+            "EMP Threading",
+            "Light Tattoo",
+            "Shift Tacts",
+            "Skinwatch",
+            "Chipware Socket",
+            "Interface Plugs"
+        ],
         "preferred_primary_weapons": [
             "Medium Pistol"
         ],
@@ -411,7 +588,25 @@
     },
     {
         "name": "booster",
-        "preferred_cyberware": [],
+        "preferred_cyberware": [
+            "Grafted Muscle and Bone Lace",
+            "Biomonitor",
+            "Sandevistan",
+            "Pain Editor",
+            "Anti-Dazzle",
+            "Low Light / Infrared / UV",
+            "Targeting Scope",
+            "Level Damper",
+            "Popup Shield",
+            "Radio Communicator",
+            "Radar Detector",
+            "Enhanced Antibodies",
+            "Independent Air Supply",
+            "Radar / Sonar Implant",
+            "Toxin Binders",
+            "Subdermal Armor",
+            "Jump Booster"
+        ],
         "preferred_primary_weapons": [
             "Shotgun",
             "Assault Rifle",

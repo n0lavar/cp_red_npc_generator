@@ -1,0 +1,65 @@
+[
+    {
+        "name": "Biomonitor",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "Chemskin",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "EMP Threading",
+        "type": "cyberware",
+        "price": 10,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "Light Tattoo",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "Shift Tacts",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "Skinwatch",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    },
+    {
+        "name": "Techhair",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1
+    }
+]

@@ -1,0 +1,152 @@
+[
+    {
+        "name": "Cybereye",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberoptics",
+            "MultiOptic Mount"
+        ],
+        "container_size": 3,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Anti-Dazzle",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Chyron",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Color Shift",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Dartgun",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 3,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Image Enhance",
+        "type": "cyberware",
+        "price": 500,
+        "modifiers": [
+            {
+                "name": "Perception",
+                "value": 2
+            },
+            {
+                "name": "LipReading",
+                "value": 2
+            },
+            {
+                "name": "ConcealRevealObject",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Low Light / Infrared / UV",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 2,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "MicroOptics",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "MicroVideo",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 2,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radiation Detector",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Targeting Scope",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "TeleOptics",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Virtuality",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cybereye"
+        ],
+        "size_in_container": 1,
+        "paired_container": true,
+        "max_humanity_loss": 2
+    }
+]

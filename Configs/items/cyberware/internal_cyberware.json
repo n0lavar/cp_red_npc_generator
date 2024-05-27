@@ -1,0 +1,154 @@
+[
+    {
+        "name": "AudioVox",
+        "type": "cyberware",
+        "price": 500,
+        "modifiers": [
+            {
+                "name": "Acting",
+                "value": 2
+            },
+            {
+                "name": "PlayInstrument",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Contraceptive Implant",
+        "type": "cyberware",
+        "price": 10,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 0
+    },
+    {
+        "name": "Enhanced Antibodies",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Cybersnake",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Gills",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Grafted Muscle and Bone Lace",
+        "type": "cyberware",
+        "price": 1000,
+        "modifiers": [
+            {
+                "name": "BODY",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Independent Air Supply",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Midnight Lady™ Sexual Implant",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Mr. Studd™ Sexual Implant",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Nasal Filters",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radar / Sonar Implant",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Toxin Binders",
+        "type": "cyberware",
+        "price": 100,
+        "modifiers": [
+            {
+                "name": "ResistTortureDrugs",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Vampyres",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    }
+]

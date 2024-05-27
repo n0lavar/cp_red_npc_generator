@@ -1,0 +1,139 @@
+[
+    {
+        "name": "Cyberaudio Suite",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberaudio"
+        ],
+        "container_size": 3,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Amplified Hearing",
+        "type": "cyberware",
+        "price": 100,
+        "modifiers": [
+            {
+                "name": "Perception",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Audio Recorder",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Bug Detector",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Homing Tracer",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Internal Agent",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Level Damper",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radio Communicator",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radio Scanner / Music Player",
+        "type": "cyberware",
+        "price": 50,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radar Detector",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Scrambler / Descrambler",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Voice Stress Analyzer",
+        "type": "cyberware",
+        "price": 100,
+        "modifiers": [
+            {
+                "name": "HumanPerception",
+                "value": 2
+            },
+            {
+                "name": "Interrogation",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    }
+]

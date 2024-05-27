@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Hidden Holster",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Skin Weave",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Subdermal Armor",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Subdermal Pocket",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    }
+]

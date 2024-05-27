@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import copy
 import json
 import math
@@ -180,15 +181,25 @@ class Item:
     name: str = "Empty item"
     type: ItemType = ItemType.JUNK
     price: int = 0
+    hidden: bool = False
+
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
     quality: Optional[ItemQuality] = field(default=None, compare=False)
 
+    # armor
     armor_class: Optional[int] = field(default=None, compare=False)
 
+    # weapon
     damage: Optional[str] = field(default=None, compare=False)
     rate_of_fire: Optional[int] = field(default=None, compare=False)
     magazine: Optional[int] = field(default=None, compare=False)
     ammo_types: Set[str] = field(default_factory=set, compare=False)
+
+    # cyberware
+    requires_container: List[str] = field(default_factory=list, compare=False)
+    container_size: int = field(default=0, compare=False)
+    size_in_container: int = field(default=0, compare=False)
+    max_humanity_loss: int = field(default=0, compare=False)
 
     def __str__(self):
         value: str = f"{self.name}"
@@ -204,7 +215,7 @@ class Item:
         if self.rate_of_fire:
             info += f"ROF={self.rate_of_fire}, "
         if self.magazine:
-            info += f"Mag=0/{self.magazine}, "
+            info += f"Mag=/{self.magazine} (), "
         if len(info) > 1:
             info = info.removesuffix(", ")
             info += "]"
@@ -296,6 +307,19 @@ class Npc:
                     npc_str += f"{skill_modifier:+}"
                 npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
 
+        def add_item(item: Item, amount: int = 0) -> str:
+            result: str = ""
+            if not item.hidden:
+                result += "\t"
+                if amount != 0:
+                    result += f"[{amount}] "
+                result += f"{item}\n"
+            return result
+
+        npc_str += f"\nCyberware:\n"
+        for item in self.cyberware:
+            npc_str += add_item(item)
+
         npc_str += f"\nArmor:\n"
         if self.armor_head:
             npc_str += f"\tHead: {self.armor_head}\n"
@@ -329,9 +353,6 @@ class Npc:
 
         npc_str += f"\nInventory:\n"
         for item, amount in self.inventory.items():
-            npc_str += "\t"
-            if amount != 0:
-                npc_str += f"[{amount}] "
-            npc_str += f"{item}\n"
+            npc_str += add_item(item, amount)
 
         return npc_str

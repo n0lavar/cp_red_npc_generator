@@ -1,0 +1,55 @@
+[
+    {
+        "name": "Artificial Shoulder Mount",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Borgware"
+        ],
+        "container_size": 2,
+        "size_in_container": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Implanted Linear Frame ß (Beta)",
+        "type": "cyberware",
+        "price": 5000,
+        "requires_container": [
+            "Borgware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Implanted Linear Frame Σ (Sigma)",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Borgware"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "MultiOptic Mount",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Borgware"
+        ],
+        "container_size": 5,
+        "size_in_container": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Sensor Array",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Cyberaudio Suite"
+        ],
+        "container_size": 5,
+        "size_in_container": 0,
+        "max_humanity_loss": 4
+    }
+]

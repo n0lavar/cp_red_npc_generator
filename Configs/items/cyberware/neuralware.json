@@ -1,0 +1,116 @@
+[
+    {
+        "name": "Neural Link",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Neuralware"
+        ],
+        "container_size": 5,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Braindance Recorder",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Chipware Socket",
+        "type": "cyberware",
+        "price": 500,
+        "container_size": 1,
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Interface Plugs",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Kerenzikov",
+        "type": "cyberware",
+        "price": 500,
+        "modifiers": [
+            {
+                "name": "Initiative",
+                "value": 2
+            }
+        ],
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Sandevistan",
+        "type": "cyberware",
+        "price": 500,
+        "modifiers": [
+            {
+                "name": "Initiative",
+                "value": 3
+            }
+        ],
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Chemical Analyzer",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Chipware Socket"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Olfactory Boost",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Chipware Socket"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Pain Editor",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Chipware Socket"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Tactile Boost",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Chipware Socket"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    }
+]
