@@ -9,18 +9,10 @@ from typing import List, Optional, Callable
 from npc import Npc
 from npc_template import NpcTemplate
 from stats import stat_type_from_int, Skill, StatType, SkillType
+from utils import clamp
 
 
-def clamp(n, min_value, max_value):
-    if n < min_value:
-        return min_value
-    elif n > max_value:
-        return max_value
-    else:
-        return n
-
-
-def create_stats(npc: Npc, npc_template: NpcTemplate) -> Npc:
+def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
     def sort_and_modify(nums: List[int], modify_func: Callable[[int], Optional[int]]) -> List[int]:
         indexed_nums = list(enumerate(nums))
         sorted_indexed_nums = sorted(indexed_nums, key=lambda x: x[1], reverse=True)

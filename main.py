@@ -5,8 +5,14 @@ import argparse
 import dataclass_wizard
 import logging
 
-from generate_equipment import create_equipment
-from generate_stats import create_stats
+from generate_ammo import generate_ammo
+from generate_armor import generate_armor
+from generate_cyberware import generate_cyberware
+from generate_drugs import generate_drugs
+from generate_equipment import generate_equipment
+from generate_junk import generate_junk
+from generate_stats import generate_stats_and_skills
+from generate_weapon import generate_weapon
 from npc import Npc
 from npc_template import NpcTemplate, Rank, Role
 
@@ -17,8 +23,14 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"\trole: {npc_template.role}")
 
     npc = Npc()
-    npc = create_stats(npc, npc_template)
-    npc = create_equipment(npc, npc_template)
+    npc = generate_stats_and_skills(npc, npc_template)
+    npc = generate_cyberware(npc, npc_template)
+    npc = generate_armor(npc, npc_template)
+    npc = generate_weapon(npc, npc_template)
+    npc = generate_ammo(npc, npc_template)
+    npc = generate_equipment(npc, npc_template)
+    npc = generate_drugs(npc, npc_template)
+    npc = generate_junk(npc, npc_template)
     return npc
 
 
