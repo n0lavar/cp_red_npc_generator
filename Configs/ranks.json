@@ -12,8 +12,8 @@
                 "standard_deviation": 7
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 100,
+                "standard_deviation": 7
             },
             "ammo": {
                 "mean": 40,
@@ -72,8 +72,8 @@
                 "standard_deviation": 7
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 200,
+                "standard_deviation": 7
             },
             "ammo": {
                 "mean": 80,
@@ -132,8 +132,8 @@
                 "standard_deviation": 7
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 500,
+                "standard_deviation": 7
             },
             "ammo": {
                 "mean": 120,
@@ -192,8 +192,8 @@
                 "standard_deviation": 10
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 1000,
+                "standard_deviation": 10
             },
             "ammo": {
                 "mean": 160,
@@ -252,8 +252,8 @@
                 "standard_deviation": 10
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 2000,
+                "standard_deviation": 20
             },
             "ammo": {
                 "mean": 200,
@@ -312,8 +312,8 @@
                 "standard_deviation": 100
             },
             "cyberware": {
-                "mean": 10000,
-                "standard_deviation": 1
+                "mean": 5000,
+                "standard_deviation": 20
             },
             "ammo": {
                 "mean": 300,
@@ -373,7 +373,7 @@
             },
             "cyberware": {
                 "mean": 10000,
-                "standard_deviation": 1
+                "standard_deviation": 100
             },
             "ammo": {
                 "mean": 500,

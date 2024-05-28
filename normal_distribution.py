@@ -10,5 +10,5 @@ class NormalDistribution:
     mean: float = 0
     standard_deviation: float = 0
 
-    def generate(self):
+    def generate(self) -> float:
         return random.gauss(mu=self.mean, sigma=self.standard_deviation)
