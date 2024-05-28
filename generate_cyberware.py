@@ -44,19 +44,23 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
         logging.debug(left_align(f"Trying to add: {cyberware_name}", offset))
 
         # try to check if this cyberware was already added
-        already_added: bool = False
+        if cyberware_item.max_equipped_items != 0:
+            num_already_added: int = 0
 
-        def check_was_added(inventory_node: InventoryNode) -> bool:
-            nonlocal cyberware_item
-            nonlocal already_added
+            def check_was_added(inventory_node: InventoryNode) -> bool:
+                nonlocal cyberware_item
+                nonlocal num_already_added
 
-            already_added = inventory_node.item == cyberware_item
-            return already_added
+                if inventory_node.item == cyberware_item:
+                    num_already_added += 1
 
-        current_cyberware_node_root.traverse_bfs(check_was_added)
-        if already_added:
-            logging.debug(left_align("Already added, skipping", offset + 1))
-            return None, 0, 0
+                return False
+
+            current_cyberware_node_root.traverse_bfs(check_was_added)
+            if num_already_added >= cyberware_item.max_equipped_items:
+                logging.debug(
+                    left_align(f"Max number of {num_already_added} items already reached, skipping", offset + 1))
+                return None, 0, 0
 
         container_where_added: Optional[Item] = None
 

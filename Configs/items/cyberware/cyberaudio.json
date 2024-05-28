@@ -4,10 +4,11 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "Cyberaudio"
+            "AuditorySystem"
         ],
         "container_capacity": 3,
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -24,6 +25,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -34,6 +36,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -44,6 +47,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -54,6 +58,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -64,6 +69,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -74,6 +80,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -84,6 +91,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -94,6 +102,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -104,6 +113,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -114,6 +124,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -134,6 +145,7 @@
             "Cyberaudio Suite"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     }
 ]

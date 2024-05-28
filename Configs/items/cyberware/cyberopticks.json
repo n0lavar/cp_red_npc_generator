@@ -4,7 +4,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cyberoptics",
+            "EyeSockets",
             "MultiOptic Mount"
         ],
         "container_capacity": 3,
@@ -19,7 +19,8 @@
             "Cybereye"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -30,6 +31,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -40,6 +42,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -74,7 +77,8 @@
             "Cybereye"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -85,7 +89,8 @@
             "Cybereye"
         ],
         "size_in_container": 2,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -96,6 +101,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -106,6 +112,7 @@
             "Cybereye"
         ],
         "size_in_container": 2,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -116,6 +123,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -126,6 +134,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -136,6 +145,7 @@
             "Cybereye"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -146,7 +156,8 @@
             "Cybereye"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     }
 ]

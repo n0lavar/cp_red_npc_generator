@@ -5,7 +5,7 @@ import json
 import random
 import math
 
-RANDOM_GENERATING_NUM_ATTEMPTS: int = 100
+RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
 
 
 def left_align(obj, offset: int = 0, char: str = "\t") -> str:

@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import json
 from typing import Dict, List, Set
 from dataclasses import dataclass, field
 
 from item import ItemQuality, ItemType
 from normal_distribution import NormalDistribution
+from utils import load_data
 
 
 @dataclass
@@ -21,8 +21,7 @@ class Rank:
 
     @staticmethod
     def load():
-        with open("Configs/ranks.json", "r", encoding="utf-8") as f:
-            return json.load(f)
+        return load_data("Configs/ranks.json")
 
 
 @dataclass(frozen=True, eq=True)
@@ -40,8 +39,7 @@ class Role:
 
     @staticmethod
     def load():
-        with open("Configs/roles.json", "r", encoding="utf-8") as f:
-            return json.load(f)
+        return load_data("Configs/roles.json")
 
 
 @dataclass

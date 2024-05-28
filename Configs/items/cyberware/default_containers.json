@@ -11,6 +11,7 @@
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 7
     },
     {
@@ -20,24 +21,27 @@
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 1
     },
     {
-        "name": "Cyberoptics",
+        "name": "EyeSockets",
         "type": "cyberware",
         "requires_container": [
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 2
     },
     {
-        "name": "Cyberaudio",
+        "name": "AuditorySystem",
         "type": "cyberware",
         "requires_container": [
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 1
     },
     {
@@ -47,6 +51,7 @@
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 7
     },
     {
@@ -56,24 +61,27 @@
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 7
     },
     {
-        "name": "Meatarm",
+        "name": "Shoulders",
         "type": "cyberware",
         "requires_container": [
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 2
     },
     {
-        "name": "Meatleg",
+        "name": "Hips",
         "type": "cyberware",
         "requires_container": [
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 2
     },
     {
@@ -83,6 +91,7 @@
             "Meatbody"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "container_capacity": 999
     }
 ]

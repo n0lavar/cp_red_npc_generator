@@ -8,6 +8,7 @@
         ],
         "container_capacity": 2,
         "size_in_container": 1,
+        "max_equipped_items": 2,
         "max_humanity_loss": 4
     },
     {
@@ -18,6 +19,7 @@
             "Borgware"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 4
     },
     {
@@ -28,6 +30,7 @@
             "Borgware"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 4
     },
     {
@@ -39,6 +42,7 @@
         ],
         "container_capacity": 5,
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 4
     },
     {
@@ -50,6 +54,7 @@
         ],
         "container_capacity": 5,
         "size_in_container": 0,
+        "max_equipped_items": 1,
         "max_humanity_loss": 4
     }
 ]

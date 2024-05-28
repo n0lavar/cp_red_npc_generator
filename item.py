@@ -88,6 +88,7 @@ class Item:
     container_capacity: int = field(default=0, compare=False)
     size_in_container: int = field(default=0, compare=False)
     requires_container: List[str] = field(default_factory=list, compare=False)
+    max_equipped_items: int = field(default=0, compare=False)  # 0 means inf
 
     # armor
     armor_class: Optional[int] = field(default=None, compare=False)
@@ -100,6 +101,7 @@ class Item:
 
     # cyberware
     max_humanity_loss: int = field(default=0, compare=False)
+    must_be_paired: bool = field(default=False, compare=False)
 
     def __str__(self):
         value: str = f"{self.name}"

@@ -4,10 +4,11 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Meatleg"
+            "Hips"
         ],
         "container_capacity": 3,
         "size_in_container": 1,
+        "max_equipped_items": 2,
         "max_humanity_loss": 2
     },
     {
@@ -18,7 +19,8 @@
             "Cyberleg"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -29,7 +31,8 @@
             "Cyberleg"
         ],
         "size_in_container": 2,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -40,7 +43,8 @@
             "Cyberleg"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     },
     {
@@ -49,9 +53,10 @@
         "price": 100,
         "requires_container": [
             "Cyberleg",
-            "Meatleg"
+            "Hips"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -62,7 +67,8 @@
             "Cyberleg"
         ],
         "size_in_container": 1,
-        "paired_container": true,
+        "max_equipped_items": 1,
+        "must_be_paired": true,
         "max_humanity_loss": 2
     }
 ]

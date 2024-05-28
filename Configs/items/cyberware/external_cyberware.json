@@ -17,6 +17,7 @@
             "External Cyberware"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {
@@ -27,6 +28,7 @@
             "External Cyberware"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     },
     {

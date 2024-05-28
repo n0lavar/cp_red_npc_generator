@@ -6,7 +6,8 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     },
     {
         "name": "Chemskin",
@@ -15,7 +16,8 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     },
     {
         "name": "EMP Threading",
@@ -24,7 +26,8 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     },
     {
         "name": "Light Tattoo",
@@ -42,7 +45,8 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     },
     {
         "name": "Skinwatch",
@@ -51,7 +55,8 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     },
     {
         "name": "Techhair",
@@ -60,6 +65,7 @@
         "requires_container": [
             "Fashionware"
         ],
-        "size_in_container": 1
+        "size_in_container": 1,
+        "max_equipped_items": 1
     }
 ]
