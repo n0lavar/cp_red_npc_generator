@@ -7,7 +7,7 @@
             "Meatarm",
             "Artificial Shoulder Mount"
         ],
-        "container_size": 4,
+        "container_capacity": 4,
         "size_in_container": 1,
         "max_humanity_loss": 2
     },

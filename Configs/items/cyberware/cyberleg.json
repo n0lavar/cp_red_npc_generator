@@ -6,7 +6,7 @@
         "requires_container": [
             "Meatleg"
         ],
-        "container_size": 3,
+        "container_capacity": 3,
         "size_in_container": 1,
         "max_humanity_loss": 2
     },

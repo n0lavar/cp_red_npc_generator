@@ -6,7 +6,7 @@
         "requires_container": [
             "Neuralware"
         ],
-        "container_size": 5,
+        "container_capacity": 5,
         "size_in_container": 1,
         "max_humanity_loss": 2
     },
@@ -24,7 +24,7 @@
         "name": "Chipware Socket",
         "type": "cyberware",
         "price": 500,
-        "container_size": 1,
+        "container_capacity": 1,
         "requires_container": [
             "Neural Link"
         ],

@@ -3,18 +3,75 @@
 
 import copy
 import math
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Callable
 from dataclasses import dataclass, field
 
 from item import Item, ItemType
 from stats import StatType, Skill
+from utils import left_align
+
+
+@dataclass
+class InventoryNode:
+    item: Item = field(default=Item)
+    children: List = field(default_factory=list)
+
+    def can_add_child(self, child: Item) -> bool:
+        node_capacity: int = self.item.container_capacity
+        node_size: int = sum([x.item.size_in_container for x in self.children])
+        if node_size + child.size_in_container > node_capacity:
+            return False
+
+        if self.item.name not in child.requires_container:
+            return False
+
+        return True
+
+    def add_child(self, child: Item) -> bool:
+        if self.can_add_child(child):
+            new_node = InventoryNode(copy.deepcopy(child))
+            self.children.append(new_node)
+            return True
+        else:
+            return False
+
+    def get_all_items(self) -> List[Item]:
+        items: List[Item] = [self.item]
+        for inventory_node in self.children:
+            items += inventory_node.get_all_items()
+
+        return items
+
+    def traverse_bfs(self, callback: Callable):
+        nodes_to_visit = [self]
+        while len(nodes_to_visit):
+            current_node = nodes_to_visit.pop(0)
+            if callback(current_node):
+                break
+            nodes_to_visit.extend(current_node.children)
+
+    def to_string(self, offset: int) -> str:
+        if self.item.price == 0 and len(self.children) == 0:
+            return ""
+
+        result: str = left_align(f"{self.item}", offset)
+
+        if self.item.container_capacity != 0:
+            result += f" [{sum([x.item.size_in_container for x in self.children])}/{self.item.container_capacity}]"
+
+        result += "\n"
+
+        for child in self.children:
+            result += child.to_string(offset + 1)
+
+        return result
 
 
 @dataclass
 class Npc:
     stats: Dict[StatType, int] = field(default_factory=dict)
     skills: Dict[Skill, int] = field(default_factory=dict)
-    cyberware: List[Item] = field(default_factory=list)
+    cyberware: InventoryNode = field(default=None)
     armor_head: Optional[Item] = field(default=None)
     armor_body: Optional[Item] = field(default=None)
     primary_weapon: Optional[Item] = field(default=None)
@@ -22,7 +79,7 @@ class Npc:
     inventory: Dict[Item, int] = field(default_factory=dict)
 
     def get_all_items(self) -> List[Item]:
-        equipped_items: List[Item] = copy.deepcopy(self.cyberware)
+        equipped_items: List[Item] = copy.deepcopy(self.cyberware.get_all_items())
         equipped_items += [x for x in self.inventory.keys()]
         if self.armor_head:
             equipped_items.append(self.armor_head)
@@ -87,18 +144,9 @@ class Npc:
                     npc_str += f"{skill_modifier:+}"
                 npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
 
-        def add_item(item: Item, amount: int = 0) -> str:
-            result: str = ""
-            if not item.hidden:
-                result += "\t"
-                if amount != 0:
-                    result += f"[{amount}] "
-                result += f"{item}\n"
-            return result
-
         npc_str += f"\nCyberware:\n"
-        for item in self.cyberware:
-            npc_str += add_item(item)
+        for basic_container in self.cyberware.children:
+            npc_str += basic_container.to_string(1)
 
         npc_str += f"\nArmor:\n"
         if self.armor_head:
@@ -133,6 +181,9 @@ class Npc:
 
         npc_str += f"\nInventory:\n"
         for item, amount in self.inventory.items():
-            npc_str += add_item(item, amount)
+            npc_str += "\t"
+            if amount != 0:
+                npc_str += f"[{amount}] "
+            npc_str += f"{item}\n"
 
         return npc_str

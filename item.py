@@ -82,10 +82,12 @@ class Item:
     name: str = "Empty item"
     type: ItemType = ItemType.JUNK
     price: int = 0
-    hidden: bool = False
 
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
     quality: Optional[ItemQuality] = field(default=None, compare=False)
+    container_capacity: int = field(default=0, compare=False)
+    size_in_container: int = field(default=0, compare=False)
+    requires_container: List[str] = field(default_factory=list, compare=False)
 
     # armor
     armor_class: Optional[int] = field(default=None, compare=False)
@@ -97,14 +99,11 @@ class Item:
     ammo_types: Set[str] = field(default_factory=set, compare=False)
 
     # cyberware
-    requires_container: List[str] = field(default_factory=list, compare=False)
-    container_size: int = field(default=0, compare=False)
-    size_in_container: int = field(default=0, compare=False)
     max_humanity_loss: int = field(default=0, compare=False)
 
     def __str__(self):
         value: str = f"{self.name}"
-        info: str = "["
+        info: str = " ["
         if self.price > 0:
             info += f"{self.price}eb ({price_category_from_price(self.price).name.lower()}), "
         if self.armor_class:
@@ -117,9 +116,11 @@ class Item:
             info += f"ROF={self.rate_of_fire}, "
         if self.magazine:
             info += f"Mag=/{self.magazine} (), "
-        if len(info) > 1:
+
+        if len(info) > 2:
             info = info.removesuffix(", ")
             info += "]"
         else:
             info = ""
-        return f"{value} {info}"
+
+        return f"{value}{info}"

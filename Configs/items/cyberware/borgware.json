@@ -6,7 +6,7 @@
         "requires_container": [
             "Borgware"
         ],
-        "container_size": 2,
+        "container_capacity": 2,
         "size_in_container": 1,
         "max_humanity_loss": 4
     },
@@ -37,7 +37,7 @@
         "requires_container": [
             "Borgware"
         ],
-        "container_size": 5,
+        "container_capacity": 5,
         "size_in_container": 1,
         "max_humanity_loss": 4
     },
@@ -48,7 +48,7 @@
         "requires_container": [
             "Cyberaudio Suite"
         ],
-        "container_size": 5,
+        "container_capacity": 5,
         "size_in_container": 0,
         "max_humanity_loss": 4
     }
