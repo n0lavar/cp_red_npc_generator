@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import argparse
+import random
 import dataclass_wizard
 import logging
+import time
 
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
@@ -36,11 +38,21 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
 
 def main(args) -> int:
     logging.basicConfig(level=logging.getLevelName(args.log_level), format="%(message)s")
+
+    seed: int = 0
+    if args.seed != 0:
+        seed = args.seed
+    else:
+        seed = int(time.time())
+    random.seed(seed)
+    
     rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
     npc = create_npc(NpcTemplate(rank_data, role_data))
-    logging.info(f"{str(args.role).title()}, {str(args.rank).title()}")
+
+    logging.info(f"\n{str(args.role).title()}, {str(args.rank).title()}, {seed=}")
     logging.info(f"{npc}")
+
     return 0
 
 
@@ -68,6 +80,11 @@ if __name__ == "__main__":
                              "The default value is `booster`. ",
                         choices=[r["name"] for r in roles],
                         default="booster")
+    parser.add_argument("--seed",
+                        type=int,
+                        help="A number for a random engine. The same seed will always give the same result when "
+                             "the other arguments are unchanged. The default is 0, which means \"use unix epoch\".",
+                        default=0)
     parser.add_argument("--log_level",
                         type=str,
                         help="Logging level. Default is INFO.",
