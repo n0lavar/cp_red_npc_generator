@@ -4,7 +4,7 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "AuditorySystem"
+            "Auditory System"
         ],
         "container_capacity": 3,
         "size_in_container": 1,

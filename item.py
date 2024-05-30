@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import uuid
 from typing import List, Optional, Set
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
@@ -82,6 +83,9 @@ class Item:
     name: str = "Empty item"
     type: ItemType = ItemType.JUNK
     price: int = 0
+    default_hidden: bool = False
+
+    id: str = field(default=str(uuid.uuid4()), compare=False)
 
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
     quality: Optional[ItemQuality] = field(default=None, compare=False)

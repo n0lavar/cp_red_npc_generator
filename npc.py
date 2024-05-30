@@ -27,13 +27,14 @@ class InventoryNode:
 
         return True
 
-    def add_child(self, child: Item) -> bool:
+    def add_child(self, child: Item):  # -> Optional[InventoryNode]:
         if self.can_add_child(child):
+            # new_node = InventoryNode(replace(copy.deepcopy(child), id=str(uuid.uuid4())))
             new_node = InventoryNode(copy.deepcopy(child))
             self.children.append(new_node)
-            return True
+            return new_node
         else:
-            return False
+            return None
 
     def get_all_items(self) -> List[Item]:
         items: List[Item] = [self.item]
@@ -51,12 +52,12 @@ class InventoryNode:
             nodes_to_visit.extend(current_node.children)
 
     def to_string(self, offset: int) -> str:
-        if self.item.price == 0 and len(self.children) == 0:
+        if self.item.default_hidden and len(self.children) == 0:
             return ""
 
         result: str = left_align(f"{self.item}", offset)
 
-        if self.item.container_capacity != 0:
+        if self.item.container_capacity != 0 and self.item.container_capacity < 100:
             result += f" [{sum([x.item.size_in_container for x in self.children])}/{self.item.container_capacity}]"
 
         result += "\n"

@@ -2,11 +2,13 @@
     {
         "name": "Meatbody",
         "type": "cyberware",
+        "default_hidden": true,
         "container_capacity": 999
     },
     {
         "name": "Fashionware",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -17,6 +19,7 @@
     {
         "name": "Neuralware",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -25,8 +28,9 @@
         "container_capacity": 1
     },
     {
-        "name": "EyeSockets",
+        "name": "Eye Sockets",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -35,8 +39,9 @@
         "container_capacity": 2
     },
     {
-        "name": "AuditorySystem",
+        "name": "Auditory System",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -47,6 +52,7 @@
     {
         "name": "Internal Cyberware",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -57,6 +63,7 @@
     {
         "name": "External Cyberware",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -67,6 +74,7 @@
     {
         "name": "Shoulders",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -77,6 +85,7 @@
     {
         "name": "Hips",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],
@@ -87,6 +96,7 @@
     {
         "name": "Borgware",
         "type": "cyberware",
+        "default_hidden": true,
         "requires_container": [
             "Meatbody"
         ],

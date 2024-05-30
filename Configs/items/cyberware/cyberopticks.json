@@ -4,7 +4,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "EyeSockets",
+            "Eye Sockets",
             "MultiOptic Mount"
         ],
         "container_capacity": 3,
