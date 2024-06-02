@@ -11,13 +11,13 @@ from utils import load_data
 
 @dataclass
 class Rank:
-    name: str = "Empty rank"
+    name: str
     min_items_quality: ItemQuality = field(default=ItemQuality.POOR)
     items_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
     items_num_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
     stats_budget: NormalDistribution = field(default_factory=NormalDistribution)
     skills_budget: NormalDistribution = field(default_factory=NormalDistribution)
-    exp_budget: NormalDistribution = field(default_factory=NormalDistribution)
+    pocket_money: NormalDistribution = field(default_factory=NormalDistribution)
 
     @staticmethod
     def load():
@@ -27,7 +27,7 @@ class Rank:
 @dataclass(frozen=True, eq=True)
 class Role:
     name: str
-    
+
     skills: Dict[str, int] = field(default_factory=dict, compare=False)
 
     preferred_cyberware: List[str] = field(default_factory=list, compare=False)

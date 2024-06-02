@@ -1,12 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import logging
 import uuid
 from typing import List, Optional, Set
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
-
-from tomlkit.items import Item
 
 
 class ItemQuality(StrEnum):
@@ -110,12 +109,12 @@ class Item:
     max_humanity_loss: int = field(default=0, compare=False)
     must_be_paired: bool = field(default=False, compare=False)
 
-    def contains_any_tag_from(self, item: Item) -> bool:
+    def contains_any_tag_from(self, item) -> bool:
         for tag1 in self.tags:
             for tag2 in item.tags:
                 if tag1 == tag2:
                     return True
-                
+
         return False
 
     def __str__(self):

@@ -139,6 +139,10 @@
     "link": "DEX",
     "type": "fighting"
   },
+  "Initiative": {
+    "link": "REF",
+    "type": "fighting"
+  },
   "Acting": {
     "link": "COOL",
     "type": "performance"

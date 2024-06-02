@@ -63,4 +63,9 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         num_equipment_items += 1
 
+    pocket_money: int = max(round(npc_template.rank.pocket_money.generate()), 0)
+    if pocket_money > 0:
+        eb_item = Item("Eddies", ItemType.JUNK, 1)
+        npc.inventory[eb_item] = pocket_money
+
     return npc
