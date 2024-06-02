@@ -73,19 +73,14 @@ class Npc:
     stats: Dict[StatType, int] = field(default_factory=dict)
     skills: Dict[Skill, int] = field(default_factory=dict)
     cyberware: InventoryNode = field(default=None)
-    armor_head: Optional[Item] = field(default=None)
-    armor_body: Optional[Item] = field(default=None)
+    armor: Set[Item] = field(default_factory=set)
     weapons: Set[Item] = field(default_factory=set)
     inventory: Dict[Item, int] = field(default_factory=dict)
 
     def get_all_items(self) -> Set[Item]:
         equipped_items: Set[Item] = copy.deepcopy(self.cyberware.get_all_items())
         equipped_items.update([x for x in self.inventory.keys()])
-        if self.armor_head:
-            equipped_items.add(self.armor_head)
-        if self.armor_body:
-            equipped_items.add(self.armor_body)
-
+        equipped_items.update(self.armor)
         equipped_items.update(self.weapons)
 
         return equipped_items
@@ -146,11 +141,10 @@ class Npc:
         for basic_container in self.cyberware.children:
             npc_str += basic_container.to_string(1)
 
-        npc_str += f"\nArmor:\n"
-        if self.armor_head:
-            npc_str += f"\tHead: {self.armor_head}\n"
-        if self.armor_body:
-            npc_str += f"\tBody: {self.armor_body}\n"
+        if len(self.armor):
+            npc_str += f"\nArmor:\n"
+        for armor in self.armor:
+            npc_str += f"\t{armor}\n"
 
         if len(self.weapons):
             npc_str += f"\nWeapons:\n"

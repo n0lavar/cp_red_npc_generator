@@ -6,7 +6,7 @@ import dataclass_wizard
 from typing import List, Optional
 
 from item import Item, ItemType
-from npc import Npc, InventoryNode
+from npc import Npc
 from npc_template import NpcTemplate
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
 

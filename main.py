@@ -27,10 +27,10 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
     npc = Npc()
     npc = generate_stats_and_skills(npc, npc_template)
     npc = generate_cyberware(npc, npc_template)
-    npc = generate_armor(npc, npc_template)
     npc = generate_weapon(npc, npc_template)
     npc = generate_ammo(npc, npc_template)
     npc = generate_equipment(npc, npc_template)
+    npc = generate_armor(npc, npc_template)
     npc = generate_drugs(npc, npc_template)
     npc = generate_junk(npc, npc_template)
     return npc
@@ -45,7 +45,7 @@ def main(args) -> int:
     else:
         seed = int(time.time())
     random.seed(seed)
-    
+
     rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
     npc = create_npc(NpcTemplate(rank_data, role_data))

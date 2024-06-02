@@ -108,9 +108,8 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     total_weapons_budget: int = round(npc_template.rank.items_budget[ItemType.WEAPON].generate())
     logging.debug(f"\t{total_weapons_budget=}")
 
-    # try to buy a primary weapon with 0.8 of total budget
-    primary_weapon_budget: int = round(total_weapons_budget * 0.8)
-    primary_weapon, primary_weapon_money_spent = pick_weapon(primary_weapon_budget,
+    # try to buy a primary weapon with 0.8 of the total budget
+    primary_weapon, primary_weapon_money_spent = pick_weapon(round(total_weapons_budget * 0.8),
                                                              npc_template.role.preferred_primary_weapons,
                                                              npc_template.rank.min_items_quality,
                                                              all_weapons,

@@ -267,5 +267,12 @@
         "name": "Virtuality Goggles",
         "type": "equipment",
         "price": 100
+    },
+    {
+        "name": "Bulletproof Shield",
+        "type": "equipment",
+        "price": 100,
+        "tags": ["Shield"],
+        "armor_class": 10
     }
 ]

@@ -16,7 +16,7 @@
         "name": "Big Knucks",
         "type": "cyberware",
         "price": 100,
-        "tags": ["MediumMeleeWeapon"],
+        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -220,7 +220,7 @@
         "name": "Rippers",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumMeleeWeapon"],
+        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -235,7 +235,7 @@
         "name": "Scratchers",
         "type": "cyberware",
         "price": 100,
-        "tags": ["LightMeleeWeapon"],
+        "tags": ["LightMeleeWeapon", "MeleeWeapon"],
         "damage": "1d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -262,7 +262,7 @@
         "name": "Slice ‘N Dice",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumMeleeWeapon"],
+        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -356,7 +356,7 @@
         "name": "Wolvers",
         "type": "cyberware",
         "price": 500,
-        "tags": ["HeavyMeleeWeapon"],
+        "tags": ["HeavyMeleeWeapon", "MeleeWeapon"],
         "damage": "3d6",
         "rate_of_fire": 2,
         "requires_container": [
