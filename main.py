@@ -22,7 +22,7 @@ from npc_template import NpcTemplate, Rank, Role
 def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"Input:")
     logging.debug(f"\trank: {npc_template.rank.name}")
-    logging.debug(f"\trole: {npc_template.role}")
+    logging.debug(f"\trole: {npc_template.role.name}")
 
     npc = Npc()
     npc = generate_stats_and_skills(npc, npc_template)

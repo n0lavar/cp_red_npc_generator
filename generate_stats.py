@@ -113,6 +113,12 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating skills...")
     skills_data = load_data("Configs/skills.json")
 
+    # add all skills with level 0
+    for skill_name, skill_info in skills_data["skills"].items():
+        skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
+        npc.skills.setdefault(skill, 0)
+
+    # increase values for role-specific skills
     role_streetrat_skills = skills_data["streetrat_skills"][npc_template.role.name]
     role_streetrat_skills_line: List[int] = [x["lvl"] for x in role_streetrat_skills]
     role_streetrat_skills_distributed = distribute_points(role_streetrat_skills_line,
@@ -126,7 +132,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         skill_name = skill_pair["skill"]
         skill_info = skills_data["skills"][skill_name]
         skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
-        npc.skills[skill] = role_streetrat_skills_distributed[i]
+        npc.skills[skill] += role_streetrat_skills_distributed[i]
         skills_sum += role_streetrat_skills_distributed[i]
 
     logging.debug(f"\t{skills_sum=}")

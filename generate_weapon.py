@@ -92,7 +92,8 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
     else:
         boxing_dmg = "4d6"
 
-    martial_arts_skill = next((s for s in npc.skills if s.name == "MartialArts"), None)
+    martial_arts_skill = next(
+        (skill for skill, level in npc.skills.items() if skill.name == "MartialArts" and level > 0), None)
     if martial_arts_skill:
         return Item(name="Martial Arts", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=2)
     else:
