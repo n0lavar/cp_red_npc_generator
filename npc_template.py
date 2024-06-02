@@ -27,6 +27,8 @@ class Rank:
 @dataclass(frozen=True, eq=True)
 class Role:
     name: str
+    
+    skills: Dict[str, int] = field(default_factory=dict, compare=False)
 
     preferred_cyberware: List[str] = field(default_factory=list, compare=False)
     preferred_primary_weapons: Set[str] = field(default_factory=set, compare=False)
