@@ -4,12 +4,13 @@
 import functools
 import json
 import logging
+import random
 from typing import List, Optional, Callable
 
 from npc import Npc
 from npc_template import NpcTemplate
 from stats import stat_type_from_int, Skill, StatType, SkillType
-from utils import clamp
+from utils import clamp, load_data
 
 
 def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
@@ -56,6 +57,8 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
                           min_value: int,
                           max_value: int,
                           name: str) -> List[int]:
+        nonlocal clamp_error
+
         logging.debug(f"\t{name}_{weights=}")
         logging.debug(f"\t{name}_{num_points=}")
         logging.debug(f"\t{name}_{min_value=}")
@@ -74,7 +77,6 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         logging.debug(f"\t{name}_{mean_rounded=}")
 
         mean_clamped: List[int] = list()
-        nonlocal clamp_error
         clamp_error = 0
         for mean in mean_rounded:
             clamped = clamp(mean, 2, 8)
@@ -89,50 +91,46 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         return mean_clamped_fixed
 
     logging.debug("\nGenerating stats...")
-    with open("Configs/stats.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
+    stats_data = load_data("Configs/stats.json")
 
-        streetrat_table: List[List[int]] = data["streetrat_stats"][npc_template.role.name]
-        columns: List[List[int]] = list(zip(*streetrat_table))
+    streetrat_stats_table: List[List[int]] = stats_data["streetrat_stats"][npc_template.role.name]
+    streetrat_chosen_table: List[int] = random.choice(streetrat_stats_table)
+    stats_mean_clamped_distributed = distribute_points(streetrat_chosen_table,
+                                                       npc_template.rank.stats_budget.generate(),
+                                                       2,
+                                                       8,
+                                                       "stats")
 
-        stats_mean_line: List[float] = [sum(column) / len(column) for column in columns]
-        stats_mean_clamped_distributed = distribute_points(stats_mean_line,
-                                                           npc_template.rank.stats_budget.generate(),
-                                                           2,
-                                                           8,
-                                                           "stats")
+    stats_sum: int = 0
+    for i, stat in enumerate(stats_mean_clamped_distributed):
+        npc.stats[stat_type_from_int(i)] = stat
+        stats_sum += stat
 
-        stats_sum: int = 0
-        for i, stat in enumerate(stats_mean_clamped_distributed):
-            npc.stats[stat_type_from_int(i)] = stat
-            stats_sum += stat
-
-        logging.debug(f"\t{stats_sum=}")
-        logging.debug(f"\t{npc_template.rank.stats_budget.mean=}")
-        logging.debug(f"\t{npc_template.rank.stats_budget.standard_deviation=}")
+    logging.debug(f"\t{stats_sum=}")
+    logging.debug(f"\t{npc_template.rank.stats_budget.mean=}")
+    logging.debug(f"\t{npc_template.rank.stats_budget.standard_deviation=}")
 
     logging.debug("\nGenerating skills...")
-    with open("Configs/skills.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
+    skills_data = load_data("Configs/skills.json")
 
-        role_streetrat_skills = data["streetrat_skills"][npc_template.role.name]
-        role_streetrat_skills_line: List[int] = [x["lvl"] for x in role_streetrat_skills]
-        role_streetrat_skills_distributed = distribute_points(role_streetrat_skills_line,
-                                                              npc_template.rank.skills_budget.generate(),
-                                                              2,
-                                                              10,
-                                                              "skills")
+    role_streetrat_skills = skills_data["streetrat_skills"][npc_template.role.name]
+    role_streetrat_skills_line: List[int] = [x["lvl"] for x in role_streetrat_skills]
+    role_streetrat_skills_distributed = distribute_points(role_streetrat_skills_line,
+                                                          npc_template.rank.skills_budget.generate(),
+                                                          2,
+                                                          10,
+                                                          "skills")
 
-        skills_sum: int = 0
-        for i, skill_pair in enumerate(role_streetrat_skills):
-            skill_name = skill_pair["skill"]
-            skill_info = data["skills"][skill_name]
-            skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
-            npc.skills[skill] = role_streetrat_skills_distributed[i]
-            skills_sum += role_streetrat_skills_distributed[i]
+    skills_sum: int = 0
+    for i, skill_pair in enumerate(role_streetrat_skills):
+        skill_name = skill_pair["skill"]
+        skill_info = skills_data["skills"][skill_name]
+        skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
+        npc.skills[skill] = role_streetrat_skills_distributed[i]
+        skills_sum += role_streetrat_skills_distributed[i]
 
-        logging.debug(f"\t{skills_sum=}")
-        logging.debug(f"\t{npc_template.rank.skills_budget.mean=}")
-        logging.debug(f"\t{npc_template.rank.skills_budget.standard_deviation=}")
+    logging.debug(f"\t{skills_sum=}")
+    logging.debug(f"\t{npc_template.rank.skills_budget.mean=}")
+    logging.debug(f"\t{npc_template.rank.skills_budget.standard_deviation=}")
 
     return npc
