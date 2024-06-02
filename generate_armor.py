@@ -4,10 +4,10 @@
 import logging
 import uuid
 import dataclass_wizard
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict
 from dataclasses import replace
 
-from item import Item, ItemType
+from item import Item, ItemType, Modifier
 from npc import Npc
 from npc_template import NpcTemplate
 from utils import load_data
@@ -70,7 +70,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if body_armor:
             logging.debug(f"\tAdded body armor: {body_armor}")
-            npc.armor.add(replace(body_armor, name=f"Body: {body_armor.name}"))
+            npc.armor.add(replace(body_armor, name=f"Body: {body_armor.name}", id=str(uuid.uuid4())))
         else:
             logging.debug(f"\tFailed to add a body armor")
 
@@ -81,14 +81,35 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if head_armor:
             logging.debug(f"\tAdded head armor: {head_armor}")
-            npc.armor.add(replace(head_armor, name=f"Head: {head_armor.name}"))
+            npc.armor.add(replace(head_armor, name=f"Head: {head_armor.name}", id=str(uuid.uuid4())))
         else:
             logging.debug(f"\tFailed to add a head armor")
 
-        # if there is a shield (in cyberware or equipment), add it as well
-        shields = [item for item in npc.get_all_items() if "Shield" in item.tags]
-        for shield in shields:
-            logging.debug(f"\tAdded shield: {shield}")
-            npc.armor.add(shield)
+    if len(npc.armor):
+        # erase all the negative modifiers
+        all_armor_negative_modifiers: Dict[str, int] = dict()
+        for armor in npc.armor:
+            for modifier in armor.modifiers:
+                if modifier.value < 0:
+                    all_armor_negative_modifiers.setdefault(modifier.name, 0)
+                    if modifier.value < all_armor_negative_modifiers[modifier.name]:
+                        all_armor_negative_modifiers[modifier.name] = modifier.value
+
+            npc.armor.discard(armor)
+            npc.armor.add(replace(armor, modifiers=[x for x in armor.modifiers if x.value > 0]))
+
+        # apply all the negative modifiers only once
+        armor_with_negative_modifiers: Item = next(iter(npc.armor))
+        npc.armor.discard(armor_with_negative_modifiers)
+        npc.armor.add(replace(armor_with_negative_modifiers,
+                              modifiers=armor_with_negative_modifiers.modifiers
+                                        + [Modifier(name, value) for name, value in
+                                           all_armor_negative_modifiers.items()]))
+
+    # if there is a shield (in cyberware or equipment), add it as well
+    shields = [item for item in npc.get_all_items() if "Shield" in item.tags]
+    for shield in shields:
+        logging.debug(f"\tAdded shield: {shield}")
+        npc.armor.add(shield)
 
     return npc

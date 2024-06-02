@@ -3,10 +3,10 @@
 
 import copy
 import math
-from typing import Dict, List, Optional, Tuple, Callable, Set
+from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
 
-from item import Item, ItemType
+from item import Item
 from stats import StatType, Skill
 from utils import left_align
 
@@ -36,10 +36,10 @@ class InventoryNode:
         else:
             return None
 
-    def get_all_items(self) -> Set[Item]:
-        items: Set[Item] = {self.item}
+    def get_all_items(self) -> List[Item]:
+        items: List[Item] = [self.item]
         for inventory_node in self.children:
-            items.update(inventory_node.get_all_items())
+            items += inventory_node.get_all_items()
 
         return items
 
@@ -77,16 +77,16 @@ class Npc:
     weapons: Set[Item] = field(default_factory=set)
     inventory: Dict[Item, int] = field(default_factory=dict)
 
-    def get_all_items(self) -> Set[Item]:
-        equipped_items: Set[Item] = copy.deepcopy(self.cyberware.get_all_items())
-        equipped_items.update([x for x in self.inventory.keys()])
-        equipped_items.update(self.armor)
-        equipped_items.update(self.weapons)
+    def get_all_items(self) -> List[Item]:
+        equipped_items: List[Item] = copy.deepcopy(self.cyberware.get_all_items())
+        equipped_items += [x for x in self.inventory.keys()]
+        equipped_items += self.armor
+        equipped_items += self.weapons
 
         return equipped_items
 
     def get_stat_or_skill_value(self, name: str) -> Tuple[int, int]:
-        equipped_items: Set[Item] = self.get_all_items()
+        equipped_items: List[Item] = self.get_all_items()
 
         if name.lower() in StatType and StatType(name.lower()) in self.stats:
             value = self.stats[StatType(name.lower())]
