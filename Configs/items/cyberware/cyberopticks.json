@@ -108,6 +108,7 @@
         "name": "MicroVideo",
         "type": "cyberware",
         "price": 500,
+        "tags": ["VideoCamera"],
         "requires_container": [
             "Cybereye"
         ],
@@ -141,6 +142,7 @@
         "name": "TeleOptics",
         "type": "cyberware",
         "price": 500,
+        "tags": ["Telescope"],
         "requires_container": [
             "Cybereye"
         ],

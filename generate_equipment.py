@@ -3,10 +3,10 @@
 
 import logging
 import dataclass_wizard
-from typing import List
+from typing import List, Optional
 
 from item import Item, ItemType
-from npc import Npc
+from npc import Npc, InventoryNode
 from npc_template import NpcTemplate
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
 
@@ -38,6 +38,16 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if equipment_item in npc.inventory:
             logging.debug(f"\t\tFailed, already has {equipment_item})")
+            continue
+
+        similar_cyberware: Optional[Item] = None
+        for cyberware in npc.cyberware:
+            if equipment_item.contains_any_tag_from(cyberware.item):
+                similar_cyberware = cyberware.item
+                break
+
+        if similar_cyberware:
+            logging.debug(f"\t\tFailed, similar cyberware found: {similar_cyberware})")
             continue
 
         if equipment_item.price > equipment_budget:

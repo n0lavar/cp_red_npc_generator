@@ -33,6 +33,7 @@
         "name": "Audio Recorder",
         "type": "cyberware",
         "price": 100,
+        "tags": ["AudioRecorder"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -45,6 +46,7 @@
         "name": "Bug Detector",
         "type": "cyberware",
         "price": 100,
+        "tags": ["BugDetector"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -57,6 +59,7 @@
         "name": "Homing Tracer",
         "type": "cyberware",
         "price": 100,
+        "tags": ["HomingTracer"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -69,6 +72,7 @@
         "name": "Internal Agent",
         "type": "cyberware",
         "price": 100,
+        "tags": ["Agent"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -81,6 +85,7 @@
         "name": "Level Damper",
         "type": "cyberware",
         "price": 100,
+        "tags": ["EarsProtection"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -93,6 +98,7 @@
         "name": "Radio Communicator",
         "type": "cyberware",
         "price": 100,
+        "tags": ["RadioCommunicator"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -105,6 +111,7 @@
         "name": "Radio Scanner / Music Player",
         "type": "cyberware",
         "price": 50,
+        "tags": ["RadioScannerMusicPlayer"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -117,6 +124,7 @@
         "name": "Radar Detector",
         "type": "cyberware",
         "price": 500,
+        "tags": ["RadarDetector"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"
@@ -129,6 +137,7 @@
         "name": "Scrambler / Descrambler",
         "type": "cyberware",
         "price": 100,
+        "tags": ["ScramblerDescrambler"],
         "requires_container": [
             "Cyberaudio Suite",
             "Sensor Array"

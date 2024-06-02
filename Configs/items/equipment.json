@@ -2,6 +2,7 @@
     {
         "name": "Agent",
         "type": "equipment",
+        "tags": ["Agent"],
         "modifiers": [
             {
                 "name": "LibrarySearch",
@@ -18,22 +19,26 @@
     {
         "name": "Anti-Smog Breathing Mask",
         "type": "equipment",
-        "price": 20
+        "price": 20,
+        "tags": ["AirProtection"]
     },
     {
         "name": "Audio Recorder",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": ["AudioRecorder"]
     },
     {
         "name": "Auto Level Dampening Ear Protectors",
         "type": "equipment",
-        "price": 1000
+        "price": 1000,
+        "tags": ["EarsProtection"]
     },
     {
         "name": "Binoculars",
         "type": "equipment",
-        "price": 50
+        "price": 50,
+        "tags": ["Telescope"]
     },
     {
         "name": "Braindance Viewer",
@@ -43,12 +48,14 @@
     {
         "name": "Bug Detector",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["BugDetector"]
     },
     {
         "name": "Carryall",
         "type": "equipment",
-        "price": 20
+        "price": 20,
+        "tags": ["Bag"]
     },
     {
         "name": "Chemical Analyzer",
@@ -63,7 +70,8 @@
     {
         "name": "Cyberdeck",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["Cyberdeck"]
     },
     {
         "name": "Disposable Cell Phone",
@@ -98,12 +106,14 @@
     {
         "name": "Homing Tracer",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["HomingTracer"]
     },
     {
         "name": "Inflatable Bed & Sleep-bag",
         "type": "equipment",
-        "price": 20
+        "price": 20,
+        "tags": ["SleepingPlace"]
     },
     {
         "name": "Lock Picking Set",
@@ -113,6 +123,8 @@
     {
         "name": "Medscanner",
         "type": "equipment",
+        "price": 1000,
+        "tags": ["Medscanner"],
         "modifiers": [
             {
                 "name": "FirstAid",
@@ -122,13 +134,13 @@
                 "name": "Paramedic",
                 "value": 2
             }
-        ],
-        "price": 1000
+        ]
     },
     {
         "name": "Medtech Bag",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": ["Bag"]
     },
     {
         "name": "Personal CarePak",
@@ -143,7 +155,8 @@
     {
         "name": "Radar Detector",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["RadarDetector"]
     },
     {
         "name": "Radiation Suit",
@@ -153,12 +166,14 @@
     {
         "name": "Radio Communicator",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": ["RadioCommunicator"]
     },
     {
         "name": "Radio Scanner / Music Player",
         "type": "equipment",
-        "price": 50
+        "price": 50,
+        "tags": ["RadioScannerMusicPlayer"]
     },
     {
         "name": "Rope (60m/yd)",
@@ -168,7 +183,8 @@
     {
         "name": "Scrambler / Descrambler",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["ScramblerDescrambler"]
     },
     {
         "name": "Smart Glasses",
@@ -178,11 +194,14 @@
     {
         "name": "Tech Bag",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": ["Bag"]
     },
     {
         "name": "Techscanner",
         "type": "equipment",
+        "price": 1000,
+        "tags": ["Techscanner"],
         "modifiers": [
             {
                 "name": "AirVehicleTech",
@@ -224,23 +243,25 @@
                 "name": "Weaponstech",
                 "value": 2
             }
-        ],
-        "price": 1000
+        ]
     },
     {
         "name": "Techtool",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": ["Techtool"]
     },
     {
         "name": "Tent and Camping Equipment",
         "type": "equipment",
-        "price": 50
+        "price": 50,
+        "tags": ["SleepingPlace"]
     },
     {
         "name": "Video Camera",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": ["VideoCamera"]
     },
     {
         "name": "Virtuality Goggles",

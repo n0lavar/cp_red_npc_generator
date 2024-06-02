@@ -51,6 +51,7 @@
         "name": "Talon Foot",
         "type": "cyberware",
         "price": 100,
+        "tags": ["LightMeleeWeapon"],
         "requires_container": [
             "Cyberleg",
             "Hips"

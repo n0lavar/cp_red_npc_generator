@@ -25,12 +25,9 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
             required_ammo_types[required_ammo_type] = magazine_size
 
     add_required_ammo_type("Grenades", 1)
-    if npc.primary_weapon:
-        for ammo_type in npc.primary_weapon.ammo_types:
-            add_required_ammo_type(ammo_type, npc.primary_weapon.magazine)
-    if npc.secondary_weapon:
-        for ammo_type in npc.secondary_weapon.ammo_types:
-            add_required_ammo_type(ammo_type, npc.secondary_weapon.magazine)
+    for weapon in npc.weapons:
+        for ammo_type in weapon.ammo_types:
+            add_required_ammo_type(ammo_type, weapon.magazine)
 
     logging.debug(f"\t{required_ammo_types=}")
 

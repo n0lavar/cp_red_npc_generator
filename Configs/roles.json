@@ -10,6 +10,8 @@
             "Chemskin",
             "EMP Threading",
             "Light Tattoo",
+            "Popup Melee Weapon (Medium)",
+            "Popup Ranged Weapon (Heavy Pistol)",
             "Voice Stress Analyzer",
             "Shift Tacts",
             "Skinwatch",
@@ -20,12 +22,12 @@
             "Skin Weave"
         ],
         "preferred_primary_weapons": [
-            "Heavy Pistol",
-            "Medium Pistol",
-            "Very Heavy Pistol"
+            "HeavyPistol",
+            "MediumPistol",
+            "VeryHeavyPistol"
         ],
         "preferred_secondary_weapons": [
-            "Medium Melee Weapon"
+            "MediumMeleeWeapon"
         ],
         "preferred_ammo": [
             "Basic",
@@ -58,6 +60,9 @@
             "Biomonitor",
             "Sandevistan",
             "Pain Editor",
+            "Popup Ranged Weapon (SMG)",
+            "Popup Grenade Launcher",
+            "Big Knucks",
             "Anti-Dazzle",
             "Low Light / Infrared / UV",
             "Targeting Scope",
@@ -69,19 +74,18 @@
             "Independent Air Supply",
             "Radar / Sonar Implant",
             "Toxin Binders",
-            "Subdermal Armor",
             "Jump Booster"
         ],
         "preferred_primary_weapons": [
             "Shotgun",
-            "Assault Rifle",
-            "Sniper Rifle",
+            "AssaultRifle",
+            "SniperRifle",
             "SMG",
-            "Heavy SMG"
+            "HeavySMG"
         ],
         "preferred_secondary_weapons": [
-            "Medium Melee Weapon",
-            "Heavy Melee Weapon"
+            "MediumMeleeWeapon",
+            "HeavyMeleeWeapon"
         ],
         "preferred_ammo": [
             "Basic",
@@ -92,7 +96,7 @@
             "Smoke",
             "Teargas"
         ],
-        "preferred_armor_class": 11,
+        "preferred_armor_class": 18,
         "preferred_equipment": [
             "Radio Communicator",
             "Auto Level Dampening Ear Protectors",
@@ -122,6 +126,7 @@
             "Biomonitor",
             "Kerenzikov",
             "Nasal Filters",
+            "Popup Ranged Weapon (SMG)",
             "Subdermal Armor",
             "Slice ‘N Dice",
             "Techscanner",
@@ -129,11 +134,11 @@
             "Chipware Socket"
         ],
         "preferred_primary_weapons": [
-            "Medium Pistol",
+            "MediumPistol",
             "SMG"
         ],
         "preferred_secondary_weapons": [
-            "Light Melee Weapon"
+            "LightMeleeWeapon"
         ],
         "preferred_ammo": [
             "Basic",
@@ -171,6 +176,7 @@
             "Interface Plugs",
             "Grafted Muscle and Bone Lace",
             "MicroOptics",
+            "Popup Ranged Weapon (Medium Pistol)",
             "Grapple Hand",
             "Kerenzikov",
             "Chemical Analyzer",
@@ -179,16 +185,16 @@
             "Radiation Detector",
             "Low Light / Infrared / UV",
             "Level Damper",
-            "Scrambler Descrambler",
+            "Scrambler / Descrambler",
             "Nasal Filters",
             "Subdermal Armor",
             "Grip Foot"
         ],
         "preferred_primary_weapons": [
             "Shotgun",
-            "Assault Rifle",
-            "Sniper Rifle",
-            "Medium Pistol"
+            "AssaultRifle",
+            "SniperRifle",
+            "MediumPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -233,15 +239,16 @@
             "Interface Plugs",
             "Kerenzikov",
             "MicroOptics",
+            "Popup Ranged Weapon (Medium Pistol)",
             "Radio Communicator",
             "Independent Air Supply",
             "Tool Hand"
         ],
         "preferred_primary_weapons": [
             "Shotgun",
-            "Assault Rifle",
-            "Sniper Rifle",
-            "Medium Pistol"
+            "AssaultRifle",
+            "SniperRifle",
+            "MediumPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -287,6 +294,7 @@
             "Light Tattoo",
             "Shift Tacts",
             "Skinwatch",
+            "Popup Ranged Weapon (Medium Pistol)",
             "Techhair",
             "Braindance Recorder",
             "Chipware Socket",
@@ -300,7 +308,7 @@
             "Subdermal Armor"
         ],
         "preferred_primary_weapons": [
-            "Medium Pistol",
+            "MediumPistol",
             "SMG"
         ],
         "preferred_secondary_weapons": [],
@@ -314,6 +322,7 @@
         "preferred_equipment": [
             "Agent",
             "Video Camera",
+            "Shoulder Cam",
             "Computer",
             "Disposable Cell Phone",
             "Airhypo",
@@ -342,6 +351,7 @@
             "Biomonitor",
             "Chemskin",
             "Voice Stress Analyzer",
+            "Popup Ranged Weapon (Medium Pistol)",
             "EMP Threading",
             "Light Tattoo",
             "Shift Tacts",
@@ -353,9 +363,9 @@
             "Subdermal Armor"
         ],
         "preferred_primary_weapons": [
-            "Assault Rifle",
-            "Sniper Rifle",
-            "Medium Pistol"
+            "AssaultRifle",
+            "SniperRifle",
+            "MediumPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -395,12 +405,15 @@
             "Biomonitor",
             "Anti-Dazzle",
             "Chemical Analyzer",
+            "Popup Ranged Weapon (Very Heavy Pistol)",
             "Olfactory Boost",
             "Tactile Boost",
             "Targeting Scope",
+            "Popup Shield",
             "Bug Detector",
             "Level Damper",
             "Radio Communicator",
+            "Popup Grenade Launcher",
             "Enhanced Antibodies",
             "Independent Air Supply",
             "Radar / Sonar Implant",
@@ -409,9 +422,9 @@
             "Jump Booster"
         ],
         "preferred_primary_weapons": [
-            "Heavy Pistol",
-            "Medium Pistol",
-            "Very Heavy Pistol"
+            "HeavyPistol",
+            "MediumPistol",
+            "VeryHeavyPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -456,6 +469,8 @@
             "Chemskin",
             "Audio Recorder",
             "EMP Threading",
+            "Popup Ranged Weapon (Medium Pistol)",
+            "Popup Ranged Weapon (Heavy Pistol)",
             "Light Tattoo",
             "Shift Tacts",
             "Skinwatch",
@@ -463,9 +478,9 @@
             "Nasal Filters"
         ],
         "preferred_primary_weapons": [
-            "Heavy Pistol",
-            "Medium Pistol",
-            "Very Heavy Pistol"
+            "HeavyPistol",
+            "MediumPistol",
+            "VeryHeavyPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -508,18 +523,22 @@
             "Radio Communicator",
             "Enhanced Antibodies",
             "Nasal Filters",
+            "Popup Ranged Weapon (Heavy Pistol)",
+            "Popup Ranged Weapon (Very Heavy Pistol)",
+            "Popup Melee Weapon (Medium)",
+            "Popup Melee Weapon (Heavy)",
             "Toxin Binders",
             "Grapple Hand",
             "Jump Booster"
         ],
         "preferred_primary_weapons": [
-            "Heavy Pistol",
-            "Medium Pistol",
-            "Very Heavy Pistol"
+            "HeavyPistol",
+            "MediumPistol",
+            "VeryHeavyPistol"
         ],
         "preferred_secondary_weapons": [
-            "Medium Melee Weapon",
-            "Heavy Melee Weapon"
+            "MediumMeleeWeapon",
+            "HeavyMeleeWeapon"
         ],
         "preferred_ammo": [
             "Basic",
@@ -565,7 +584,7 @@
             "Interface Plugs"
         ],
         "preferred_primary_weapons": [
-            "Medium Pistol"
+            "MediumPistol"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -593,6 +612,9 @@
             "Biomonitor",
             "Sandevistan",
             "Pain Editor",
+            "Popup Ranged Weapon (SMG)",
+            "Popup Grenade Launcher",
+            "Big Knucks",
             "Anti-Dazzle",
             "Low Light / Infrared / UV",
             "Targeting Scope",
@@ -604,19 +626,18 @@
             "Independent Air Supply",
             "Radar / Sonar Implant",
             "Toxin Binders",
-            "Subdermal Armor",
             "Jump Booster"
         ],
         "preferred_primary_weapons": [
             "Shotgun",
-            "Assault Rifle",
-            "Sniper Rifle",
+            "AssaultRifle",
+            "SniperRifle",
             "SMG",
-            "Heavy SMG"
+            "HeavySMG"
         ],
         "preferred_secondary_weapons": [
-            "Medium Melee Weapon",
-            "Heavy Melee Weapon"
+            "MediumMeleeWeapon",
+            "HeavyMeleeWeapon"
         ],
         "preferred_ammo": [
             "Basic",

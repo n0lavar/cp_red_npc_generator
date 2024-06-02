@@ -84,6 +84,7 @@
         "name": "Independent Air Supply",
         "type": "cyberware",
         "price": 1000,
+        "tags": ["AirProtection"],
         "requires_container": [
             "Internal Cyberware"
         ],
@@ -117,6 +118,7 @@
         "name": "Nasal Filters",
         "type": "cyberware",
         "price": 100,
+        "tags": ["AirProtection"],
         "requires_container": [
             "Internal Cyberware"
         ],

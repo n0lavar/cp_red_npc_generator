@@ -3,24 +3,28 @@
         "name": "Leathers",
         "type": "armor",
         "price": 20,
+        "tags": ["Armor"],
         "armor_class": 4
     },
     {
         "name": "Kevlar",
         "type": "armor",
         "price": 50,
+        "tags": ["Armor"],
         "armor_class": 7
     },
     {
         "name": "Light Armorjack",
         "type": "armor",
         "price": 100,
+        "tags": ["Armor"],
         "armor_class": 11
     },
     {
         "name": "Medium Armorjack",
         "type": "armor",
         "price": 100,
+        "tags": ["Armor"],
         "armor_class": 12,
         "modifiers": [
             {
@@ -32,7 +36,7 @@
                 "value": -2
             },
             {
-                "name": "MOV",
+                "name": "MOVE",
                 "value": -2
             }
         ]
@@ -41,6 +45,7 @@
         "name": "Heavy Armorjack",
         "type": "armor",
         "price": 500,
+        "tags": ["Armor"],
         "armor_class": 13,
         "modifiers": [
             {
@@ -52,7 +57,7 @@
                 "value": -2
             },
             {
-                "name": "MOV",
+                "name": "MOVE",
                 "value": -2
             }
         ]
@@ -61,6 +66,7 @@
         "name": "Flak",
         "type": "armor",
         "price": 500,
+        "tags": ["Armor"],
         "armor_class": 15,
         "modifiers": [
             {
@@ -72,7 +78,7 @@
                 "value": -4
             },
             {
-                "name": "MOV",
+                "name": "MOVE",
                 "value": -4
             }
         ]
@@ -81,6 +87,7 @@
         "name": "Metalgear",
         "type": "armor",
         "price": 5000,
+        "tags": ["Armor"],
         "armor_class": 18,
         "modifiers": [
             {
@@ -92,7 +99,7 @@
                 "value": -4
             },
             {
-                "name": "MOV",
+                "name": "MOVE",
                 "value": -4
             }
         ]

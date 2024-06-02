@@ -65,44 +65,27 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
         # try to check if this cyberware was already added
         if cyberware_item.max_equipped_items != 0:
             num_already_added: int = 0
-
-            def check_was_added(inventory_node: InventoryNode) -> bool:
-                nonlocal cyberware_item
-                nonlocal num_already_added
-
-                if inventory_node.item == cyberware_item:
+            for cyberware in current_cyberware_node_root:
+                if cyberware.item == cyberware_item:
                     num_already_added += 1
 
-                return False
-
-            current_cyberware_node_root.traverse_bfs(check_was_added)
             if num_already_added >= cyberware_item.max_equipped_items:
                 logging.debug(
                     left_align(f"Max number of {num_already_added} items already reached, skipping", offset))
                 return None
-
-        container_where_added: Optional[InventoryNode] = None
-
-        def try_add_to_inventory_node(inventory_node: InventoryNode) -> bool:
-            nonlocal container_where_added
-
-            if first_pairing_container:
-                if first_pairing_container.id == inventory_node.item.id:
-                    return False
-
-            new_node: Optional[InventoryNode] = inventory_node.add_child(cyberware_item)
-            if not new_node:
-                return False
-
-            container_where_added = inventory_node
-            return True
 
         def try_buy_cyberware(cyberware_to_buy: Item,
                               root: InventoryNode,
                               purchase_money_budget: int,
                               purchase_humanity_budget: int) -> Optional[PickingResult]:
             nonlocal offset
-            nonlocal container_where_added
+
+            for cyberware in root:
+                if cyberware.item.contains_any_tag_from(cyberware_to_buy):
+                    logging.debug(left_align(
+                        f"{cyberware.item} already contains tag from this cyberware",
+                        offset))
+                    return None
 
             if cyberware_to_buy.price > purchase_money_budget:
                 logging.debug(left_align(
@@ -120,8 +103,19 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
                 return None
 
-            container_where_added = None
-            root.traverse_bfs(try_add_to_inventory_node)
+            container_where_added: Optional[InventoryNode] = None
+            for cyberware in root:
+                if first_pairing_container:
+                    if first_pairing_container.id == cyberware.item.id:
+                        continue
+
+                new_node: Optional[InventoryNode] = cyberware.add_child(cyberware_item)
+                if not new_node:
+                    continue
+
+                container_where_added = cyberware
+                break
+
             if not container_where_added:
                 logging.debug(left_align(f"Couldn't find a suitable container", offset))
                 return None
@@ -142,7 +136,7 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                     result.new_humanity_budget,
                     copy.deepcopy(result.new_root),
                     offset + 1,
-                    result.picked_item)
+                    result.picked_item_container.item)
 
                 if not result:
                     logging.debug(left_align(f"Failed, couldn't create a paired container", offset))

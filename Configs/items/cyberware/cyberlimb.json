@@ -3,6 +3,7 @@
         "name": "Hardened Shielding",
         "type": "cyberware",
         "price": 1000,
+        "tags": ["Shield"],
         "requires_container": [
             "Cyberarm",
             "Cyberleg"

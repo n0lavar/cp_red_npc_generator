@@ -1,10 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import logging
 import uuid
 from typing import List, Optional, Set
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
+
+from tomlkit.items import Item
 
 
 class ItemQuality(StrEnum):
@@ -87,6 +89,7 @@ class Item:
 
     id: str = field(default=str(uuid.uuid4()), compare=False)
 
+    tags: List[str] = field(default_factory=list, compare=False)
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
     quality: Optional[ItemQuality] = field(default=None, compare=False)
     container_capacity: int = field(default=0, compare=False)
@@ -107,6 +110,14 @@ class Item:
     max_humanity_loss: int = field(default=0, compare=False)
     must_be_paired: bool = field(default=False, compare=False)
 
+    def contains_any_tag_from(self, item: Item) -> bool:
+        for tag1 in self.tags:
+            for tag2 in item.tags:
+                if tag1 == tag2:
+                    return True
+                
+        return False
+
     def __str__(self):
         value: str = f"{self.name}"
         info: str = " ["
@@ -122,6 +133,8 @@ class Item:
             info += f"ROF={self.rate_of_fire}, "
         if self.magazine:
             info += f"Mag=/{self.magazine} (), "
+        if logging.root.isEnabledFor(logging.DEBUG):
+            info += f"id={self.id}, "
 
         if len(info) > 2:
             info = info.removesuffix(", ")

@@ -16,6 +16,9 @@
         "name": "Big Knucks",
         "type": "cyberware",
         "price": 100,
+        "tags": ["MediumMeleeWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
             "Shoulders"
@@ -28,6 +31,7 @@
         "name": "Cyberdeck",
         "type": "cyberware",
         "price": 500,
+        "tags": ["Cyberdeck"],
         "requires_container": [
             "Cyberarm"
         ],
@@ -50,6 +54,7 @@
         "name": "Medscanner",
         "type": "cyberware",
         "price": 500,
+        "tags": ["Medscanner"],
         "modifiers": [
             {
                 "name": "FirstAid",
@@ -71,6 +76,11 @@
         "name": "Popup Grenade Launcher",
         "type": "cyberware",
         "price": 500,
+        "tags": ["GrenadeLauncher"],
+        "damage": "6d6",
+        "rate_of_fire": 1,
+        "magazine": 2,
+        "ammo_types": ["Grenades"],
         "requires_container": [
             "Cyberarm"
         ],
@@ -79,9 +89,40 @@
         "max_humanity_loss": 2
     },
     {
-        "name": "Popup Melee Weapon",
+        "name": "Popup Melee Weapon (Light)",
         "type": "cyberware",
         "price": 500,
+        "tags": ["LightMeleeWeapon", "MeleeWeapon"],
+        "damage": "1d6",
+        "rate_of_fire": 2,
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Melee Weapon (Medium)",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 2,
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Melee Weapon (Heavy)",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["HeavyMeleeWeapon", "MeleeWeapon"],
+        "damage": "3d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm"
         ],
@@ -93,6 +134,7 @@
         "name": "Popup Shield",
         "type": "cyberware",
         "price": 500,
+        "tags": ["Shield"],
         "requires_container": [
             "Cyberarm"
         ],
@@ -101,9 +143,62 @@
         "max_humanity_loss": 2
     },
     {
-        "name": "Popup Ranged Weapon",
+        "name": "Popup Ranged Weapon (Medium Pistol)",
         "type": "cyberware",
         "price": 500,
+        "tags": ["MediumPistol", "CloseRangedWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 2,
+        "magazine": 12,
+        "ammo_types": ["Bullets"],
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Ranged Weapon (Heavy Pistol)",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["HeavyPistol", "CloseRangedWeapon"],
+        "damage": "3d6",
+        "rate_of_fire": 2,
+        "magazine": 8,
+        "ammo_types": ["Bullets"],
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Ranged Weapon (Very Heavy Pistol)",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["VeryHeavyPistol", "CloseRangedWeapon"],
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 8,
+        "ammo_types": ["Bullets"],
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Ranged Weapon (SMG)",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["SMG", "CloseRangedWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 1,
+        "magazine": 30,
+        "ammo_types": ["Bullets"],
         "requires_container": [
             "Cyberarm"
         ],
@@ -125,6 +220,9 @@
         "name": "Rippers",
         "type": "cyberware",
         "price": 500,
+        "tags": ["MediumMeleeWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
             "Shoulders"
@@ -137,6 +235,9 @@
         "name": "Scratchers",
         "type": "cyberware",
         "price": 100,
+        "tags": ["LightMeleeWeapon"],
+        "damage": "1d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
             "Shoulders"
@@ -149,6 +250,7 @@
         "name": "Shoulder Cam",
         "type": "cyberware",
         "price": 500,
+        "tags": ["VideoCamera"],
         "requires_container": [
             "Cyberarm"
         ],
@@ -160,6 +262,9 @@
         "name": "Slice ‘N Dice",
         "type": "cyberware",
         "price": 500,
+        "tags": ["MediumMeleeWeapon"],
+        "damage": "2d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
             "Shoulders"
@@ -184,6 +289,7 @@
         "name": "Techscanner",
         "type": "cyberware",
         "price": 500,
+        "tags": ["Techscanner"],
         "modifiers": [
             {
                 "name": "AirVehicleTech",
@@ -237,6 +343,7 @@
         "name": "Tool Hand",
         "type": "cyberware",
         "price": 100,
+        "tags": ["Techtool"],
         "requires_container": [
             "Cyberarm",
             "Shoulders"
@@ -249,6 +356,9 @@
         "name": "Wolvers",
         "type": "cyberware",
         "price": 500,
+        "tags": ["HeavyMeleeWeapon"],
+        "damage": "3d6",
+        "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
             "Shoulders"
