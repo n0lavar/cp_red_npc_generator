@@ -21,7 +21,7 @@ class Rank:
 
     @staticmethod
     def load():
-        return load_data("Configs/ranks.json")
+        return load_data("configs/ranks.json")
 
 
 @dataclass(frozen=True, eq=True)
@@ -41,7 +41,7 @@ class Role:
 
     @staticmethod
     def load():
-        return load_data("Configs/roles.json")
+        return load_data("configs/roles.json")
 
 
 @dataclass

@@ -90,7 +90,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         return mean_clamped_fixed
 
     logging.debug("\nGenerating stats...")
-    stats_data = load_data("Configs/stats.json")
+    stats_data = load_data("configs/stats.json")
 
     streetrat_stats_table: List[List[int]] = stats_data["streetrat_stats"][npc_template.role.name]
     streetrat_chosen_table: List[int] = random.choice(streetrat_stats_table)
@@ -110,7 +110,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug(f"\t{npc_template.rank.stats_budget.standard_deviation=}")
 
     logging.debug("\nGenerating skills...")
-    skills_data = load_data("Configs/skills.json")
+    skills_data = load_data("configs/skills.json")
 
     # add all skills with level 0
     for skill_name, skill_info in skills_data.items():

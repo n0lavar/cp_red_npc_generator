@@ -15,7 +15,7 @@ def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating drugs...")
     if len(list(filter(lambda i: i.name == "Airhypo", npc.inventory.keys()))):
         logging.debug("\tFound Airhypo, continuing...")
-        data = load_data("Configs/items/drugs.json")
+        data = load_data("configs/items/drugs.json")
 
         drugs: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
 

@@ -15,7 +15,7 @@ MAX_AMMO_PER_MODIFICATION: int = 80
 
 def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating ammo...")
-    data = load_data("Configs/items/ammo.json")
+    data = load_data("configs/items/ammo.json")
 
     required_ammo_types: Dict[str, int] = dict()
 

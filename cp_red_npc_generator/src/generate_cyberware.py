@@ -30,7 +30,7 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating cyberware...")
 
     all_cyberware: List[Item] = list()
-    for path in Path("Configs/items/cyberware").glob('**/*.json'):
+    for path in Path("configs/items/cyberware").glob('**/*.json'):
         data = load_data(str(path))
         all_cyberware += [dataclass_wizard.fromdict(Item, x) for x in data]
 

@@ -13,7 +13,7 @@ from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_
 
 def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating equipment...")
-    data = load_data("Configs/items/equipment.json")
+    data = load_data("configs/items/equipment.json")
 
     equipment: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
 

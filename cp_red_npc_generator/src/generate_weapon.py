@@ -102,7 +102,7 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
 
 def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating weapons...")
-    data = load_data("Configs/items/weapon.json")
+    data = load_data("configs/items/weapon.json")
 
     all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in data]
 

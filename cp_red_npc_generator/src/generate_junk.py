@@ -16,7 +16,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
     # https://cyberpunk.fandom.com/wiki/Cyberpunk_2077_Junk
     # https://www.reddit.com/r/cyberpunkred/comments/13cef95/if_your_murderhobos_are_anything_like_mine_they/
     logging.debug("\nGenerating junk...")
-    data = load_data("Configs/items/junk.json")
+    data = load_data("configs/items/junk.json")
 
     junk: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
     junk.sort(key=lambda x: x.price)

@@ -43,7 +43,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
         npc.armor.add(replace(armor_cyberware, name=f"Head: {armor_cyberware.name}", price=0, id=str(uuid.uuid4())))
         npc.armor.add(replace(armor_cyberware, name=f"Body: {armor_cyberware.name}", price=0, id=str(uuid.uuid4())))
     else:
-        data = load_data("Configs/items/armor.json")
+        data = load_data("configs/items/armor.json")
 
         # assume npc would select the best armor to protect himself
         all_armor: List[Item] = sorted([dataclass_wizard.fromdict(Item, x) for x in data],
