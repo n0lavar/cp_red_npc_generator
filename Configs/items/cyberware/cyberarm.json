@@ -135,6 +135,7 @@
         "type": "cyberware",
         "price": 500,
         "tags": ["Shield"],
+        "armor_class": 10,
         "requires_container": [
             "Cyberarm"
         ],

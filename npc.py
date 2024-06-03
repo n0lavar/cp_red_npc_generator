@@ -6,9 +6,10 @@ import math
 from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
 
-from item import Item
+from item import Item, ItemType
 from stats import StatType, Skill
 from utils import left_align
+from table_view import TableView
 
 
 @dataclass
@@ -55,7 +56,7 @@ class InventoryNode:
         if self.item.default_hidden and len(self.children) == 0:
             return ""
 
-        result: str = left_align(f"{self.item}", offset)
+        result: str = left_align(f"{self.item.to_string(True)}", offset, "    ")
 
         if self.item.container_capacity != 0 and self.item.container_capacity < 100:
             result += f" [{sum([x.item.size_in_container for x in self.children])}/{self.item.container_capacity}]"
@@ -111,7 +112,7 @@ class Npc:
         npc_str += f"Health (you can add conditions here):\n"
         npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: {math.ceil(max_hp / 2)})\n\n"
 
-        npc_str += f"Stats: (stat + modifiers)\n\t"
+        npc_str += f"Stats: (stat+modifiers=total)\n\t"
         for stat in self.stats.keys():
             stat_value, stat_modifier = self.get_stat_or_skill_value(stat.name)
             npc_str += f"[{stat_value}"
@@ -120,43 +121,66 @@ class Npc:
             npc_str += f"] {stat.name} | "
         npc_str = npc_str.removesuffix(" | ") + "\n"
 
-        npc_str += f"\nSkills (stat + skill + modifiers):\n"
-
+        npc_str += f"\nSkills (stat+skill+modifiers=total):\n"
         types = set(map(lambda s: s.type, self.skills.keys()))
         skills_by_type = [[s for s in self.skills if s.type == t] for t in types]
+        skills_table_view = TableView(4)
         for skills_of_one_type in skills_by_type:
-            if len(skills_of_one_type) > 0:
-                npc_str += f"\t{skills_of_one_type[0].type.title()}\n"
+            skills_of_one_type_rows: List[str] = [f"{skills_of_one_type[0].type.title()}"]
 
             for skill in skills_of_one_type:
                 skill_value, skill_modifier = self.get_stat_or_skill_value(skill.name)
                 stat_value, stat_modifier = self.get_stat_or_skill_value(str(skill.link))
-                linked_stat_value = stat_value + stat_modifier
-                npc_str += f"\t\t[{linked_stat_value}+{skill_value}"
-                if skill_modifier != 0:
-                    npc_str += f"{skill_modifier:+}"
-                npc_str += f"={skill_value + linked_stat_value + skill_modifier}] {skill.name}\n"
+                skills_of_one_type_rows.append(
+                    "    " + skill.to_string(skill_value, skill_modifier, stat_value, stat_modifier))
+
+            skills_table_view.add(skills_of_one_type_rows)
+        npc_str += "    " + str(skills_table_view).replace("\n", "\n    ")
 
         npc_str += f"\nCyberware:\n"
+        cyberware_table_view = TableView(3)
         for basic_container in self.cyberware.children:
-            npc_str += basic_container.to_string(1)
+            cyberware_table_view.add(basic_container.to_string(0).removesuffix("\n").split("\n"))
+        npc_str += "    " + str(cyberware_table_view).replace("\n", "\n    ") + "\n"
 
+        armor_weapon_table_view = TableView(2)
         if len(self.armor):
-            npc_str += f"\nArmor:\n"
-        for armor in self.armor:
-            npc_str += f"\t{armor}\n"
-
+            armor_weapon_table_view.add(["Armor:"] + ["    " + str(armor) for armor in self.armor], 0)
         if len(self.weapons):
-            npc_str += f"\nWeapons:\n"
-        for weapon in self.weapons:
-            npc_str += f"\t{weapon}\n"
+            armor_weapon_table_view.add(["Weapons:"] + ["    " + str(weapon) for weapon in self.weapons], 1)
+        npc_str += str(armor_weapon_table_view)
 
+        inventory_table_view = TableView(3)
         if len(self.inventory):
             npc_str += f"\nInventory:\n"
-        for item, amount in self.inventory.items():
-            npc_str += "\t"
-            if amount != 0:
-                npc_str += f"[{amount}] "
-            npc_str += f"{item}\n"
+
+            def get_inventory_item_str(item: Item, amount: int) -> str:
+                result: str = "    "
+                if amount != 0:
+                    result += f"[{amount}] "
+                result += f"{item}"
+                return result
+
+            def add_table_view_part(name: str, part: List[str], index: int):
+                nonlocal inventory_table_view
+                if len(part):
+                    inventory_table_view.add([name] + part, index)
+
+            add_table_view_part("Ammo",
+                                [get_inventory_item_str(item, amount)
+                                 for item, amount in self.inventory.items()
+                                 if item.type == ItemType.AMMO],
+                                0)
+            add_table_view_part("Equipment / Drugs",
+                                [get_inventory_item_str(item, amount)
+                                 for item, amount in self.inventory.items()
+                                 if item.type == ItemType.EQUIPMENT or item.type == ItemType.DRUG],
+                                1)
+            add_table_view_part("Junk",
+                                [get_inventory_item_str(item, amount)
+                                 for item, amount in self.inventory.items()
+                                 if item.type == ItemType.JUNK],
+                                2)
+        npc_str += "    " + str(inventory_table_view).replace("\n", "\n    ") + "\n"
 
         return npc_str

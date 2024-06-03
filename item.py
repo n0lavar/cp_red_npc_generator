@@ -117,23 +117,28 @@ class Item:
 
         return False
 
-    def __str__(self):
+    def to_string(self, short: bool = False) -> str:
         value: str = f"{self.name}"
         info: str = " ["
         if self.price > 0:
-            info += f"{self.price}eb ({price_category_from_price(self.price).name.lower()}), "
-        if self.armor_class:
-            info += f"SP={self.armor_class}/{self.armor_class}, "
-        if self.quality:
-            info += f"{self.quality}, "
-        if self.damage:
-            info += f"Damage={self.damage}, "
-        if self.rate_of_fire:
-            info += f"ROF={self.rate_of_fire}, "
-        if self.magazine:
-            info += f"Mag=/{self.magazine} (), "
-        if logging.root.isEnabledFor(logging.DEBUG):
-            info += f"id={self.id}, "
+            info += f"{self.price}eb"
+            if not short:
+                info += f" ({price_category_from_price(self.price).name.lower()})"
+            info += f", "
+
+        if not short:
+            if self.armor_class:
+                info += f"SP={self.armor_class}/{self.armor_class}, "
+            if self.quality:
+                info += f"{self.quality}, "
+            if self.damage:
+                info += f"Damage={self.damage}, "
+            if self.rate_of_fire:
+                info += f"ROF={self.rate_of_fire}, "
+            if self.magazine:
+                info += f"Mag=/{self.magazine} (), "
+            # if logging.root.isEnabledFor(logging.DEBUG):
+            #    info += f"id={self.id}, "
 
         if len(info) > 2:
             info = info.removesuffix(", ")
@@ -142,3 +147,6 @@ class Item:
             info = ""
 
         return f"{value}{info}"
+
+    def __str__(self):
+        return self.to_string(False)

@@ -60,5 +60,9 @@ class Skill:
     link: StatType = StatType.INT
     type: SkillType = SkillType.EDUCATION
 
-    def __str__(self):
-        return f"[{self.link}] {self.name}"
+    def to_string(self, skill_value, skill_modifier, stat_value, stat_modifier) -> str:
+        result: str = ""
+        linked_stat_value = stat_value + stat_modifier
+        result += f"[{linked_stat_value}{skill_value:+}{skill_modifier:+}"
+        result += f"={linked_stat_value + skill_value + skill_modifier}] {self.name}"
+        return result
