@@ -7,10 +7,11 @@
 
 ## Info
 A generator that generates NPCs based on json configs using the specified rank and role.
+
 Generated:
 * Stats
 
-  Stats are generated based on the list of skills for each role for a street rat from the rulebook: a random set is selected and scaled according to rank. The lowest rank has a stat sum of 45, the highest has a stat sum of 80.
+  Stats are generated based on the list of skills for each role for a street rat from the rulebook: a random set is selected and scaled according to the rank. The lowest rank has a stat sum of 45, the highest has a stat sum of 80.
   
 * Skills
 
@@ -18,15 +19,15 @@ Generated:
   
 * Cyberware
 
-  Cyberware is generated based on a list of cyberware unique to each role and a purchase budget that is determined by rank. The generator will attempt to buy dependent cyberware and paired cyberware. If an cyberware has modifiers, they will be added to stats/skills.
+  Cyberware is generated based on a list of cyberware unique to each role and a purchase budget that is determined by rank. The generator will attempt to buy dependent cyberware and paired cyberware. If a cyberware has modifiers, they will be added to stats/skills.
   
 * Armor
 
-  If armor or shields are generated in cyberware, they will be added. Otherwise, the generator will try to buy armor according to the maximum SP specified for the role. For example, media will be satisfied with Kevlar, while solo will try to buy Metalgear. If the budget is not enough, the generator will try to buy cheaper armor. Body armor is generated with priority..
+  If armor or shields are generated in cyberware, they will be added. Otherwise, the generator will try to buy armor according to the maximum SP specified for the role. For example, media will be satisfied with Kevlar, while solo will try to buy Metalgear. If the budget is not enough, the generator will try to buy a cheaper armor. A body armor is generated with priority.
 
 * Weapon
 
-  If a weapon was generated in the cyberware, it will be added. If there was no weapon preferred by the role among these implants, it will be generated according to the budget. The main weapon will be generated with priority.
+  If a weapon was generated in the cyberware, it will be added. If there was no weapon preferred by the role among these cyberware, it will be generated according to the budget. The main weapon will be generated with priority.
   
 * Ammunition for selected weapons and grenades
 
@@ -34,11 +35,11 @@ Generated:
   
 * Equipment
 
-  Different tools will be generated that best suit the selected role. The tools will not replicate implants with similar functionality.
+  Different tools will be generated that best suit the selected role. The tools will not replicate cyberware with similar functionality.
   
 * Drugs
 
-  If Airhypo was generated in the equipment, drugs will be generated that depend on the role of the NPC. For example, a solo will prefer Berserker, a netrunner Sixgun, and a rockerboy will prefer Prime Time.
+  If Airhypo was generated in the equipment, drugs will be generated that depend on the role of the NPC. For example, a solo will prefer Berserker, a netrunner - Sixgun, and a rockerboy will prefer Prime Time.
   
 * Different junk for the entourage
 

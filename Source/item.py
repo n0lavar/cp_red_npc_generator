@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import logging
 import uuid
 from typing import List, Optional, Set
 from dataclasses import dataclass, field

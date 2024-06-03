@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import functools
-import json
 import logging
 import random
 from typing import List, Optional, Callable
