@@ -30,7 +30,6 @@ class InventoryNode:
 
     def add_child(self, child: Item):  # -> Optional[InventoryNode]:
         if self.can_add_child(child):
-            # new_node = InventoryNode(replace(copy.deepcopy(child), id=str(uuid.uuid4())))
             new_node = InventoryNode(copy.deepcopy(child))
             self.children.append(new_node)
             return new_node
@@ -119,9 +118,9 @@ class Npc:
             if stat_modifier != 0:
                 npc_str += f"{stat_modifier:+}={stat_value + stat_modifier}"
             npc_str += f"] {stat.name} | "
-        npc_str = npc_str.removesuffix(" | ") + "\n"
+        npc_str = npc_str.removesuffix(" | ") + "\n\n"
 
-        npc_str += f"\nSkills (stat+skill+modifiers=total):\n"
+        npc_str += f"Skills (stat+skill+modifiers=total):\n"
         types = set(map(lambda s: s.type, self.skills.keys()))
         skills_by_type = [[s for s in self.skills if s.type == t] for t in types]
         skills_table_view = TableView(4)
@@ -135,24 +134,26 @@ class Npc:
                     "    " + skill.to_string(skill_value, skill_modifier, stat_value, stat_modifier))
 
             skills_table_view.add(skills_of_one_type_rows)
-        npc_str += "    " + str(skills_table_view).replace("\n", "\n    ")
+        npc_str += "    " + str(skills_table_view).replace("\n", "\n    ") + "\n"
 
-        npc_str += f"\nCyberware:\n"
-        cyberware_table_view = TableView(3)
-        for basic_container in self.cyberware.children:
-            cyberware_table_view.add(basic_container.to_string(0).removesuffix("\n").split("\n"))
-        npc_str += "    " + str(cyberware_table_view).replace("\n", "\n    ") + "\n"
+        if len(self.cyberware.children):
+            npc_str += f"Cyberware:\n"
+            cyberware_table_view = TableView(3)
+            for basic_container in self.cyberware.children:
+                cyberware_table_view.add(basic_container.to_string(0).removesuffix("\n").split("\n"))
+            npc_str += "    " + str(cyberware_table_view).replace("\n", "\n    ") + "\n"
 
-        armor_weapon_table_view = TableView(2)
-        if len(self.armor):
-            armor_weapon_table_view.add(["Armor:"] + ["    " + str(armor) for armor in self.armor], 0)
-        if len(self.weapons):
-            armor_weapon_table_view.add(["Weapons:"] + ["    " + str(weapon) for weapon in self.weapons], 1)
-        npc_str += str(armor_weapon_table_view)
+        if len(self.armor) or len(self.weapons):
+            armor_weapon_table_view = TableView(2)
+            if len(self.armor):
+                armor_weapon_table_view.add(["Armor:"] + ["    " + str(armor) for armor in self.armor], 0)
+            if len(self.weapons):
+                armor_weapon_table_view.add(["Weapons:"] + ["    " + str(weapon) for weapon in self.weapons], 1)
+            npc_str += str(armor_weapon_table_view) + "\n"
 
-        inventory_table_view = TableView(3)
         if len(self.inventory):
-            npc_str += f"\nInventory:\n"
+            npc_str += f"Inventory:\n"
+            inventory_table_view = TableView(3)
 
             def get_inventory_item_str(item: Item, amount: int) -> str:
                 result: str = "    "
@@ -181,6 +182,6 @@ class Npc:
                                  for item, amount in self.inventory.items()
                                  if item.type == ItemType.JUNK],
                                 2)
-        npc_str += "    " + str(inventory_table_view).replace("\n", "\n    ") + "\n"
+            npc_str += "    " + str(inventory_table_view).replace("\n", "\n    ") + "\n"
 
         return npc_str
