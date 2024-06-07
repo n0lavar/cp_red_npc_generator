@@ -98,7 +98,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 3,
                 "standard_deviation": 1
             },
             "junk": {
@@ -158,7 +158,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 4,
                 "standard_deviation": 1
             },
             "junk": {
@@ -218,7 +218,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 5,
                 "standard_deviation": 1
             },
             "junk": {
@@ -278,7 +278,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 6,
                 "standard_deviation": 1
             },
             "junk": {
@@ -338,7 +338,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 7,
                 "standard_deviation": 1
             },
             "junk": {
@@ -398,7 +398,7 @@
                 "standard_deviation": 1
             },
             "drug": {
-                "mean": 2,
+                "mean": 8,
                 "standard_deviation": 1
             },
             "junk": {

@@ -10,6 +10,8 @@ from npc import Npc
 from npc_template import NpcTemplate
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
 
+MAX_UNIQUE_DRUG_ITEMS: int = 2
+
 
 def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating drugs...")
@@ -37,6 +39,10 @@ def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
             selected_drug = choose_exponential_random_element(preferred_drugs, True)
             logging.debug(f"\tTrying to generate drug item: {selected_drug}")
             drug_item: Item = next(d for d in drugs if d.name == selected_drug)
+
+            if drug_item in npc.inventory and npc.inventory[drug_item] >= MAX_UNIQUE_DRUG_ITEMS:
+                logging.debug(f"\t\tFailed, too much drugs of type {drug_item}: {npc.inventory[drug_item]}")
+                continue
 
             if drug_item.price > drugs_budget:
                 logging.debug(
