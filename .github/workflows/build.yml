@@ -1,0 +1,57 @@
+name: Build Workflow
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    permissions: write-all
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.12'
+          architecture: 'x64'
+      - name: Install requirements
+        run: |
+          pip install -r cp_red_npc_generator/requirements.txt
+      - name: Run PyInstaller
+        run: |
+          python -m PyInstaller cp_red_npc_generator/cp_red_npc_generator.spec
+      - name: Zip files
+        shell: pwsh
+        run: |
+          Compress-Archive -Path cp_red_npc_generator/configs/*, dist/cp_red_npc_generator.exe -Destination cp_red_npc_generator.zip
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Windows_cp_red_npc_generator
+          path: cp_red_npc_generator.zip
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: dev-${{ github.run_id }}
+          release_name: Actual master binaries
+          body: |
+            Commit:
+
+            ${{ github.event.head_commit.message }}
+          draft: false
+          prerelease: false
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: cp_red_npc_generator.zip
+          asset_name: cp_red_npc_generator.zip
+          asset_content_type: application/zip
