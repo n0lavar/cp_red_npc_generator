@@ -3,10 +3,10 @@
 
 import argparse
 import random
-
 import dataclass_wizard
 import logging
 import time
+import sys
 
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
@@ -93,4 +93,4 @@ if __name__ == "__main__":
                         default=logging.getLevelName(logging.INFO))
 
     return_code = main(parser.parse_args())
-    exit(return_code)
+    sys.exit(return_code)
