@@ -17,16 +17,22 @@ Generated:
   Stats are generated based on the list of stats for each role for a street rat from the rulebook: a random set is
   selected and scaled according to the rank. The lowest rank has a stat sum of 30, the highest has a stat sum of 80.
 
+
 * Skills
 
   Skills are generated based on the list of skills for the role for a street rat from the rulebook: the list is taken
   and scaled according to rank. The lowest rank has a skill sum of 35, the highest has a skill sum of 115.
+
+  Science and Martial Arts skills are generated without clarification, the user has to choose the required one
+  themselves.
+
 
 * Cyberware
 
   Cyberware is generated based on a list of cyberware unique to each role and a purchase budget that is determined by
   rank. The generator will attempt to buy dependent cyberware and paired cyberware. If a cyberware has modifiers, they
   will be added to stats/skills.
+
 
 * Armor
 
@@ -35,25 +41,32 @@ Generated:
   try to buy Metalgear. If the budget is not enough, the generator will try to buy a cheaper armor. A body armor is
   generated with priority.
 
+
 * Weapon
 
   If a weapon was generated in the cyberware, it will be added. If there was no weapon preferred by the role among these
   cyberware, it will be generated according to the budget. The main weapon will be generated with priority.
+
+  All long-range weapons are generated unloaded, the user must select the required ammunition, subtract the amount of
+  ammunition in the inventory and insert it into the weapon.
 
 * Ammunition for selected weapons and grenades
 
   Some amount of basic ammunition will always be added. Further grenades and improved ammunition will be added according
   to role preference as long as there is enough money.
 
+
 * Equipment
 
   Different tools will be generated that best suit the selected role. The tools will not replicate cyberware with
   similar functionality.
 
+
 * Drugs
 
   If Airhypo was generated in the equipment, drugs will be generated that depend on the role of the NPC. For example, a
   solo will prefer Berserker, a netrunner - Sixgun, and a rockerboy will prefer Prime Time.
+
 
 * Different junk for the entourage
 
