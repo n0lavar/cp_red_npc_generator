@@ -1,6 +1,8 @@
 # Cyberpunk Red NPC generator
 
-[![Donate](https://img.shields.io/badge/Donate-8A2BE2)](https://revolut.me/n0lavar)
+<a href="https://buymeacoffee.com/n0lavar" target="_blank" title="buymeacoffee">
+  <img src="https://iili.io/JIYMmUN.gif"  alt="buymeacoffee-animated-badge" style="width: 160px;">
+</a>
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
@@ -78,11 +80,11 @@ Generated:
 ## Usage
 
 ```
-usage: main.py [-h] --rank
-                {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
-                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}]
-                [--seed SEED]
-                [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+usage: cp_red_npc_generator.exe [-h] --rank
+                                {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
+                                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}]
+                                [--seed SEED]
+                                [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
 
 options:
 -h, --help            show this help message and exit
@@ -114,7 +116,7 @@ options:
   Input:
 
   ```
-  python cp_red_npc_generator/src/main.py --rank=private --role=solo
+  cp_red_npc_generator.exe --rank=private --role=solo
   ```
 
 Output:
@@ -175,7 +177,7 @@ Output:
   Input:
 
   ```
-  python cp_red_npc_generator/src/main.py --rank=captain --role=solo
+  cp_red_npc_generator.exe --rank=captain --role=solo
   ```
 
 Output:
@@ -241,7 +243,7 @@ Output:
   Input:
 
   ```
-  python cp_red_npc_generator/src/main.py --rank=general --role=solo
+  cp_red_npc_generator.exe --rank=general --role=solo
   ```
 
 Output:
