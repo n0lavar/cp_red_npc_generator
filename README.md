@@ -8,7 +8,8 @@
 
 ## Info
 
-A generator that generates NPCs based on json configs using the specified rank and role.
+A generator that generates NPCs based on json configs using the specified rank and role.  
+See `configs/ranks.xlsl` for balance details.
 
 Generated:
 

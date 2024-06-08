@@ -109,7 +109,12 @@ class Npc:
 
         max_hp = 10 + (5 * math.ceil(0.5 * (self.stats[StatType.BODY] + self.stats[StatType.COOL])))
         npc_str += f"Health (you can add conditions here):\n"
-        npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: {math.ceil(max_hp / 2)})\n\n"
+        npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: "
+        if next((True for cw in self.cyberware if cw.item.name == "Pain Editor"), None):
+            npc_str += f"No, Pain Editor"
+        else:
+            npc_str += f"{math.ceil(max_hp / 2)}"
+        npc_str += ")\n\n"
 
         npc_str += f"Stats: (stat+modifiers=total)\n\t"
         for stat in self.stats.keys():
