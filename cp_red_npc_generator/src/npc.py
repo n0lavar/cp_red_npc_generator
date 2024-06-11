@@ -7,7 +7,7 @@ from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
 
 from item import Item, ItemType
-from stats import StatType, Skill
+from stats import StatType, Skill, SkillType
 from utils import left_align
 from table_view import TableView
 
@@ -126,8 +126,7 @@ class Npc:
         npc_str = npc_str.removesuffix(" | ") + "\n\n"
 
         npc_str += f"Skills (stat+skill+modifiers=total):\n"
-        types = set(map(lambda s: s.type, self.skills.keys()))
-        skills_by_type = [[s for s in self.skills if s.type == t] for t in types]
+        skills_by_type = [[s for s in self.skills if s.type == t] for t in SkillType]
         skills_table_view = TableView(1 if flat else 4)
         for skills_of_one_type in skills_by_type:
             skills_of_one_type_rows: List[str] = [f"{skills_of_one_type[0].type.title()}"]
@@ -151,9 +150,35 @@ class Npc:
         if len(self.armor) or len(self.weapons):
             armor_weapon_table_view = TableView(1 if flat else 2)
             if len(self.armor):
-                armor_weapon_table_view.add(["Armor:"] + ["    " + str(armor) for armor in self.armor], 0)
+                def armor_sorter(item: Item) -> int:
+                    if item.name.startswith("Head"):
+                        return 1
+                    elif item.name.startswith("Body"):
+                        return 2
+                    elif "Shield" in item.name:
+                        return 3
+                    else:
+                        return 4
+
+                sorted_armor = sorted(self.armor, key=armor_sorter)
+                armor_weapon_table_view.add(["    " + str(armor) for armor in sorted_armor], "Armor:", 0)
             if len(self.weapons):
-                armor_weapon_table_view.add(["Weapons:"] + ["    " + str(weapon) for weapon in self.weapons], 1)
+                def weapon_sorter(item: Item) -> int:
+                    return int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire
+
+                sorted_melee_weapon = sorted([x for x in self.weapons if "MeleeWeapon" in x.tags],
+                                             key=weapon_sorter,
+                                             reverse=True)
+
+                sorted_ranged_weapon = sorted(list(set(self.weapons) - set(sorted_melee_weapon)),
+                                              key=weapon_sorter,
+                                              reverse=True)
+
+                armor_weapon_table_view.add(
+                    ["    " + str(weapon) for weapon in sorted_ranged_weapon], "Ranged weapons:", 1)
+                armor_weapon_table_view.add(
+                    ["    " + str(weapon) for weapon in sorted_melee_weapon], "Melee weapons:", 1)
+
             npc_str += str(armor_weapon_table_view) + "\n"
 
         if len(self.inventory):
@@ -167,26 +192,19 @@ class Npc:
                 result += f"{item}"
                 return result
 
-            def add_table_view_part(name: str, part: List[str], index: int):
+            def add_table_view_part(name: str, types: List[ItemType], index: int):
                 nonlocal inventory_table_view
-                if len(part):
-                    inventory_table_view.add([name] + part, index)
+                part_items: List[Tuple[Item, int]] = [(item, amount)
+                                                      for item, amount in self.inventory.items()
+                                                      if item.type in types]
+                part_items.sort(key=lambda x: x[0].price * x[1], reverse=True)
 
-            add_table_view_part("Ammo",
-                                [get_inventory_item_str(item, amount)
-                                 for item, amount in self.inventory.items()
-                                 if item.type == ItemType.AMMO],
-                                0)
-            add_table_view_part("Equipment / Drugs",
-                                [get_inventory_item_str(item, amount)
-                                 for item, amount in self.inventory.items()
-                                 if item.type == ItemType.EQUIPMENT or item.type == ItemType.DRUG],
-                                1)
-            add_table_view_part("Junk",
-                                [get_inventory_item_str(item, amount)
-                                 for item, amount in self.inventory.items()
-                                 if item.type == ItemType.JUNK],
-                                2)
+                part: List[str] = [get_inventory_item_str(item, amount) for item, amount in part_items]
+                inventory_table_view.add(part, name, index)
+
+            add_table_view_part("Ammo", [ItemType.AMMO], 0)
+            add_table_view_part("Equipment / Drugs", [ItemType.EQUIPMENT, ItemType.DRUG], 1)
+            add_table_view_part("Junk", [ItemType.JUNK], 2)
             npc_str += "    " + str(inventory_table_view).replace("\n", "\n    ") + "\n"
 
         return npc_str

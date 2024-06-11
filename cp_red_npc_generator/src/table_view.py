@@ -16,11 +16,16 @@ class TableView:
         assert self.num_columns >= 1
         self.columns = [[] for _ in range(self.num_columns)]
 
-    def add(self, part: List[str], column_number: Optional[int] = None):
-        if column_number is not None and column_number < len(self.columns):
-            self.columns[column_number] += part
-        else:
-            self.elements.append(part)
+    def add(self, part: List[str], header: Optional[str] = None, column_number: Optional[int] = None):
+        if len(part):
+            if column_number is not None and column_number < len(self.columns):
+                if header:
+                    self.columns[column_number] += [header]
+                self.columns[column_number] += part
+            else:
+                if header:
+                    self.elements.append([header])
+                self.elements.append(part)
 
     def __str__(self):
         sorted_parts = sorted(self.elements, key=lambda x: len(x), reverse=True)

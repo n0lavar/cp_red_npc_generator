@@ -66,3 +66,6 @@ class Skill:
         result += f"[{linked_stat_value}{skill_value:+}{skill_modifier:+}"
         result += f"={linked_stat_value + skill_value + skill_modifier}] {self.name}"
         return result
+
+    def __lt__(self, other):
+        return self.name < other.name

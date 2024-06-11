@@ -94,10 +94,12 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
 
     martial_arts_skill = next(
         (skill for skill, level in npc.skills.items() if skill.name == "MartialArts" and level > 0), None)
+
+    brawling_skill = Item(type=ItemType.WEAPON, damage=boxing_dmg, tags=["MeleeWeapon"])
     if martial_arts_skill:
-        return Item(name="Martial Arts", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=2)
+        return replace(brawling_skill, name="Martial Arts", rate_of_fire=2)
     else:
-        return Item(name="Boxing", type=ItemType.WEAPON, damage=boxing_dmg, rate_of_fire=1)
+        return replace(brawling_skill, name="Boxing", rate_of_fire=1)
 
 
 def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
