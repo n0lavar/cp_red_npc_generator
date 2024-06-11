@@ -1,2 +1,3 @@
-dataclass_wizard
 PyInstaller
+dataclass_wizard
+numpy

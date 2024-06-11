@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 import argparse
-import random
 import dataclass_wizard
 import logging
 import time
 import sys
+import numpy as np
 
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
@@ -45,7 +45,7 @@ def main(args) -> int:
         seed = args.seed
     else:
         seed = int(time.time())
-    random.seed(seed)
+    np.random.seed(seed)
 
     rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))

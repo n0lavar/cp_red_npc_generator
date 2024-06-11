@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import random
 from dataclasses import dataclass
+import numpy as np
 
 
 @dataclass
@@ -11,4 +11,4 @@ class NormalDistribution:
     standard_deviation: float = 0
 
     def generate(self) -> float:
-        return random.gauss(mu=self.mean, sigma=self.standard_deviation)
+        return np.random.normal(self.mean, self.standard_deviation)

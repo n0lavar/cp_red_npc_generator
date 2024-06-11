@@ -3,7 +3,7 @@
 
 import functools
 import logging
-import random
+import numpy as np
 from typing import List, Optional, Callable
 
 from npc import Npc
@@ -93,7 +93,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
     stats_data = load_data("configs/stats.json")
 
     streetrat_stats_table: List[List[int]] = stats_data["streetrat_stats"][npc_template.role.name]
-    streetrat_chosen_table: List[int] = random.choice(streetrat_stats_table)
+    streetrat_chosen_table: List[int] = streetrat_stats_table[np.random.choice(len(streetrat_stats_table))]
     stats_mean_clamped_distributed = distribute_points(streetrat_chosen_table,
                                                        npc_template.rank.stats_budget.generate(),
                                                        2,

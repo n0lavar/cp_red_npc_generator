@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import random
 from typing import List, Dict
+import numpy as np
 
 from item import Item, ItemType
 from npc import Npc
@@ -88,7 +88,8 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
     add_basic_ammo("Bullets") or add_basic_ammo("Slugs") or add_basic_ammo("Arrows")
 
     for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
-        required_ammo_type, magazine_size = random.choice(list(required_ammo_types.items()))
+        required_ammo_type = list(required_ammo_types.keys())[np.random.choice(len(required_ammo_types))]
+        magazine_size = required_ammo_types[required_ammo_type]
         try_add_ammo(required_ammo_type,
                      choose_exponential_random_element(preferred_ammo_modifications, True),
                      magazine_size)

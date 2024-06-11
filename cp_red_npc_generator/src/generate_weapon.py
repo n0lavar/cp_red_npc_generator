@@ -4,7 +4,7 @@
 import copy
 import logging
 import dataclass_wizard
-import random
+import numpy as np
 from typing import List, Optional, Set, Tuple
 from dataclasses import dataclass, field, replace
 
@@ -29,7 +29,7 @@ def pick_weapon(budget: int,
         return None, 0
 
     for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
-        preferred_weapon: str = random.choice(list(preferred_weapons))
+        preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
         for cyberware in installed_cyberware:
             if preferred_weapon in cyberware.item.tags:
                 logging.debug(f"\t\tFound a cyberware that acts like a preferred weapon: {cyberware.item}")
@@ -46,7 +46,7 @@ def pick_weapon(budget: int,
             case _:
                 raise AssertionError
 
-        preferred_quality: ItemQuality = random.choice(list(preferred_qualities))
+        preferred_quality: ItemQuality = np.random.choice(preferred_qualities)
         logging.debug(f"\t\tChosen quality: {preferred_quality}")
 
         preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.tags)
@@ -70,7 +70,7 @@ def pick_weapon(budget: int,
         weapon = replace(weapon_copy,
                          price=price,
                          quality=preferred_quality,
-                         name=f"{random.choice(list(weapon_copy.possible_names))} ({weapon_copy.name})")
+                         name=f"{np.random.choice(list(weapon_copy.possible_names))} ({weapon_copy.name})")
 
         logging.debug(f"\t\tPicked weapon: {weapon}")
         logging.debug(f"\t\tMoney left: {budget - price}")
