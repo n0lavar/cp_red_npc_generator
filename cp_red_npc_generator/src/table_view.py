@@ -13,10 +13,11 @@ class TableView:
     columns: List = field(default_factory=list)
 
     def __post_init__(self):
+        assert self.num_columns >= 1
         self.columns = [[] for _ in range(self.num_columns)]
 
     def add(self, part: List[str], column_number: Optional[int] = None):
-        if column_number is not None:
+        if column_number is not None and column_number < len(self.columns):
             self.columns[column_number] += part
         else:
             self.elements.append(part)

@@ -52,7 +52,7 @@ def main(args) -> int:
     npc = create_npc(NpcTemplate(rank_data, role_data))
 
     logging.info(f"\n{str(args.role).title()}, {str(args.rank).title()}, {seed=}")
-    logging.info(f"{npc}")
+    logging.info(npc.to_string(args.flat))
 
     return 0
 
@@ -86,6 +86,10 @@ if __name__ == "__main__":
                         help="A number for a random engine. The same seed will always give the same result when "
                              "the other arguments are unchanged. The default is 0, which means \"use unix epoch\".",
                         default=0)
+    parser.add_argument("--flat",
+                        action=argparse.BooleanOptionalAction,
+                        help="If specified, don't use columns. "
+                             "Easier for editing and copy-pasting, but takes much more space.")
     parser.add_argument("--log_level",
                         type=str,
                         help="Logging level. Default is INFO.",

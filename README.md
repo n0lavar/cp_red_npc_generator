@@ -83,29 +83,31 @@ Generated:
 usage: cp_red_npc_generator.exe [-h] --rank
                                 {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
                                 [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}]
-                                [--seed SEED]
+                                [--seed SEED] [--flat | --no-flat]
                                 [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
 
 options:
--h, --help            show this help message and exit
---rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
+  -h, --help            show this help message and exit
+  --rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
                         A measure of the development of a given NPC, where
                         private is an unskilled and unknown newcomer, and
                         general is a world-class character. Rank determines
                         how advanced an NPC's skills are and how cool his
                         equipment is.
---role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}
+  --role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}
                         An occupation the NPC is known by on The Street.
                         `civilian` means that this is just a regular human,
                         `booster` means that this is a street mook with some
                         fighting skills, but without any specialization. The
                         role can determine the equipment and the direction of
                         the NPC's skills. The default value is `booster`.
---seed SEED           A number for a random engine. The same seed will
+  --seed SEED           A number for a random engine. The same seed will
                         always give the same result when the other arguments
                         are unchanged. The default is 0, which means "use unix
                         epoch".
---log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
+  --flat, --no-flat     If specified, don't use columns. Easier for editing
+                        and copy-pasting, but takes much more space.
+  --log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
                         Logging level. Default is INFO.
 ```
 

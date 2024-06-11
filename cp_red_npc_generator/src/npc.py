@@ -101,7 +101,7 @@ class Npc:
 
         return value, modifier_value
 
-    def __str__(self):
+    def to_string(self, flat: bool = False) -> str:
         npc_str: str = ""
 
         total_price = sum([x.price for x in self.get_all_items()])
@@ -128,7 +128,7 @@ class Npc:
         npc_str += f"Skills (stat+skill+modifiers=total):\n"
         types = set(map(lambda s: s.type, self.skills.keys()))
         skills_by_type = [[s for s in self.skills if s.type == t] for t in types]
-        skills_table_view = TableView(4)
+        skills_table_view = TableView(1 if flat else 4)
         for skills_of_one_type in skills_by_type:
             skills_of_one_type_rows: List[str] = [f"{skills_of_one_type[0].type.title()}"]
 
@@ -143,13 +143,13 @@ class Npc:
 
         if len(self.cyberware.children):
             npc_str += f"Cyberware:\n"
-            cyberware_table_view = TableView(3)
+            cyberware_table_view = TableView(1 if flat else 3)
             for basic_container in self.cyberware.children:
                 cyberware_table_view.add(basic_container.to_string(0).removesuffix("\n").split("\n"))
             npc_str += "    " + str(cyberware_table_view).replace("\n", "\n    ") + "\n"
 
         if len(self.armor) or len(self.weapons):
-            armor_weapon_table_view = TableView(2)
+            armor_weapon_table_view = TableView(1 if flat else 2)
             if len(self.armor):
                 armor_weapon_table_view.add(["Armor:"] + ["    " + str(armor) for armor in self.armor], 0)
             if len(self.weapons):
@@ -158,7 +158,7 @@ class Npc:
 
         if len(self.inventory):
             npc_str += f"Inventory:\n"
-            inventory_table_view = TableView(3)
+            inventory_table_view = TableView(1 if flat else 3)
 
             def get_inventory_item_str(item: Item, amount: int) -> str:
                 result: str = "    "
@@ -190,3 +190,6 @@ class Npc:
             npc_str += "    " + str(inventory_table_view).replace("\n", "\n    ") + "\n"
 
         return npc_str
+
+    def __str__(self):
+        return self.to_string(False)
