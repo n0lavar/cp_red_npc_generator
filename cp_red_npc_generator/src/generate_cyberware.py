@@ -142,7 +142,26 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                     logging.debug(left_align(f"Failed, couldn't create a paired container", offset))
                     return None
 
-                logging.debug(left_align(f"Successfully created a paired item for {cyberware_item}", offset))
+                logging.debug(left_align(f"Successfully created a paired item: {result.picked_item}", offset))
+
+            for required_cyberware in cyberware_item.required_cyberware:
+                logging.debug(
+                    left_align(f"{cyberware_item} required a cyberware: {required_cyberware}, generating...", offset))
+
+                required_cyberware_item: Item = next(cw for cw in all_cyberware if cw.name == required_cyberware)
+
+                result = pick_cyberware(
+                    dataclasses.replace(required_cyberware_item, id=str(uuid.uuid4())),
+                    result.new_money_budget,
+                    result.new_humanity_budget,
+                    copy.deepcopy(result.new_root),
+                    offset + 1)
+
+                if not result:
+                    logging.debug(left_align(f"Failed, couldn't create a required cyberware", offset))
+                    return None
+
+                logging.debug(left_align(f"Successfully created a required cyberware: {result.picked_item}", offset))
 
             logging.debug(left_align(f"Pre-added: {cyberware_to_buy}", offset))
             return result

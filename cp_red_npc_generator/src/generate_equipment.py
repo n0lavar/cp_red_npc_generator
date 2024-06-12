@@ -32,7 +32,7 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
             logging.debug(f"\tMax number of equipment items reached: {max_equipment_items}")
             break
 
-        selected_equipment = choose_exponential_random_element(preferred_equipment, True)
+        selected_equipment = choose_exponential_random_element(preferred_equipment)
         logging.debug(f"\tTrying to generate equipment item: {selected_equipment}")
         equipment_item: Item = next(e for e in equipment if e.name == selected_equipment)
 

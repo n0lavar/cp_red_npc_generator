@@ -91,7 +91,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
         required_ammo_type = list(required_ammo_types.keys())[np.random.choice(len(required_ammo_types))]
         magazine_size = required_ammo_types[required_ammo_type]
         try_add_ammo(required_ammo_type,
-                     choose_exponential_random_element(preferred_ammo_modifications, True),
+                     choose_exponential_random_element(preferred_ammo_modifications),
                      magazine_size)
 
     return npc

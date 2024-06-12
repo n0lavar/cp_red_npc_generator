@@ -44,12 +44,12 @@ def main(args) -> int:
     if args.seed != 0:
         seed = args.seed
     else:
-        seed = int(time.time())
+        seed = int(time.time_ns() % 1e9)
     np.random.seed(seed)
 
-    rank_data = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
-    role_data = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
-    npc = create_npc(NpcTemplate(rank_data, role_data))
+    rank = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
+    role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
+    npc = create_npc(NpcTemplate(rank, role))
 
     logging.info(f"\n{str(args.role).title()}, {str(args.rank).title()}, {seed=}")
     logging.info(npc.to_string(args.flat))

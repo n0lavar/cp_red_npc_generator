@@ -36,7 +36,7 @@ def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
                 logging.debug(f"\tMax number of drugs items reached: {max_drugs_items}")
                 break
 
-            selected_drug = choose_exponential_random_element(preferred_drugs, True)
+            selected_drug = choose_exponential_random_element(preferred_drugs)
             logging.debug(f"\tTrying to generate drug item: {selected_drug}")
             drug_item: Item = next(d for d in drugs if d.name == selected_drug)
 

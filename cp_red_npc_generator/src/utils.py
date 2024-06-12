@@ -12,10 +12,17 @@ def left_align(obj, offset: int = 0, char: str = "\t") -> str:
     return char * offset + obj
 
 
-def choose_exponential_random_element(elements, reverse: bool = False, scale=1.0):
-    weights = np.random.exponential(scale, len(elements))
-    probabilities = weights / weights.sum()
-    index = np.random.choice(len(elements), p=list(reversed(probabilities)) if reverse else probabilities)
+def choose_exponential_random_element(elements):
+    def exponential_distribution_probability_density_function(x: float, lambda_: float) -> float:
+        if x >= 0:
+            return lambda_ * np.exp(-lambda_ * x)
+        else:
+            return 0
+        
+    weights = [exponential_distribution_probability_density_function(x * 20 / len(elements), 0.2)
+               for x in range(len(elements))]
+    probabilities = [x / sum(weights) for x in weights]
+    index = np.random.choice(len(elements), p=probabilities)
     return elements[index]
 
 

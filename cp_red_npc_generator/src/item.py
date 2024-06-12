@@ -107,6 +107,7 @@ class Item:
     # cyberware
     max_humanity_loss: int = field(default=0, compare=False)
     must_be_paired: bool = field(default=False, compare=False)
+    required_cyberware: List[str] = field(default_factory=list, compare=False)
 
     def contains_any_tag_from(self, item) -> bool:
         for tag1 in self.tags:

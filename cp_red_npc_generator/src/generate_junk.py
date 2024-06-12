@@ -19,7 +19,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
     data = load_data("configs/items/junk.json")
 
     junk: List[Item] = [dataclass_wizard.fromdict(Item, x) for x in data]
-    junk.sort(key=lambda x: x.price)
+    junk.sort(key=lambda x: x.price, reverse=True)
 
     junk_budget: int = round(npc_template.rank.items_budget[ItemType.JUNK].generate())
     logging.debug(f"\t{junk_budget=}")
@@ -33,7 +33,7 @@ def generate_junk(npc: Npc, npc_template: NpcTemplate) -> Npc:
             logging.debug(f"\tMax number of junk items reached: {max_junk_items}")
             break
 
-        selected_junk = choose_exponential_random_element(junk, True)
+        selected_junk = choose_exponential_random_element(junk)
         logging.debug(f"\tTrying to generate junk item: {selected_junk}")
 
         if selected_junk in npc.inventory:
