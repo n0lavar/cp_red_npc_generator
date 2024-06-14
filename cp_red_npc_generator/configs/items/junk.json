@@ -470,11 +470,6 @@
         "price": 100
     },
     {
-        "name": "Memory Chip (Tactile Boost)",
-        "type": "junk",
-        "price": 100
-    },
-    {
         "name": "Flask of Expensive Alcohol",
         "type": "junk",
         "price": 100
@@ -493,11 +488,6 @@
         "name": "Golden Chain",
         "type": "junk",
         "price": 500
-    },
-    {
-        "name": "Memory Chip (Pain Editor)",
-        "type": "junk",
-        "price": 1000
     },
     {
         "name": "Memory Chip (Skill Chip – x2)",

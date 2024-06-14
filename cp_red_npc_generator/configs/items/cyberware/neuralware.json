@@ -53,7 +53,7 @@
         "modifiers": [
             {
                 "name": "Initiative",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [
@@ -71,7 +71,7 @@
         "modifiers": [
             {
                 "name": "Initiative",
-                "value": 3
+                "simple": 3
             }
         ],
         "requires_container": [

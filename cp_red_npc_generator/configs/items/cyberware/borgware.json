@@ -15,23 +15,50 @@
         "name": "Implanted Linear Frame ß (Beta)",
         "type": "cyberware",
         "price": 5000,
+        "tags": ["Skeleton"],
+        "modifiers": [
+            {
+                "name": "BODY",
+                "complicated": [
+                    "new_value = 14",
+                    "new_modifier = new_value - start_value"
+                ]
+            }
+        ],
         "requires_container": [
             "Borgware"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
-        "max_humanity_loss": 4
+        "max_humanity_loss": 4,
+        "required_cyberware": [
+            "Grafted Muscle and Bone Lace",
+            "Grafted Muscle and Bone Lace"
+        ]
     },
     {
         "name": "Implanted Linear Frame Σ (Sigma)",
+        "tags": ["Skeleton"],
         "type": "cyberware",
         "price": 1000,
+        "modifiers": [
+            {
+                "name": "BODY",
+                "complicated": [
+                    "new_value = 12",
+                    "new_modifier = new_value - start_value"
+                ]
+            }
+        ],
         "requires_container": [
             "Borgware"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
-        "max_humanity_loss": 4
+        "max_humanity_loss": 4,
+        "required_cyberware": [
+            "Grafted Muscle and Bone Lace"
+        ]
     },
     {
         "name": "MultiOptic Mount",

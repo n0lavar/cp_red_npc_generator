@@ -8,7 +8,7 @@ import numpy as np
 from typing import List, Optional, Set, Tuple
 from dataclasses import dataclass, field, replace
 
-from item import Item, ItemType, ItemQuality, PriceCategory, price_category_from_price
+from item import Item, ItemType, ItemQuality, PriceCategory
 from npc import Npc, InventoryNode
 from npc_template import NpcTemplate
 from stats import StatType
@@ -50,17 +50,17 @@ def pick_weapon(budget: int,
         logging.debug(f"\t\tChosen quality: {preferred_quality}")
 
         preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.tags)
-        initial_price_category: PriceCategory = price_category_from_price(preferred_weapon_item.price)
+        initial_price_category: PriceCategory = PriceCategory.from_price(preferred_weapon_item.price)
         price: int = preferred_weapon_item.price
         match preferred_quality:
             case ItemQuality.POOR:
                 if initial_price_category.value - 1 not in PriceCategory:
                     continue
-                price = PriceCategory(initial_price_category.value - 1).get_price()
+                price = PriceCategory(initial_price_category.value - 1).get_default_price()
             case ItemQuality.EXCELLENT:
                 if initial_price_category.value + 1 not in PriceCategory:
                     continue
-                price = PriceCategory(initial_price_category.value + 1).get_price()
+                price = PriceCategory(initial_price_category.value + 1).get_default_price()
 
         if price > budget:
             logging.debug(f"\t\tFailed, not enough money: required={price}, available={budget}")

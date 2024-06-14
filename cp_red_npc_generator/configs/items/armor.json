@@ -29,15 +29,15 @@
         "modifiers": [
             {
                 "name": "REF",
-                "value": -2
+                "simple": -2
             },
             {
                 "name": "DEX",
-                "value": -2
+                "simple": -2
             },
             {
                 "name": "MOVE",
-                "value": -2
+                "simple": -2
             }
         ]
     },
@@ -50,15 +50,15 @@
         "modifiers": [
             {
                 "name": "REF",
-                "value": -2
+                "simple": -2
             },
             {
                 "name": "DEX",
-                "value": -2
+                "simple": -2
             },
             {
                 "name": "MOVE",
-                "value": -2
+                "simple": -2
             }
         ]
     },
@@ -71,15 +71,15 @@
         "modifiers": [
             {
                 "name": "REF",
-                "value": -4
+                "simple": -4
             },
             {
                 "name": "DEX",
-                "value": -4
+                "simple": -4
             },
             {
                 "name": "MOVE",
-                "value": -4
+                "simple": -4
             }
         ]
     },
@@ -92,15 +92,15 @@
         "modifiers": [
             {
                 "name": "REF",
-                "value": -4
+                "simple": -4
             },
             {
                 "name": "DEX",
-                "value": -4
+                "simple": -4
             },
             {
                 "name": "MOVE",
-                "value": -4
+                "simple": -4
             }
         ]
     }

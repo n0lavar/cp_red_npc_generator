@@ -42,7 +42,7 @@
         "modifiers": [
             {
                 "name": "WardrobeStyle",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [

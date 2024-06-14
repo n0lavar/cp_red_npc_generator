@@ -6,11 +6,11 @@
         "modifiers": [
             {
                 "name": "Acting",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "PlayInstrument",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [
@@ -71,14 +71,17 @@
         "modifiers": [
             {
                 "name": "BODY",
-                "value": 2
+                "complicated": [
+                    "new_value = min(start_value + current_modifier + 2, 10)",
+                    "new_modifier = new_value - start_value"
+                ]
             }
         ],
         "requires_container": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
-        "max_equipped_items": 1,
+        "max_equipped_items": 2,
         "max_humanity_loss": 2
     },
     {
@@ -145,7 +148,7 @@
         "modifiers": [
             {
                 "name": "ResistTortureDrugs",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [

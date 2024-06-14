@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import copy
+import logging
 import math
 from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
@@ -30,7 +31,9 @@ class InventoryNode:
 
     def add_child(self, child: Item):  # -> Optional[InventoryNode]:
         if self.can_add_child(child):
-            new_node = InventoryNode(copy.deepcopy(child))
+            # new_node = InventoryNode(replace(copy.deepcopy(child), id=str(uuid.uuid4())))
+            # new_node = InventoryNode(copy.deepcopy(child))
+            new_node = InventoryNode(child.clone())
             self.children.append(new_node)
             return new_node
         else:
@@ -86,22 +89,27 @@ class Npc:
         return equipped_items
 
     def get_stat_or_skill_value(self, name: str) -> Tuple[int, int]:
+        logging.debug(f"\tGetting a value and a modifier for {name}")
+
         equipped_items: List[Item] = self.get_all_items()
+        equipped_items.sort(key=lambda x: x.creation_time)
 
         if name.lower() in StatType and StatType(name.lower()) in self.stats:
-            value = self.stats[StatType(name.lower())]
+            start_value = self.stats[StatType(name.lower())]
         else:
-            value = next(level for skill, level in self.skills.items() if skill.name == name)
+            start_value = next(level for skill, level in self.skills.items() if skill.name == name)
 
         modifier_value: int = 0
         for item in equipped_items:
             for modifier in item.modifiers:
-                if name.lower() == modifier.name.lower():
-                    modifier_value += modifier.value
+                modifier_value = modifier.apply(str(item), name, start_value, modifier_value)
 
-        return value, modifier_value
+        logging.debug(f"\t{name}: {start_value=}, {modifier_value=}")
+        return start_value, modifier_value
 
     def to_string(self, flat: bool = False) -> str:
+        logging.debug(f"\nConverting npc to a string...")
+
         npc_str: str = ""
 
         total_price = sum([x.price for x in self.get_all_items()])
@@ -117,8 +125,10 @@ class Npc:
         npc_str += ")\n\n"
 
         npc_str += f"Stats: (stat+modifiers=total)\n\t"
+        stats_modifiers: Dict[StatType, Tuple[int, int]] = {}
         for stat in self.stats.keys():
             stat_value, stat_modifier = self.get_stat_or_skill_value(stat.name)
+            stats_modifiers[stat] = stat_value, stat_modifier
             npc_str += f"[{stat_value}"
             if stat_modifier != 0:
                 npc_str += f"{stat_modifier:+}={stat_value + stat_modifier}"
@@ -133,7 +143,7 @@ class Npc:
 
             for skill in skills_of_one_type:
                 skill_value, skill_modifier = self.get_stat_or_skill_value(skill.name)
-                stat_value, stat_modifier = self.get_stat_or_skill_value(str(skill.link))
+                stat_value, stat_modifier = stats_modifiers[skill.link]
                 skills_of_one_type_rows.append(
                     "    " + skill.to_string(skill_value, skill_modifier, stat_value, stat_modifier))
 

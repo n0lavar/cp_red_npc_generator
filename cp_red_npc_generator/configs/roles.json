@@ -100,7 +100,8 @@
             "Tactics": 6
         },
         "preferred_cyberware": [
-            "Grafted Muscle and Bone Lace",
+            "Implanted Linear Frame ß (Beta)",
+            "Implanted Linear Frame Σ (Sigma)",
             "Biomonitor",
             "Sandevistan",
             "Pain Editor",
@@ -111,6 +112,7 @@
             "Low Light / Infrared / UV",
             "Targeting Scope",
             "Level Damper",
+            "Grafted Muscle and Bone Lace",
             "Popup Shield",
             "Radio Communicator",
             "Radar Detector",
@@ -269,6 +271,7 @@
             "Grapple Hand",
             "Kerenzikov",
             "Chemical Analyzer",
+            "Implanted Linear Frame Σ (Sigma)",
             "Anti-Dazzle",
             "Chyron",
             "Radiation Detector",
@@ -575,6 +578,8 @@
             "Tracking": 6
         },
         "preferred_cyberware": [
+            "Implanted Linear Frame ß (Beta)",
+            "Implanted Linear Frame Σ (Sigma)",
             "Pain Editor",
             "Low Light / Infrared / UV",
             "Sandevistan",

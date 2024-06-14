@@ -18,7 +18,7 @@
         "modifiers": [
             {
                 "name": "Perception",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [
@@ -153,11 +153,11 @@
         "modifiers": [
             {
                 "name": "HumanPerception",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Interrogation",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [

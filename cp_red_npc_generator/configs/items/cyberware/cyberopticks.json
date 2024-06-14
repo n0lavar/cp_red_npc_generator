@@ -62,15 +62,15 @@
         "modifiers": [
             {
                 "name": "Perception",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "LipReading",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "ConcealRevealObject",
-                "value": 2
+                "simple": 2
             }
         ],
         "requires_container": [

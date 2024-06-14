@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import logging
-import uuid
+from dataclasses import replace
+
 import dataclass_wizard
 from typing import List, Optional, Tuple, Dict
-from dataclasses import replace
 
 from item import Item, ItemType, Modifier
 from npc import Npc
@@ -40,8 +40,8 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     if armor_cyberware:
         logging.debug(f"\tArmor cyberware found: {armor_cyberware})")
-        npc.armor.add(replace(armor_cyberware, name=f"Head: {armor_cyberware.name}", price=0, id=str(uuid.uuid4())))
-        npc.armor.add(replace(armor_cyberware, name=f"Body: {armor_cyberware.name}", price=0, id=str(uuid.uuid4())))
+        npc.armor.add(armor_cyberware.clone(name=f"Head: {armor_cyberware.name}", price=0))
+        npc.armor.add(armor_cyberware.clone(name=f"Body: {armor_cyberware.name}", price=0))
     else:
         data = load_data("configs/items/armor.json")
 
@@ -70,7 +70,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if body_armor:
             logging.debug(f"\tAdded body armor: {body_armor}")
-            npc.armor.add(replace(body_armor, name=f"Body: {body_armor.name}", id=str(uuid.uuid4())))
+            npc.armor.add(body_armor.clone(name=f"Body: {body_armor.name}"))
         else:
             logging.debug(f"\tFailed to add a body armor")
 
@@ -81,7 +81,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if head_armor:
             logging.debug(f"\tAdded head armor: {head_armor}")
-            npc.armor.add(replace(head_armor, name=f"Head: {head_armor.name}", id=str(uuid.uuid4())))
+            npc.armor.add(head_armor.clone(name=f"Head: {head_armor.name}"))
         else:
             logging.debug(f"\tFailed to add a head armor")
 
@@ -90,13 +90,13 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
         all_armor_negative_modifiers: Dict[str, int] = dict()
         for armor in npc.armor:
             for modifier in armor.modifiers:
-                if modifier.value < 0:
+                if modifier.simple < 0:
                     all_armor_negative_modifiers.setdefault(modifier.name, 0)
-                    if modifier.value < all_armor_negative_modifiers[modifier.name]:
-                        all_armor_negative_modifiers[modifier.name] = modifier.value
+                    if modifier.simple < all_armor_negative_modifiers[modifier.name]:
+                        all_armor_negative_modifiers[modifier.name] = modifier.simple
 
             npc.armor.discard(armor)
-            npc.armor.add(replace(armor, modifiers=[x for x in armor.modifiers if x.value > 0]))
+            npc.armor.add(replace(armor, modifiers=[x for x in armor.modifiers if x.simple > 0]))
 
         # apply all the negative modifiers only once
         armor_with_negative_modifiers: Item = next(iter(npc.armor))

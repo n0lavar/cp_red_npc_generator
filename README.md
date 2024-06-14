@@ -82,7 +82,7 @@ Generated:
 You may be a netrunner and not need such explanations, but not everyone here knows their way around a computer, choom!  
 This is a console application, which means that you need to do the following to get a sensible result:
 
-1. On the right side of the github page there is a releases section, open the last one
+1. On the right side of the github page there is a releases section, open the last one.
 2. Download `cp_red_npc_generator.zip`, unzip it anywhere you want.
 3. Open Explorer where the `cp_red_npc_generator.exe` file is, type "cmd" in the address bar and press Enter.
 4. Now you should see a command prompt opened in the right directory where you can type commands from examples.  
@@ -91,10 +91,11 @@ This is a console application, which means that you need to do the following to 
 Here is the full list of available arguments and their explanation. The only required argument is `--rank`.
 
 ```
-usage: cp_red_npc_generator.exe [-h] --rank
-                                {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
+usage: cp_red_npc_generator.exe [-h] 
+                                --rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
                                 [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}]
-                                [--seed SEED] [--flat | --no-flat]
+                                [--seed SEED] 
+                                [--flat | --no-flat]
                                 [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
 
 options:

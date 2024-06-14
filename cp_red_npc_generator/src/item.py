@@ -2,64 +2,19 @@
 # -*- coding: utf-8 -*-
 
 import uuid
+import time
 from typing import List, Optional, Set
-from dataclasses import dataclass, field
-from enum import StrEnum, auto, Enum
+from dataclasses import dataclass, field, replace
+from enum import StrEnum, auto
+
+from modifier import Modifier
+from price_category import PriceCategory
 
 
 class ItemQuality(StrEnum):
     POOR = auto()
     STANDARD = auto()
     EXCELLENT = auto()
-
-
-class PriceCategory(Enum):
-    CHEAP = 0
-    EVERYDAY = 1
-    COSTLY = 2
-    PREMIUM = 3
-    EXPENSIVE = 4
-    VERY_EXPENSIVE = 5
-    LUXURY = 6
-    SUPER_LUXURY = 7
-
-    def get_price(self) -> int:
-        match self:
-            case PriceCategory.CHEAP:
-                return 10
-            case PriceCategory.EVERYDAY:
-                return 20
-            case PriceCategory.COSTLY:
-                return 50
-            case PriceCategory.PREMIUM:
-                return 100
-            case PriceCategory.EXPENSIVE:
-                return 500
-            case PriceCategory.VERY_EXPENSIVE:
-                return 1000
-            case PriceCategory.LUXURY:
-                return 5000
-            case PriceCategory.SUPER_LUXURY:
-                return 10000
-
-
-def price_category_from_price(price: int):
-    if price <= 10:
-        return PriceCategory.CHEAP
-    elif price <= 20:
-        return PriceCategory.EVERYDAY
-    elif price <= 50:
-        return PriceCategory.COSTLY
-    elif price <= 100:
-        return PriceCategory.PREMIUM
-    elif price <= 500:
-        return PriceCategory.EXPENSIVE
-    elif price <= 1000:
-        return PriceCategory.VERY_EXPENSIVE
-    elif price <= 5000:
-        return PriceCategory.LUXURY
-    else:
-        return PriceCategory.SUPER_LUXURY
 
 
 class ItemType(StrEnum):
@@ -72,12 +27,6 @@ class ItemType(StrEnum):
     JUNK = auto()
 
 
-@dataclass
-class Modifier:
-    name: str = "Empty modifier"
-    value: int = 0
-
-
 @dataclass(frozen=True, eq=True)
 class Item:
     name: str = "Empty item"
@@ -86,6 +35,7 @@ class Item:
     default_hidden: bool = False
 
     id: str = field(default=str(uuid.uuid4()), compare=False)
+    creation_time: int = field(default=int(time.time_ns()), compare=False)
 
     tags: List[str] = field(default_factory=list, compare=False)
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
@@ -109,6 +59,9 @@ class Item:
     must_be_paired: bool = field(default=False, compare=False)
     required_cyberware: List[str] = field(default_factory=list, compare=False)
 
+    def clone(self, *args, **kwargs):
+        return replace(self, id=str(uuid.uuid4()), creation_time=int(time.time_ns()), *args, **kwargs)
+
     def contains_any_tag_from(self, item) -> bool:
         for tag1 in self.tags:
             for tag2 in item.tags:
@@ -123,7 +76,7 @@ class Item:
         if self.price > 0:
             info += f"{self.price}eb"
             if not short:
-                info += f" ({price_category_from_price(self.price).name.lower()})"
+                info += f" ({PriceCategory.from_price(self.price).name.lower()})"
             info += f", "
 
         if not short:

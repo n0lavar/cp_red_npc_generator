@@ -2,12 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import copy
-import dataclasses
 import logging
 import math
 import dataclass_wizard
-import uuid
-from typing import List, Optional
+from typing import List, Optional, Tuple
 from pathlib import Path
 from dataclasses import dataclass, field, replace
 
@@ -19,11 +17,7 @@ from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_
 
 
 def create_paired_item(item: Item) -> Item:
-    paired_item = copy.deepcopy(item)
-    return replace(paired_item,
-                   must_be_paired=False,
-                   max_equipped_items=0,
-                   id=str(uuid.uuid4()))
+    return item.clone(must_be_paired=False, max_equipped_items=0)
 
 
 def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
@@ -45,24 +39,22 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
     npc.cyberware = InventoryNode(next(cw for cw in all_cyberware if cw.name == "Meatbody"))
 
     @dataclass
-    class PickingResult:
-        new_root: InventoryNode = field(default_factory=InventoryNode)
-        new_money_budget: int = field(default=0)
-        new_humanity_budget: int = field(default=0)
-        picked_item: Item = field(default_factory=Item)
-        picked_item_container: InventoryNode = field(default_factory=InventoryNode)
+    class CyberwareGenerationState:
+        root: InventoryNode = field(default_factory=InventoryNode)
+        money_budget: int = field(default=0)
+        humanity_budget: int = field(default=0)
 
     def pick_cyberware(cyberware_item: Item,
                        starting_remaining_money_budget: int,
                        starting_remaining_humanity_budget: int,
                        current_cyberware_node_root: InventoryNode,
                        offset: int,
-                       first_pairing_container: Optional[Item] = None) -> Optional[PickingResult]:
+                       first_pairing_container: Optional[Item] = None) -> Optional[CyberwareGenerationState]:
         nonlocal all_cyberware
 
         logging.debug(left_align(f"Trying to add: {cyberware_item}", offset))
 
-        # try to check if this cyberware was already added
+        # check if this cyberware was already added
         if cyberware_item.max_equipped_items != 0:
             num_already_added: int = 0
             for cyberware in current_cyberware_node_root:
@@ -74,40 +66,64 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                     left_align(f"Max number of {num_already_added} items already reached, skipping", offset))
                 return None
 
-        def try_buy_cyberware(cyberware_to_buy: Item,
-                              root: InventoryNode,
-                              purchase_money_budget: int,
-                              purchase_humanity_budget: int) -> Optional[PickingResult]:
+        # check if can't hold more cyberware of this type
+        for cyberware in current_cyberware_node_root:
+            if cyberware.item.contains_any_tag_from(cyberware_item):
+                logging.debug(left_align(
+                    f"{cyberware.item} already contains tag from this cyberware",
+                    offset))
+                return None
+
+        state: CyberwareGenerationState = CyberwareGenerationState(current_cyberware_node_root,
+                                                                   starting_remaining_money_budget,
+                                                                   starting_remaining_humanity_budget)
+
+        # try to pick all dependent cyberware
+        for required_cyberware in cyberware_item.required_cyberware:
+            logging.debug(
+                left_align(f"{cyberware_item} required a cyberware: {required_cyberware}, generating...", offset))
+
+            required_cyberware_item: Item = next(
+                cw for cw in all_cyberware if cw.name == required_cyberware).clone()
+
+            state = pick_cyberware(
+                required_cyberware_item,
+                state.money_budget,
+                state.humanity_budget,
+                copy.deepcopy(state.root),
+                offset + 1)
+
+            if not state:
+                logging.debug(left_align(f"Failed, couldn't create a required cyberware", offset))
+                return None
+
+            logging.debug(
+                left_align(f"Successfully created a required cyberware: {required_cyberware_item}", offset))
+
+        def try_buy_cyberware(cyberware_to_buy: Item, state: CyberwareGenerationState) \
+                -> Optional[Tuple[CyberwareGenerationState, Item]]:
             nonlocal offset
 
-            for cyberware in root:
-                if cyberware.item.contains_any_tag_from(cyberware_to_buy):
-                    logging.debug(left_align(
-                        f"{cyberware.item} already contains tag from this cyberware",
-                        offset))
-                    return None
-
-            if cyberware_to_buy.price > purchase_money_budget:
+            if cyberware_to_buy.price > state.money_budget:
                 logging.debug(left_align(
                     f"Not enough money to buy this cyberware "
-                    f"(required: {cyberware_to_buy.price}, available: {purchase_money_budget})",
+                    f"(required: {cyberware_to_buy.price}, available: {state.money_budget})",
                     offset))
 
                 return None
 
-            if cyberware_to_buy.max_humanity_loss > purchase_humanity_budget:
+            if cyberware_to_buy.max_humanity_loss > state.humanity_budget:
                 logging.debug(left_align(
                     f"Not enough humanity to add this cyberware "
-                    f"(required: {cyberware_to_buy.max_humanity_loss}, available: {purchase_humanity_budget})",
+                    f"(required: {cyberware_to_buy.max_humanity_loss}, available: {state.humanity_budget})",
                     offset))
 
                 return None
 
             container_where_added: Optional[InventoryNode] = None
-            for cyberware in root:
-                if first_pairing_container:
-                    if first_pairing_container.id == cyberware.item.id:
-                        continue
+            for cyberware in state.root:
+                if first_pairing_container and first_pairing_container.id == cyberware.item.id:
+                    continue
 
                 new_node: Optional[InventoryNode] = cyberware.add_child(cyberware_item)
                 if not new_node:
@@ -122,90 +138,69 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
             logging.debug(left_align(f"Found a suitable container: {container_where_added.item}", offset))
 
-            result: PickingResult = PickingResult(root,
-                                                  purchase_money_budget - cyberware_to_buy.price,
-                                                  purchase_humanity_budget - cyberware_to_buy.max_humanity_loss,
-                                                  cyberware_to_buy,
-                                                  container_where_added)
-
-            if cyberware_item.must_be_paired:
-                logging.debug(left_align(f"{cyberware_item} required a paired item, generating...", offset))
-                result = pick_cyberware(
-                    create_paired_item(cyberware_item),
-                    result.new_money_budget,
-                    result.new_humanity_budget,
-                    copy.deepcopy(result.new_root),
-                    offset + 1,
-                    result.picked_item_container.item)
-
-                if not result:
-                    logging.debug(left_align(f"Failed, couldn't create a paired container", offset))
-                    return None
-
-                logging.debug(left_align(f"Successfully created a paired item: {result.picked_item}", offset))
-
-            for required_cyberware in cyberware_item.required_cyberware:
-                logging.debug(
-                    left_align(f"{cyberware_item} required a cyberware: {required_cyberware}, generating...", offset))
-
-                required_cyberware_item: Item = next(cw for cw in all_cyberware if cw.name == required_cyberware)
-
-                result = pick_cyberware(
-                    dataclasses.replace(required_cyberware_item, id=str(uuid.uuid4())),
-                    result.new_money_budget,
-                    result.new_humanity_budget,
-                    copy.deepcopy(result.new_root),
-                    offset + 1)
-
-                if not result:
-                    logging.debug(left_align(f"Failed, couldn't create a required cyberware", offset))
-                    return None
-
-                logging.debug(left_align(f"Successfully created a required cyberware: {result.picked_item}", offset))
-
             logging.debug(left_align(f"Pre-added: {cyberware_to_buy}", offset))
-            return result
+            return (CyberwareGenerationState(state.root,
+                                             state.money_budget - cyberware_to_buy.price,
+                                             state.humanity_budget - cyberware_to_buy.max_humanity_loss),
+                    container_where_added.item)
 
         # try to add this cyberware to an existing container
-        purchase_result: Optional[PickingResult] = try_buy_cyberware(
-            cyberware_item,
-            current_cyberware_node_root,
-            starting_remaining_money_budget,
-            starting_remaining_humanity_budget)
+        purchase_result: Optional[Tuple[CyberwareGenerationState, Item]] = try_buy_cyberware(cyberware_item,
+                                                                                             state)
 
-        if purchase_result:
-            return purchase_result
+        if not purchase_result:
+            # try to add all the required containers and then add the cyberware
+            logging.debug(left_align(f"Creating required containers: {cyberware_item.requires_container}", offset))
+            for container in cyberware_item.requires_container:
+                container_item: Item = next(cw for cw in all_cyberware if cw.name == container).clone()
+                picking_result: Optional[CyberwareGenerationState] = pick_cyberware(
+                    container_item,
+                    state.money_budget,
+                    state.humanity_budget,
+                    copy.deepcopy(state.root),
+                    offset + 1)
 
-        # try to add all the required containers and then add the cyberware
-        logging.debug(left_align(f"Creating required containers: {cyberware_item.requires_container}", offset))
-        picking_result: Optional[PickingResult] = None
-        for container in cyberware_item.requires_container:
-            container_item: Item = next(cw for cw in all_cyberware if cw.name == container)
-            this_container_picking_result: Optional[PickingResult] = pick_cyberware(
-                dataclasses.replace(container_item, id=str(uuid.uuid4())),
-                starting_remaining_money_budget,
-                starting_remaining_humanity_budget,
-                copy.deepcopy(current_cyberware_node_root),
-                offset + 1)
+                if picking_result:
+                    purchase_result = picking_result, container_item
+                    break
 
-            if this_container_picking_result:
-                picking_result = this_container_picking_result
-                break
+            if not purchase_result:
+                logging.debug(left_align(f"Couldn't create any of required containers", offset))
+                return None
+            else:
+                logging.debug(left_align(f"Created the required container", offset))
+                purchase_result = try_buy_cyberware(cyberware_item, purchase_result[0])
 
-        if not picking_result:
-            logging.debug(left_align(f"Couldn't create any of required containers", offset))
+        if not purchase_result:
+            logging.debug(left_align(f"Couldn't buy an item", offset))
             return None
 
-        logging.debug(left_align(f"Created all the required containers", offset))
-        return try_buy_cyberware(cyberware_item,
-                                 picking_result.new_root,
-                                 picking_result.new_money_budget,
-                                 picking_result.new_humanity_budget)
+        state = purchase_result[0]
+        container_where_added = purchase_result[1]
+
+        if cyberware_item.must_be_paired:
+            logging.debug(left_align(f"{cyberware_item} required a paired item, generating...", offset))
+            paired_item: Item = create_paired_item(cyberware_item)
+            state = pick_cyberware(
+                paired_item,
+                state.money_budget,
+                state.humanity_budget,
+                copy.deepcopy(state.root),
+                offset + 1,
+                container_where_added)
+
+            if not state:
+                logging.debug(left_align(f"Failed, couldn't create a paired container", offset))
+                return None
+            else:
+                logging.debug(left_align(f"Successfully created a paired item: {paired_item}", offset))
+
+        return state
 
     for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         chosen_cyberware: str = choose_exponential_random_element(npc_template.role.preferred_cyberware)
         chosen_cyberware_item: Item = next(cw for cw in all_cyberware if cw.name == chosen_cyberware)
-        chosen_cyberware_picking_result: Optional[PickingResult] = pick_cyberware(
+        chosen_cyberware_picking_result: Optional[CyberwareGenerationState] = pick_cyberware(
             chosen_cyberware_item,
             cyberware_budget,
             humanity_budget,
@@ -213,9 +208,9 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
             2)
 
         if chosen_cyberware_picking_result:
-            npc.cyberware = chosen_cyberware_picking_result.new_root
-            cyberware_budget = chosen_cyberware_picking_result.new_money_budget
-            humanity_budget = chosen_cyberware_picking_result.new_humanity_budget
+            npc.cyberware = chosen_cyberware_picking_result.root
+            cyberware_budget = chosen_cyberware_picking_result.money_budget
+            humanity_budget = chosen_cyberware_picking_result.humanity_budget
             logging.debug(f"\t\tAdded: {chosen_cyberware} and all the required containers")
             logging.debug(f"\t\t{cyberware_budget=}")
             logging.debug(f"\t\t{humanity_budget=}")

@@ -6,7 +6,7 @@
         "modifiers": [
             {
                 "name": "LibrarySearch",
-                "value": 2
+                "simple": 2
             }
         ],
         "price": 100
@@ -128,11 +128,11 @@
         "modifiers": [
             {
                 "name": "FirstAid",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Paramedic",
-                "value": 2
+                "simple": 2
             }
         ]
     },
@@ -205,43 +205,43 @@
         "modifiers": [
             {
                 "name": "AirVehicleTech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "BasicTech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Cybertech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Demolitions",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "ElectronicsSecurityTech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Forgery",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "LandVehicleTech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "PickLock",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "AirVeSeaVehicleTechhicleTech",
-                "value": 2
+                "simple": 2
             },
             {
                 "name": "Weaponstech",
-                "value": 2
+                "simple": 2
             }
         ]
     },
