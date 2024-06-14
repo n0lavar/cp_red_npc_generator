@@ -71,17 +71,15 @@ if __name__ == "__main__":
                              "Rank determines how advanced an NPC's skills are and "
                              "how cool his equipment is.",
                         choices=[r["name"] for r in ranks],
-                        required=True)
+                        default="captain")
     parser.add_argument("--role",
                         type=str,
                         help="An occupation the NPC is known by on The Street. "
-                             "`civilian` means that this is just a regular human, "
-                             "`booster` means that this is a street mook with some fighting skills,"
-                             " but without any specialization. "
+                             "`civilian` means that this is just a regular human. "
                              "The role can determine the equipment and the direction of the NPC's skills. "
-                             "The default value is `booster`. ",
+                             "The default value is `solo`. ",
                         choices=[r["name"] for r in roles],
-                        default="booster")
+                        default="solo")
     parser.add_argument("--seed",
                         type=int,
                         help="A number for a random engine. The same seed will always give the same result when "

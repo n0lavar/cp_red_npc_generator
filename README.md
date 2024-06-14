@@ -88,12 +88,13 @@ This is a console application, which means that you need to do the following to 
 4. Now you should see a command prompt opened in the right directory where you can type commands from examples.  
    Try this for starters: `cp_red_npc_generator.exe --rank=captain --role=solo`.
 
-Here is the full list of available arguments and their explanation. The only required argument is `--rank`.
+Here is the full list of available arguments and their explanation. Calling `cp_red_npc_generator.exe` without any
+arguments will generate a solo with a captain rank.
 
 ```
 usage: cp_red_npc_generator.exe [-h] 
-                                --rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
-                                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}]
+                                [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}]
+                                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
                                 [--seed SEED] 
                                 [--flat | --no-flat]
                                 [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
@@ -106,13 +107,11 @@ options:
                         general is a world-class character. Rank determines
                         how advanced an NPC's skills are and how cool his
                         equipment is.
-  --role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian,booster}
+  --role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}
                         An occupation the NPC is known by on The Street.
-                        `civilian` means that this is just a regular human,
-                        `booster` means that this is a street mook with some
-                        fighting skills, but without any specialization. The
-                        role can determine the equipment and the direction of
-                        the NPC's skills. The default value is `booster`.
+                        `civilian` means that this is just a regular human.
+                        The role can determine the equipment and the direction of
+                        the NPC's skills. The default value is `solo`.
   --seed SEED           A number for a random engine. The same seed will
                         always give the same result when the other arguments
                         are unchanged. The default is 0, which means "use unix
@@ -338,9 +337,6 @@ Inventory:
 
 ## Limitations (or todos? who knows)
 
-* No complex modifiers, only +N to stats/skills (for ex. 3 tattoos won't give you +2 Personal Grooming)
-* No complex requirements, only containers (for ex. I disabled Beta/Sigma Frames generation as they require 2/1 Grafted
-  Muscle and Bone Lace)
 * No skill chips
 * Skills - only upgrades to street rat
 * (Almost) only items from the basic rulebook
