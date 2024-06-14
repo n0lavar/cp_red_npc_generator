@@ -7,11 +7,12 @@ import math
 import dataclass_wizard
 from typing import List, Optional, Tuple
 from pathlib import Path
-from dataclasses import dataclass, field, replace
+from dataclasses import dataclass, field
 
 from item import Item, ItemType
-from npc import Npc, InventoryNode
+from npc import Npc
 from npc_template import NpcTemplate
+from inventory_node import InventoryNode
 from stats import StatType
 from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
 
