@@ -5,7 +5,7 @@ import copy
 import logging
 import math
 import dataclass_wizard
-from typing import List, Optional, Tuple
+from typing import List, Optional, Tuple, Dict
 from pathlib import Path
 from dataclasses import dataclass, field
 from result import Result, is_err
@@ -82,26 +82,41 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                                                                    starting_remaining_humanity_budget)
 
         # try to pick all dependent cyberware
+        current_cyberware_numbers: Dict[str, int] = {}
+        for cyberware in current_cyberware_node_root:
+            current_cyberware_numbers.setdefault(cyberware.item.name, 0)
+            current_cyberware_numbers[cyberware.item.name] += 1
+
+        required_cyberware_numbers: Dict[str, int] = {}
         for required_cyberware in cyberware_item.required_cyberware:
-            logging.debug(
-                left_align(f"{cyberware_item} required a cyberware: {required_cyberware}, generating...", offset))
+            required_cyberware_numbers.setdefault(required_cyberware, 0)
+            required_cyberware_numbers[required_cyberware] += 1
 
-            required_cyberware_item: Item = next(
-                cw for cw in all_cyberware if cw.name == required_cyberware).clone()
+        for required_cyberware_name, required_cyberware_numbers_num in required_cyberware_numbers.items():
+            if required_cyberware_name in current_cyberware_numbers.keys():
+                required_cyberware_numbers_num -= current_cyberware_numbers[required_cyberware_name]
 
-            state = pick_cyberware(
-                required_cyberware_item,
-                state.money_budget,
-                state.humanity_budget,
-                copy.deepcopy(state.root),
-                offset + 1)
+            for _ in range(required_cyberware_numbers_num):
+                logging.debug(
+                    left_align(f"{cyberware_item} required a cyberware: {required_cyberware_name}, generating...",
+                               offset))
 
-            if not state:
-                logging.debug(left_align(f"Failed, couldn't create a required cyberware", offset))
-                return None
+                required_cyberware_item: Item = next(
+                    cw for cw in all_cyberware if cw.name == required_cyberware_name).clone()
 
-            logging.debug(
-                left_align(f"Successfully created a required cyberware: {required_cyberware_item}", offset))
+                state = pick_cyberware(
+                    required_cyberware_item,
+                    state.money_budget,
+                    state.humanity_budget,
+                    copy.deepcopy(state.root),
+                    offset + 1)
+
+                if not state:
+                    logging.debug(left_align(f"Failed, couldn't create a required cyberware", offset))
+                    return None
+
+                logging.debug(
+                    left_align(f"Successfully created a required cyberware: {required_cyberware_item}", offset))
 
         def try_buy_cyberware(cyberware_to_buy: Item, state: CyberwareGenerationState) \
                 -> Optional[Tuple[CyberwareGenerationState, Item]]:
