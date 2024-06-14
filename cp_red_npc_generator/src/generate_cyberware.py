@@ -8,13 +8,15 @@ import dataclass_wizard
 from typing import List, Optional, Tuple
 from pathlib import Path
 from dataclasses import dataclass, field
+from result import Result, is_err
 
 from item import Item, ItemType
 from npc import Npc
 from npc_template import NpcTemplate
 from inventory_node import InventoryNode
 from stats import StatType
-from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
+from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element, \
+    LoggerLevelScope
 
 
 def create_paired_item(item: Item) -> Item:
@@ -55,7 +57,7 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         logging.debug(left_align(f"Trying to add: {cyberware_item}", offset))
 
-        # check if this cyberware was already added
+        # check if max number of this cyberware was already added
         if cyberware_item.max_equipped_items != 0:
             num_already_added: int = 0
             for cyberware in current_cyberware_node_root:
@@ -126,8 +128,10 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                 if first_pairing_container and first_pairing_container.id == cyberware.item.id:
                     continue
 
-                new_node: Optional[InventoryNode] = cyberware.add_child(cyberware_item)
-                if not new_node:
+                with LoggerLevelScope(logging.INFO):
+                    new_node: Result[InventoryNode, str] = cyberware.add_child(cyberware_item, npc)
+                if is_err(new_node):
+                    logging.debug(left_align(f"{new_node.err_value}", offset))
                     continue
 
                 container_where_added = cyberware
@@ -166,10 +170,10 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
                     break
 
             if not purchase_result:
-                logging.debug(left_align(f"Couldn't create any of required containers", offset))
+                logging.debug(left_align(f"Couldn't create some of required containers", offset))
                 return None
             else:
-                logging.debug(left_align(f"Created the required container", offset))
+                logging.debug(left_align(f"Created the all the required containers", offset))
                 purchase_result = try_buy_cyberware(cyberware_item, purchase_result[0])
 
         if not purchase_result:

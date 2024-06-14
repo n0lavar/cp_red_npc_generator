@@ -58,6 +58,7 @@ class Item:
     max_humanity_loss: int = field(default=0, compare=False)
     must_be_paired: bool = field(default=False, compare=False)
     required_cyberware: List[str] = field(default_factory=list, compare=False)
+    required_condition: List[str] = field(default_factory=list, compare=False)  # Python code
 
     def clone(self, *args, **kwargs):
         return replace(self, id=str(uuid.uuid4()), creation_time=int(time.time_ns()), *args, **kwargs)

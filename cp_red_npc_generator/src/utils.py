@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import json
+import logging
+from typing import List
 
 import numpy as np
 
@@ -18,11 +20,11 @@ def choose_exponential_random_element(elements):
             return lambda_ * np.exp(-lambda_ * x)
         else:
             return 0
-        
-    weights = [exponential_distribution_probability_density_function(x * 20 / len(elements), 0.2)
-               for x in range(len(elements))]
-    probabilities = [x / sum(weights) for x in weights]
-    index = np.random.choice(len(elements), p=probabilities)
+
+    weights: List[float] = [exponential_distribution_probability_density_function(x * 20 / len(elements), 0.2)
+                            for x in range(len(elements))]
+    probabilities: List[float] = [x / sum(weights) for x in weights]
+    index: int = np.random.choice(len(elements), p=probabilities)
     return elements[index]
 
 
@@ -38,3 +40,17 @@ def clamp(n, min_value, max_value):
         return max_value
     else:
         return n
+
+
+class LoggerLevelScope:
+    def __init__(self, temp_level: int):
+        self.temp_level = temp_level
+
+    def __enter__(self):
+        logger = logging.getLogger()
+        self.initial_level = logger.getEffectiveLevel()
+        logger.setLevel(max(self.temp_level, self.initial_level))
+
+    def __exit__(self, exception_type, exception_value, traceback):
+        logger = logging.getLogger()
+        logger.setLevel(self.initial_level)

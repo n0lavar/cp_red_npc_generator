@@ -1,8 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from typing import List
+from typing import List, Optional
 from dataclasses import dataclass, field
+from result import Ok, Err
 
 from item import Item
 from utils import left_align
@@ -13,26 +14,32 @@ class InventoryNode:
     item: Item = field(default=Item)
     children: List = field(default_factory=list)
 
-    def can_add_child(self, child: Item) -> bool:
+    def can_add_child(self, child: Item, npc) -> Optional[str]:
+        if self.item.name not in child.requires_container:
+            return f"Can't add {child.name} to {self.item}"
+
         node_capacity: int = self.item.container_capacity
         node_size: int = sum([x.item.size_in_container for x in self.children])
         if node_size + child.size_in_container > node_capacity:
-            return False
+            return f"The container is full: {self.item}"
 
-        if self.item.name not in child.requires_container:
-            return False
+        if len(child.required_condition):
+            loc = {}
+            exec("\n".join(child.required_condition), locals(), loc)
+            can_add: bool = loc['can_add']
+            if not can_add:
+                return f"The required condition isn't fulfilled: {child.required_condition}"
 
-        return True
+        return None
 
-    def add_child(self, child: Item):  # -> Optional[InventoryNode]:
-        if self.can_add_child(child):
-            # new_node = InventoryNode(replace(copy.deepcopy(child), id=str(uuid.uuid4())))
-            # new_node = InventoryNode(copy.deepcopy(child))
+    def add_child(self, child: Item, npc):  # -> Result[InventoryNode. str]:
+        error: Optional[str] = self.can_add_child(child, npc)
+        if not error:
             new_node = InventoryNode(child.clone())
             self.children.append(new_node)
-            return new_node
+            return Ok(new_node)
         else:
-            return None
+            return Err(error)
 
     def get_all_items(self) -> List[Item]:
         items: List[Item] = [self.item]
