@@ -9,7 +9,7 @@ from typing import List, Optional
 class TableView:
     num_columns: int = field(default=3)
     indent: int = field(default=4)
-    elements: List[List[str]] = field(default_factory=list)
+    parts: List[List[str]] = field(default_factory=list)
     columns: List = field(default_factory=list)
 
     def __post_init__(self):
@@ -24,11 +24,12 @@ class TableView:
                 self.columns[column_number] += part
             else:
                 if header:
-                    self.elements.append([header])
-                self.elements.append(part)
+                    self.parts.append([header])
+                for string in part:
+                    self.parts.append([string])
 
     def __str__(self):
-        sorted_parts = sorted(self.elements, key=lambda x: len(x), reverse=True)
+        sorted_parts = sorted(self.parts, key=lambda x: len(x), reverse=True)
         columns = self.columns
 
         for part in sorted_parts:
