@@ -24,9 +24,9 @@ class TableView:
                 self.columns[column_number] += part
             else:
                 if header:
-                    self.parts.append([header])
-                for string in part:
-                    self.parts.append([string])
+                    self.parts.append([header] + part)
+                else:
+                    self.parts.append(part)
 
     def __str__(self):
         sorted_parts = sorted(self.parts, key=lambda x: len(x), reverse=True)
