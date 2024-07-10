@@ -25,26 +25,33 @@ def pick_weapon(budget: int,
                 min_items_quality: ItemQuality,
                 all_weapons: List[ItemWithNames],
                 installed_cyberware: InventoryNode) -> Tuple[Optional[Item], int]:
+    preferred_qualities: List[ItemQuality]
+    match min_items_quality:
+        case ItemQuality.POOR:
+            preferred_qualities = [ItemQuality.POOR, ItemQuality.STANDARD, ItemQuality.EXCELLENT]
+        case ItemQuality.STANDARD:
+            preferred_qualities = [ItemQuality.STANDARD, ItemQuality.EXCELLENT]
+        case ItemQuality.EXCELLENT:
+            preferred_qualities = [ItemQuality.EXCELLENT]
+        case _:
+            raise AssertionError
+
+    logging.debug(f"\tTrying to pick a weapon:")
     if len(preferred_weapons) == 0:
+        logging.debug(f"\tNo preferred weapons, skipping...")
         return None, 0
 
-    for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+    logging.debug(f"\t{budget=}")
+    logging.debug(f"\t{preferred_weapons=}")
+    logging.debug(f"\t{preferred_qualities=}")
+    
+    for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+        logging.debug(f"\tGenerating, attempt {num_attempt}")
         preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
         for cyberware in installed_cyberware:
             if preferred_weapon in cyberware.item.tags:
                 logging.debug(f"\t\tFound a cyberware that acts like a preferred weapon: {cyberware.item}")
                 return cyberware.item, 0
-
-        preferred_qualities: List[ItemQuality]
-        match min_items_quality:
-            case ItemQuality.POOR:
-                preferred_qualities = [ItemQuality.POOR, ItemQuality.STANDARD, ItemQuality.EXCELLENT]
-            case ItemQuality.STANDARD:
-                preferred_qualities = [ItemQuality.STANDARD, ItemQuality.EXCELLENT]
-            case ItemQuality.EXCELLENT:
-                preferred_qualities = [ItemQuality.EXCELLENT]
-            case _:
-                raise AssertionError
 
         preferred_quality: ItemQuality = np.random.choice(preferred_qualities)
         logging.debug(f"\t\tChosen quality: {preferred_quality}")
@@ -54,17 +61,19 @@ def pick_weapon(budget: int,
         price: int = preferred_weapon_item.price
         match preferred_quality:
             case ItemQuality.POOR:
-                if initial_price_category.value - 1 not in PriceCategory:
-                    continue
-                price = PriceCategory(initial_price_category.value - 1).get_default_price()
+                if initial_price_category.value - 1 in PriceCategory:
+                    price = PriceCategory(initial_price_category.value - 1).get_default_price()
+                else:
+                    price = initial_price_category.value / 2
             case ItemQuality.EXCELLENT:
-                if initial_price_category.value + 1 not in PriceCategory:
-                    continue
-                price = PriceCategory(initial_price_category.value + 1).get_default_price()
+                if initial_price_category.value + 1 in PriceCategory:
+                    price = PriceCategory(initial_price_category.value + 1).get_default_price()
+                else:
+                    price = initial_price_category.value * 2
 
         if price > budget:
             logging.debug(f"\t\tFailed, not enough money: required={price}, available={budget}")
-            return None, 0
+            continue
 
         weapon_copy = copy.deepcopy(preferred_weapon_item)
         weapon = replace(weapon_copy,
