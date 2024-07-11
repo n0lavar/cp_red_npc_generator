@@ -44,7 +44,7 @@ def pick_weapon(budget: int,
     logging.debug(f"\t{budget=}")
     logging.debug(f"\t{preferred_weapons=}")
     logging.debug(f"\t{preferred_qualities=}")
-    
+
     for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         logging.debug(f"\tGenerating, attempt {num_attempt}")
         preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
@@ -89,7 +89,7 @@ def pick_weapon(budget: int,
 
 
 def get_brawling_weapon_item(npc: Npc) -> Item:
-    stat_value, stat_modifier = npc.get_stat_or_skill_value(StatType.BODY.name)
+    stat_value, stat_modifier, _ = npc.get_stat_or_skill_value(StatType.BODY.name)
     total_body = stat_value + stat_modifier
 
     if total_body <= 4:

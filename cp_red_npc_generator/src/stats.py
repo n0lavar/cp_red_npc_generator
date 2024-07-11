@@ -3,6 +3,9 @@
 
 from dataclasses import dataclass
 from enum import StrEnum, auto
+from typing import List
+
+from modifier import ModifierSource
 
 
 class SkillType(StrEnum):
@@ -60,11 +63,21 @@ class Skill:
     link: StatType = StatType.INT
     type: SkillType = SkillType.EDUCATION
 
-    def to_string(self, skill_value, skill_modifier, stat_value, stat_modifier) -> str:
-        result: str = ""
-        linked_stat_value = stat_value + stat_modifier
-        result += f"[{linked_stat_value}{skill_value:+}{skill_modifier:+}"
-        result += f"={linked_stat_value + skill_value + skill_modifier}] {self.name}"
+    def to_string(self,
+                  skill_value: int,
+                  skill_modifier_value: int,
+                  stat_value: int,
+                  stat_modifier_value: int,
+                  skill_modifiers: List[ModifierSource]) -> str:
+        linked_stat_value: int = stat_value + stat_modifier_value
+        total_value: int = linked_stat_value + skill_value + skill_modifier_value
+        result: str = "["
+        result += f"{linked_stat_value}({self.link.upper()})"
+        if skill_value > 0:
+            result += f"{skill_value:+}"
+        for skill_modifier in skill_modifiers:
+            result += f"{skill_modifier.value:+}({skill_modifier.item_name})"
+        result += f"={total_value}] {self.name}"
         return result
 
     def __lt__(self, other):

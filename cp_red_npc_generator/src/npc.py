@@ -4,9 +4,11 @@
 import copy
 import logging
 import math
+from functools import cmp_to_key
 from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
 
+from modifier import ModifierSource
 from inventory_node import InventoryNode
 from item import Item, ItemType
 from stats import StatType, Skill, SkillType
@@ -30,11 +32,19 @@ class Npc:
 
         return equipped_items
 
-    def get_stat_or_skill_value(self, name: str) -> Tuple[int, int]:
+    def get_stat_or_skill_value(self, name: str) -> Tuple[int, int, List[ModifierSource]]:
         logging.debug(f"\tGetting a value and a modifier for {name}")
 
         equipped_items: List[Item] = self.get_all_items()
-        equipped_items.sort(key=lambda x: x.creation_time)
+
+        def cmp_equipped_items_order(left: Item, right: Item) -> int:
+            if (left.modifier_applying_priority < right.modifier_applying_priority
+                    or left.creation_time < right.creation_time):
+                return 1
+            else:
+                return -1
+
+        equipped_items.sort(key=cmp_to_key(cmp_equipped_items_order))
 
         if name.lower() in StatType and StatType(name.lower()) in self.stats:
             start_value = self.stats[StatType(name.lower())]
@@ -42,12 +52,16 @@ class Npc:
             start_value = next(level for skill, level in self.skills.items() if skill.name == name)
 
         modifier_value: int = 0
+        modifiers: List[ModifierSource] = list()
         for item in equipped_items:
             for modifier in item.modifiers:
-                modifier_value = modifier.apply(str(item), name, start_value, modifier_value)
+                new_modifier_value: int = modifier.apply(str(item), name, start_value, modifier_value)
+                if new_modifier_value != modifier_value:
+                    modifiers.append(ModifierSource(item.name, new_modifier_value - modifier_value))
+                    modifier_value = new_modifier_value
 
         logging.debug(f"\t{name}: {start_value=}, {modifier_value=}")
-        return start_value, modifier_value
+        return start_value, modifier_value, modifiers
 
     def to_string(self, flat: bool = False) -> str:
         logging.debug(f"\nConverting npc to a string...")
@@ -66,28 +80,34 @@ class Npc:
             npc_str += f"{math.ceil(max_hp / 2)}"
         npc_str += ")\n\n"
 
-        npc_str += f"Stats: (stat+modifiers=total)\n\t"
-        stats_modifiers: Dict[StatType, Tuple[int, int]] = {}
+        npc_str += f"Stats:\n"
+        stats_modifiers: Dict[StatType, Tuple[int, int, List[ModifierSource]]] = {}
         for stat in self.stats.keys():
-            stat_value, stat_modifier = self.get_stat_or_skill_value(stat.name)
-            stats_modifiers[stat] = stat_value, stat_modifier
-            npc_str += f"[{stat_value}"
-            if stat_modifier != 0:
-                npc_str += f"{stat_modifier:+}={stat_value + stat_modifier}"
-            npc_str += f"] {stat.name} | "
-        npc_str = npc_str.removesuffix(" | ") + "\n\n"
+            stat_value, stat_modifier_value, stat_modifiers = self.get_stat_or_skill_value(stat.name)
+            stats_modifiers[stat] = stat_value, stat_modifier_value, stat_modifiers
+            npc_str += f"\t[{stat_value}"
+            for stat_modifier in stat_modifiers:
+                npc_str += f"{stat_modifier.value:+}({stat_modifier.item_name})"
+            if stat_modifier_value != 0:
+                npc_str += f"={stat_value + stat_modifier_value}"
+            npc_str += f"] {stat.name}\n"
+        npc_str += "\n"
 
-        npc_str += f"Skills (stat+skill+modifiers=total):\n"
+        npc_str += f"Skills:\n"
         skills_by_type = [[s for s in self.skills if s.type == t] for t in SkillType]
-        skills_table_view = TableView(1 if flat else 4)
+        skills_table_view = TableView(1 if flat else 3)
         for skills_of_one_type in skills_by_type:
             skills_of_one_type_rows: List[str] = [f"{skills_of_one_type[0].type.title()}"]
 
             for skill in skills_of_one_type:
-                skill_value, skill_modifier = self.get_stat_or_skill_value(skill.name)
-                stat_value, stat_modifier = stats_modifiers[skill.link]
+                skill_value, skill_modifier, skill_modifiers = self.get_stat_or_skill_value(skill.name)
+                stat_value, stat_modifier_value, stat_modifiers = stats_modifiers[skill.link]
                 skills_of_one_type_rows.append(
-                    "    " + skill.to_string(skill_value, skill_modifier, stat_value, stat_modifier))
+                    "    " + skill.to_string(skill_value,
+                                             skill_modifier,
+                                             stat_value,
+                                             stat_modifier_value,
+                                             skill_modifiers))
 
             skills_table_view.add(skills_of_one_type_rows)
         npc_str += "    " + str(skills_table_view).replace("\n", "\n    ") + "\n"

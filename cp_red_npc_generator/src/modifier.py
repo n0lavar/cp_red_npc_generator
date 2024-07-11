@@ -33,3 +33,9 @@ class Modifier:
                           f"value: {start_value + current_modifier} -> {start_value + new_modifier}")
 
         return new_modifier
+
+
+@dataclass
+class ModifierSource:
+    item_name: str
+    value: int = 0

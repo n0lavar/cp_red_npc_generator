@@ -33,6 +33,7 @@ class Item:
     type: ItemType = ItemType.JUNK
     price: int = 0
     default_hidden: bool = False
+    modifier_applying_priority: int = 0
 
     id: str = field(default=str(uuid.uuid4()), compare=False)
     creation_time: int = field(default=int(time.time_ns()), compare=False)

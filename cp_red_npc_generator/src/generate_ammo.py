@@ -81,9 +81,16 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     def add_basic_ammo(ammo_type: str) -> bool:
         if ammo_type in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
-            return try_add_ammo(ammo_type, "Basic", max(20, required_ammo_types[ammo_type] * 2))
-        else:
-            return False
+            num_bullets: int = max(20, required_ammo_types[ammo_type] * 2)
+            while True:
+                if try_add_ammo(ammo_type, "Basic", num_bullets):
+                    return True
+                
+                num_bullets = max(0, num_bullets - 5)
+                if num_bullets == 0:
+                    break
+
+        return False
 
     add_basic_ammo("Bullets") or add_basic_ammo("Slugs") or add_basic_ammo("Arrows")
 
