@@ -35,6 +35,17 @@
         "max_humanity_loss": 2
     },
     {
+        "name": "Budget Chipware Socket",
+        "type": "cyberware",
+        "price": 100,
+        "container_capacity": 1,
+        "requires_container": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
         "name": "Interface Plugs",
         "type": "cyberware",
         "price": 500,
@@ -86,7 +97,8 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "Chipware Socket"
+            "Chipware Socket",
+            "Budget Chipware Socket"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -97,7 +109,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Chipware Socket"
+            "Chipware Socket",
+            "Budget Chipware Socket"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -108,7 +121,8 @@
         "type": "cyberware",
         "price": 1000,
         "requires_container": [
-            "Chipware Socket"
+            "Chipware Socket",
+            "Budget Chipware Socket"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -119,7 +133,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Chipware Socket"
+            "Chipware Socket",
+            "Budget Chipware Socket"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,

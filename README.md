@@ -135,57 +135,67 @@ cp_red_npc_generator.exe --rank=private --role=solo
 Possible output:
 
   ```
-Solo, Private, seed=1718139711
-Has items total worth of 252
+Solo, Private, seed=911573248
+Has items total worth of 182
 
 Health (you can add conditions here):
 	HP: 25/25 (Seriously Wounded: 13)
 
-Stats: (stat+modifiers=total)
-	[3] INT | [3] REF | [4] DEX | [3] TECH | [3] COOL | [3] WILL | [3] LUCK | [3] MOVE | [3] BODY | [2] EMP
+Stats:
+	[3] INT
+	[3] REF
+	[3] DEX
+	[2] TECH
+	[3] COOL
+	[3] WILL
+	[3] LUCK
+	[3] MOVE
+	[3] BODY
+	[2] EMP
 
-Skills (stat+skill+modifiers=total):
-    Education                            Technique                                Social                            Body                                 
-        [3+0+0=3] Accounting                 [3+0+0=3] AirVehicleTech                 [3+0+0=3] Bribery                 [4+2+0=6] Athletics              
-        [3+0+0=3] AnimalHandling             [3+0+0=3] BasicTech                      [2+2+0=4] Conversation            [4+0+0=4] Contortionist          
-        [3+0+0=3] Bureaucracy                [3+0+0=3] Cybertech                      [2+2+0=4] HumanPerception         [4+0+0=4] Dance                  
-        [3+0+0=3] Business                   [3+0+0=3] Demolitions                    [3+3+0=6] Interrogation           [3+0+0=3] Endurance              
-        [3+0+0=3] Composition                [3+0+0=3] ElectronicsSecurityTech        [3+2+0=5] Persuasion              [3+3+2=8] ResistTortureDrugs     
-        [3+0+0=3] Criminology                [3+3+0=6] FirstAid                       [3+0+0=3] PersonalGrooming        [4+2+0=6] Stealth                
-        [3+0+0=3] Cryptography               [3+0+0=3] Forgery                        [3+0+0=3] Streetwise          Awareness                            
-        [3+0+0=3] Deduction                  [3+0+0=3] LandVehicleTech                [3+0+0=3] Trading                 [3+2+0=5] Concentration          
-        [3+2+0=5] Education                  [3+0+0=3] PaintDrawSculpt                [3+0+0=3] WardrobeStyle           [3+0+0=3] ConcealRevealObject    
-        [3+0+0=3] Gamble                     [3+0+0=3] Paramedic                  Fighting                              [3+0+0=3] LipReading             
-        [3+0+0=3] LibrarySearch              [3+0+0=3] PhotographyFilm                [4+2+0=6] Brawling                [3+3+0=6] Perception             
-        [3+2+0=5] LocalExpertYourHome        [3+0+0=3] PickLock                       [4+3+0=7] Evasion                 [3+0+0=3] Tracking               
-        [3+3+0=6] Tactics                    [3+0+0=3] PickPocket                     [4+0+0=4] MartialArts         Ranged_Weapon                        
-        [3+0+0=3] WildernessSurvival         [3+0+0=3] SeaVehicleTech                 [4+3+0=7] MeleeWeapon             [3+0+0=3] Archery                
-        [3+2+0=5] LanguageStreetslang        [3+0+0=3] Weaponstech                    [3+0+0=3] Initiative              [3+3+0=6] Autofire               
-        [3+0+0=3] Science                Control                                  Performance                           [3+3+0=6] Handgun                
-                                             [3+0+0=3] DriveLandVehicle               [3+0+0=3] Acting                  [3+0+0=3] HeavyWeapons           
-                                             [3+0+0=3] PilotAirVehicle                [3+0+0=3] PlayInstrument          [3+3+0=6] ShoulderArms           
-                                             [3+0+0=3] PilotSeaVehicle                                                                                   
-                                             [3+0+0=3] Riding                                                                                            
+Skills:
+    Education                               Technique                                  Social                                  
+        [3(INT)=3] Accounting                   [2(TECH)=2] AirVehicleTech                 [3(COOL)=3] Bribery                 
+        [3(INT)=3] AnimalHandling               [2(TECH)=2] BasicTech                      [2(EMP)+2=4] Conversation           
+        [3(INT)=3] Bureaucracy                  [2(TECH)=2] Cybertech                      [2(EMP)+2=4] HumanPerception        
+        [3(INT)=3] Business                     [2(TECH)=2] Demolitions                    [3(COOL)+3=6] Interrogation         
+        [3(INT)=3] Composition                  [2(TECH)=2] ElectronicsSecurityTech        [3(COOL)+2=5] Persuasion            
+        [3(INT)=3] Criminology                  [2(TECH)+3=5] FirstAid                     [3(COOL)=3] PersonalGrooming        
+        [3(INT)=3] Cryptography                 [2(TECH)=2] Forgery                        [3(COOL)=3] Streetwise              
+        [3(INT)=3] Deduction                    [2(TECH)=2] LandVehicleTech                [3(COOL)=3] Trading                 
+        [3(INT)+2=5] Education                  [2(TECH)=2] PaintDrawSculpt                [3(COOL)=3] WardrobeStyle           
+        [3(INT)=3] Gamble                       [2(TECH)=2] Paramedic                  Body                                    
+        [3(INT)=3] LibrarySearch                [2(TECH)=2] PhotographyFilm                [3(DEX)+2=5] Athletics              
+        [3(INT)+2=5] LocalExpertYourHome        [2(TECH)=2] PickLock                       [3(DEX)=3] Contortionist            
+        [3(INT)+3=6] Tactics                    [2(TECH)=2] PickPocket                     [3(DEX)=3] Dance                    
+        [3(INT)=3] WildernessSurvival           [2(TECH)=2] SeaVehicleTech                 [3(WILL)=3] Endurance               
+        [3(INT)+2=5] LanguageStreetslang        [2(TECH)=2] Weaponstech                    [3(WILL)+3=6] ResistTortureDrugs    
+        [3(INT)=3] Science                  Awareness                                      [3(DEX)+2=5] Stealth                
+    Fighting                                    [3(WILL)+2=5] Concentration            Ranged_Weapon                           
+        [3(DEX)+2=5] Brawling                   [3(INT)=3] ConcealRevealObject             [3(REF)=3] Archery                  
+        [3(DEX)+3=6] Evasion                    [3(INT)=3] LipReading                      [3(REF)+3=6] Autofire               
+        [3(DEX)=3] MartialArts                  [3(INT)+3=6] Perception                    [3(REF)+3=6] Handgun                
+        [3(DEX)+3=6] MeleeWeapon                [3(INT)=3] Tracking                        [3(REF)=3] HeavyWeapons             
+        [3(REF)=3] Initiative               Control                                        [3(REF)+3=6] ShoulderArms           
+    Performance                                 [3(REF)=3] DriveLandVehicle                                                    
+        [3(COOL)=3] Acting                      [3(REF)=3] PilotAirVehicle                                                     
+        [2(TECH)=2] PlayInstrument              [3(REF)=3] PilotSeaVehicle                                                     
+                                                [3(REF)=3] Riding                                                              
     
-Cyberware:
-    Internal Cyberware [1/7]     
-        Toxin Binders [100eb]    
-    
-Armor:                                          Ranged weapons:                                                                                
-    Body: Leathers [20eb (everyday), SP=4/4]        GunMart "Home Defender" (Shotgun) [100eb (premium), poor, Damage=5d6, ROF=1, Mag=/4 ()]    
-                                                Melee weapons:                                                                                 
-                                                    Boxing [Damage=1d6, ROF=1]                                                                 
+Armor:                                          Ranged weapons:                                                                           
+    Head: Leathers [20eb (everyday), SP=4/4]        Sternmeyer SMG-21 (Heavy SMG) [50eb (costly), poor, Damage=3d6, ROF=1, Mag=/40 ()]    
+    Body: Leathers [20eb (everyday), SP=4/4]    Melee weapons:                                                                            
+                                                    Spiked Bat (Heavy Melee Weapon) [50eb (costly), poor, Damage=3d6, ROF=2]              
+                                                    Boxing [Damage=1d6, ROF=1]                                                            
 
 Inventory:
-    Ammo                                    Equipment / Drugs                             Junk                                                  
-        [24] Slugs (Basic) [1eb (cheap)]        [1] Personal CarePak [20eb (everyday)]        [50] Eddies [1eb (cheap)]                         
-                                                                                              [1] Memory Chip (Personal Data) [10eb (cheap)]    
-                                                                                              [1] Drink Umbrella                                
-                                                                                              [1] Rock                                          
-                                                                                              [1] Poker Chip                                    
-                                                                                              [1] Pack of matches                               
-                                                                                              [1] Class Schedule for Night City University      
-                                                                                              [1] Stress Ball                                   
+    Ammo                                      Equipment / Drugs                             Junk                                                
+        [35] Bullets (Basic) [1eb (cheap)]        [1] Personal CarePak [20eb (everyday)]        [52] Eddies [1eb (cheap)]                       
+                                                                                                [1] Pocket Mirror [10eb (cheap)]                
+                                                                                                [1] Incense [10eb (cheap)]                      
+                                                                                                [1] Plastic Earring                             
+                                                                                                [1] Class Schedule for Night City University    
+                                                                                                [1] Rock        
   ```
 
 </details>
@@ -201,57 +211,73 @@ cp_red_npc_generator.exe --rank=captain --role=solo
 Possible output:
 
   ```
-Solo, Captain, seed=1718139817
-Has items total worth of 1902
+Solo, Captain, seed=953609728
+Has items total worth of 1682
 
 Health (you can add conditions here):
 	HP: 45/45 (Seriously Wounded: 23)
 
-Stats: (stat+modifiers=total)
-	[6] INT | [7] REF | [7] DEX | [3] TECH | [8] COOL | [6] WILL | [5] LUCK | [5] MOVE | [6] BODY | [4] EMP
+Stats:
+	[7] INT
+	[8] REF
+	[7] DEX
+	[5] TECH
+	[6] COOL
+	[6] WILL
+	[5] LUCK
+	[6] MOVE
+	[8] BODY
+	[3] EMP
 
-Skills (stat+skill+modifiers=total):
-    Education                            Technique                                Social                            Body                                 
-        [6+0+0=6] Accounting                 [3+0+0=3] AirVehicleTech                 [8+0+0=8] Bribery                 [7+2+0=9] Athletics              
-        [6+0+0=6] AnimalHandling             [3+0+0=3] BasicTech                      [4+2+0=6] Conversation            [7+0+0=7] Contortionist          
-        [6+0+0=6] Bureaucracy                [3+0+0=3] Cybertech                      [4+2+0=6] HumanPerception         [7+0+0=7] Dance                  
-        [6+0+0=6] Business                   [3+0+0=3] Demolitions                    [8+6+0=14] Interrogation          [6+0+0=6] Endurance              
-        [6+0+0=6] Composition                [3+0+0=3] ElectronicsSecurityTech        [8+2+0=10] Persuasion             [6+6+2=14] ResistTortureDrugs    
-        [6+0+0=6] Criminology                [3+6+0=9] FirstAid                       [8+0+0=8] PersonalGrooming        [7+2+0=9] Stealth                
-        [6+0+0=6] Cryptography               [3+0+0=3] Forgery                        [8+0+0=8] Streetwise          Awareness                            
-        [6+0+0=6] Deduction                  [3+0+0=3] LandVehicleTech                [8+0+0=8] Trading                 [6+2+0=8] Concentration          
-        [6+2+0=8] Education                  [3+0+0=3] PaintDrawSculpt                [8+0+0=8] WardrobeStyle           [6+0+0=6] ConcealRevealObject    
-        [6+0+0=6] Gamble                     [3+0+0=3] Paramedic                  Fighting                              [6+0+0=6] LipReading             
-        [6+0+0=6] LibrarySearch              [3+0+0=3] PhotographyFilm                [7+2+0=9] Brawling                [6+6+0=12] Perception            
-        [6+2+0=8] LocalExpertYourHome        [3+0+0=3] PickLock                       [7+6+0=13] Evasion                [6+0+0=6] Tracking               
-        [6+6+0=12] Tactics                   [3+0+0=3] PickPocket                     [7+0+0=7] MartialArts         Ranged_Weapon                        
-        [6+0+0=6] WildernessSurvival         [3+0+0=3] SeaVehicleTech                 [7+6+0=13] MeleeWeapon            [7+0+0=7] Archery                
-        [6+2+0=8] LanguageStreetslang        [3+0+0=3] Weaponstech                    [7+0+0=7] Initiative              [7+6+0=13] Autofire              
-        [6+0+0=6] Science                Control                                  Performance                           [7+6+0=13] Handgun               
-                                             [7+0+0=7] DriveLandVehicle               [8+0+0=8] Acting                  [7+0+0=7] HeavyWeapons           
-                                             [7+0+0=7] PilotAirVehicle                [3+0+0=3] PlayInstrument          [7+6+0=13] ShoulderArms          
-                                             [7+0+0=7] PilotSeaVehicle                                                                                   
-                                             [7+0+0=7] Riding                                                                                            
+Skills:
+    Education                               Technique                                  Social                                   
+        [7(INT)=7] Accounting                   [5(TECH)=5] AirVehicleTech                 [6(COOL)=6] Bribery                  
+        [7(INT)=7] AnimalHandling               [5(TECH)=5] BasicTech                      [3(EMP)+2=5] Conversation            
+        [7(INT)=7] Bureaucracy                  [5(TECH)=5] Cybertech                      [3(EMP)+2=5] HumanPerception         
+        [7(INT)=7] Business                     [5(TECH)=5] Demolitions                    [6(COOL)+7=13] Interrogation         
+        [7(INT)=7] Composition                  [5(TECH)=5] ElectronicsSecurityTech        [6(COOL)+2=8] Persuasion             
+        [7(INT)=7] Criminology                  [5(TECH)+7=12] FirstAid                    [6(COOL)=6] PersonalGrooming         
+        [7(INT)=7] Cryptography                 [5(TECH)=5] Forgery                        [6(COOL)=6] Streetwise               
+        [7(INT)=7] Deduction                    [5(TECH)=5] LandVehicleTech                [6(COOL)=6] Trading                  
+        [7(INT)+2=9] Education                  [5(TECH)=5] PaintDrawSculpt                [6(COOL)=6] WardrobeStyle            
+        [7(INT)=7] Gamble                       [5(TECH)=5] Paramedic                  Body                                     
+        [7(INT)=7] LibrarySearch                [5(TECH)=5] PhotographyFilm                [7(DEX)+2=9] Athletics               
+        [7(INT)+2=9] LocalExpertYourHome        [5(TECH)=5] PickLock                       [7(DEX)=7] Contortionist             
+        [7(INT)+7=14] Tactics                   [5(TECH)=5] PickPocket                     [7(DEX)=7] Dance                     
+        [7(INT)=7] WildernessSurvival           [5(TECH)=5] SeaVehicleTech                 [6(WILL)=6] Endurance                
+        [7(INT)+2=9] LanguageStreetslang        [5(TECH)=5] Weaponstech                    [6(WILL)+7=13] ResistTortureDrugs    
+        [7(INT)=7] Science                  Awareness                                      [7(DEX)+2=9] Stealth                 
+    Fighting                                    [6(WILL)+2=8] Concentration            Ranged_Weapon                            
+        [7(DEX)+2=9] Brawling                   [7(INT)=7] ConcealRevealObject             [8(REF)=8] Archery                   
+        [7(DEX)+7=14] Evasion                   [7(INT)=7] LipReading                      [8(REF)+7=15] Autofire               
+        [7(DEX)=7] MartialArts                  [7(INT)+7=14] Perception                   [8(REF)+7=15] Handgun                
+        [7(DEX)+7=14] MeleeWeapon               [7(INT)=7] Tracking                        [8(REF)=8] HeavyWeapons              
+        [8(REF)=8] Initiative               Control                                        [8(REF)+7=15] ShoulderArms           
+    Performance                                 [8(REF)=8] DriveLandVehicle                                                     
+        [6(COOL)=6] Acting                      [8(REF)=8] PilotAirVehicle                                                      
+        [5(TECH)=5] PlayInstrument              [8(REF)=8] PilotSeaVehicle                                                      
+                                                [8(REF)=8] Riding                                                               
     
 Cyberware:
-    Auditory System [1/1]                 Internal Cyberware [1/7]     Shoulders [1/2]           
-        Cyberaudio Suite [500eb] [2/3]        Toxin Binders [100eb]        Big Knucks [100eb]    
-            Radio Communicator [100eb]                                                           
-            Level Damper [100eb]                                                                 
+    Auditory System [1/1]                 Fashionware [1/7]         Shoulders [1/2]           
+        Cyberaudio Suite [500eb] [2/3]        Biomonitor [100eb]        Big Knucks [100eb]    
+            Radio Communicator [100eb]                                                        
+            Level Damper [100eb]                                                              
     
-Armor:                                                   Ranged weapons:                                                                                                  
-    Head: Light Armorjack [100eb (premium), SP=11/11]        Chadran Arms "Jungle Reaper" (Assault Rifle) [500eb (expensive), standard, Damage=5d6, ROF=1, Mag=/25 ()]    
-    Body: Light Armorjack [100eb (premium), SP=11/11]    Melee weapons:                                                                                                   
-                                                             Big Knucks [100eb (premium), Damage=2d6, ROF=2]                                                              
-                                                             Boxing [Damage=2d6, ROF=1]                                                                                   
+Armor:                                                   Ranged weapons:                                                                                
+    Head: Light Armorjack [100eb (premium), SP=11/11]        Militech "Viper" (Heavy SMG) [100eb (premium), standard, Damage=3d6, ROF=1, Mag=/40 ()]    
+    Body: Light Armorjack [100eb (premium), SP=11/11]    Melee weapons:                                                                                 
+                                                             Big Knucks [100eb (premium), Damage=2d6, ROF=2]                                            
+                                                             Boxing [Damage=3d6, ROF=1]                                                                 
 
 Inventory:
-    Ammo                                               Equipment / Drugs                                     Junk                                                                        
-        [1] Grenades (Incendiary) [100eb (premium)]        [1] Anti-Smog Breathing Mask [20eb (everyday)]        [477] Eddies [1eb (cheap)]                                              
-        [50] Bullets (Basic) [1eb (cheap)]                 [1] Flashlight [20eb (everyday)]                      [1] Autographed Photograph of Night City Celebrity [20eb (everyday)]    
-                                                           [1] Personal CarePak [20eb (everyday)]                [1] Pipe [20eb (everyday)]                                              
-                                                                                                                 [1] Rock                                                                
-                                                                                                                 [1] Napkin from nightclub with a phone number on it                     
+    Ammo                                        Equipment / Drugs                                     Junk                                                    
+        [80] Bullets (Basic) [1eb (cheap)]          [1] Berserker [100eb (premium)]                       [531] Eddies [1eb (cheap)]                          
+        [1] Grenades (Smoke) [50eb (costly)]        [1] Airhypo [50eb (costly)]                           [1] Flask of Expensive Alcohol [100eb (premium)]    
+                                                    [1] Anti-Smog Breathing Mask [20eb (everyday)]                                                            
+                                                    [1] Carryall [20eb (everyday)]                                                                            
+                                                    [1] Flashlight [20eb (everyday)]                                                                          
+                                                    [1] Personal CarePak [20eb (everyday)]                                                                        
   ```
 
 </details>
@@ -267,70 +293,87 @@ cp_red_npc_generator.exe --rank=general --role=solo
 Possible output:
 
   ```
-Solo, General, seed=763187456
-Has items total worth of 29934
+Solo, General, seed=54158848
+Has items total worth of 30004
 
 Health (you can add conditions here):
 	HP: 50/50 (Seriously Wounded: No, Pain Editor)
 
-Stats: (stat+modifiers=total)
-	[8] INT | [8-4=4] REF | [8-4=4] DEX | [6] TECH | [8] COOL | [8] WILL | [8] LUCK | [8-4=4] MOVE | [8+6=14] BODY | [0] EMP
+Stats:
+	[8] INT
+	[8-4(Body: Metalgear)=4] REF
+	[8-4(Body: Metalgear)=4] DEX
+	[6] TECH
+	[8] COOL
+	[8] WILL
+	[6] LUCK
+	[8-4(Body: Metalgear)=4] MOVE
+	[8+2(Grafted Muscle and Bone Lace)+4(Implanted Linear Frame ß (Beta))=14] BODY
+	[0] EMP
 
-Skills (stat+skill+modifiers=total):
-    Education                             Technique                                Social                            Body                                 
-        [8+0+0=8] Accounting                  [6+0+0=6] AirVehicleTech                 [8+0+0=8] Bribery                 [4+3+0=7] Athletics              
-        [8+0+0=8] AnimalHandling              [6+0+0=6] BasicTech                      [0+3+0=3] Conversation            [4+0+0=4] Contortionist          
-        [8+0+0=8] Bureaucracy                 [6+0+0=6] Cybertech                      [0+3+0=3] HumanPerception         [4+0+0=4] Dance                  
-        [8+0+0=8] Business                    [6+0+0=6] Demolitions                    [8+8+0=16] Interrogation          [8+0+0=8] Endurance              
-        [8+0+0=8] Composition                 [6+0+0=6] ElectronicsSecurityTech        [8+3+0=11] Persuasion             [8+8+0=16] ResistTortureDrugs    
-        [8+0+0=8] Criminology                 [6+8+0=14] FirstAid                      [8+0+0=8] PersonalGrooming        [4+3+0=7] Stealth                
-        [8+0+0=8] Cryptography                [6+0+0=6] Forgery                        [8+0+0=8] Streetwise          Awareness                            
-        [8+0+0=8] Deduction                   [6+0+0=6] LandVehicleTech                [8+0+0=8] Trading                 [8+3+0=11] Concentration         
-        [8+3+0=11] Education                  [6+0+0=6] PaintDrawSculpt                [8+0+0=8] WardrobeStyle           [8+0+0=8] ConcealRevealObject    
-        [8+0+0=8] Gamble                      [6+0+0=6] Paramedic                  Fighting                              [8+0+0=8] LipReading             
-        [8+0+0=8] LibrarySearch               [6+0+0=6] PhotographyFilm                [4+3+0=7] Brawling                [8+8+0=16] Perception            
-        [8+3+0=11] LocalExpertYourHome        [6+0+0=6] PickLock                       [4+8+0=12] Evasion                [8+0+0=8] Tracking               
-        [8+8+0=16] Tactics                    [6+0+0=6] PickPocket                     [4+0+0=4] MartialArts         Ranged_Weapon                        
-        [8+0+0=8] WildernessSurvival          [6+0+0=6] SeaVehicleTech                 [4+8+0=12] MeleeWeapon            [4+0+0=4] Archery                
-        [8+3+0=11] LanguageStreetslang        [6+0+0=6] Weaponstech                    [4+0+3=7] Initiative              [4+8+0=12] Autofire              
-        [8+0+0=8] Science                 Control                                  Performance                           [4+8+0=12] Handgun               
-                                              [4+0+0=4] DriveLandVehicle               [8+0+0=8] Acting                  [4+0+0=4] HeavyWeapons           
-                                              [4+0+0=4] PilotAirVehicle                [6+0+0=6] PlayInstrument          [4+8+0=12] ShoulderArms          
-                                              [4+0+0=4] PilotSeaVehicle                                                                                   
-                                              [4+0+0=4] Riding                                                                                            
+Skills:
+    Education                                   Technique                                  Social                                   
+        [8(INT)=8] Accounting                       [6(TECH)=6] AirVehicleTech                 [8(COOL)=8] Bribery                  
+        [8(INT)=8] AnimalHandling                   [6(TECH)=6] BasicTech                      [0(EMP)+3=3] Conversation            
+        [8(INT)=8] Bureaucracy                      [6(TECH)=6] Cybertech                      [0(EMP)+3=3] HumanPerception         
+        [8(INT)=8] Business                         [6(TECH)=6] Demolitions                    [8(COOL)+8=16] Interrogation         
+        [8(INT)=8] Composition                      [6(TECH)=6] ElectronicsSecurityTech        [8(COOL)+3=11] Persuasion            
+        [8(INT)=8] Criminology                      [6(TECH)+8=14] FirstAid                    [8(COOL)=8] PersonalGrooming         
+        [8(INT)=8] Cryptography                     [6(TECH)=6] Forgery                        [8(COOL)=8] Streetwise               
+        [8(INT)=8] Deduction                        [6(TECH)=6] LandVehicleTech                [8(COOL)=8] Trading                  
+        [8(INT)+3=11] Education                     [6(TECH)=6] PaintDrawSculpt                [8(COOL)=8] WardrobeStyle            
+        [8(INT)=8] Gamble                           [6(TECH)=6] Paramedic                  Body                                     
+        [8(INT)=8] LibrarySearch                    [6(TECH)=6] PhotographyFilm                [4(DEX)+3=7] Athletics               
+        [8(INT)+3=11] LocalExpertYourHome           [6(TECH)=6] PickLock                       [4(DEX)=4] Contortionist             
+        [8(INT)+8=16] Tactics                       [6(TECH)=6] PickPocket                     [4(DEX)=4] Dance                     
+        [8(INT)=8] WildernessSurvival               [6(TECH)=6] SeaVehicleTech                 [8(WILL)=8] Endurance                
+        [8(INT)+3=11] LanguageStreetslang           [6(TECH)=6] Weaponstech                    [8(WILL)+8=16] ResistTortureDrugs    
+        [8(INT)=8] Science                      Awareness                                      [4(DEX)+3=7] Stealth                 
+    Fighting                                        [8(WILL)+3=11] Concentration           Ranged_Weapon                            
+        [4(DEX)+3=7] Brawling                       [8(INT)=8] ConcealRevealObject             [4(REF)=4] Archery                   
+        [4(DEX)+8=12] Evasion                       [8(INT)=8] LipReading                      [4(REF)+8=12] Autofire               
+        [4(DEX)=4] MartialArts                      [8(INT)+8=16] Perception                   [4(REF)+8=12] Handgun                
+        [4(DEX)+8=12] MeleeWeapon                   [8(INT)=8] Tracking                        [4(REF)=4] HeavyWeapons              
+        [4(REF)+3(Sandevistan)=7] Initiative    Control                                        [4(REF)+8=12] ShoulderArms           
+    Performance                                     [4(REF)=4] DriveLandVehicle                                                     
+        [8(COOL)=8] Acting                          [4(REF)=4] PilotAirVehicle                                                      
+        [6(TECH)=6] PlayInstrument                  [4(REF)=4] PilotSeaVehicle                                                      
+                                                    [4(REF)=4] Riding                                                               
     
 Cyberware:
-    Internal Cyberware [5/7]                     Eye Sockets [2/2]                               Neuralware [1/1]                             
-        Grafted Muscle and Bone Lace [1000eb]        Cybereye [100eb] [3/3]                          Neural Link [500eb] [2/5]                
-        Grafted Muscle and Bone Lace [1000eb]            Targeting Scope [500eb]                         Sandevistan [500eb]                  
-        Radar / Sonar Implant [1000eb]                   Low Light / Infrared / UV [500eb]               Chipware Socket [500eb] [1/1]        
-        Independent Air Supply [1000eb]              Cybereye [100eb] [2/3]                                  Pain Editor [1000eb]             
-        Enhanced Antibodies [500eb]                      Low Light / Infrared / UV [500eb]       Shoulders [2/2]                              
-    Auditory System [1/1]                        Borgware                                            Cyberarm [500eb] [4/4]                   
-        Cyberaudio Suite [500eb] [3/3]               Implanted Linear Frame ß (Beta) [5000eb]            Popup Ranged Weapon (SMG) [500eb]    
-            Level Damper [100eb]                 Fashionware [1/7]                                       Popup Grenade Launcher [500eb]       
-            Radio Communicator [100eb]               Biomonitor [100eb]                              Big Knucks [100eb]                       
-            Radar Detector [500eb]                                                                                                            
+    Eye Sockets [2/2]                            Neuralware [1/1]                                Shoulders [2/2]                              
+        Cybereye [100eb] [3/3]                       Neural Link [500eb] [2/5]                       Cyberarm [500eb] [4/4]                   
+            Anti-Dazzle [100eb]                          Sandevistan [500eb]                             Popup Grenade Launcher [500eb]       
+            Low Light / Infrared / UV [500eb]            Chipware Socket [500eb] [1/1]                   Popup Ranged Weapon (SMG) [500eb]    
+        Cybereye [100eb] [3/3]                               Pain Editor [1000eb]                    Big Knucks [100eb]                       
+            Anti-Dazzle [100eb]                  Borgware                                        Auditory System [1/1]                        
+            Low Light / Infrared / UV [500eb]        Implanted Linear Frame ß (Beta) [5000eb]        Cyberaudio Suite [500eb] [2/3]           
+    Internal Cyberware [2/7]                         Artificial Shoulder Mount [1000eb] [1/2]            Level Damper [100eb]                 
+        Grafted Muscle and Bone Lace [1000eb]            Cyberarm [500eb] [3/4]                          Radar Detector [500eb]               
+        Grafted Muscle and Bone Lace [1000eb]                Popup Shield [500eb]                Fashionware [1/7]                            
+                                                                                                     Biomonitor [100eb]                       
     
-Armor:                                                Ranged weapons:                                                                                             
-    Head: Metalgear [5000eb (luxury), SP=18/18]           Popup Grenade Launcher [500eb (expensive), Damage=6d6, ROF=1, Mag=/2 ()]                                
-    Body: Metalgear [5000eb (luxury), SP=18/18]           Arasaka "Rapid Assault" (Shotgun) [1000eb (very_expensive), excellent, Damage=5d6, ROF=1, Mag=/4 ()]    
-    Bulletproof Shield [100eb (premium), SP=10/10]        Popup Ranged Weapon (SMG) [500eb (expensive), Damage=2d6, ROF=1, Mag=/30 ()]                            
-                                                      Melee weapons:                                                                                              
-                                                          Mace (Heavy Melee Weapon) [500eb (expensive), excellent, Damage=3d6, ROF=2]                             
-                                                          Boxing [Damage=4d6, ROF=1]                                                                              
-                                                          Big Knucks [100eb (premium), Damage=2d6, ROF=2]                                                         
+Armor:                                             Ranged weapons:                                                                                             
+    Head: Metalgear [5000eb (luxury), SP=18/18]        Popup Grenade Launcher [500eb (expensive), Damage=6d6, ROF=1, Mag=/2 ()]                                
+    Body: Metalgear [5000eb (luxury), SP=18/18]        Arasaka "Rapid Assault" (Shotgun) [1000eb (very_expensive), excellent, Damage=5d6, ROF=1, Mag=/4 ()]    
+    Popup Shield [500eb (expensive), SP=10/10]         Popup Ranged Weapon (SMG) [500eb (expensive), Damage=2d6, ROF=1, Mag=/30 ()]                            
+                                                   Melee weapons:                                                                                              
+                                                       Spiked Bat (Heavy Melee Weapon) [500eb (expensive), excellent, Damage=3d6, ROF=2]                       
+                                                       Boxing [Damage=4d6, ROF=1]                                                                              
+                                                       Big Knucks [100eb (premium), Damage=2d6, ROF=2]                                                         
 
 Inventory:
-    Ammo                                                   Equipment / Drugs                                         Junk                                                      
-        [4] Grenades (Armor-Piercing) [100eb (premium)]        [2] Berserker [100eb (premium)]                           [1859] Eddies [1eb (cheap)]                           
-        [60] Bullets (Basic) [1eb (cheap)]                     [2] Timewarp [100eb (premium)]                            [1] Pawnshop Receipt for €$50 Item [50eb (costly)]    
-        [4] Slugs (Armor-Piercing) [10eb (cheap)]              [1] Bulletproof Shield [100eb (premium), SP=10/10]        [1] Food Stick [10eb (cheap)]                         
-        [8] Slugs (Basic) [1eb (cheap)]                        [2] Black Lace [50eb (costly)]                                                                                  
-        [8] Shotgun Shells (Basic) [1eb (cheap)]               [1] Airhypo [50eb (costly)]                                                                                     
-                                                               [2] Synthcoke [20eb (everyday)]                                                                                 
-                                                               [1] Carryall [20eb (everyday)]                                                                                  
-                                                               [1] Flashlight [20eb (everyday)]                                                                                
+    Ammo                                                   Equipment / Drugs                                     Junk                                        
+        [2] Grenades (Armor-Piercing) [100eb (premium)]        [2] Berserker [100eb (premium)]                       [2573] Eddies [1eb (cheap)]             
+        [2] Grenades (Teargas) [50eb (costly)]                 [2] Timewarp [100eb (premium)]                        [1] Golden Chain [500eb (expensive)]    
+        [60] Bullets (Basic) [1eb (cheap)]                     [1] Radio Communicator [100eb (premium)]              [1] Hand Fan [10eb (cheap)]             
+        [4] Shotgun Shells (Incendiary) [10eb (cheap)]         [2] Black Lace [50eb (costly)]                        [1] Incense [10eb (cheap)]              
+        [4] Slugs (Expansive) [10eb (cheap)]                   [1] Airhypo [50eb (costly)]                                                                   
+        [4] Slugs (Armor-Piercing) [10eb (cheap)]              [1] Carryall [20eb (everyday)]                                                                
+        [32] Slugs (Basic) [1eb (cheap)]                       [1] Anti-Smog Breathing Mask [20eb (everyday)]                                                
+        [20] Shotgun Shells (Basic) [1eb (cheap)]              [1] Flashlight [20eb (everyday)]                                                              
+                                                               [1] Personal CarePak [20eb (everyday)]                                                        
+                                                               [1] Synthcoke [20eb (everyday)]                                                               
   ```
 
 </details>

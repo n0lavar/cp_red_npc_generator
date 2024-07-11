@@ -15,7 +15,10 @@
         "name": "Implanted Linear Frame ß (Beta)",
         "type": "cyberware",
         "price": 5000,
-        "tags": ["Skeleton"],
+        "modifier_applying_priority": -1,
+        "tags": [
+            "Skeleton"
+        ],
         "modifiers": [
             {
                 "name": "BODY",
@@ -36,15 +39,18 @@
             "Grafted Muscle and Bone Lace"
         ],
         "required_condition": [
-            "body_value, body_modifier = npc.get_stat_or_skill_value(\"BODY\")",
+            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
             "can_add = body_value + body_modifier >= 8"
         ]
     },
     {
         "name": "Implanted Linear Frame Σ (Sigma)",
-        "tags": ["Skeleton"],
+        "tags": [
+            "Skeleton"
+        ],
         "type": "cyberware",
         "price": 1000,
+        "modifier_applying_priority": -1,
         "modifiers": [
             {
                 "name": "BODY",
@@ -64,7 +70,7 @@
             "Grafted Muscle and Bone Lace"
         ],
         "required_condition": [
-            "body_value, body_modifier = npc.get_stat_or_skill_value(\"BODY\")",
+            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
             "can_add = body_value + body_modifier >= 6"
         ]
     },
@@ -90,6 +96,20 @@
         "container_capacity": 5,
         "size_in_container": 0,
         "max_equipped_items": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Borgware Hardened Shielding",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Artificial Shoulder Mount",
+            "Implanted Linear Frame ß (Beta)",
+            "Implanted Linear Frame Σ (Sigma)",
+            "MultiOptic Mount",
+            "Sensor Array"
+        ],
+        "size_in_container": 0,
         "max_humanity_loss": 4
     }
 ]

@@ -1,6 +1,7 @@
 [
     {
         "name": "Hardened Shielding",
+        "tags": ["Covering"],
         "type": "cyberware",
         "price": 1000,
         "requires_container": [
@@ -13,6 +14,7 @@
     },
     {
         "name": "Plastic Covering",
+        "tags": ["Covering"],
         "type": "cyberware",
         "price": 100,
         "requires_container": [
@@ -25,6 +27,7 @@
     },
     {
         "name": "Realskinn™ Covering",
+        "tags": ["Covering"],
         "type": "cyberware",
         "price": 500,
         "requires_container": [
@@ -37,6 +40,7 @@
     },
     {
         "name": "Superchrome® Covering",
+        "tags": ["Covering"],
         "type": "cyberware",
         "price": 1000,
         "modifiers": [
