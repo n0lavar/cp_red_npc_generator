@@ -15,7 +15,7 @@ MAX_UNIQUE_DRUG_ITEMS: int = 2
 
 def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating drugs...")
-    if len(list(filter(lambda i: i.name == "Airhypo", npc.inventory.keys()))):
+    if len(list(filter(lambda i: "Airhypo" in i.tags, npc.get_all_items()))):
         logging.debug("\tFound Airhypo, continuing...")
         data = load_data("configs/items/drugs.json")
 

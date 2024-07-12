@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import logging
+from dataclasses import dataclass
 from typing import List, Dict
 import numpy as np
 
@@ -17,12 +18,18 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating ammo...")
     data = load_data("configs/items/ammo.json")
 
-    required_ammo_types: Dict[str, int] = dict()
+    @dataclass
+    class AmmoData:
+        magazine_size: int = 0
+        ammo_added: int = 0
+
+    required_ammo_types: Dict[str, AmmoData] = dict()
 
     def add_required_ammo_type(required_ammo_type: str, magazine_size: int):
         nonlocal required_ammo_types
-        if required_ammo_type not in required_ammo_types or magazine_size > required_ammo_types[required_ammo_type]:
-            required_ammo_types[required_ammo_type] = magazine_size
+        if (required_ammo_type not in required_ammo_types
+                or magazine_size > required_ammo_types[required_ammo_type].magazine_size):
+            required_ammo_types[required_ammo_type] = AmmoData(magazine_size, 0)
 
     add_required_ammo_type("Grenades", 1)
     for weapon in npc.weapons:
@@ -37,8 +44,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
     preferred_ammo_modifications: List[str] = npc_template.role.preferred_ammo
     logging.debug(f"\t{preferred_ammo_modifications=}")
 
-    def try_add_ammo(ammo_type: str, ammo_modification: str, amount: int) -> bool:
-        nonlocal ammo_budget
+    def try_add_ammo(ammo_type: str, ammo_modification: str, amount: int, budget: int) -> int:
         nonlocal data
         nonlocal npc
 
@@ -46,20 +52,20 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         if ammo_modification not in data:
             logging.debug(f"\t\tFailed, unknown modification: {ammo_modification}")
-            return False
+            return 0
 
         ammo_type_data = data[ammo_modification]
         if ammo_type not in ammo_type_data["types"]:
             logging.debug(f"\t\tFailed, {ammo_modification} doesn't support {ammo_type}")
-            return False
+            return 0
 
         price: int = ammo_type_data["price"]
         price_per_one: int = round(price if ammo_type == "Grenades" or ammo_type == "Rockets" else (price / 10))
         price_per_amount: int = price_per_one * amount
-        if price_per_amount > ammo_budget:
+        if price_per_amount > budget:
             logging.debug(
-                f"\t\tFailed, not enough money (required: {price_per_amount}, available: {ammo_budget})")
-            return False
+                f"\t\tFailed, not enough money (required: {price_per_amount}, available: {budget})")
+            return 0
 
         ammo_item: Item = Item(f"{ammo_type} ({ammo_modification})", ItemType.AMMO, price_per_one)
         if ammo_item in npc.inventory:
@@ -71,34 +77,43 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
         if new_num_ammo > MAX_AMMO_PER_MODIFICATION:
             logging.debug(
                 f"\t\tFailed, too much of this type of ammo ({new_num_ammo=}, {MAX_AMMO_PER_MODIFICATION=})")
-            return False
+            return 0
 
         npc.inventory[ammo_item] = new_num_ammo
-        ammo_budget -= price_per_amount
         logging.debug(f"\t\tSucceed, added {amount} of {ammo_item}")
-        logging.debug(f"\t\tMoney left: {ammo_budget}")
-        return True
+        logging.debug(f"\t\tMoney left: {budget - price_per_amount}")
+        return price_per_amount
 
-    def add_basic_ammo(ammo_type: str) -> bool:
-        if ammo_type in required_ammo_types.keys() and "Basic" in preferred_ammo_modifications:
-            num_bullets: int = max(20, required_ammo_types[ammo_type] * 2)
-            while True:
-                if try_add_ammo(ammo_type, "Basic", num_bullets):
-                    return True
-                
-                num_bullets = max(0, num_bullets - 5)
-                if num_bullets == 0:
-                    break
-
-        return False
-
-    add_basic_ammo("Bullets") or add_basic_ammo("Slugs") or add_basic_ammo("Arrows")
-
+    logging.debug(f"Adding preferred ammo...")
     for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         required_ammo_type = list(required_ammo_types.keys())[np.random.choice(len(required_ammo_types))]
-        magazine_size = required_ammo_types[required_ammo_type]
-        try_add_ammo(required_ammo_type,
-                     choose_exponential_random_element(preferred_ammo_modifications),
-                     magazine_size)
+        money_spent: int = try_add_ammo(required_ammo_type,
+                                        choose_exponential_random_element(preferred_ammo_modifications),
+                                        required_ammo_types[required_ammo_type].magazine_size,
+                                        ammo_budget)
+        if money_spent != 0:
+            ammo_budget -= money_spent
+            required_ammo_types[required_ammo_type].ammo_added += required_ammo_types[required_ammo_type].magazine_size
+
+    logging.debug(f"Adding basic ammo...")
+    for required_ammo_type_name, required_ammo_type_data in required_ammo_types.items():
+        total_required_ammo: int = 0
+        match required_ammo_type_name:
+            case "Bullets" | "Arrows" | "Slugs":
+                total_required_ammo = max(20, required_ammo_type_data.magazine_size * 2)
+            case "Rockets":
+                total_required_ammo = 4
+            case "Net":
+                total_required_ammo = 2
+
+        left_required_ammo: int = total_required_ammo - required_ammo_type_data.ammo_added
+        if left_required_ammo > 0:
+            modification_name = next(modification_name
+                                     for modification_name, modification_data in data.items()
+                                     if required_ammo_type_name in modification_data["types"])
+            try_add_ammo(required_ammo_type_name,
+                         modification_name,
+                         left_required_ammo,
+                         999999)
 
     return npc

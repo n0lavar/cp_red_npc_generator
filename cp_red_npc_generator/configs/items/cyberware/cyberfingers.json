@@ -1,0 +1,228 @@
+[
+    {
+        "name": "Dynalar Modular Finger Enthusiast Cyberhand",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "container_capacity": 8,
+        "size_in_container": 2,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Modular Finger Cyberhand",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Shoulders"
+        ],
+        "container_capacity": 5,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Airhypo Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "tags": ["Airhypo"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Ballpoint Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 0
+    },
+    {
+        "name": "Bullet Storage Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Dartgun Cyberfinger",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["Bow", "CloseRangedWeapon"],
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 1,
+        "ammo_types": ["Arrows"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Flashlight Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "tags": ["Flashlight"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Homing Tracer Cyberfinger",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["HomingTracer"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Laser Pointer Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Lighter Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Lockpick Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "tags": ["Lockpick"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Microphone Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Mini Air Supply Cyberfinger",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["AirProtection"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "One Shot Special Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "tags": ["HeavyPistol", "CloseRangedWeapon"],
+        "damage": "3d6",
+        "rate_of_fire": 1,
+        "magazine": 1,
+        "ammo_types": ["Bullets"],
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Spray Paint Cyber Finger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Squirt Cyberfinger",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Standard Cyberfinger",
+        "type": "cyberware",
+        "price": 20,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_humanity_loss": 0
+    },
+    {
+        "name": "Wirecutter/Scissor Cyberfingers",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Dynalar Modular Finger Enthusiast Cyberhand",
+            "Modular Finger Cyberhand"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    }
+]

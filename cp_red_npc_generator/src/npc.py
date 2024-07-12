@@ -71,20 +71,40 @@ class Npc:
         total_price = sum([x.price for x in self.get_all_items()])
         npc_str += f"Has items total worth of {total_price}\n\n"
 
+        npc_str += f"Conditions:\n"
+
         max_hp = 10 + (5 * math.ceil(0.5 * (self.stats[StatType.BODY] + self.stats[StatType.COOL])))
-        npc_str += f"Health (you can add conditions here):\n"
         npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: "
         if next((True for cw in self.cyberware if cw.item.name == "Pain Editor"), None):
             npc_str += f"No, Pain Editor"
         else:
             npc_str += f"{math.ceil(max_hp / 2)}"
-        npc_str += ")\n\n"
+        npc_str += ")\n"
 
-        npc_str += f"Stats:\n"
         stats_modifiers: Dict[StatType, Tuple[int, int, List[ModifierSource]]] = {}
         for stat in self.stats.keys():
             stat_value, stat_modifier_value, stat_modifiers = self.get_stat_or_skill_value(stat.name)
             stats_modifiers[stat] = stat_value, stat_modifier_value, stat_modifiers
+
+        ref_value, ref_modifier_value, _ = stats_modifiers[StatType.REF]
+        can_evade_bullets_ref: bool = ref_value + ref_modifier_value >= 8
+        can_evade_bullets_co_proc_ref: bool = bool(next(
+            (cw for cw in self.cyberware if cw.item.name == "Reflex Co-Processor"), None))
+        can_evade_bullets: bool = can_evade_bullets_ref or can_evade_bullets_co_proc_ref
+        npc_str += f"\tCan evade bullets: {can_evade_bullets}"
+        if can_evade_bullets:
+            npc_str += f" ("
+            if can_evade_bullets_ref:
+                npc_str += f"REF >= 8"
+            elif can_evade_bullets_co_proc_ref:
+                npc_str += f"has Reflex Co-Processor"
+            npc_str += f")"
+
+        npc_str += f"\n\n"
+
+        npc_str += f"Stats:\n"
+        for stat in self.stats.keys():
+            stat_value, stat_modifier_value, stat_modifiers = stats_modifiers[stat]
             npc_str += f"\t[{stat_value}"
             for stat_modifier in stat_modifiers:
                 npc_str += f"{stat_modifier.value:+}({stat_modifier.item_name})"

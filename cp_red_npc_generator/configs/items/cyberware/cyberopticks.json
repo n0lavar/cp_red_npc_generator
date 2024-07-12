@@ -12,11 +12,24 @@
         "max_humanity_loss": 2
     },
     {
+        "name": "Sponsored Cybereye",
+        "type": "cyberware",
+        "price": 50,
+        "requires_container": [
+            "Eye Sockets",
+            "MultiOptic Mount"
+        ],
+        "container_capacity": 2,
+        "size_in_container": 1,
+        "max_humanity_loss": 2
+    },
+    {
         "name": "Anti-Dazzle",
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -28,7 +41,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -39,7 +53,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -50,7 +65,8 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 3,
         "max_humanity_loss": 2
@@ -74,7 +90,8 @@
             }
         ],
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -86,7 +103,8 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -98,7 +116,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -110,7 +129,8 @@
         "price": 500,
         "tags": ["VideoCamera"],
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -121,7 +141,8 @@
         "type": "cyberware",
         "price": 1000,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -132,7 +153,8 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -144,7 +166,8 @@
         "price": 500,
         "tags": ["Telescope"],
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -155,11 +178,24 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cybereye"
+            "Cybereye",
+            "Sponsored Cybereye"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
         "must_be_paired": true,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Hardened Cybereye Casing",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cybereye",
+            "Sponsored Cybereye"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     }
 ]

@@ -168,5 +168,41 @@
         "size_in_container": 1,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "Internal Body Cyberware Hardened Shielding",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "RacerBracer",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Trauma Response Nanomatrix",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Internal Cyberware"
+        ],
+        "required_cyberware": [
+            "Subdermal Armor"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
     }
 ]

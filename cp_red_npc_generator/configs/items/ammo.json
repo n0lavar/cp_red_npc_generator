@@ -50,5 +50,9 @@
     "Teargas": {
         "types": ["Grenades"],
         "price": 50
+    },
+    "Net": {
+        "types": ["Net"],
+        "price": 500
     }
 }

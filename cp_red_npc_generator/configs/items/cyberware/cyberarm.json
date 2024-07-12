@@ -9,7 +9,22 @@
         ],
         "container_capacity": 4,
         "size_in_container": 1,
-        "max_equipped_items": 2,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Neo-Soviet Cyberarm",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Shoulders",
+            "Artificial Shoulder Mount"
+        ],
+        "required_condition": [
+            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
+            "can_add = body_value + body_modifier >= 8"
+        ],
+        "container_capacity": 3,
+        "size_in_container": 1,
         "max_humanity_loss": 2
     },
     {
@@ -21,6 +36,7 @@
         "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -33,7 +49,8 @@
         "price": 500,
         "tags": ["Cyberdeck"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 3,
         "max_equipped_items": 1,
@@ -44,7 +61,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -66,7 +84,8 @@
             }
         ],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -82,7 +101,8 @@
         "magazine": 2,
         "ammo_types": ["Grenades"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -96,7 +116,8 @@
         "damage": "1d6",
         "rate_of_fire": 2,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -110,7 +131,8 @@
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -124,7 +146,8 @@
         "damage": "3d6",
         "rate_of_fire": 2,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -137,7 +160,8 @@
         "tags": ["Shield"],
         "armor_class": 10,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 3,
         "max_equipped_items": 1,
@@ -153,7 +177,8 @@
         "magazine": 12,
         "ammo_types": ["Bullets"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -169,7 +194,8 @@
         "magazine": 8,
         "ammo_types": ["Bullets"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -185,7 +211,8 @@
         "magazine": 8,
         "ammo_types": ["Bullets"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -201,7 +228,8 @@
         "magazine": 30,
         "ammo_types": ["Bullets"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -212,7 +240,8 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 1,
         "max_humanity_loss": 2
@@ -226,6 +255,7 @@
         "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -241,6 +271,7 @@
         "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -253,7 +284,8 @@
         "price": 500,
         "tags": ["VideoCamera"],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -268,6 +300,7 @@
         "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -280,6 +313,7 @@
         "price": 100,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -334,7 +368,8 @@
             }
         ],
         "requires_container": [
-            "Cyberarm"
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
         ],
         "size_in_container": 2,
         "max_equipped_items": 1,
@@ -347,6 +382,7 @@
         "tags": ["Techtool"],
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
@@ -362,9 +398,70 @@
         "rate_of_fire": 2,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Shoulders"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Flashbulb",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Integrated Cyberdeck Upgrade",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "required_cyberware": [
+            "Cyberdeck"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Net Launcher",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "damage": "0d0",
+        "rate_of_fire": 1,
+        "magazine": 1,
+        "ammo_types": ["Net"],
+        "size_in_container": 3,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Popup Shotgun",
+        "type": "cyberware",
+        "price": 1000,
+        "tags": ["Shotgun", "CloseRangedWeapon"],
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 2,
+        "ammo_types": ["Slugs", "Shotgun Shells"],
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 3,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
     }

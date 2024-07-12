@@ -139,5 +139,38 @@
         "size_in_container": 1,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "Explicit Memory Stimulator",
+        "type": "cyberware",
+        "price": 100,
+        "modifiers": [
+            {
+                "name": "Concentration",
+                "simple": 2
+            }
+        ],
+        "requires_container": [
+            "Chipware Socket",
+            "Budget Chipware Socket"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Reflex Co-Processor",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Neural Link"
+        ],
+        "required_condition": [
+            "ref_value, ref_modifier, _ = npc.get_stat_or_skill_value(\"REF\")",
+            "can_add = ref_value + ref_modifier < 8"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
     }
 ]

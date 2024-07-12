@@ -12,6 +12,18 @@
         "max_humanity_loss": 2
     },
     {
+        "name": "Discount Cyberaudio Suite",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Auditory System"
+        ],
+        "container_capacity": 1,
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
         "name": "Amplified Hearing",
         "type": "cyberware",
         "price": 100,
@@ -22,8 +34,9 @@
             }
         ],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -35,8 +48,9 @@
         "price": 100,
         "tags": ["AudioRecorder"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -48,8 +62,9 @@
         "price": 100,
         "tags": ["BugDetector"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -61,8 +76,9 @@
         "price": 100,
         "tags": ["HomingTracer"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -74,8 +90,9 @@
         "price": 100,
         "tags": ["Agent"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -87,8 +104,9 @@
         "price": 100,
         "tags": ["EarsProtection"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -100,8 +118,9 @@
         "price": 100,
         "tags": ["RadioCommunicator"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -113,8 +132,9 @@
         "price": 50,
         "tags": ["RadioScannerMusicPlayer"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -126,8 +146,9 @@
         "price": 500,
         "tags": ["RadarDetector"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -139,8 +160,9 @@
         "price": 100,
         "tags": ["ScramblerDescrambler"],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,
@@ -161,8 +183,9 @@
             }
         ],
         "requires_container": [
+            "Sensor Array",
             "Cyberaudio Suite",
-            "Sensor Array"
+            "Discount Cyberaudio Suite"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,

@@ -6,6 +6,7 @@
         "price": 1000,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Cyberleg"
         ],
         "size_in_container": 1,
@@ -19,6 +20,7 @@
         "price": 100,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Cyberleg"
         ],
         "size_in_container": 0,
@@ -32,6 +34,7 @@
         "price": 500,
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Cyberleg"
         ],
         "size_in_container": 0,
@@ -51,10 +54,42 @@
         ],
         "requires_container": [
             "Cyberarm",
+            "Neo-Soviet Cyberarm",
             "Cyberleg"
         ],
         "size_in_container": 0,
         "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Extra-Jointed Cyberlimb Upgrade",
+        "type": "cyberware",
+        "price": 500,
+        "modifiers": [
+            {
+                "name": "Contortionist",
+                "simple": 2
+            }
+        ],
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 4,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Reinforced Cyberlimb Upgrade",
+        "type": "cyberware",
+        "price": 1000,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 1,
         "max_humanity_loss": 2
     }
 ]

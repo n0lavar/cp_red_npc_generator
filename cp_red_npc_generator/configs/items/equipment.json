@@ -14,7 +14,8 @@
     {
         "name": "Airhypo",
         "type": "equipment",
-        "price": 50
+        "price": 50,
+        "tags": ["Airhypo"]
     },
     {
         "name": "Anti-Smog Breathing Mask",
@@ -91,7 +92,8 @@
     {
         "name": "Flashlight",
         "type": "equipment",
-        "price": 20
+        "price": 20,
+        "tags": ["Flashlight"]
     },
     {
         "name": "Grapple Gun",
@@ -118,7 +120,8 @@
     {
         "name": "Lock Picking Set",
         "type": "equipment",
-        "price": 20
+        "price": 20,
+        "tags": ["Lockpick"]
     },
     {
         "name": "Medscanner",
