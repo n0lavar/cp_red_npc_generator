@@ -142,6 +142,7 @@
         "name": "Microphone Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": ["AudioRecorder"],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"

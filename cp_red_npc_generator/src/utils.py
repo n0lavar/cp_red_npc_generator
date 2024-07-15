@@ -3,6 +3,7 @@
 
 import json
 import logging
+import sys
 from typing import List
 
 import numpy as np
@@ -54,3 +55,7 @@ class LoggerLevelScope:
     def __exit__(self, exception_type, exception_value, traceback):
         logger = logging.getLogger()
         logger.setLevel(self.initial_level)
+
+
+def is_debugger_active() -> bool:
+    return hasattr(sys, 'gettrace') and sys.gettrace() is not None

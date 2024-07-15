@@ -8,6 +8,8 @@ import time
 import sys
 import numpy as np
 
+from generate_trauma_team_status import generate_trauma_team_status
+from utils import is_debugger_active
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
 from generate_cyberware import generate_cyberware
@@ -34,11 +36,13 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
     npc = generate_armor(npc, npc_template)
     npc = generate_drugs(npc, npc_template)
     npc = generate_junk(npc, npc_template)
+    npc = generate_trauma_team_status(npc, npc_template)
     return npc
 
 
 def main(args) -> int:
-    logging.basicConfig(level=logging.getLevelName(args.log_level), format="%(message)s")
+    logging.basicConfig(level=logging.DEBUG if is_debugger_active() else logging.getLevelName(args.log_level),
+                        format="%(message)s")
 
     seed: int = 0
     if args.seed != 0:

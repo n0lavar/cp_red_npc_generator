@@ -1,12 +1,19 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from enum import auto, Enum
 from typing import Dict, List, Set
 from dataclasses import dataclass, field
 
 from item import ItemQuality, ItemType
 from normal_distribution import NormalDistribution
 from utils import load_data
+
+
+class TraumaTeamStatusType(Enum):
+    NONE = auto()
+    SILVER = auto()
+    EXECUTIVE = auto()
 
 
 @dataclass
@@ -18,6 +25,9 @@ class Rank:
     stats_budget: NormalDistribution = field(default_factory=NormalDistribution)
     skills_budget: NormalDistribution = field(default_factory=NormalDistribution)
     pocket_money: NormalDistribution = field(default_factory=NormalDistribution)
+    # if empty, no subscription, otherwise values are positive weights of probabilities for
+    # [TraumaTeamStatusType.NONE, TraumaTeamStatusType.SILVER, TraumaTeamStatusType.EXECUTIVE]
+    trauma_team_status_weights: List[float] = field(default_factory=list, compare=False)
 
     @staticmethod
     def load():

@@ -8,6 +8,7 @@ from functools import cmp_to_key
 from typing import Dict, List, Tuple, Set
 from dataclasses import dataclass, field
 
+from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode
 from item import Item, ItemType
@@ -23,6 +24,7 @@ class Npc:
     armor: Set[Item] = field(default_factory=set)
     weapons: Set[Item] = field(default_factory=set)
     inventory: Dict[Item, int] = field(default_factory=dict)
+    trauma_team_status: TraumaTeamStatusType = field(default=TraumaTeamStatusType.NONE)
 
     def get_all_items(self) -> List[Item]:
         equipped_items: List[Item] = copy.deepcopy(self.cyberware.get_all_items())
@@ -46,8 +48,8 @@ class Npc:
 
         equipped_items.sort(key=cmp_to_key(cmp_equipped_items_order))
 
-        if name.lower() in StatType and StatType(name.lower()) in self.stats:
-            start_value = self.stats[StatType(name.lower())]
+        if name in [s.name for s in StatType] and StatType[name] in self.stats:
+            start_value = self.stats[StatType[name]]
         else:
             start_value = next(level for skill, level in self.skills.items() if skill.name == name)
 
@@ -80,6 +82,9 @@ class Npc:
         else:
             npc_str += f"{math.ceil(max_hp / 2)}"
         npc_str += ")\n"
+
+        if self.trauma_team_status != TraumaTeamStatusType.NONE:
+            npc_str += f"\tTraumaTeam status: {self.trauma_team_status.name}\n"
 
         stats_modifiers: Dict[StatType, Tuple[int, int, List[ModifierSource]]] = {}
         for stat in self.stats.keys():

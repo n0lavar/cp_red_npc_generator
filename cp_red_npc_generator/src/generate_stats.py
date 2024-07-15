@@ -8,7 +8,7 @@ from typing import List, Optional, Callable
 
 from npc import Npc
 from npc_template import NpcTemplate
-from stats import stat_type_from_int, Skill, StatType, SkillType
+from stats import Skill, StatType, SkillType
 from utils import clamp, load_data
 
 
@@ -102,7 +102,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     stats_sum: int = 0
     for i, stat in enumerate(stats_mean_clamped_distributed):
-        npc.stats[stat_type_from_int(i)] = stat
+        npc.stats[StatType(i + 1)] = stat
         stats_sum += stat
 
     logging.debug(f"\t{stats_sum=}")
@@ -114,7 +114,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     # add all skills with level 0
     for skill_name, skill_info in skills_data.items():
-        skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
+        skill = Skill(skill_name, StatType[skill_info["link"]], SkillType(skill_info["type"]))
         npc.skills.setdefault(skill, 0)
 
     # increase values for role-specific skills
@@ -128,7 +128,7 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
     skills_sum: int = 0
     for i, skill_name in enumerate(npc_template.role.skills):
         skill_info = skills_data[skill_name]
-        skill = Skill(skill_name, StatType(skill_info["link"].lower()), SkillType(skill_info["type"]))
+        skill = Skill(skill_name, StatType[skill_info["link"]], SkillType(skill_info["type"]))
         npc.skills[skill] += role_streetrat_skills_distributed[i]
         skills_sum += role_streetrat_skills_distributed[i]
 

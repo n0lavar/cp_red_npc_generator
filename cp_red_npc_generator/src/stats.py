@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from dataclasses import dataclass
-from enum import StrEnum, auto
+from enum import StrEnum, auto, Enum
 from typing import List
 
 from modifier import ModifierSource
@@ -20,7 +20,7 @@ class SkillType(StrEnum):
     TECHNIQUE = auto()
 
 
-class StatType(StrEnum):
+class StatType(Enum):
     INT = auto()
     REF = auto()
     DEX = auto()
@@ -31,30 +31,6 @@ class StatType(StrEnum):
     MOVE = auto()
     BODY = auto()
     EMP = auto()
-
-
-def stat_type_from_int(i: int) -> StatType:
-    match i:
-        case 0:
-            return StatType.INT
-        case 1:
-            return StatType.REF
-        case 2:
-            return StatType.DEX
-        case 3:
-            return StatType.TECH
-        case 4:
-            return StatType.COOL
-        case 5:
-            return StatType.WILL
-        case 6:
-            return StatType.LUCK
-        case 7:
-            return StatType.MOVE
-        case 8:
-            return StatType.BODY
-        case 9:
-            return StatType.EMP
 
 
 @dataclass(frozen=True, eq=True)
@@ -72,7 +48,7 @@ class Skill:
         linked_stat_value: int = stat_value + stat_modifier_value
         total_value: int = linked_stat_value + skill_value + skill_modifier_value
         result: str = "["
-        result += f"{linked_stat_value}({self.link.upper()})"
+        result += f"{linked_stat_value}({self.link.name})"
         if skill_value > 0:
             result += f"{skill_value:+}"
         for skill_modifier in skill_modifiers:

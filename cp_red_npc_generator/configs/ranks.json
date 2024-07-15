@@ -297,7 +297,12 @@
         "pocket_money": {
             "mean": 700,
             "standard_deviation": 70
-        }
+        },
+        "trauma_team_status_weights": [
+            0.8,
+            0.2,
+            0.0
+        ]
     },
     {
         "name": "lieutenant_general",
@@ -357,7 +362,12 @@
         "pocket_money": {
             "mean": 1200,
             "standard_deviation": 120
-        }
+        },
+        "trauma_team_status_weights": [
+            0.0,
+            0.7,
+            0.3
+        ]
     },
     {
         "name": "general",
@@ -417,6 +427,11 @@
         "pocket_money": {
             "mean": 2500,
             "standard_deviation": 250
-        }
+        },
+        "trauma_team_status_weights": [
+            0.0,
+            0.0,
+            1.0
+        ]
     }
 ]
