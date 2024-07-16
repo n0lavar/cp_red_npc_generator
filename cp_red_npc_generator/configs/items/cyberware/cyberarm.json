@@ -464,5 +464,65 @@
         "size_in_container": 3,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "Cyberscanner, Integrated",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Cyberpillow",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1
+    },
+    {
+        "name": "Holo Projector Palm",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Shoulders"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "PersonalPak KibbleWarmer",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Pursuit Security Inc. Personal Shredder",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
     }
 ]

@@ -43,6 +43,21 @@
             "External Cyberware"
         ],
         "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "External Vidscreen",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "required_cyberware": [
+            "Biomonitor"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
         "max_humanity_loss": 2
     }
 ]

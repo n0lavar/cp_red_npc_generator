@@ -91,5 +91,17 @@
         ],
         "size_in_container": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "Sponsored Covering",
+        "type": "cyberware",
+        "price": 50,
+        "tags": ["Covering"],
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Cyberleg"
+        ],
+        "size_in_container": 0
     }
 ]

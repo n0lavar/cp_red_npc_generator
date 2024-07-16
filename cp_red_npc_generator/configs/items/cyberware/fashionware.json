@@ -80,5 +80,38 @@
         ],
         "size_in_container": 1,
         "max_equipped_items": 1
+    },
+    {
+        "name": "Kill Display",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1
+    },
+    {
+        "name": "Lead’s Turn-On-Show-Off Nails",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 2
+    },
+    {
+        "name": "Mood Eye",
+        "type": "cyberware",
+        "price": 100,
+        "requires_container": [
+            "Fashionware"
+        ],
+        "required_cyberware": [
+            "Neural Link"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1
     }
 ]
