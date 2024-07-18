@@ -524,5 +524,63 @@
         "size_in_container": 1,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "ChainRipp",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["VeryHeavyMeleeWeapon", "MeleeWeapon"],
+        "quality": "excellent",
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "requires_container": [
+            "Cyberarm"
+        ],
+        "size_in_container": 4,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Cybermatrix Gang Jazzler",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm",
+            "Shoulders"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Psiberstuff Watch-Man",
+        "type": "cyberware",
+        "price": 100,
+        "tags": ["Agent"],
+        "requires_container": [
+            "Cyberarm",
+            "Neo-Soviet Cyberarm"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Radline Blitzkrieg Arc-Thrower Cyberarm",
+        "type": "cyberware",
+        "price": 1000,
+        "quality": "poor",
+        "tags": ["Shotgun", "CloseRangedWeapon"],
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 32,
+        "ammo_types": ["Radline MagnaSlot BatteryBrick"],
+        "requires_container": [
+            "Shoulders"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
     }
 ]

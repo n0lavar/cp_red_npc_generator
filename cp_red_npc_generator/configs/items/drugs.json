@@ -43,5 +43,10 @@
         "name": "Timewarp",
         "type": "drug",
         "price": 100
+    },
+    {
+        "name": "Piranha Smash",
+        "type": "drug",
+        "price": 10
     }
 ]

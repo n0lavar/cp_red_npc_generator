@@ -198,7 +198,7 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
         state = purchase_result[0]
         container_where_added = purchase_result[1]
 
-        if cyberware_item.must_be_paired:
+        if cyberware_item.must_be_paired and not container_where_added.paired_container:
             logging.debug(left_align(f"{cyberware_item} required a paired item, generating...", offset))
             paired_item: Item = create_paired_item(cyberware_item)
             state = pick_cyberware(

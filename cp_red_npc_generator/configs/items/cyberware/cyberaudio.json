@@ -85,9 +85,54 @@
         "max_humanity_loss": 2
     },
     {
-        "name": "Internal Agent",
+        "name": "EBM PiR2",
+        "type": "cyberware",
+        "price": 500,
+        "quality": "excellent",
+        "tags": ["Agent"],
+        "requires_container": [
+            "Sensor Array",
+            "Cyberaudio Suite",
+            "Discount Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "MediaWare BrainGen",
+        "type": "cyberware",
+        "price": 50,
+        "quality": "poor",
+        "tags": ["Agent"],
+        "requires_container": [
+            "Sensor Array",
+            "Cyberaudio Suite",
+            "Discount Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Raven Microcybernetics Drake",
         "type": "cyberware",
         "price": 100,
+        "tags": ["Agent"],
+        "requires_container": [
+            "Sensor Array",
+            "Cyberaudio Suite",
+            "Discount Cyberaudio Suite"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Rocklin Augmentics Neuron",
+        "type": "cyberware",
+        "price": 1000,
+        "quality": "excellent",
         "tags": ["Agent"],
         "requires_container": [
             "Sensor Array",

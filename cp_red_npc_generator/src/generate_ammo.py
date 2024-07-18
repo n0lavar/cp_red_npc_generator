@@ -60,7 +60,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
             return 0
 
         price: int = ammo_type_data["price"]
-        price_per_one: int = round(price if ammo_type == "Grenades" or ammo_type == "Rockets" else (price / 10))
+        price_per_one: int = price * 10 if ammo_type == "Grenades" or ammo_type == "Rockets" else price
         price_per_amount: int = price_per_one * amount
         if price_per_amount > budget:
             logging.debug(
@@ -97,7 +97,7 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     logging.debug(f"Adding basic ammo...")
     for required_ammo_type_name, required_ammo_type_data in required_ammo_types.items():
-        total_required_ammo: int = 0
+        total_required_ammo: int = required_ammo_type_data.magazine_size
         match required_ammo_type_name:
             case "Bullets" | "Arrows" | "Slugs":
                 total_required_ammo = max(20, required_ammo_type_data.magazine_size * 2)

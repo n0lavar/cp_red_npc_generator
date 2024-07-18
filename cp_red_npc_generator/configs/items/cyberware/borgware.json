@@ -78,6 +78,7 @@
         "name": "MultiOptic Mount",
         "type": "cyberware",
         "price": 1000,
+        "tags": ["OpticContainer"],
         "requires_container": [
             "Borgware"
         ],
@@ -111,5 +112,31 @@
         ],
         "size_in_container": 0,
         "max_humanity_loss": 4
+    },
+    {
+        "name": "Cyclops International Bug Eye",
+        "type": "cyberware",
+        "price": 500,
+        "requires_container": [
+            "Borgware"
+        ],
+        "container_capacity": 5,
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 4
+    },
+    {
+        "name": "Kiroshi MonoVision",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["OpticContainer"],
+        "requires_container": [
+            "Eye Sockets"
+        ],
+        "container_capacity": 3,
+        "size_in_container": 2,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 4,
+        "paired_container": true
     }
 ]

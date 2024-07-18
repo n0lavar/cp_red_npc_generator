@@ -27,7 +27,9 @@
         "name": "Anti-Dazzle",
         "type": "cyberware",
         "price": 100,
+        "tags": ["Anti-Dazzle"],
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -41,6 +43,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -53,6 +56,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -65,6 +69,7 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -90,6 +95,7 @@
             }
         ],
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -103,6 +109,7 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -116,6 +123,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -129,6 +137,7 @@
         "price": 500,
         "tags": ["VideoCamera"],
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -141,6 +150,7 @@
         "type": "cyberware",
         "price": 1000,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -153,6 +163,7 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -166,6 +177,7 @@
         "price": 500,
         "tags": ["Telescope"],
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -178,6 +190,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -191,6 +204,7 @@
         "type": "cyberware",
         "price": 500,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -203,6 +217,7 @@
         "type": "cyberware",
         "price": 100,
         "requires_container": [
+            "Cyclops International Bug Eye",
             "Cybereye"
         ],
         "size_in_container": 3,

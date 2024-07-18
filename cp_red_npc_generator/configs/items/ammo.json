@@ -1,58 +1,62 @@
 {
     "Basic": {
         "types": ["Bullets", "Arrows", "Shotgun Shells", "Slugs"],
-        "price": 10
+        "price": 1
     },
     "Armor-Piercing": {
         "types": ["Bullets", "Arrows", "Slugs", "Grenades", "Rockets"],
-        "price": 100
+        "price": 10
     },
     "Biotoxin": {
         "types": ["Arrows", "Grenades"],
-        "price": 500
+        "price": 50
     },
     "EMP": {
         "types": ["Grenades"],
-        "price": 500
+        "price": 50
     },
     "Expansive": {
         "types": ["Bullets", "Arrows", "Slugs"],
-        "price": 100
+        "price": 10
     },
     "Flashbang": {
         "types": ["Grenades"],
-        "price": 100
+        "price": 10
     },
     "Incendiary": {
         "types": ["Bullets", "Arrows", "Shotgun Shells", "Grenades"],
-        "price": 100
+        "price": 10
     },
     "Poison": {
         "types": ["Arrows", "Grenades"],
-        "price": 100
+        "price": 10
     },
     "Rubber": {
         "types": ["Bullets", "Arrows", "Slugs"],
-        "price": 10
+        "price": 1
     },
     "Sleep": {
         "types": ["Arrows", "Grenades"],
-        "price": 500
+        "price": 50
     },
     "Smart": {
         "types": ["Bullets", "Arrows", "Rockets"],
-        "price": 500
+        "price": 50
     },
     "Smoke": {
         "types": ["Grenades"],
-        "price": 50
+        "price": 5
     },
     "Teargas": {
         "types": ["Grenades"],
-        "price": 50
+        "price": 5
     },
     "Net": {
         "types": ["Net"],
-        "price": 500
+        "price": 50
+    },
+    "Radline MagnaSlot BatteryBrick": {
+        "types": ["Radline MagnaSlot BatteryBrick"],
+        "price": 3
     }
 }

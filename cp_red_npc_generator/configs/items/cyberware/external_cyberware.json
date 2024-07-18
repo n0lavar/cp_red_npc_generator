@@ -59,5 +59,30 @@
         "size_in_container": 1,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
+    },
+    {
+        "name": "Kiroshi OptiShield",
+        "type": "cyberware",
+        "price": 500,
+        "tags": ["Anti-Dazzle"],
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "max_humanity_loss": 2
+    },
+    {
+        "name": "Sycust FleshWeave",
+        "type": "cyberware",
+        "price": 1000,
+        "tags": ["Armor"],
+        "requires_container": [
+            "External Cyberware"
+        ],
+        "size_in_container": 1,
+        "max_equipped_items": 1,
+        "armor_class": 7,
+        "max_humanity_loss": 2
     }
 ]
