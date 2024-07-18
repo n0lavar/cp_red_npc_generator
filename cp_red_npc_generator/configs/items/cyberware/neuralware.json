@@ -15,7 +15,10 @@
         "name": "Braindance Recorder",
         "type": "cyberware",
         "price": 500,
-        "tags": ["AudioRecorder", "VideoCamera"],
+        "tags": [
+            "AudioRecorder",
+            "VideoCamera"
+        ],
         "requires_container": [
             "Neural Link"
         ],
@@ -60,7 +63,9 @@
         "name": "Kerenzikov",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Speedware"],
+        "tags": [
+            "Speedware"
+        ],
         "modifiers": [
             {
                 "name": "Initiative",
@@ -78,7 +83,9 @@
         "name": "Sandevistan",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Speedware"],
+        "tags": [
+            "Speedware"
+        ],
         "modifiers": [
             {
                 "name": "Initiative",
@@ -166,8 +173,7 @@
             "Neural Link"
         ],
         "required_condition": [
-            "ref_value, ref_modifier, _ = npc.get_stat_or_skill_value(\"REF\")",
-            "can_add = ref_value + ref_modifier < 8"
+            "can_add = npc.get_stat_or_skill_value(\"REF\").get_total() < 8"
         ],
         "size_in_container": 1,
         "max_equipped_items": 1,

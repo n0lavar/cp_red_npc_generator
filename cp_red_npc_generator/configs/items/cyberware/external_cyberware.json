@@ -64,7 +64,7 @@
         "name": "Kiroshi OptiShield",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Anti-Dazzle"],
+        "tags": ["LightFlashesProtection"],
         "requires_container": [
             "External Cyberware"
         ],

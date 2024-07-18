@@ -27,7 +27,7 @@
         "name": "Anti-Dazzle",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Anti-Dazzle"],
+        "tags": ["LightFlashesProtection"],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Cybereye",
@@ -108,6 +108,7 @@
         "name": "Low Light / Infrared / UV",
         "type": "cyberware",
         "price": 500,
+        "tags": ["ImprovedVision"],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Cybereye",

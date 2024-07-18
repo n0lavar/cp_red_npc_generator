@@ -12,7 +12,7 @@ from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode
 from item import Item, ItemType
-from stats import StatType, Skill, SkillType
+from stats import StatType, Skill, SkillType, StatSkillValue
 from table_view import TableView
 
 
@@ -34,7 +34,7 @@ class Npc:
 
         return equipped_items
 
-    def get_stat_or_skill_value(self, name: str) -> Tuple[int, int, List[ModifierSource]]:
+    def get_stat_or_skill_value(self, name: str) -> StatSkillValue:
         logging.debug(f"\tGetting a value and a modifier for {name}")
 
         equipped_items: List[Item] = self.get_all_items()
@@ -63,59 +63,85 @@ class Npc:
                     modifier_value = new_modifier_value
 
         logging.debug(f"\t{name}: {start_value=}, {modifier_value=}")
-        return start_value, modifier_value, modifiers
+        return StatSkillValue(start_value, modifier_value, modifiers)
 
     def to_string(self, flat: bool = False) -> str:
         logging.debug(f"\nConverting npc to a string...")
 
+        all_items: List[Item] = self.get_all_items()
+        stats_modifiers: Dict[StatType, StatSkillValue] = {}
+        for stat in self.stats.keys():
+            stats_modifiers[stat] = self.get_stat_or_skill_value(stat.name)
+
         npc_str: str = ""
 
-        total_price = sum([x.price for x in self.get_all_items()])
+        total_price = sum([x.price for x in all_items])
         npc_str += f"Has items total worth of {total_price}\n\n"
 
-        npc_str += f"Conditions:\n"
+        stats_conditions_table_view = TableView(1 if flat else 2)
 
-        max_hp = 10 + (5 * math.ceil(0.5 * (self.stats[StatType.BODY] + self.stats[StatType.COOL])))
-        npc_str += f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: "
+        conditions_rows: List[str] = list()
+
+        max_hp = 10 + (5 * math.ceil(
+            0.5 * (stats_modifiers[StatType.BODY].get_total() + stats_modifiers[StatType.WILL].get_total())))
+        temp_str = f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: "
         if next((True for cw in self.cyberware if cw.item.name == "Pain Editor"), None):
-            npc_str += f"No, Pain Editor"
+            temp_str += f"No, Pain Editor"
         else:
-            npc_str += f"{math.ceil(max_hp / 2)}"
-        npc_str += ")\n"
+            temp_str += f"{math.ceil(max_hp / 2)}"
+        temp_str += ")"
+        conditions_rows.append(temp_str)
 
-        if self.trauma_team_status != TraumaTeamStatusType.NONE:
-            npc_str += f"\tTraumaTeam status: {self.trauma_team_status.name}\n"
+        temp_str = f"\tTraumaTeam status: {self.trauma_team_status.name}"
+        conditions_rows.append(temp_str)
 
-        stats_modifiers: Dict[StatType, Tuple[int, int, List[ModifierSource]]] = {}
-        for stat in self.stats.keys():
-            stat_value, stat_modifier_value, stat_modifiers = self.get_stat_or_skill_value(stat.name)
-            stats_modifiers[stat] = stat_value, stat_modifier_value, stat_modifiers
-
-        ref_value, ref_modifier_value, _ = stats_modifiers[StatType.REF]
-        can_evade_bullets_ref: bool = ref_value + ref_modifier_value >= 8
+        can_evade_bullets_ref: bool = stats_modifiers[StatType.REF].get_total() >= 8
         can_evade_bullets_co_proc_ref: bool = bool(next(
             (cw for cw in self.cyberware if cw.item.name == "Reflex Co-Processor"), None))
         can_evade_bullets: bool = can_evade_bullets_ref or can_evade_bullets_co_proc_ref
-        npc_str += f"\tCan evade bullets: {can_evade_bullets}"
+        temp_str = f"\tCan evade bullets: {can_evade_bullets}"
         if can_evade_bullets:
-            npc_str += f" ("
+            temp_str += f" ("
             if can_evade_bullets_ref:
-                npc_str += f"REF >= 8"
+                temp_str += f"REF >= 8"
             elif can_evade_bullets_co_proc_ref:
-                npc_str += f"has Reflex Co-Processor"
-            npc_str += f")"
+                temp_str += f"Reflex Co-Processor"
+            temp_str += f")"
+        conditions_rows.append(temp_str)
 
-        npc_str += f"\n\n"
+        item_allowing_see_in_dark_smoke = next((i for i in all_items if "ImprovedVision" in i.tags), None)
+        temp_str = f"\tNo intangible obscurement penalties: {item_allowing_see_in_dark_smoke is not None}"
+        if item_allowing_see_in_dark_smoke:
+            temp_str += f" ({item_allowing_see_in_dark_smoke.name})"
+        conditions_rows.append(temp_str)
 
-        npc_str += f"Stats:\n"
+        item_light_flashes_protection = next((i for i in all_items if "LightFlashesProtection" in i.tags), None)
+        temp_str = f"\tHas flashes of light protection: {item_light_flashes_protection is not None}"
+        if item_light_flashes_protection:
+            temp_str += f" ({item_light_flashes_protection.name})"
+        conditions_rows.append(temp_str)
+
+        item_ears_protection = next((i for i in all_items if "EarsProtection" in i.tags), None)
+        temp_str = f"\tHas ears protection: {item_ears_protection is not None}"
+        if item_ears_protection:
+            temp_str += f" ({item_ears_protection.name})"
+        conditions_rows.append(temp_str)
+
+        stats_conditions_table_view.add(conditions_rows, "Conditions:", 1)
+
+        stats_rows: List[str] = list()
         for stat in self.stats.keys():
-            stat_value, stat_modifier_value, stat_modifiers = stats_modifiers[stat]
-            npc_str += f"\t[{stat_value}"
-            for stat_modifier in stat_modifiers:
-                npc_str += f"{stat_modifier.value:+}({stat_modifier.item_name})"
-            if stat_modifier_value != 0:
-                npc_str += f"={stat_value + stat_modifier_value}"
-            npc_str += f"] {stat.name}\n"
+            stat_value: StatSkillValue = stats_modifiers[stat]
+            temp_str = f"\t[{stat_value.value}"
+            for stat_modifier in stat_value.modifiers:
+                temp_str += f"{stat_modifier.value:+}({stat_modifier.item_name})"
+            if stat_value.total_modifier != 0:
+                temp_str += f"={stat_value.value + stat_value.total_modifier}"
+            temp_str += f"] {stat.name}"
+            stats_rows.append(temp_str)
+        stats_conditions_table_view.add(stats_rows, "Stats:", 0)
+
+        npc_str += str(stats_conditions_table_view)
         npc_str += "\n"
 
         npc_str += f"Skills:\n"
@@ -125,14 +151,9 @@ class Npc:
             skills_of_one_type_rows: List[str] = [f"{skills_of_one_type[0].type.title()}"]
 
             for skill in skills_of_one_type:
-                skill_value, skill_modifier, skill_modifiers = self.get_stat_or_skill_value(skill.name)
-                stat_value, stat_modifier_value, stat_modifiers = stats_modifiers[skill.link]
-                skills_of_one_type_rows.append(
-                    "    " + skill.to_string(skill_value,
-                                             skill_modifier,
-                                             stat_value,
-                                             stat_modifier_value,
-                                             skill_modifiers))
+                skill_value = self.get_stat_or_skill_value(skill.name)
+                linked_stat_value = stats_modifiers[skill.link]
+                skills_of_one_type_rows.append("    " + skill.to_string(linked_stat_value, skill_value))
 
             skills_table_view.add(skills_of_one_type_rows)
         npc_str += "    " + str(skills_table_view).replace("\n", "\n    ") + "\n"

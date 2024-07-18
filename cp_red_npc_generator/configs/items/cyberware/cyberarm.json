@@ -20,8 +20,7 @@
             "Artificial Shoulder Mount"
         ],
         "required_condition": [
-            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
-            "can_add = body_value + body_modifier >= 8"
+            "can_add = npc.get_stat_or_skill_value(\"BODY\").get_total() >= 8"
         ],
         "container_capacity": 3,
         "size_in_container": 1,
@@ -31,7 +30,10 @@
         "name": "Big Knucks",
         "type": "cyberware",
         "price": 100,
-        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "MediumMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -47,7 +49,9 @@
         "name": "Cyberdeck",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Cyberdeck"],
+        "tags": [
+            "Cyberdeck"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -72,7 +76,9 @@
         "name": "Medscanner",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Medscanner"],
+        "tags": [
+            "Medscanner"
+        ],
         "modifiers": [
             {
                 "name": "FirstAid",
@@ -95,11 +101,15 @@
         "name": "Popup Grenade Launcher",
         "type": "cyberware",
         "price": 500,
-        "tags": ["GrenadeLauncher"],
+        "tags": [
+            "GrenadeLauncher"
+        ],
         "damage": "6d6",
         "rate_of_fire": 1,
         "magazine": 2,
-        "ammo_types": ["Grenades"],
+        "ammo_types": [
+            "Grenades"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -112,7 +122,10 @@
         "name": "Popup Melee Weapon (Light)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["LightMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "LightMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "1d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -127,7 +140,10 @@
         "name": "Popup Melee Weapon (Medium)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "MediumMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -142,7 +158,10 @@
         "name": "Popup Melee Weapon (Heavy)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["HeavyMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "HeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -157,7 +176,9 @@
         "name": "Popup Shield",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Shield"],
+        "tags": [
+            "Shield"
+        ],
         "armor_class": 10,
         "requires_container": [
             "Cyberarm",
@@ -171,11 +192,16 @@
         "name": "Popup Ranged Weapon (Medium Pistol)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumPistol", "CloseRangedWeapon"],
+        "tags": [
+            "MediumPistol",
+            "CloseRangedWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "magazine": 12,
-        "ammo_types": ["Bullets"],
+        "ammo_types": [
+            "Bullets"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -188,11 +214,16 @@
         "name": "Popup Ranged Weapon (Heavy Pistol)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["HeavyPistol", "CloseRangedWeapon"],
+        "tags": [
+            "HeavyPistol",
+            "CloseRangedWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 2,
         "magazine": 8,
-        "ammo_types": ["Bullets"],
+        "ammo_types": [
+            "Bullets"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -205,11 +236,16 @@
         "name": "Popup Ranged Weapon (Very Heavy Pistol)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["VeryHeavyPistol", "CloseRangedWeapon"],
+        "tags": [
+            "VeryHeavyPistol",
+            "CloseRangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
         "magazine": 8,
-        "ammo_types": ["Bullets"],
+        "ammo_types": [
+            "Bullets"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -222,11 +258,16 @@
         "name": "Popup Ranged Weapon (SMG)",
         "type": "cyberware",
         "price": 500,
-        "tags": ["SMG", "CloseRangedWeapon"],
+        "tags": [
+            "SMG",
+            "CloseRangedWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 1,
         "magazine": 30,
-        "ammo_types": ["Bullets"],
+        "ammo_types": [
+            "Bullets"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -250,7 +291,10 @@
         "name": "Rippers",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "MediumMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -266,7 +310,10 @@
         "name": "Scratchers",
         "type": "cyberware",
         "price": 100,
-        "tags": ["LightMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "LightMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "1d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -282,7 +329,9 @@
         "name": "Shoulder Cam",
         "type": "cyberware",
         "price": 500,
-        "tags": ["VideoCamera"],
+        "tags": [
+            "VideoCamera"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -295,7 +344,10 @@
         "name": "Slice ‘N Dice",
         "type": "cyberware",
         "price": 500,
-        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "MediumMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -324,7 +376,9 @@
         "name": "Techscanner",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Techscanner"],
+        "tags": [
+            "Techscanner"
+        ],
         "modifiers": [
             {
                 "name": "AirVehicleTech",
@@ -379,7 +433,9 @@
         "name": "Tool Hand",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Techtool"],
+        "tags": [
+            "Techtool"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
@@ -393,7 +449,10 @@
         "name": "Wolvers",
         "type": "cyberware",
         "price": 500,
-        "tags": ["HeavyMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "HeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 2,
         "requires_container": [
@@ -443,7 +502,9 @@
         "damage": "0d0",
         "rate_of_fire": 1,
         "magazine": 1,
-        "ammo_types": ["Net"],
+        "ammo_types": [
+            "Net"
+        ],
         "size_in_container": 3,
         "max_equipped_items": 1,
         "max_humanity_loss": 2
@@ -452,11 +513,17 @@
         "name": "Popup Shotgun",
         "type": "cyberware",
         "price": 1000,
-        "tags": ["Shotgun", "CloseRangedWeapon"],
+        "tags": [
+            "Shotgun",
+            "CloseRangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
         "magazine": 2,
-        "ammo_types": ["Slugs", "Shotgun Shells"],
+        "ammo_types": [
+            "Slugs",
+            "Shotgun Shells"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -529,7 +596,10 @@
         "name": "ChainRipp",
         "type": "cyberware",
         "price": 500,
-        "tags": ["VeryHeavyMeleeWeapon", "MeleeWeapon"],
+        "tags": [
+            "VeryHeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "quality": "excellent",
         "damage": "4d6",
         "rate_of_fire": 1,
@@ -557,7 +627,9 @@
         "name": "Psiberstuff Watch-Man",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Agent"],
+        "tags": [
+            "Agent"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -571,11 +643,16 @@
         "type": "cyberware",
         "price": 1000,
         "quality": "poor",
-        "tags": ["Shotgun", "CloseRangedWeapon"],
+        "tags": [
+            "Shotgun",
+            "CloseRangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
         "magazine": 32,
-        "ammo_types": ["Radline MagnaSlot BatteryBrick"],
+        "ammo_types": [
+            "Radline MagnaSlot BatteryBrick"
+        ],
         "requires_container": [
             "Shoulders"
         ],

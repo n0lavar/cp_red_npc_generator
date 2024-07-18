@@ -39,8 +39,7 @@
             "Grafted Muscle and Bone Lace"
         ],
         "required_condition": [
-            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
-            "can_add = body_value + body_modifier >= 8"
+            "can_add = npc.get_stat_or_skill_value(\"BODY\").get_total() >= 8"
         ]
     },
     {
@@ -70,15 +69,16 @@
             "Grafted Muscle and Bone Lace"
         ],
         "required_condition": [
-            "body_value, body_modifier, _ = npc.get_stat_or_skill_value(\"BODY\")",
-            "can_add = body_value + body_modifier >= 6"
+            "can_add = npc.get_stat_or_skill_value(\"BODY\").get_total() >= 6"
         ]
     },
     {
         "name": "MultiOptic Mount",
         "type": "cyberware",
         "price": 1000,
-        "tags": ["OpticContainer"],
+        "tags": [
+            "OpticContainer"
+        ],
         "requires_container": [
             "Borgware"
         ],
@@ -129,7 +129,9 @@
         "name": "Kiroshi MonoVision",
         "type": "cyberware",
         "price": 500,
-        "tags": ["OpticContainer"],
+        "tags": [
+            "OpticContainer"
+        ],
         "requires_container": [
             "Eye Sockets"
         ],

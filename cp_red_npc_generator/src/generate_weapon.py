@@ -89,8 +89,7 @@ def pick_weapon(budget: int,
 
 
 def get_brawling_weapon_item(npc: Npc) -> Item:
-    stat_value, stat_modifier, _ = npc.get_stat_or_skill_value(StatType.BODY.name)
-    total_body = stat_value + stat_modifier
+    total_body = npc.get_stat_or_skill_value(StatType.BODY.name).get_total()
 
     if total_body <= 4:
         boxing_dmg = "1d6"
