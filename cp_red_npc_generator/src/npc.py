@@ -127,6 +127,12 @@ class Npc:
             temp_str += f" ({item_ears_protection.name})"
         conditions_rows.append(temp_str)
 
+        item_air_protection = next((i for i in all_items if "AirProtection" in i.tags), None)
+        temp_str = f"\tHas breath protection: {item_air_protection is not None}"
+        if item_air_protection:
+            temp_str += f" ({item_air_protection.name})"
+        conditions_rows.append(temp_str)
+
         stats_conditions_table_view.add(conditions_rows, "Conditions:", 1)
 
         stats_rows: List[str] = list()

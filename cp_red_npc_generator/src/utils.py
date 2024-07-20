@@ -3,6 +3,7 @@
 
 import json
 import logging
+import math
 import sys
 from typing import List
 
@@ -59,3 +60,15 @@ class LoggerLevelScope:
 
 def is_debugger_active() -> bool:
     return hasattr(sys, 'gettrace') and sys.gettrace() is not None
+
+
+def get_allowed_items(items: List[str], normalized_index: float) -> List[str]:
+    """
+
+    :param items: all items list where the elements are sorted from the coolest one to the worst
+    :param normalized_index: a number from 0 to 1 representing the index of the coolest allowed item
+    :return: `items` but without the coolest items depending on normalized_index
+    """
+    sequence_len: int = len(items)
+    index: int = math.floor((sequence_len - 1) * normalized_index)
+    return items[index:sequence_len]

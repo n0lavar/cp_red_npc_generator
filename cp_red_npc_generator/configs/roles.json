@@ -87,7 +87,8 @@
             "Synthcoke",
             "Prime Time",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 3
     },
     {
         "name": "solo",
@@ -189,7 +190,8 @@
             "Black Lace",
             "Timewarp",
             "Synthcoke"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "netrunner",
@@ -274,7 +276,8 @@
             "Sixgun",
             "Boost",
             "Timewarp"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "tech",
@@ -373,7 +376,8 @@
             "Boost",
             "Black Lace",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "medtech",
@@ -457,7 +461,8 @@
             "Black Lace",
             "Timewarp",
             "Synthcoke"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "media",
@@ -554,7 +559,8 @@
             "Prime Time",
             "Boost",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 4
     },
     {
         "name": "exec",
@@ -643,7 +649,8 @@
             "Prime Time",
             "Boost",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 3
     },
     {
         "name": "lawman",
@@ -747,7 +754,8 @@
             "Black Lace",
             "Timewarp",
             "Synthcoke"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "fixer",
@@ -838,7 +846,8 @@
             "Prime Time",
             "Boost",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 3
     },
     {
         "name": "nomad",
@@ -940,7 +949,8 @@
             "Berserker",
             "Timewarp",
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 0
     },
     {
         "name": "civilian",
@@ -997,6 +1007,7 @@
         ],
         "preferred_drugs": [
             "Blue Glass"
-        ]
+        ],
+        "min_empathy": 4
     }
 ]

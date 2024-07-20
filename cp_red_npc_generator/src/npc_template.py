@@ -28,6 +28,7 @@ class Rank:
     # if empty, no subscription, otherwise values are positive weights of probabilities for
     # [TraumaTeamStatusType.NONE, TraumaTeamStatusType.SILVER, TraumaTeamStatusType.EXECUTIVE]
     trauma_team_status_weights: List[float] = field(default_factory=list, compare=False)
+    container_selection: NormalDistribution = field(default_factory=NormalDistribution)
 
     @staticmethod
     def load():
@@ -48,6 +49,7 @@ class Role:
     preferred_armor_class: int = field(default=11, compare=False)
     preferred_drugs: List[str] = field(default_factory=list, compare=False)
     preferred_equipment: List[str] = field(default_factory=list, compare=False)
+    min_empathy: int = field(default=0, compare=False)
 
     @staticmethod
     def load():

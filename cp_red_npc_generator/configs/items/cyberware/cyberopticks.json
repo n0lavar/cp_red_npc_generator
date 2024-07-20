@@ -30,6 +30,7 @@
         "tags": ["LightFlashesProtection"],
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -44,6 +45,7 @@
         "price": 100,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -57,6 +59,7 @@
         "price": 100,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -70,6 +73,7 @@
         "price": 500,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -96,6 +100,7 @@
         ],
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -111,6 +116,7 @@
         "tags": ["ImprovedVision"],
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -125,6 +131,7 @@
         "price": 100,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -139,6 +146,7 @@
         "tags": ["VideoCamera"],
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -152,6 +160,7 @@
         "price": 1000,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -165,6 +174,7 @@
         "price": 500,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -179,6 +189,7 @@
         "tags": ["Telescope"],
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -192,6 +203,7 @@
         "price": 100,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -206,6 +218,7 @@
         "price": 500,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye",
             "Sponsored Cybereye"
         ],
@@ -219,6 +232,7 @@
         "price": 100,
         "requires_container": [
             "Cyclops International Bug Eye",
+            "Kiroshi MonoVision",
             "Cybereye"
         ],
         "size_in_container": 3,

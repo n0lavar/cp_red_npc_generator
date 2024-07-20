@@ -1,12 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import math
 from typing import List, Optional
 from dataclasses import dataclass, field
 from result import Ok, Err
 
 from item import Item
-from utils import left_align
+from utils import left_align, get_allowed_items
 
 
 @dataclass
@@ -14,10 +15,13 @@ class InventoryNode:
     item: Item = field(default=Item)
     children: List = field(default_factory=list)
 
-    def can_add_child(self, child: Item, npc) -> Optional[str]:
-        if self.item.name not in child.requires_container:
-            return f"Can't add {child.name} to {self.item}"
+    def can_add_child(self,
+                      child: Item,
+                      npc,
+                      max_allowed_container_normalized_index: float = 1.0) -> Optional[str]:
 
+        if self.item.name not in get_allowed_items(child.requires_container, max_allowed_container_normalized_index):
+            return f"Can't add {child.name} to {self.item}"
         node_capacity: int = self.item.container_capacity
         node_size: int = sum([x.item.size_in_container for x in self.children])
         if node_size + child.size_in_container > node_capacity:
@@ -32,8 +36,11 @@ class InventoryNode:
 
         return None
 
-    def add_child(self, child: Item, npc):  # -> Result[InventoryNode. str]:
-        error: Optional[str] = self.can_add_child(child, npc)
+    def add_child(self,
+                  child: Item,
+                  npc,
+                  max_allowed_container_normalized_index: float = 1.0):  # -> Result[InventoryNode. str]:
+        error: Optional[str] = self.can_add_child(child, npc, max_allowed_container_normalized_index)
         if not error:
             new_node = InventoryNode(child.clone())
             self.children.append(new_node)

@@ -57,6 +57,10 @@
         "pocket_money": {
             "mean": 50,
             "standard_deviation": 5
+        },
+        "container_selection": {
+            "mean": 0.9,
+            "standard_deviation": 0.1
         }
     },
     {
@@ -117,6 +121,10 @@
         "pocket_money": {
             "mean": 100,
             "standard_deviation": 10
+        },
+        "container_selection": {
+            "mean": 0.8,
+            "standard_deviation": 0.1
         }
     },
     {
@@ -177,6 +185,10 @@
         "pocket_money": {
             "mean": 250,
             "standard_deviation": 25
+        },
+        "container_selection": {
+            "mean": 0.7,
+            "standard_deviation": 0.1
         }
     },
     {
@@ -237,6 +249,10 @@
         "pocket_money": {
             "mean": 500,
             "standard_deviation": 50
+        },
+        "container_selection": {
+            "mean": 0.6,
+            "standard_deviation": 0.1
         }
     },
     {
@@ -302,7 +318,11 @@
             0.8,
             0.2,
             0.0
-        ]
+        ],
+        "container_selection": {
+            "mean": 0.3,
+            "standard_deviation": 0.1
+        }
     },
     {
         "name": "lieutenant_general",
@@ -367,7 +387,11 @@
             0.0,
             0.7,
             0.3
-        ]
+        ],
+        "container_selection": {
+            "mean": 0.2,
+            "standard_deviation": 0.1
+        }
     },
     {
         "name": "general",
@@ -432,6 +456,10 @@
             0.0,
             0.0,
             1.0
-        ]
+        ],
+        "container_selection": {
+            "mean": 0.1,
+            "standard_deviation": 0.1
+        }
     }
 ]
