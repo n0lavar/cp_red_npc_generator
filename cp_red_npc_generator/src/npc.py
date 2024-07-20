@@ -65,6 +65,12 @@ class Npc:
         logging.debug(f"\t{name}: {start_value=}, {modifier_value=}")
         return StatSkillValue(start_value, modifier_value, modifiers)
 
+    def get_skill_total_value(self, skill_name: str) -> int:
+        skill: Skill = next(s for s in self.skills.keys() if s.name == skill_name)
+        stat_value: int = self.get_stat_or_skill_value(skill.link.name).get_total()
+        skill_value: int = self.get_stat_or_skill_value(skill_name).get_total()
+        return stat_value + skill_value
+
     def to_string(self, flat: bool = False) -> str:
         logging.debug(f"\nConverting npc to a string...")
 

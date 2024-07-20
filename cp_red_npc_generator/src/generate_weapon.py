@@ -5,13 +5,13 @@ import copy
 import logging
 import dataclass_wizard
 import numpy as np
-from typing import List, Optional, Set, Tuple
+from typing import List, Optional, Set, Tuple, Dict
 from dataclasses import dataclass, field, replace
 
 from item import Item, ItemType, ItemQuality, PriceCategory
-from npc import Npc, InventoryNode
+from npc import Npc
 from npc_template import NpcTemplate
-from stats import StatType
+from stats import StatType, SkillType
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS
 
 
@@ -81,10 +81,11 @@ def pick_weapon(budget: int,
             continue
 
         weapon_copy = copy.deepcopy(preferred_weapon_item)
-        weapon = replace(weapon_copy,
-                         price=price,
-                         quality=preferred_quality,
-                         name=f"{np.random.choice(list(weapon_copy.possible_names))} ({weapon_copy.name})")
+        weapon = replace(
+            weapon_copy,
+            price=price,
+            quality=preferred_quality,
+            name=f"{np.random.choice(list(weapon_copy.possible_names))} ({weapon_copy.name})")
 
         logging.debug(f"\t\tPicked weapon: {weapon}")
         logging.debug(f"\t\tMoney left: {budget - price}")
@@ -110,53 +111,78 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
 
     brawling_skill = Item(type=ItemType.WEAPON, damage=boxing_dmg, tags=["MeleeWeapon"], rate_of_fire=2)
     if martial_arts_skill:
-        return replace(brawling_skill, name="Martial Arts")
+        return replace(brawling_skill, name="Martial Arts", unique_tags=["MartialArts"])
     else:
-        return replace(brawling_skill, name="Boxing")
+        return replace(brawling_skill, name="Brawling", unique_tags=["Brawling"])
+
+
+def add_weapon_to_npc(weapon: Item, npc: Npc, weapon_skills_data: Dict[str, str]):
+    skill_name: Optional[str] = None
+    for tag in weapon.get_all_tags():
+        if tag in weapon_skills_data.keys():
+            skill_name = weapon_skills_data[tag]
+            break
+
+    assert skill_name
+    skill_value: int = npc.get_skill_total_value(skill_name)
+    if weapon.quality == ItemQuality.EXCELLENT:
+        skill_value += 1
+
+    weapon = replace(
+        weapon,
+        name=f"[{skill_value}] {weapon.name}")
+
+    npc.weapons.add(weapon)
 
 
 def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating weapons...")
-    data = load_data("configs/items/weapon.json")
 
-    all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in data]
+    weapons_data = load_data("configs/items/weapon.json")
+    all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in weapons_data]
+
+    weapon_skills_data: Dict[str, str] = load_data("configs/weapon_skills.json")
 
     total_weapons_budget: int = round(npc_template.rank.items_budget[ItemType.WEAPON].generate())
     logging.debug(f"\t{total_weapons_budget=}")
 
     # try to buy a primary weapon with 0.8 of the total budget
-    primary_weapon, primary_weapon_money_spent = pick_weapon(round(total_weapons_budget * 0.8),
-                                                             npc_template.role.preferred_primary_weapons,
-                                                             npc_template.rank.min_items_quality,
-                                                             all_weapons,
-                                                             npc)
+    primary_weapon, primary_weapon_money_spent = pick_weapon(
+        round(total_weapons_budget * 0.8),
+        npc_template.role.preferred_primary_weapons,
+        npc_template.rank.min_items_quality,
+        all_weapons,
+        npc)
 
     # if failed, try to buy a primary weapon with the whole budget
     if not primary_weapon:
-        primary_weapon, primary_weapon_money_spent = pick_weapon(total_weapons_budget,
-                                                                 npc_template.role.preferred_primary_weapons,
-                                                                 npc_template.rank.min_items_quality,
-                                                                 all_weapons,
-                                                                 npc)
+        primary_weapon, primary_weapon_money_spent = pick_weapon(
+            total_weapons_budget,
+            npc_template.role.preferred_primary_weapons,
+            npc_template.rank.min_items_quality,
+            all_weapons,
+            npc)
 
     if primary_weapon:
-        npc.weapons.add(primary_weapon)
+        add_weapon_to_npc(primary_weapon, npc, weapon_skills_data)
 
     # try to buy a secondary weapon with any budget left
-    secondary_weapon, _ = pick_weapon(total_weapons_budget - primary_weapon_money_spent,
-                                      npc_template.role.preferred_secondary_weapons,
-                                      npc_template.rank.min_items_quality,
-                                      all_weapons,
-                                      npc)
+    secondary_weapon, _ = pick_weapon(
+        total_weapons_budget - primary_weapon_money_spent,
+        npc_template.role.preferred_secondary_weapons,
+        npc_template.rank.min_items_quality,
+        all_weapons,
+        npc)
+
     if secondary_weapon:
-        npc.weapons.add(secondary_weapon)
+        add_weapon_to_npc(secondary_weapon, npc, weapon_skills_data)
 
     # add all the rest weapons from the cyberware
     for cyberware in npc.cyberware:
         if cyberware.item.damage:
-            npc.weapons.add(cyberware.item)
+            add_weapon_to_npc(cyberware.item, npc, weapon_skills_data)
 
     # add boxing or martial arts
-    npc.weapons.add(get_brawling_weapon_item(npc))
+    add_weapon_to_npc(get_brawling_weapon_item(npc), npc, weapon_skills_data)
 
     return npc

@@ -1,0 +1,17 @@
+{
+    "MeleeWeapon": "MeleeWeapon",
+    "MediumPistol": "Handgun",
+    "HeavyPistol": "Handgun",
+    "VeryHeavyPistol": "Handgun",
+    "Bow": "Archery",
+    "Crossbow": "Archery",
+    "SMG": "Handgun",
+    "HeavySMG": "Handgun",
+    "Shotgun": "ShoulderArms",
+    "AssaultRifle": "ShoulderArms",
+    "SniperRifle": "ShoulderArms",
+    "GrenadeLauncher": "HeavyWeapons",
+    "RocketLauncher": "HeavyWeapons",
+    "MartialArts": "MartialArts",
+    "Brawling": "Brawling"
+}

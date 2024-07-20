@@ -70,7 +70,8 @@
             "HiddenRangedWeapon"
         ],
         "tags": [
-            "RangedWeapon"
+            "RangedWeapon",
+            "VeryHeavyPistol"
         ],
         "damage": "4d6",
         "rate_of_fire": 1,
@@ -190,7 +191,8 @@
             "HiddenRangedWeapon"
         ],
         "tags": [
-            "RangedWeapon"
+            "RangedWeapon",
+            "HeavyPistol"
         ],
         "damage": "3d6",
         "rate_of_fire": 1,
