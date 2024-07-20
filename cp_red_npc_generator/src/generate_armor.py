@@ -107,7 +107,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
                                            all_armor_negative_modifiers.items()]))
 
     # if there is a shield (in cyberware or equipment), add it as well
-    shields = [item for item in npc.get_all_items() if "Shield" in item.tags]
+    shields = [item for item in npc.get_all_items() if "Shield" in item.unique_tags]
     for shield in shields:
         logging.debug(f"\tAdded shield: {shield}")
         npc.armor.add(shield)

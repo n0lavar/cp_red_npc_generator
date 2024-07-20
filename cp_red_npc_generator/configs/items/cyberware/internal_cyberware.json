@@ -88,7 +88,9 @@
         "name": "Independent Air Supply",
         "type": "cyberware",
         "price": 1000,
-        "tags": ["AirProtection"],
+        "unique_tags": [
+            "AirProtection"
+        ],
         "requires_container": [
             "Internal Cyberware"
         ],
@@ -122,7 +124,9 @@
         "name": "Nasal Filters",
         "type": "cyberware",
         "price": 100,
-        "tags": ["AirProtection"],
+        "unique_tags": [
+            "AirProtection"
+        ],
         "requires_container": [
             "Internal Cyberware"
         ],
@@ -233,7 +237,9 @@
         "name": "Bodyweight AutoInjector",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Airhypo"],
+        "unique_tags": [
+            "Airhypo"
+        ],
         "requires_container": [
             "Internal Cyberware"
         ],

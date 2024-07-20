@@ -2,7 +2,9 @@
     {
         "name": "Agent",
         "type": "equipment",
-        "tags": ["Agent"],
+        "unique_tags": [
+            "Agent"
+        ],
         "modifiers": [
             {
                 "name": "LibrarySearch",
@@ -15,31 +17,41 @@
         "name": "Airhypo",
         "type": "equipment",
         "price": 50,
-        "tags": ["Airhypo"]
+        "unique_tags": [
+            "Airhypo"
+        ]
     },
     {
         "name": "Anti-Smog Breathing Mask",
         "type": "equipment",
         "price": 20,
-        "tags": ["AirProtection"]
+        "unique_tags": [
+            "AirProtection"
+        ]
     },
     {
         "name": "Audio Recorder",
         "type": "equipment",
         "price": 100,
-        "tags": ["AudioRecorder"]
+        "unique_tags": [
+            "AudioRecorder"
+        ]
     },
     {
         "name": "Auto Level Dampening Ear Protectors",
         "type": "equipment",
         "price": 1000,
-        "tags": ["EarsProtection"]
+        "unique_tags": [
+            "EarsProtection"
+        ]
     },
     {
         "name": "Binoculars",
         "type": "equipment",
         "price": 50,
-        "tags": ["Telescope"]
+        "unique_tags": [
+            "Telescope"
+        ]
     },
     {
         "name": "Braindance Viewer",
@@ -50,13 +62,17 @@
         "name": "Bug Detector",
         "type": "equipment",
         "price": 500,
-        "tags": ["BugDetector"]
+        "unique_tags": [
+            "BugDetector"
+        ]
     },
     {
         "name": "Carryall",
         "type": "equipment",
         "price": 20,
-        "tags": ["Bag"]
+        "unique_tags": [
+            "Bag"
+        ]
     },
     {
         "name": "Chemical Analyzer",
@@ -72,7 +88,9 @@
         "name": "Cyberdeck",
         "type": "equipment",
         "price": 500,
-        "tags": ["Cyberdeck"]
+        "unique_tags": [
+            "Cyberdeck"
+        ]
     },
     {
         "name": "Disposable Cell Phone",
@@ -93,7 +111,9 @@
         "name": "Flashlight",
         "type": "equipment",
         "price": 20,
-        "tags": ["Flashlight"]
+        "unique_tags": [
+            "Flashlight"
+        ]
     },
     {
         "name": "Grapple Gun",
@@ -109,25 +129,33 @@
         "name": "Homing Tracer",
         "type": "equipment",
         "price": 500,
-        "tags": ["HomingTracer"]
+        "unique_tags": [
+            "HomingTracer"
+        ]
     },
     {
         "name": "Inflatable Bed & Sleep-bag",
         "type": "equipment",
         "price": 20,
-        "tags": ["SleepingPlace"]
+        "unique_tags": [
+            "SleepingPlace"
+        ]
     },
     {
         "name": "Lock Picking Set",
         "type": "equipment",
         "price": 20,
-        "tags": ["Lockpick"]
+        "unique_tags": [
+            "Lockpick"
+        ]
     },
     {
         "name": "Medscanner",
         "type": "equipment",
         "price": 1000,
-        "tags": ["Medscanner"],
+        "unique_tags": [
+            "Medscanner"
+        ],
         "modifiers": [
             {
                 "name": "FirstAid",
@@ -143,7 +171,9 @@
         "name": "Medtech Bag",
         "type": "equipment",
         "price": 100,
-        "tags": ["Bag"]
+        "unique_tags": [
+            "Bag"
+        ]
     },
     {
         "name": "Personal CarePak",
@@ -159,7 +189,9 @@
         "name": "Radar Detector",
         "type": "equipment",
         "price": 500,
-        "tags": ["RadarDetector"]
+        "unique_tags": [
+            "RadarDetector"
+        ]
     },
     {
         "name": "Radiation Suit",
@@ -170,13 +202,17 @@
         "name": "Radio Communicator",
         "type": "equipment",
         "price": 100,
-        "tags": ["RadioCommunicator"]
+        "unique_tags": [
+            "RadioCommunicator"
+        ]
     },
     {
         "name": "Radio Scanner / Music Player",
         "type": "equipment",
         "price": 50,
-        "tags": ["RadioScannerMusicPlayer"]
+        "unique_tags": [
+            "RadioScannerMusicPlayer"
+        ]
     },
     {
         "name": "Rope (60m/yd)",
@@ -187,7 +223,9 @@
         "name": "Scrambler / Descrambler",
         "type": "equipment",
         "price": 500,
-        "tags": ["ScramblerDescrambler"]
+        "unique_tags": [
+            "ScramblerDescrambler"
+        ]
     },
     {
         "name": "Smart Glasses",
@@ -198,13 +236,17 @@
         "name": "Tech Bag",
         "type": "equipment",
         "price": 500,
-        "tags": ["Bag"]
+        "unique_tags": [
+            "Bag"
+        ]
     },
     {
         "name": "Techscanner",
         "type": "equipment",
         "price": 1000,
-        "tags": ["Techscanner"],
+        "unique_tags": [
+            "Techscanner"
+        ],
         "modifiers": [
             {
                 "name": "AirVehicleTech",
@@ -252,19 +294,25 @@
         "name": "Techtool",
         "type": "equipment",
         "price": 100,
-        "tags": ["Techtool"]
+        "unique_tags": [
+            "Techtool"
+        ]
     },
     {
         "name": "Tent and Camping Equipment",
         "type": "equipment",
         "price": 50,
-        "tags": ["SleepingPlace"]
+        "unique_tags": [
+            "SleepingPlace"
+        ]
     },
     {
         "name": "Video Camera",
         "type": "equipment",
         "price": 100,
-        "tags": ["VideoCamera"]
+        "unique_tags": [
+            "VideoCamera"
+        ]
     },
     {
         "name": "Virtuality Goggles",
@@ -275,7 +323,9 @@
         "name": "Bulletproof Shield",
         "type": "equipment",
         "price": 100,
-        "tags": ["Shield"],
+        "unique_tags": [
+            "Shield"
+        ],
         "armor_class": 10
     }
 ]

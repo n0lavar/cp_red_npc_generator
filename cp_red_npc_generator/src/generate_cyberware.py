@@ -80,7 +80,7 @@ def add_cyberware(
 
     # check if we can't hold more cyberware of this type
     for cyberware in state.root:
-        if cyberware.item.contains_any_tag_from(item):
+        if cyberware.item.contains_any_unique_tag_from(item):
             logging.debug(left_align(f"{cyberware.item} already contains tag from this cyberware", depth))
             return None
 

@@ -109,25 +109,25 @@ class Npc:
             temp_str += f")"
         conditions_rows.append(temp_str)
 
-        item_allowing_see_in_dark_smoke = next((i for i in all_items if "ImprovedVision" in i.tags), None)
+        item_allowing_see_in_dark_smoke = next((i for i in all_items if "ImprovedVision" in i.unique_tags), None)
         temp_str = f"\tNo intangible obscurement penalties: {item_allowing_see_in_dark_smoke is not None}"
         if item_allowing_see_in_dark_smoke:
             temp_str += f" ({item_allowing_see_in_dark_smoke.name})"
         conditions_rows.append(temp_str)
 
-        item_light_flashes_protection = next((i for i in all_items if "LightFlashesProtection" in i.tags), None)
+        item_light_flashes_protection = next((i for i in all_items if "LightFlashesProtection" in i.unique_tags), None)
         temp_str = f"\tHas flashes of light protection: {item_light_flashes_protection is not None}"
         if item_light_flashes_protection:
             temp_str += f" ({item_light_flashes_protection.name})"
         conditions_rows.append(temp_str)
 
-        item_ears_protection = next((i for i in all_items if "EarsProtection" in i.tags), None)
+        item_ears_protection = next((i for i in all_items if "EarsProtection" in i.unique_tags), None)
         temp_str = f"\tHas ears protection: {item_ears_protection is not None}"
         if item_ears_protection:
             temp_str += f" ({item_ears_protection.name})"
         conditions_rows.append(temp_str)
 
-        item_air_protection = next((i for i in all_items if "AirProtection" in i.tags), None)
+        item_air_protection = next((i for i in all_items if "AirProtection" in i.unique_tags), None)
         temp_str = f"\tHas breath protection: {item_air_protection is not None}"
         if item_air_protection:
             temp_str += f" ({item_air_protection.name})"
@@ -190,13 +190,15 @@ class Npc:
                 def weapon_sorter(item: Item) -> int:
                     return int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire
 
-                sorted_melee_weapon = sorted([x for x in self.weapons if "MeleeWeapon" in x.tags],
+                sorted_melee_weapon = sorted([x for x in self.weapons if "MeleeWeapon" in x.get_all_tags()],
                                              key=weapon_sorter,
                                              reverse=True)
 
-                sorted_ranged_weapon = sorted(list(set(self.weapons) - set(sorted_melee_weapon)),
+                sorted_ranged_weapon = sorted([x for x in self.weapons if "RangedWeapon" in x.get_all_tags()],
                                               key=weapon_sorter,
                                               reverse=True)
+
+                assert len(sorted_melee_weapon) + len(sorted_ranged_weapon) == len(self.weapons)
 
                 armor_weapon_table_view.add(
                     ["    " + str(weapon) for weapon in sorted_ranged_weapon], "Ranged weapons:", 1)

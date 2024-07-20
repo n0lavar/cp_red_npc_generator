@@ -28,7 +28,9 @@
         "name": "Airhypo Cyberfinger",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Airhypo"],
+        "unique_tags": [
+            "Airhypo"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -64,11 +66,18 @@
         "name": "Dartgun Cyberfinger",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Bow", "CloseRangedWeapon"],
+        "unique_tags": [
+            "HiddenRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
         "magazine": 1,
-        "ammo_types": ["Arrows"],
+        "ammo_types": [
+            "Arrows"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -80,7 +89,9 @@
         "name": "Flashlight Cyberfinger",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Flashlight"],
+        "unique_tags": [
+            "Flashlight"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -93,7 +104,9 @@
         "name": "Homing Tracer Cyberfinger",
         "type": "cyberware",
         "price": 500,
-        "tags": ["HomingTracer"],
+        "unique_tags": [
+            "HomingTracer"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -129,7 +142,9 @@
         "name": "Lockpick Cyberfinger",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Lockpick"],
+        "unique_tags": [
+            "Lockpick"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -142,7 +157,9 @@
         "name": "Microphone Cyberfinger",
         "type": "cyberware",
         "price": 100,
-        "tags": ["AudioRecorder"],
+        "unique_tags": [
+            "AudioRecorder"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -155,7 +172,9 @@
         "name": "Mini Air Supply Cyberfinger",
         "type": "cyberware",
         "price": 500,
-        "tags": ["AirProtection"],
+        "unique_tags": [
+            "AirProtection"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -167,11 +186,18 @@
         "name": "One Shot Special Cyberfinger",
         "type": "cyberware",
         "price": 100,
-        "tags": ["HeavyPistol", "CloseRangedWeapon"],
+        "unique_tags": [
+            "HiddenRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 1,
         "magazine": 1,
-        "ammo_types": ["Bullets"],
+        "ammo_types": [
+            "Bullets"
+        ],
         "requires_container": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"

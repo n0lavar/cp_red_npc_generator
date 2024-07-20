@@ -38,7 +38,11 @@ class Item:
     id: str = field(default=str(uuid.uuid4()), compare=False)
     creation_time: int = field(default=int(time.time_ns()), compare=False)
 
+    # generator won't add multiple items with the same unique tags
+    unique_tags: List[str] = field(default_factory=list, compare=False)
+    # regular tags, generator may use it for different purposes
     tags: List[str] = field(default_factory=list, compare=False)
+
     modifiers: List[Modifier] = field(default_factory=list, compare=False)
     quality: Optional[ItemQuality] = field(default=None, compare=False)
     container_capacity: int = field(default=0, compare=False)
@@ -65,13 +69,16 @@ class Item:
     def clone(self, *args, **kwargs):
         return replace(self, id=str(uuid.uuid4()), creation_time=int(time.time_ns()), *args, **kwargs)
 
-    def contains_any_tag_from(self, item) -> bool:
-        for tag1 in self.tags:
-            for tag2 in item.tags:
+    def contains_any_unique_tag_from(self, item) -> bool:
+        for tag1 in self.unique_tags:
+            for tag2 in item.unique_tags:
                 if tag1 == tag2:
                     return True
 
         return False
+
+    def get_all_tags(self):
+        return self.unique_tags + self.tags
 
     def to_string(self, short: bool = False) -> str:
         value: str = f"{self.name}"

@@ -16,7 +16,7 @@
         "type": "cyberware",
         "price": 5000,
         "modifier_applying_priority": -1,
-        "tags": [
+        "unique_tags": [
             "Skeleton"
         ],
         "modifiers": [
@@ -44,7 +44,7 @@
     },
     {
         "name": "Implanted Linear Frame Σ (Sigma)",
-        "tags": [
+        "unique_tags": [
             "Skeleton"
         ],
         "type": "cyberware",
@@ -76,7 +76,7 @@
         "name": "MultiOptic Mount",
         "type": "cyberware",
         "price": 1000,
-        "tags": [
+        "unique_tags": [
             "OpticContainer"
         ],
         "requires_container": [
@@ -129,7 +129,7 @@
         "name": "Kiroshi MonoVision",
         "type": "cyberware",
         "price": 500,
-        "tags": [
+        "unique_tags": [
             "OpticContainer"
         ],
         "requires_container": [

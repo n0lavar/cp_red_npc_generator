@@ -13,7 +13,9 @@
         "name": "Skin Weave",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "requires_container": [
             "External Cyberware"
         ],
@@ -26,7 +28,9 @@
         "name": "Subdermal Armor",
         "type": "cyberware",
         "price": 1000,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "requires_container": [
             "External Cyberware"
         ],
@@ -64,7 +68,9 @@
         "name": "Kiroshi OptiShield",
         "type": "cyberware",
         "price": 500,
-        "tags": ["LightFlashesProtection"],
+        "unique_tags": [
+            "LightFlashesProtection"
+        ],
         "requires_container": [
             "External Cyberware"
         ],
@@ -76,7 +82,9 @@
         "name": "Sycust FleshWeave",
         "type": "cyberware",
         "price": 1000,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "requires_container": [
             "External Cyberware"
         ],

@@ -24,7 +24,7 @@ def pick_weapon(budget: int,
                 preferred_weapons: Set[str],
                 min_items_quality: ItemQuality,
                 all_weapons: List[ItemWithNames],
-                installed_cyberware: InventoryNode) -> Tuple[Optional[Item], int]:
+                npc: Npc) -> Tuple[Optional[Item], int]:
     preferred_qualities: List[ItemQuality]
     match min_items_quality:
         case ItemQuality.POOR:
@@ -48,15 +48,20 @@ def pick_weapon(budget: int,
     for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         logging.debug(f"\tGenerating, attempt {num_attempt}")
         preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
-        for cyberware in installed_cyberware:
-            if preferred_weapon in cyberware.item.tags:
+        for cyberware in npc.cyberware:
+            if preferred_weapon in cyberware.item.unique_tags:
                 logging.debug(f"\t\tFound a cyberware that acts like a preferred weapon: {cyberware.item}")
                 return cyberware.item, 0
+
+        preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.unique_tags)
+        for item in npc.get_all_items():
+            if preferred_weapon_item.contains_any_unique_tag_from(item):
+                logging.debug(f"\t\t{item} already acts like this weapon, skipping")
+                return None, 0
 
         preferred_quality: ItemQuality = np.random.choice(preferred_qualities)
         logging.debug(f"\t\tChosen quality: {preferred_quality}")
 
-        preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.tags)
         initial_price_category: PriceCategory = PriceCategory.from_price(preferred_weapon_item.price)
         price: int = preferred_weapon_item.price
         match preferred_quality:
@@ -103,11 +108,11 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
     martial_arts_skill = next(
         (skill for skill, level in npc.skills.items() if skill.name == "MartialArts" and level > 0), None)
 
-    brawling_skill = Item(type=ItemType.WEAPON, damage=boxing_dmg, tags=["MeleeWeapon"])
+    brawling_skill = Item(type=ItemType.WEAPON, damage=boxing_dmg, tags=["MeleeWeapon"], rate_of_fire=2)
     if martial_arts_skill:
-        return replace(brawling_skill, name="Martial Arts", rate_of_fire=2)
+        return replace(brawling_skill, name="Martial Arts")
     else:
-        return replace(brawling_skill, name="Boxing", rate_of_fire=1)
+        return replace(brawling_skill, name="Boxing")
 
 
 def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
@@ -124,7 +129,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
                                                              npc_template.role.preferred_primary_weapons,
                                                              npc_template.rank.min_items_quality,
                                                              all_weapons,
-                                                             npc.cyberware)
+                                                             npc)
 
     # if failed, try to buy a primary weapon with the whole budget
     if not primary_weapon:
@@ -132,7 +137,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
                                                                  npc_template.role.preferred_primary_weapons,
                                                                  npc_template.rank.min_items_quality,
                                                                  all_weapons,
-                                                                 npc.cyberware)
+                                                                 npc)
 
     if primary_weapon:
         npc.weapons.add(primary_weapon)
@@ -142,7 +147,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
                                       npc_template.role.preferred_secondary_weapons,
                                       npc_template.rank.min_items_quality,
                                       all_weapons,
-                                      npc.cyberware)
+                                      npc)
     if secondary_weapon:
         npc.weapons.add(secondary_weapon)
 

@@ -1,7 +1,9 @@
 [
     {
         "name": "Hardened Shielding",
-        "tags": ["Covering"],
+        "tags": [
+            "Covering"
+        ],
         "type": "cyberware",
         "price": 1000,
         "requires_container": [
@@ -15,7 +17,9 @@
     },
     {
         "name": "Plastic Covering",
-        "tags": ["Covering"],
+        "tags": [
+            "Covering"
+        ],
         "type": "cyberware",
         "price": 100,
         "requires_container": [
@@ -29,7 +33,9 @@
     },
     {
         "name": "Realskinn™ Covering",
-        "tags": ["Covering"],
+        "tags": [
+            "Covering"
+        ],
         "type": "cyberware",
         "price": 500,
         "requires_container": [
@@ -43,7 +49,9 @@
     },
     {
         "name": "Superchrome® Covering",
-        "tags": ["Covering"],
+        "tags": [
+            "Covering"
+        ],
         "type": "cyberware",
         "price": 1000,
         "modifiers": [
@@ -96,7 +104,9 @@
         "name": "Sponsored Covering",
         "type": "cyberware",
         "price": 50,
-        "tags": ["Covering"],
+        "tags": [
+            "Covering"
+        ],
         "requires_container": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",

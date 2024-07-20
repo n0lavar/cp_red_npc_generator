@@ -27,7 +27,9 @@
         "name": "Anti-Dazzle",
         "type": "cyberware",
         "price": 100,
-        "tags": ["LightFlashesProtection"],
+        "unique_tags": [
+            "LightFlashesProtection"
+        ],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -71,6 +73,18 @@
         "name": "Dartgun",
         "type": "cyberware",
         "price": 500,
+        "unique_tags": [
+            "HiddenRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
+        "damage": "4d6",
+        "rate_of_fire": 1,
+        "magazine": 1,
+        "ammo_types": [
+            "Arrows"
+        ],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -113,7 +127,9 @@
         "name": "Low Light / Infrared / UV",
         "type": "cyberware",
         "price": 500,
-        "tags": ["ImprovedVision"],
+        "unique_tags": [
+            "ImprovedVision"
+        ],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -143,7 +159,9 @@
         "name": "MicroVideo",
         "type": "cyberware",
         "price": 500,
-        "tags": ["VideoCamera"],
+        "unique_tags": [
+            "VideoCamera"
+        ],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -186,7 +204,9 @@
         "name": "TeleOptics",
         "type": "cyberware",
         "price": 500,
-        "tags": ["Telescope"],
+        "unique_tags": [
+            "Telescope"
+        ],
         "requires_container": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",

@@ -8,7 +8,10 @@
         ],
         "type": "weapon",
         "price": 50,
-        "tags": ["LightMeleeWeapon", "MeleeWeapon"],
+        "unique_tags": [
+            "LightMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "1d6",
         "rate_of_fire": 2
     },
@@ -24,7 +27,10 @@
         ],
         "type": "weapon",
         "price": 50,
-        "tags": ["MediumMeleeWeapon", "MeleeWeapon"],
+        "unique_tags": [
+            "MediumMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2
     },
@@ -40,7 +46,10 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["HeavyMeleeWeapon", "MeleeWeapon"],
+        "unique_tags": [
+            "HeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 2
     },
@@ -56,7 +65,10 @@
         ],
         "type": "weapon",
         "price": 50,
-        "tags": ["VeryHeavyMeleeWeapon", "MeleeWeapon"],
+        "unique_tags": [
+            "VeryHeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1
     },
@@ -69,11 +81,19 @@
         ],
         "type": "weapon",
         "price": 50,
-        "tags": ["MediumPistol", "CloseRangedWeapon"],
+        "unique_tags": [
+            "MediumPistol",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 2,
         "magazine": 12,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Heavy Pistol",
@@ -84,11 +104,19 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["HeavyPistol", "CloseRangedWeapon"],
+        "unique_tags": [
+            "HeavyPistol",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "3d6",
         "rate_of_fire": 2,
         "magazine": 8,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Very Heavy Pistol",
@@ -99,11 +127,19 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["VeryHeavyPistol", "CloseRangedWeapon"],
+        "unique_tags": [
+            "VeryHeavyPistol",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
         "magazine": 8,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Bow",
@@ -114,10 +150,18 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["Bow", "CloseRangedWeapon"],
+        "unique_tags": [
+            "Bow",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
-        "ammo_types": ["Arrows"]
+        "ammo_types": [
+            "Arrows"
+        ]
     },
     {
         "name": "Crossbow",
@@ -128,10 +172,18 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["Crossbow", "CloseRangedWeapon"],
+        "unique_tags": [
+            "Crossbow",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "4d6",
         "rate_of_fire": 1,
-        "ammo_types": ["Arrows"]
+        "ammo_types": [
+            "Arrows"
+        ]
     },
     {
         "name": "SMG",
@@ -142,11 +194,19 @@
         ],
         "type": "weapon",
         "price": 100,
-        "tags": ["SMG", "CloseRangedWeapon"],
+        "unique_tags": [
+            "SMG",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "2d6",
         "rate_of_fire": 1,
         "magazine": 30,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Heavy SMG",
@@ -156,12 +216,20 @@
             "Militech \"Viper\""
         ],
         "type": "weapon",
-        "tags": ["HeavySMG", "CloseRangedWeapon"],
+        "unique_tags": [
+            "HeavySMG",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "price": 100,
         "damage": "3d6",
         "rate_of_fire": 1,
         "magazine": 40,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Shotgun",
@@ -172,11 +240,20 @@
         ],
         "type": "weapon",
         "price": 500,
-        "tags": ["Shotgun", "CloseRangedWeapon"],
+        "unique_tags": [
+            "Shotgun",
+            "CloseRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "5d6",
         "rate_of_fire": 1,
         "magazine": 4,
-        "ammo_types": ["Slugs", "Shotgun Shells"]
+        "ammo_types": [
+            "Slugs",
+            "Shotgun Shells"
+        ]
     },
     {
         "name": "Assault Rifle",
@@ -187,11 +264,19 @@
         ],
         "type": "weapon",
         "price": 500,
-        "tags": ["AssaultRifle", "WideRangedWeapon"],
+        "unique_tags": [
+            "AssaultRifle",
+            "WideRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "5d6",
         "rate_of_fire": 1,
         "magazine": 25,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Sniper Rifle",
@@ -202,11 +287,19 @@
         ],
         "type": "weapon",
         "price": 500,
-        "tags": ["SniperRifle", "WideRangedWeapon"],
+        "unique_tags": [
+            "SniperRifle",
+            "WideRangedWeapon"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "5d6",
         "rate_of_fire": 1,
         "magazine": 4,
-        "ammo_types": ["Bullets"]
+        "ammo_types": [
+            "Bullets"
+        ]
     },
     {
         "name": "Grenade Launcher",
@@ -217,11 +310,18 @@
         ],
         "type": "weapon",
         "price": 500,
-        "tags": ["GrenadeLauncher"],
+        "unique_tags": [
+            "GrenadeLauncher"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "6d6",
         "rate_of_fire": 1,
         "magazine": 2,
-        "ammo_types": ["Grenades"]
+        "ammo_types": [
+            "Grenades"
+        ]
     },
     {
         "name": "Rocket Launcher",
@@ -232,10 +332,17 @@
         ],
         "type": "weapon",
         "price": 500,
-        "tags": ["RocketLauncher"],
+        "unique_tags": [
+            "RocketLauncher"
+        ],
+        "tags": [
+            "RangedWeapon"
+        ],
         "damage": "8d6",
         "rate_of_fire": 1,
         "magazine": 1,
-        "ammo_types": ["Rockets"]
+        "ammo_types": [
+            "Rockets"
+        ]
     }
 ]

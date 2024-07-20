@@ -3,28 +3,36 @@
         "name": "Leathers",
         "type": "armor",
         "price": 20,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 4
     },
     {
         "name": "Kevlar",
         "type": "armor",
         "price": 50,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 7
     },
     {
         "name": "Light Armorjack",
         "type": "armor",
         "price": 100,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 11
     },
     {
         "name": "Medium Armorjack",
         "type": "armor",
         "price": 100,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 12,
         "modifiers": [
             {
@@ -45,7 +53,9 @@
         "name": "Heavy Armorjack",
         "type": "armor",
         "price": 500,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 13,
         "modifiers": [
             {
@@ -66,7 +76,9 @@
         "name": "Flak",
         "type": "armor",
         "price": 500,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 15,
         "modifiers": [
             {
@@ -87,7 +99,9 @@
         "name": "Metalgear",
         "type": "armor",
         "price": 5000,
-        "tags": ["Armor"],
+        "tags": [
+            "Armor"
+        ],
         "armor_class": 18,
         "modifiers": [
             {

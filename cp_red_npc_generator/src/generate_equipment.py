@@ -42,7 +42,7 @@ def generate_equipment(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
         similar_cyberware: Optional[Item] = None
         for cyberware in npc.cyberware:
-            if equipment_item.contains_any_tag_from(cyberware.item):
+            if equipment_item.contains_any_unique_tag_from(cyberware.item):
                 similar_cyberware = cyberware.item
                 break
 

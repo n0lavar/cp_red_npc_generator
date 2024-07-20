@@ -46,7 +46,9 @@
         "name": "Audio Recorder",
         "type": "cyberware",
         "price": 100,
-        "tags": ["AudioRecorder"],
+        "unique_tags": [
+            "AudioRecorder"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -60,7 +62,9 @@
         "name": "Bug Detector",
         "type": "cyberware",
         "price": 100,
-        "tags": ["BugDetector"],
+        "unique_tags": [
+            "BugDetector"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -74,7 +78,9 @@
         "name": "Homing Tracer",
         "type": "cyberware",
         "price": 100,
-        "tags": ["HomingTracer"],
+        "unique_tags": [
+            "HomingTracer"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -89,7 +95,9 @@
         "type": "cyberware",
         "price": 500,
         "quality": "excellent",
-        "tags": ["Agent"],
+        "unique_tags": [
+            "Agent"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -104,7 +112,9 @@
         "type": "cyberware",
         "price": 50,
         "quality": "poor",
-        "tags": ["Agent"],
+        "unique_tags": [
+            "Agent"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -118,7 +128,9 @@
         "name": "Raven Microcybernetics Drake",
         "type": "cyberware",
         "price": 100,
-        "tags": ["Agent"],
+        "unique_tags": [
+            "Agent"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -133,7 +145,9 @@
         "type": "cyberware",
         "price": 1000,
         "quality": "excellent",
-        "tags": ["Agent"],
+        "unique_tags": [
+            "Agent"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -147,7 +161,9 @@
         "name": "Level Damper",
         "type": "cyberware",
         "price": 100,
-        "tags": ["EarsProtection"],
+        "unique_tags": [
+            "EarsProtection"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -161,7 +177,9 @@
         "name": "Radio Communicator",
         "type": "cyberware",
         "price": 100,
-        "tags": ["RadioCommunicator"],
+        "unique_tags": [
+            "RadioCommunicator"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -175,7 +193,9 @@
         "name": "Radio Scanner / Music Player",
         "type": "cyberware",
         "price": 50,
-        "tags": ["RadioScannerMusicPlayer"],
+        "unique_tags": [
+            "RadioScannerMusicPlayer"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -189,7 +209,9 @@
         "name": "Radar Detector",
         "type": "cyberware",
         "price": 500,
-        "tags": ["RadarDetector"],
+        "unique_tags": [
+            "RadarDetector"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
@@ -203,7 +225,9 @@
         "name": "Scrambler / Descrambler",
         "type": "cyberware",
         "price": 100,
-        "tags": ["ScramblerDescrambler"],
+        "unique_tags": [
+            "ScramblerDescrambler"
+        ],
         "requires_container": [
             "Sensor Array",
             "Cyberaudio Suite",
