@@ -3,7 +3,7 @@
         "name": "Cyberaudio Suite",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Auditory System"
         ],
         "container_capacity": 3,
@@ -15,7 +15,7 @@
         "name": "Discount Cyberaudio Suite",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Auditory System"
         ],
         "container_capacity": 1,
@@ -33,7 +33,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -49,7 +49,7 @@
         "unique_tags": [
             "AudioRecorder"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -65,7 +65,7 @@
         "unique_tags": [
             "BugDetector"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -81,7 +81,7 @@
         "unique_tags": [
             "HomingTracer"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -98,7 +98,7 @@
         "unique_tags": [
             "Agent"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -115,7 +115,7 @@
         "unique_tags": [
             "Agent"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -131,7 +131,7 @@
         "unique_tags": [
             "Agent"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -148,7 +148,7 @@
         "unique_tags": [
             "Agent"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -164,7 +164,7 @@
         "unique_tags": [
             "EarsProtection"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -180,7 +180,7 @@
         "unique_tags": [
             "RadioCommunicator"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -196,7 +196,7 @@
         "unique_tags": [
             "RadioScannerMusicPlayer"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -212,7 +212,7 @@
         "unique_tags": [
             "RadarDetector"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -228,7 +228,7 @@
         "unique_tags": [
             "ScramblerDescrambler"
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"
@@ -251,7 +251,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Sensor Array",
             "Cyberaudio Suite",
             "Discount Cyberaudio Suite"

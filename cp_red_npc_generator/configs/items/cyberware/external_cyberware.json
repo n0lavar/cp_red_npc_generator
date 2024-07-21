@@ -3,7 +3,7 @@
         "name": "Hidden Holster",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,
@@ -16,7 +16,7 @@
         "tags": [
             "Armor"
         ],
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,
@@ -31,7 +31,7 @@
         "tags": [
             "Armor"
         ],
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,
@@ -43,7 +43,7 @@
         "name": "Subdermal Pocket",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,
@@ -54,7 +54,7 @@
         "name": "External Vidscreen",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "required_cyberware": [
@@ -71,7 +71,7 @@
         "unique_tags": [
             "LightFlashesProtection"
         ],
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,
@@ -85,7 +85,7 @@
         "tags": [
             "Armor"
         ],
-        "requires_container": [
+        "required_containers": [
             "External Cyberware"
         ],
         "size_in_container": 1,

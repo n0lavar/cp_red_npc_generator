@@ -20,7 +20,7 @@ class InventoryNode:
                       npc,
                       max_allowed_container_normalized_index: float = 1.0) -> Optional[str]:
 
-        if self.item.name not in get_allowed_items(child.requires_container, max_allowed_container_normalized_index):
+        if self.item.name not in get_allowed_items(child.required_containers, max_allowed_container_normalized_index):
             return f"Can't add {child.name} to {self.item}"
         node_capacity: int = self.item.container_capacity
         node_size: int = sum([x.item.size_in_container for x in self.children])

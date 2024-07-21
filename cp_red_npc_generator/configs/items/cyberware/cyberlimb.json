@@ -6,7 +6,7 @@
         ],
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -22,7 +22,7 @@
         ],
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -38,7 +38,7 @@
         ],
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -60,7 +60,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -79,7 +79,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -92,7 +92,7 @@
         "name": "Reinforced Cyberlimb Upgrade",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"
@@ -107,7 +107,7 @@
         "tags": [
             "Covering"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Cyberleg"

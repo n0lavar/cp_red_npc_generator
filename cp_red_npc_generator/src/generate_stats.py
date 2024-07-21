@@ -137,10 +137,16 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     # possibly replace Brawling with MartialArts
     if np.random.uniform(0, 1) < npc_template.role.martial_arts_probability:
-        brawling_skill_value = next(value for skill, value in npc.skills.items() if skill.name == "Brawling")
-        martial_arts_skill_level = math.ceil(brawling_skill_value / 2)
+        brawling_skill = next(s for s in npc.skills.keys() if s.name == "Brawling")
+        brawling_skill_value = npc.skills[brawling_skill]
+
         martial_arts_skill = next(s for s in npc.skills.keys() if s.name == "MartialArts")
-        npc.skills[martial_arts_skill] = martial_arts_skill_level
+        # brawling can't be less than 2
+        new_martial_arts_skill_value = math.ceil((brawling_skill_value - 2) / 2)
+
+        if new_martial_arts_skill_value > 0:
+            npc.skills[brawling_skill] = 2
+            npc.skills[martial_arts_skill] = new_martial_arts_skill_value
 
     logging.debug(f"\t{skills_sum=}")
     logging.debug(f"\t{npc_template.rank.skills_budget.mean=}")

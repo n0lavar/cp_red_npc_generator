@@ -3,7 +3,7 @@
         "name": "Cyberleg",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Hips"
         ],
         "container_capacity": 3,
@@ -15,7 +15,7 @@
         "name": "Grip Foot",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberleg"
         ],
         "size_in_container": 1,
@@ -27,7 +27,7 @@
         "name": "Jump Booster",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberleg"
         ],
         "size_in_container": 2,
@@ -39,7 +39,7 @@
         "name": "Skate Foot",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberleg"
         ],
         "size_in_container": 1,
@@ -55,7 +55,7 @@
             "LightMeleeWeapon",
             "MeleeWeapon"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberleg",
             "Hips"
         ],
@@ -67,7 +67,7 @@
         "name": "Web Foot",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberleg"
         ],
         "size_in_container": 1,
@@ -79,7 +79,7 @@
         "name": "PerfectFit Cyberfoot",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberleg",
             "Hips"
         ],

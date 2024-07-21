@@ -13,7 +13,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -24,7 +24,7 @@
         "name": "Contraceptive Implant",
         "type": "cyberware",
         "price": 10,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -35,7 +35,7 @@
         "name": "Enhanced Antibodies",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -46,7 +46,7 @@
         "name": "Cybersnake",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -57,7 +57,7 @@
         "name": "Gills",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -77,7 +77,7 @@
                 ]
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -91,7 +91,7 @@
         "unique_tags": [
             "AirProtection"
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -102,7 +102,7 @@
         "name": "Midnight Lady™ Sexual Implant",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -113,7 +113,7 @@
         "name": "Mr. Studd™ Sexual Implant",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -127,7 +127,7 @@
         "unique_tags": [
             "AirProtection"
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -138,7 +138,7 @@
         "name": "Radar / Sonar Implant",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -155,7 +155,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -166,7 +166,7 @@
         "name": "Vampyres",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -177,7 +177,7 @@
         "name": "Internal Body Cyberware Hardened Shielding",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -188,7 +188,7 @@
         "name": "RacerBracer",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -199,7 +199,7 @@
         "name": "Trauma Response Nanomatrix",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "required_cyberware": [
@@ -213,7 +213,7 @@
         "name": "Appetite Controller",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "required_cyberware": [
@@ -227,7 +227,7 @@
         "name": "NeuTongue",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "size_in_container": 1,
@@ -240,7 +240,7 @@
         "unique_tags": [
             "Airhypo"
         ],
-        "requires_container": [
+        "required_containers": [
             "Internal Cyberware"
         ],
         "required_cyberware": [

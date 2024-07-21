@@ -3,7 +3,7 @@
         "name": "Cybereye",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Eye Sockets",
             "MultiOptic Mount"
         ],
@@ -15,7 +15,7 @@
         "name": "Sponsored Cybereye",
         "type": "cyberware",
         "price": 50,
-        "requires_container": [
+        "required_containers": [
             "Eye Sockets",
             "MultiOptic Mount"
         ],
@@ -30,7 +30,7 @@
         "unique_tags": [
             "LightFlashesProtection"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -45,7 +45,7 @@
         "name": "Chyron",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -59,7 +59,7 @@
         "name": "Color Shift",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -86,7 +86,7 @@
         "ammo_types": [
             "Arrows"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -113,7 +113,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -131,7 +131,7 @@
         "unique_tags": [
             "ImprovedVision"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -146,7 +146,7 @@
         "name": "MicroOptics",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -163,7 +163,7 @@
         "unique_tags": [
             "VideoCamera"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -177,7 +177,7 @@
         "name": "Radiation Detector",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -191,7 +191,7 @@
         "name": "Targeting Scope",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -208,7 +208,7 @@
         "unique_tags": [
             "Telescope"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -222,7 +222,7 @@
         "name": "Virtuality",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -237,7 +237,7 @@
         "name": "Hardened Cybereye Casing",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye",
@@ -251,7 +251,7 @@
         "name": "Chipware Compartment",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
             "Cybereye"

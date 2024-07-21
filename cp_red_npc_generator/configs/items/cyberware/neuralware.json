@@ -3,7 +3,7 @@
         "name": "Neural Link",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Neuralware"
         ],
         "container_capacity": 5,
@@ -19,7 +19,7 @@
             "AudioRecorder",
             "VideoCamera"
         ],
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -31,7 +31,7 @@
         "type": "cyberware",
         "price": 500,
         "container_capacity": 1,
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -42,7 +42,7 @@
         "type": "cyberware",
         "price": 100,
         "container_capacity": 1,
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -52,7 +52,7 @@
         "name": "Interface Plugs",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -72,7 +72,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -92,7 +92,7 @@
                 "simple": 3
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "size_in_container": 1,
@@ -103,7 +103,7 @@
         "name": "Chemical Analyzer",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
         ],
@@ -115,7 +115,7 @@
         "name": "Olfactory Boost",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
         ],
@@ -127,7 +127,7 @@
         "name": "Pain Editor",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
         ],
@@ -139,7 +139,7 @@
         "name": "Tactile Boost",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
         ],
@@ -157,7 +157,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
         ],
@@ -169,7 +169,7 @@
         "name": "Reflex Co-Processor",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Neural Link"
         ],
         "required_condition": [

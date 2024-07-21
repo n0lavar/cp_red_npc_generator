@@ -3,7 +3,7 @@
         "name": "Cyberarm",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Shoulders",
             "Artificial Shoulder Mount"
         ],
@@ -15,7 +15,7 @@
         "name": "Neo-Soviet Cyberarm",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Shoulders",
             "Artificial Shoulder Mount"
         ],
@@ -36,7 +36,7 @@
         ],
         "damage": "2d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -52,7 +52,7 @@
         "unique_tags": [
             "Cyberdeck"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -64,7 +64,7 @@
         "name": "Grapple Hand",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -89,7 +89,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -113,7 +113,7 @@
         "ammo_types": [
             "Grenades"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -131,7 +131,7 @@
         ],
         "damage": "1d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -149,7 +149,7 @@
         ],
         "damage": "2d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -167,7 +167,7 @@
         ],
         "damage": "3d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -183,7 +183,7 @@
             "Shield"
         ],
         "armor_class": 10,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -208,7 +208,7 @@
         "ammo_types": [
             "Bullets"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -233,7 +233,7 @@
         "ammo_types": [
             "Bullets"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -258,7 +258,7 @@
         "ammo_types": [
             "Bullets"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -283,7 +283,7 @@
         "ammo_types": [
             "Bullets"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -295,7 +295,7 @@
         "name": "Quick Change Mount",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -312,7 +312,7 @@
         ],
         "damage": "2d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -331,7 +331,7 @@
         ],
         "damage": "1d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -347,7 +347,7 @@
         "unique_tags": [
             "VideoCamera"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -365,7 +365,7 @@
         ],
         "damage": "2d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -378,7 +378,7 @@
         "name": "Subdermal Grip",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -436,7 +436,7 @@
                 "simple": 2
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -451,7 +451,7 @@
         "unique_tags": [
             "Techtool"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -470,7 +470,7 @@
         ],
         "damage": "3d6",
         "rate_of_fire": 2,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -483,7 +483,7 @@
         "name": "Flashbulb",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -495,7 +495,7 @@
         "name": "Integrated Cyberdeck Upgrade",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -517,7 +517,7 @@
         "tags": [
             "RangedWeapon"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -549,7 +549,7 @@
             "Slugs",
             "Shotgun Shells"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -561,7 +561,7 @@
         "name": "Cyberscanner, Integrated",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -573,7 +573,7 @@
         "name": "Cyberpillow",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -584,7 +584,7 @@
         "name": "Holo Projector Palm",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -597,7 +597,7 @@
         "name": "PersonalPak KibbleWarmer",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -609,7 +609,7 @@
         "name": "Pursuit Security Inc. Personal Shredder",
         "type": "cyberware",
         "price": 100,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -628,7 +628,7 @@
         "quality": "excellent",
         "damage": "4d6",
         "rate_of_fire": 1,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm"
         ],
         "size_in_container": 4,
@@ -639,7 +639,7 @@
         "name": "Cybermatrix Gang Jazzler",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
             "Shoulders"
@@ -655,7 +655,7 @@
         "unique_tags": [
             "Agent"
         ],
-        "requires_container": [
+        "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
         ],
@@ -681,7 +681,7 @@
         "ammo_types": [
             "Radline MagnaSlot BatteryBrick"
         ],
-        "requires_container": [
+        "required_containers": [
             "Shoulders"
         ],
         "size_in_container": 1,

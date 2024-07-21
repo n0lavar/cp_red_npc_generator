@@ -3,7 +3,7 @@
         "name": "Artificial Shoulder Mount",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Borgware"
         ],
         "container_capacity": 2,
@@ -28,7 +28,7 @@
                 ]
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Borgware"
         ],
         "size_in_container": 1,
@@ -59,7 +59,7 @@
                 ]
             }
         ],
-        "requires_container": [
+        "required_containers": [
             "Borgware"
         ],
         "size_in_container": 1,
@@ -79,7 +79,7 @@
         "unique_tags": [
             "OpticContainer"
         ],
-        "requires_container": [
+        "required_containers": [
             "Borgware"
         ],
         "container_capacity": 5,
@@ -91,7 +91,7 @@
         "name": "Sensor Array",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Cyberaudio Suite"
         ],
         "container_capacity": 5,
@@ -103,7 +103,7 @@
         "name": "Borgware Hardened Shielding",
         "type": "cyberware",
         "price": 1000,
-        "requires_container": [
+        "required_containers": [
             "Artificial Shoulder Mount",
             "Implanted Linear Frame ß (Beta)",
             "Implanted Linear Frame Σ (Sigma)",
@@ -117,7 +117,7 @@
         "name": "Cyclops International Bug Eye",
         "type": "cyberware",
         "price": 500,
-        "requires_container": [
+        "required_containers": [
             "Borgware"
         ],
         "container_capacity": 5,
@@ -132,7 +132,7 @@
         "unique_tags": [
             "OpticContainer"
         ],
-        "requires_container": [
+        "required_containers": [
             "Eye Sockets"
         ],
         "container_capacity": 3,

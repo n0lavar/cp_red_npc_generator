@@ -9,7 +9,7 @@
         "name": "Fashionware",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -20,7 +20,7 @@
         "name": "Neuralware",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -31,7 +31,7 @@
         "name": "Eye Sockets",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -42,7 +42,7 @@
         "name": "Auditory System",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -53,7 +53,7 @@
         "name": "Internal Cyberware",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -64,7 +64,7 @@
         "name": "External Cyberware",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -75,7 +75,7 @@
         "name": "Shoulders",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -86,7 +86,7 @@
         "name": "Hips",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,
@@ -97,7 +97,7 @@
         "name": "Borgware",
         "type": "cyberware",
         "default_hidden": true,
-        "requires_container": [
+        "required_containers": [
             "Meatbody"
         ],
         "size_in_container": 1,

@@ -47,7 +47,7 @@ class Item:
     quality: Optional[ItemQuality] = field(default=None, compare=False)
     container_capacity: int = field(default=0, compare=False)
     size_in_container: int = field(default=0, compare=False)
-    requires_container: List[str] = field(default_factory=list, compare=False)
+    required_containers: List[str] = field(default_factory=list, compare=False)
     max_equipped_items: int = field(default=0, compare=False)  # 0 means inf
 
     # armor

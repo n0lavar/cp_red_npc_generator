@@ -141,7 +141,7 @@ def add_cyberware(
     # try to buy the required containers
     if not container_where_added:
         logging.debug(left_align(f"Couldn't find a suitable container, trying to buy...", depth))
-        for container in get_allowed_items(item.requires_container, container_selection_normalized_index):
+        for container in get_allowed_items(item.required_containers, container_selection_normalized_index):
             container_item: Item = next(cw for cw in all_cyberware if cw.name == container).clone()
             container_adding_result: Optional[CyberwareGenerationState] = add_cyberware(
                 container_item,
