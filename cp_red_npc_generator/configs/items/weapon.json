@@ -344,5 +344,20 @@
         "ammo_types": [
             "Rockets"
         ]
+    },
+    {
+        "name": "Martial Arts",
+        "possible_names": [
+            "Aikido (Disarming Combination, Iron Grip)",
+            "Karate (Armor Breaking Combination, Bone Breaking Strike)",
+            "Judo (Counter Throw, Grab Escape)",
+            "Taekwondo (Pressure Point Strike, Flying Kick)"
+        ],
+        "type": "weapon",
+        "unique_tags": [
+            "MartialArts",
+            "MeleeWeapon"
+        ],
+        "rate_of_fire": 2
     }
 ]

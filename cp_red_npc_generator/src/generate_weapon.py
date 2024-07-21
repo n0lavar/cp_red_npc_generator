@@ -94,7 +94,7 @@ def pick_weapon(budget: int,
     return None, 0
 
 
-def get_brawling_weapon_item(npc: Npc) -> Item:
+def get_brawling_weapon_item(npc: Npc, all_weapons: List[ItemWithNames]) -> Item:
     total_body = npc.get_stat_or_skill_value(StatType.BODY.name).get_total()
 
     if total_body <= 4:
@@ -109,11 +109,19 @@ def get_brawling_weapon_item(npc: Npc) -> Item:
     martial_arts_skill = next(
         (skill for skill, level in npc.skills.items() if skill.name == "MartialArts" and level > 0), None)
 
-    brawling_skill = Item(type=ItemType.WEAPON, damage=boxing_dmg, tags=["MeleeWeapon"], rate_of_fire=2)
     if martial_arts_skill:
-        return replace(brawling_skill, name="Martial Arts", unique_tags=["MartialArts"])
+        martial_arts_item = next(i for i in all_weapons if i.name == "Martial Arts")
+        return replace(
+            martial_arts_item,
+            name=np.random.choice(list(martial_arts_item.possible_names)),
+            damage=boxing_dmg)
     else:
-        return replace(brawling_skill, name="Brawling", unique_tags=["Brawling"])
+        return Item(
+            type=ItemType.WEAPON,
+            unique_tags=["Brawling", "MeleeWeapon"],
+            damage=boxing_dmg,
+            rate_of_fire=2,
+            name="Brawling")
 
 
 def add_weapon_to_npc(weapon: Item, npc: Npc, weapon_skills_data: Dict[str, str]):
@@ -183,6 +191,6 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
             add_weapon_to_npc(cyberware.item, npc, weapon_skills_data)
 
     # add boxing or martial arts
-    add_weapon_to_npc(get_brawling_weapon_item(npc), npc, weapon_skills_data)
+    add_weapon_to_npc(get_brawling_weapon_item(npc, all_weapons), npc, weapon_skills_data)
 
     return npc

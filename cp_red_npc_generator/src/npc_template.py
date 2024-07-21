@@ -50,6 +50,7 @@ class Role:
     preferred_drugs: List[str] = field(default_factory=list, compare=False)
     preferred_equipment: List[str] = field(default_factory=list, compare=False)
     min_empathy: int = field(default=0, compare=False)
+    martial_arts_probability: float = field(default=0, compare=False)
 
     @staticmethod
     def load():

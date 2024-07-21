@@ -3,6 +3,7 @@
 
 import functools
 import logging
+import math
 import numpy as np
 from typing import List, Optional, Callable
 
@@ -94,11 +95,12 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     streetrat_stats_table: List[List[int]] = stats_data["streetrat_stats"][npc_template.role.name]
     streetrat_chosen_table: List[int] = streetrat_stats_table[np.random.choice(len(streetrat_stats_table))]
-    stats_mean_clamped_distributed = distribute_points(streetrat_chosen_table,
-                                                       npc_template.rank.stats_budget.generate(),
-                                                       2,
-                                                       8,
-                                                       "stats")
+    stats_mean_clamped_distributed = distribute_points(
+        streetrat_chosen_table,
+        npc_template.rank.stats_budget.generate(),
+        2,
+        8,
+        "stats")
 
     stats_sum: int = 0
     for i, stat in enumerate(stats_mean_clamped_distributed):
@@ -119,11 +121,12 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     # increase values for role-specific skills
     role_streetrat_skills_line: List[int] = [skill_level for _, skill_level in npc_template.role.skills.items()]
-    role_streetrat_skills_distributed = distribute_points(role_streetrat_skills_line,
-                                                          npc_template.rank.skills_budget.generate(),
-                                                          2,
-                                                          10,
-                                                          "skills")
+    role_streetrat_skills_distributed = distribute_points(
+        role_streetrat_skills_line,
+        npc_template.rank.skills_budget.generate(),
+        2,
+        10,
+        "skills")
 
     skills_sum: int = 0
     for i, skill_name in enumerate(npc_template.role.skills):
@@ -131,6 +134,13 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         skill = Skill(skill_name, StatType[skill_info["link"]], SkillType(skill_info["type"]))
         npc.skills[skill] += role_streetrat_skills_distributed[i]
         skills_sum += role_streetrat_skills_distributed[i]
+
+    # possibly replace Brawling with MartialArts
+    if np.random.uniform(0, 1) < npc_template.role.martial_arts_probability:
+        brawling_skill_value = next(value for skill, value in npc.skills.items() if skill.name == "Brawling")
+        martial_arts_skill_level = math.ceil(brawling_skill_value / 2)
+        martial_arts_skill = next(s for s in npc.skills.keys() if s.name == "MartialArts")
+        npc.skills[martial_arts_skill] = martial_arts_skill_level
 
     logging.debug(f"\t{skills_sum=}")
     logging.debug(f"\t{npc_template.rank.skills_budget.mean=}")

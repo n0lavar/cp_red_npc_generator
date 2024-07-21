@@ -88,7 +88,8 @@
             "Prime Time",
             "Blue Glass"
         ],
-        "min_empathy": 3
+        "min_empathy": 3,
+        "martial_arts_probability": 0.4
     },
     {
         "name": "solo",
@@ -191,7 +192,8 @@
             "Timewarp",
             "Synthcoke"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.2
     },
     {
         "name": "netrunner",
@@ -277,7 +279,8 @@
             "Boost",
             "Timewarp"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.1
     },
     {
         "name": "tech",
@@ -377,7 +380,8 @@
             "Black Lace",
             "Blue Glass"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.2
     },
     {
         "name": "medtech",
@@ -462,7 +466,8 @@
             "Timewarp",
             "Synthcoke"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.2
     },
     {
         "name": "media",
@@ -560,7 +565,8 @@
             "Boost",
             "Blue Glass"
         ],
-        "min_empathy": 4
+        "min_empathy": 4,
+        "martial_arts_probability": 0.1
     },
     {
         "name": "exec",
@@ -650,7 +656,8 @@
             "Boost",
             "Blue Glass"
         ],
-        "min_empathy": 3
+        "min_empathy": 3,
+        "martial_arts_probability": 0.1
     },
     {
         "name": "lawman",
@@ -755,7 +762,8 @@
             "Timewarp",
             "Synthcoke"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.4
     },
     {
         "name": "fixer",
@@ -847,7 +855,8 @@
             "Boost",
             "Blue Glass"
         ],
-        "min_empathy": 3
+        "min_empathy": 3,
+        "martial_arts_probability": 0.2
     },
     {
         "name": "nomad",
@@ -950,7 +959,8 @@
             "Timewarp",
             "Blue Glass"
         ],
-        "min_empathy": 0
+        "min_empathy": 0,
+        "martial_arts_probability": 0.4
     },
     {
         "name": "civilian",
@@ -1008,6 +1018,7 @@
         "preferred_drugs": [
             "Blue Glass"
         ],
-        "min_empathy": 4
+        "min_empathy": 4,
+        "martial_arts_probability": 0.0
     }
 ]
