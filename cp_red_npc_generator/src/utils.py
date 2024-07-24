@@ -72,3 +72,13 @@ def get_allowed_items(items: List[str], normalized_index: float) -> List[str]:
     sequence_len: int = len(items)
     index: int = math.floor((sequence_len - 1) * normalized_index)
     return items[index:sequence_len]
+
+
+def args_to_str(args) -> str:
+    result = ""
+    for key, value in args.items():
+        if type(value) is not bool:
+            result += f"--{key}={value} "
+        elif value:
+            result += f"--{key} "
+    return result

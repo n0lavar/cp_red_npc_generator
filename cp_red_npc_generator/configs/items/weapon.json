@@ -64,7 +64,7 @@
             "Two-handed war hammer"
         ],
         "type": "weapon",
-        "price": 50,
+        "price": 100,
         "unique_tags": [
             "VeryHeavyMeleeWeapon",
             "MeleeWeapon"

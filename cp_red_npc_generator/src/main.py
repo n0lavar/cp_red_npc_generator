@@ -9,7 +9,7 @@ import sys
 import numpy as np
 
 from generate_trauma_team_status import generate_trauma_team_status
-from utils import is_debugger_active
+from utils import is_debugger_active, args_to_str
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
 from generate_cyberware import generate_cyberware
@@ -53,10 +53,20 @@ def main(args) -> int:
 
     rank: Rank = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
     role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
+
+    # generation process, there are a lot of log lines with DEBUG level
     npc: Npc = create_npc(NpcTemplate(rank, role))
     npc_str: str = npc.to_string(args.flat)
 
-    logging.info(f"\n{str(args.role).title()}, {str(args.rank).title()}, {seed=}")
+    # usually you have multiple npcs in one file and it's convenient to split them visually
+    logging.info(f"<=================================================================================================>")
+
+    # print the args you can use to receive exactly the same result
+    args_dict = dict(vars(args))
+    args_dict["seed"] = seed
+    logging.info(f"\n{args_to_str(args_dict)}")
+
+    # the long string with npc info
     logging.info(npc_str)
 
     return 0
