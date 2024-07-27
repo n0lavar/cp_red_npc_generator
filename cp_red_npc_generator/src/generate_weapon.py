@@ -124,32 +124,11 @@ def get_brawling_weapon_item(npc: Npc, all_weapons: List[ItemWithNames]) -> Item
             name="Brawling")
 
 
-def add_weapon_to_npc(weapon: Item, npc: Npc, weapon_skills_data: Dict[str, str]):
-    skill_name: Optional[str] = None
-    for tag in weapon.get_all_tags():
-        if tag in weapon_skills_data.keys():
-            skill_name = weapon_skills_data[tag]
-            break
-
-    assert skill_name
-    skill_value: int = npc.get_skill_total_value(skill_name)
-    if weapon.quality == ItemQuality.EXCELLENT:
-        skill_value += 1
-
-    weapon = replace(
-        weapon,
-        name=f"[{skill_value}] {weapon.name}")
-
-    npc.weapons.add(weapon)
-
-
 def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating weapons...")
 
     weapons_data = load_data("configs/items/weapon.json")
     all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in weapons_data]
-
-    weapon_skills_data: Dict[str, str] = load_data("configs/weapon_skills.json")
 
     total_weapons_budget: int = round(npc_template.rank.items_budget[ItemType.WEAPON].generate())
     logging.debug(f"\t{total_weapons_budget=}")
@@ -172,7 +151,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
             npc)
 
     if primary_weapon:
-        add_weapon_to_npc(primary_weapon, npc, weapon_skills_data)
+        npc.weapons.add(primary_weapon)
 
     # try to buy a secondary weapon with any budget left
     secondary_weapon, _ = pick_weapon(
@@ -183,14 +162,14 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
         npc)
 
     if secondary_weapon:
-        add_weapon_to_npc(secondary_weapon, npc, weapon_skills_data)
+        npc.weapons.add(secondary_weapon)
 
     # add all the rest weapons from the cyberware
     for cyberware in npc.cyberware:
         if cyberware.item.damage:
-            add_weapon_to_npc(cyberware.item, npc, weapon_skills_data)
+            npc.weapons.add(cyberware.item)
 
     # add boxing or martial arts
-    add_weapon_to_npc(get_brawling_weapon_item(npc, all_weapons), npc, weapon_skills_data)
+    npc.weapons.add(get_brawling_weapon_item(npc, all_weapons))
 
     return npc

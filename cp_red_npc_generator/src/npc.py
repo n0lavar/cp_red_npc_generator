@@ -5,13 +5,14 @@ import copy
 import logging
 import math
 from functools import cmp_to_key
-from typing import Dict, List, Tuple, Set
-from dataclasses import dataclass, field
+from typing import Dict, List, Tuple, Set, Optional
+from dataclasses import dataclass, field, replace
 
+from cp_red_npc_generator.src.utils import load_data
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode
-from item import Item, ItemType
+from item import Item, ItemType, ItemQuality
 from stats import StatType, Skill, SkillType, StatSkillValue
 from table_view import TableView
 
@@ -196,13 +197,33 @@ class Npc:
                 def weapon_sorter(item: Item) -> int:
                     return int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire
 
-                sorted_melee_weapon = sorted([x for x in self.weapons if "MeleeWeapon" in x.get_all_tags()],
-                                             key=weapon_sorter,
-                                             reverse=True)
+                weapon_skills_data: Dict[str, str] = load_data("configs/weapon_skills.json")
 
-                sorted_ranged_weapon = sorted([x for x in self.weapons if "RangedWeapon" in x.get_all_tags()],
-                                              key=weapon_sorter,
-                                              reverse=True)
+                def add_skill_value(weapon: Item) -> Item:
+                    skill_name: Optional[str] = None
+                    for tag in weapon.get_all_tags():
+                        if tag in weapon_skills_data.keys():
+                            skill_name = weapon_skills_data[tag]
+                            break
+
+                    assert skill_name
+                    skill_value: int = self.get_skill_total_value(skill_name)
+                    if weapon.quality == ItemQuality.EXCELLENT:
+                        skill_value += 1
+
+                    return replace(
+                        weapon,
+                        name=f"[{skill_value}] {weapon.name}")
+
+                sorted_melee_weapon = sorted(
+                    [add_skill_value(x) for x in self.weapons if "MeleeWeapon" in x.get_all_tags()],
+                    key=weapon_sorter,
+                    reverse=True)
+
+                sorted_ranged_weapon = sorted(
+                    [add_skill_value(x) for x in self.weapons if "RangedWeapon" in x.get_all_tags()],
+                    key=weapon_sorter,
+                    reverse=True)
 
                 assert len(sorted_melee_weapon) + len(sorted_ranged_weapon) == len(self.weapons)
 
