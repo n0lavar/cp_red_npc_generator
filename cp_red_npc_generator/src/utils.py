@@ -1,12 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import builtins
 import json
 import logging
 import math
 import sys
+import types
 from typing import List
-
 import numpy as np
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
@@ -75,10 +76,16 @@ def get_allowed_items(items: List[str], normalized_index: float) -> List[str]:
 
 
 def args_to_str(args) -> str:
-    result = ""
+    result: str = ""
     for key, value in args.items():
-        if type(value) is not bool:
-            result += f"--{key}={value} "
-        elif value:
-            result += f"--{key} "
+        match type(value):
+            case builtins.bool:
+                result += f"--{key}" if value else f"--no-{key}"
+            case types.NoneType:
+                result += f"--no-{key}"
+            case _:
+                result += f"--{key}={value}"
+
+        result += " "
+
     return result
