@@ -92,12 +92,13 @@ Here is the full list of available arguments and their explanation. Calling `cp_
 arguments will generate a solo with a captain rank.
 
 ```
-usage: cp_red_npc_generator.exe [-h] 
-                                [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}]
-                                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
-                                [--seed SEED] 
-                                [--flat | --no-flat]
-                                [--log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+usage: cp_red_npc_generator.exe 
+    [-h] 
+    [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}]
+    [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
+    [--seed SEED] [--flat | --no-flat]
+    [--log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+    [--use-borgware | --no-use-borgware]
 
 options:
   -h, --help            show this help message and exit
@@ -110,16 +111,19 @@ options:
   --role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}
                         An occupation the NPC is known by on The Street.
                         `civilian` means that this is just a regular human.
-                        The role can determine the equipment and the direction of
-                        the NPC's skills. The default value is `solo`.
+                        The role can determine the equipment and the direction
+                        of the NPC's skills. The default value is `solo`.
   --seed SEED           A number for a random engine. The same seed will
                         always give the same result when the other arguments
                         are unchanged. The default is 0, which means "use unix
                         epoch".
   --flat, --no-flat     If specified, don't use columns. Easier for editing
                         and copy-pasting, but takes much more space.
-  --log_level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
+  --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
                         Logging level. Default is INFO.
+  --use-borgware, --no-use-borgware
+                        If specified, allow borgware. Usually you don't want
+                        the regular mooks to use that cool stuff.
 ```
 
 ## Examples of input and output data
@@ -135,7 +139,6 @@ cp_red_npc_generator.exe --rank=private --role=solo
 Possible output:
 
   ```
---rank=private --role=solo --seed=49413376 --flat=None --log_level=INFO 
 Has items total worth of 272
 
 Stats:       Conditions:                                    
@@ -208,7 +211,6 @@ cp_red_npc_generator.exe --rank=captain --role=solo
 Possible output:
 
   ```
---rank=captain --role=solo --seed=60120320 --flat=None --log_level=INFO 
 Has items total worth of 1662
 
 Stats:       Conditions:                                                
@@ -280,13 +282,12 @@ Inventory:
   Input:
 
   ```
-cp_red_npc_generator.exe --rank=general --role=solo
+cp_red_npc_generator.exe --rank=general --role=solo --use-borgware
   ```
 
 Possible output:
 
   ```
---rank=general --role=solo --seed=366729216 --flat=None --log_level=INFO 
 Has items total worth of 33282
 
 Stats:                                                                             Conditions:                                                    

@@ -51,7 +51,7 @@ def add_to_container(
     return new_node.value
 
 
-# check we can add the item,
+# check if we can add the item,
 # add all the required dependant cyberware, containers,
 # try to decrease the money and the humanity,
 # and finally add the item to the cyberware tree
@@ -66,6 +66,10 @@ def add_cyberware(
         first_pairing_container: Optional[InventoryNode] = None) \
         -> Optional[CyberwareGenerationState]:
     logging.debug(left_align(f"Trying to add: {item.name}", depth))
+
+    if item.max_humanity_loss >= 4 and not npc_template.use_borgware:
+        logging.debug(left_align(f"The item is a borgware and use_borgware is false", depth))
+        return None
 
     # check if the max number of this cyberware was already added
     if item.max_equipped_items != 0:

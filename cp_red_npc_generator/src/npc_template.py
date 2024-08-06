@@ -61,3 +61,4 @@ class Role:
 class NpcTemplate:
     rank: Rank = field(default_factory=Rank)
     role: Role = field(default_factory=Role)
+    use_borgware: bool = field(default=False)

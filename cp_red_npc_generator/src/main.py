@@ -55,7 +55,7 @@ def main(args) -> int:
     role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
 
     # generation process, there are a lot of log lines with DEBUG level
-    npc: Npc = create_npc(NpcTemplate(rank, role))
+    npc: Npc = create_npc(NpcTemplate(rank, role, args.use_borgware))
     npc_str: str = npc.to_string(args.flat)
 
     # usually you have multiple npcs in one file and it's convenient to split them visually
@@ -103,11 +103,15 @@ if __name__ == "__main__":
                         action=argparse.BooleanOptionalAction,
                         help="If specified, don't use columns. "
                              "Easier for editing and copy-pasting, but takes much more space.")
-    parser.add_argument("--log_level",
+    parser.add_argument("--log-level",
                         type=str,
                         help="Logging level. Default is INFO.",
                         choices=list(logging.getLevelNamesMapping()),
                         default=logging.getLevelName(logging.INFO))
+    parser.add_argument("--use-borgware",
+                        action=argparse.BooleanOptionalAction,
+                        help="If specified, allow borgware. "
+                             "Usually you don't want the regular mooks to use that cool stuff.")
 
     return_code = main(parser.parse_args())
     sys.exit(return_code)
