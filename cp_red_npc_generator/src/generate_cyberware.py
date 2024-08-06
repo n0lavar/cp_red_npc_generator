@@ -84,7 +84,8 @@ def add_cyberware(
 
     # check if we can't hold more cyberware of this type
     for cyberware in state.root:
-        if cyberware.item.contains_any_unique_tag_from(item):
+        # checking the name as it may be a paired item
+        if cyberware.item.name != item.name and cyberware.item.contains_any_unique_tag_from(item):
             logging.debug(left_align(f"{cyberware.item} already contains tag from this cyberware", depth))
             return None
 
@@ -173,7 +174,7 @@ def add_cyberware(
 
     assert added_item
 
-    # create paired container
+    # create a paired container
     if item.must_be_paired and not container_where_added.item.paired_container:
         logging.debug(left_align(f"{item} required a paired item, generating...", depth))
         paired_container_adding_result: Optional[CyberwareGenerationState] = add_cyberware(
@@ -189,8 +190,8 @@ def add_cyberware(
             logging.debug(left_align(f"Failed, couldn't create a paired container", depth))
             return None
 
-        logging.debug(left_align(
-            f"Successfully created a paired item: {paired_container_adding_result.last_added_cyberware.item}", depth))
+        state = paired_container_adding_result
+        logging.debug(left_align(f"Successfully created a paired item: {state.last_added_cyberware.item}", depth))
 
     logging.debug(left_align(f"Found or created the all the required containers", depth))
 
