@@ -16,6 +16,9 @@
         "tags": [
             "Armor"
         ],
+        "unique_tags": [
+            "SubdermalArmor"
+        ],
         "required_containers": [
             "External Cyberware"
         ],
@@ -30,6 +33,9 @@
         "price": 1000,
         "tags": [
             "Armor"
+        ],
+        "unique_tags": [
+            "SubdermalArmor"
         ],
         "required_containers": [
             "External Cyberware"
@@ -84,6 +90,9 @@
         "price": 1000,
         "tags": [
             "Armor"
+        ],
+        "unique_tags": [
+            "SubdermalArmor"
         ],
         "required_containers": [
             "External Cyberware"

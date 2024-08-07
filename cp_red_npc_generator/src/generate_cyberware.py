@@ -20,7 +20,7 @@ from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_
 
 
 def create_paired_item(item: Item) -> Item:
-    return item.clone(must_be_paired=False, max_equipped_items=0)
+    return item.clone(max_equipped_items=0)
 
 
 @dataclass
@@ -39,6 +39,11 @@ def add_to_container(
         depth: int,
         first_pairing_container: Optional[InventoryNode]) -> Optional[InventoryNode]:
     if first_pairing_container and first_pairing_container.item.id == container.item.id:
+        return None
+
+    # if the first part has already been installed, and we are trying to install the second part in a container,
+    # that can take both parts, fail, otherwise the first part will be useless
+    if first_pairing_container and container.item.paired_container:
         return None
 
     with LoggerLevelScope(logging.INFO):
@@ -132,12 +137,14 @@ def add_cyberware(
     container_where_added: Optional[InventoryNode] = None
     added_item: Optional[InventoryNode] = None
     for cyberware in state.root:
-        added_item = add_to_container(item,
-                                      cyberware,
-                                      container_selection_normalized_index,
-                                      npc,
-                                      depth,
-                                      first_pairing_container)
+        added_item = add_to_container(
+            item,
+            cyberware,
+            container_selection_normalized_index,
+            npc,
+            depth,
+            first_pairing_container)
+
         if added_item:
             container_where_added = cyberware
             logging.debug(left_align(f"Found a suitable container: {container_where_added.item.name}", depth))
@@ -157,12 +164,14 @@ def add_cyberware(
                 depth + 1)
 
             if container_adding_result:
-                added_item = add_to_container(item,
-                                              container_adding_result.last_added_cyberware,
-                                              container_selection_normalized_index,
-                                              npc,
-                                              depth,
-                                              first_pairing_container)
+                added_item = add_to_container(
+                    item,
+                    container_adding_result.last_added_cyberware,
+                    container_selection_normalized_index,
+                    npc,
+                    depth,
+                    first_pairing_container)
+
                 if added_item:
                     state = container_adding_result
                     container_where_added = state.last_added_cyberware
@@ -175,7 +184,7 @@ def add_cyberware(
     assert added_item
 
     # create a paired container
-    if item.must_be_paired and not container_where_added.item.paired_container:
+    if item.must_be_paired and not container_where_added.item.paired_container and not first_pairing_container:
         logging.debug(left_align(f"{item} required a paired item, generating...", depth))
         paired_container_adding_result: Optional[CyberwareGenerationState] = add_cyberware(
             create_paired_item(item),

@@ -681,6 +681,7 @@
         "ammo_types": [
             "Radline MagnaSlot BatteryBrick"
         ],
+        "skill": "HeavyWeapons",
         "required_containers": [
             "Shoulders"
         ],

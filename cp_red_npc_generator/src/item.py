@@ -58,6 +58,7 @@ class Item:
     rate_of_fire: Optional[int] = field(default=None, compare=False)
     magazine: Optional[int] = field(default=None, compare=False)
     ammo_types: Set[str] = field(default_factory=set, compare=False)
+    skill: str = field(default=None, compare=False)
 
     # cyberware
     max_humanity_loss: int = field(default=0, compare=False)

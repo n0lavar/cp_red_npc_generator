@@ -201,10 +201,13 @@ class Npc:
 
                 def add_skill_value(weapon: Item) -> Item:
                     skill_name: Optional[str] = None
-                    for tag in weapon.get_all_tags():
-                        if tag in weapon_skills_data.keys():
-                            skill_name = weapon_skills_data[tag]
-                            break
+                    if weapon.skill:
+                        skill_name = weapon.skill
+                    else:
+                        for tag in weapon.get_all_tags():
+                            if tag in weapon_skills_data.keys():
+                                skill_name = weapon_skills_data[tag]
+                                break
 
                     assert skill_name
                     skill_value: int = self.get_skill_total_value(skill_name)

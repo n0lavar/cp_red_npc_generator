@@ -10,7 +10,7 @@ from npc import Npc
 from npc_template import NpcTemplate
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element
 
-MAX_UNIQUE_DRUG_ITEMS: int = 2
+MAX_UNIQUE_DRUG_ITEMS: int = 1
 
 
 def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:

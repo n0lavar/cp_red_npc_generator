@@ -77,7 +77,10 @@
     {
         "name": "Chemical Analyzer",
         "type": "equipment",
-        "price": 1000
+        "price": 1000,
+        "unique_tags": [
+            "ChemicalAnalyzer"
+        ]
     },
     {
         "name": "Computer",
@@ -317,7 +320,10 @@
     {
         "name": "Virtuality Goggles",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "unique_tags": [
+            "VirtualityGoggles"
+        ]
     },
     {
         "name": "Bulletproof Shield",

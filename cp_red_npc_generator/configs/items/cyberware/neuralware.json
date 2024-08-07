@@ -103,6 +103,9 @@
         "name": "Chemical Analyzer",
         "type": "cyberware",
         "price": 500,
+        "unique_tags": [
+            "ChemicalAnalyzer"
+        ],
         "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
