@@ -63,6 +63,7 @@
             "VeryHeavyPistol"
         ],
         "preferred_secondary_weapons": [
+            "HeavyMeleeWeapon",
             "MediumMeleeWeapon"
         ],
         "preferred_ammo": [
@@ -162,8 +163,9 @@
             "HeavySMG"
         ],
         "preferred_secondary_weapons": [
-            "MediumMeleeWeapon",
-            "HeavyMeleeWeapon"
+            "VeryHeavyMeleeWeapon",
+            "HeavyMeleeWeapon",
+            "MediumMeleeWeapon"
         ],
         "preferred_ammo": [
             "Armor-Piercing",
@@ -251,9 +253,7 @@
             "MediumPistol",
             "SMG"
         ],
-        "preferred_secondary_weapons": [
-            "LightMeleeWeapon"
-        ],
+        "preferred_secondary_weapons": [],
         "preferred_ammo": [
             "EMP",
             "Expansive",
@@ -345,8 +345,7 @@
         "preferred_primary_weapons": [
             "Shotgun",
             "AssaultRifle",
-            "SniperRifle",
-            "MediumPistol"
+            "SniperRifle"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -433,8 +432,7 @@
         "preferred_primary_weapons": [
             "Shotgun",
             "AssaultRifle",
-            "SniperRifle",
-            "MediumPistol"
+            "SniperRifle"
         ],
         "preferred_secondary_weapons": [],
         "preferred_ammo": [
@@ -625,8 +623,7 @@
             "Trauma Response Nanomatrix"
         ],
         "preferred_primary_weapons": [
-            "AssaultRifle",
-            "SniperRifle",
+            "HeavyPistol",
             "MediumPistol"
         ],
         "preferred_secondary_weapons": [],
@@ -728,11 +725,14 @@
             "Jump Booster"
         ],
         "preferred_primary_weapons": [
+            "AssaultRifle",
+            "SMG",
+            "HeavySMG"
+        ],
+        "preferred_secondary_weapons": [
             "HeavyPistol",
-            "MediumPistol",
             "VeryHeavyPistol"
         ],
-        "preferred_secondary_weapons": [],
         "preferred_ammo": [
             "Armor-Piercing",
             "Flashbang",
@@ -921,12 +921,14 @@
         ],
         "preferred_primary_weapons": [
             "HeavyPistol",
-            "MediumPistol",
-            "VeryHeavyPistol"
+            "HeavySMG",
+            "VeryHeavyPistol",
+            "MediumPistol"
         ],
         "preferred_secondary_weapons": [
-            "MediumMeleeWeapon",
-            "HeavyMeleeWeapon"
+            "VeryHeavyMeleeWeapon",
+            "HeavyMeleeWeapon",
+            "MediumMeleeWeapon"
         ],
         "preferred_ammo": [
             "EMP",

@@ -78,7 +78,8 @@
         ],
         "tags": [
             "RangedWeapon",
-            "VeryHeavyPistol"
+            "VeryHeavyPistol",
+            "AuxiliaryWeapon"
         ],
         "damage": "4d6",
         "rate_of_fire": 1,

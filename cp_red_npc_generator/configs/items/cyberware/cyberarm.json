@@ -515,7 +515,8 @@
             "CloseRangedWeapon"
         ],
         "tags": [
-            "RangedWeapon"
+            "RangedWeapon",
+            "AuxiliaryWeapon"
         ],
         "required_containers": [
             "Cyberarm",
@@ -540,7 +541,8 @@
             "CloseRangedWeapon"
         ],
         "tags": [
-            "RangedWeapon"
+            "RangedWeapon",
+            "AuxiliaryWeapon"
         ],
         "damage": "4d6",
         "rate_of_fire": 1,

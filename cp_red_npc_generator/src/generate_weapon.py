@@ -48,14 +48,10 @@ def pick_weapon(budget: int,
     for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         logging.debug(f"\tGenerating, attempt {num_attempt}")
         preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
-        for cyberware in npc.cyberware:
-            if preferred_weapon in cyberware.item.unique_tags:
-                logging.debug(f"\t\tFound a cyberware that acts like a preferred weapon: {cyberware.item}")
-                return cyberware.item, 0
 
         preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.unique_tags)
         for item in npc.get_all_items():
-            if preferred_weapon_item.contains_any_unique_tag_from(item):
+            if "AuxiliaryWeapon" not in item.tags and preferred_weapon_item.contains_any_unique_tag_from(item):
                 logging.debug(f"\t\t{item} already acts like this weapon, skipping")
                 return None, 0
 
@@ -133,6 +129,12 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     total_weapons_budget: int = round(npc_template.rank.items_budget[ItemType.WEAPON].generate())
     logging.debug(f"\t{total_weapons_budget=}")
 
+    # add all weapons from the cyberware
+    for cyberware in npc.cyberware:
+        if cyberware.item.damage:
+            npc.weapons.add(cyberware.item)
+            logging.debug(f"\t\tAdded {cyberware} as weapon")
+
     # try to buy a primary weapon with 0.8 of the total budget
     primary_weapon, primary_weapon_money_spent = pick_weapon(
         round(total_weapons_budget * 0.8),
@@ -163,11 +165,6 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     if secondary_weapon:
         npc.weapons.add(secondary_weapon)
-
-    # add all the rest weapons from the cyberware
-    for cyberware in npc.cyberware:
-        if cyberware.item.damage:
-            npc.weapons.add(cyberware.item)
 
     # add boxing or martial arts
     npc.weapons.add(get_brawling_weapon_item(npc, all_weapons))

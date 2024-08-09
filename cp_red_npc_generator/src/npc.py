@@ -180,6 +180,7 @@ class Npc:
 
         if len(self.armor) or len(self.weapons):
             armor_weapon_table_view = TableView(1 if flat else 2)
+
             if len(self.armor):
                 def armor_sorter(item: Item) -> int:
                     if item.name.startswith("Head"):
@@ -193,6 +194,7 @@ class Npc:
 
                 sorted_armor = sorted(self.armor, key=armor_sorter)
                 armor_weapon_table_view.add(["    " + str(armor) for armor in sorted_armor], "Armor:", 0)
+
             if len(self.weapons):
                 def weapon_sorter(item: Item) -> int:
                     return int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire

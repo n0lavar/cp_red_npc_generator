@@ -66,12 +66,10 @@
         "name": "Dartgun Cyberfinger",
         "type": "cyberware",
         "price": 500,
-        "unique_tags": [
-            "HiddenRangedWeapon"
-        ],
         "tags": [
             "RangedWeapon",
-            "VeryHeavyPistol"
+            "VeryHeavyPistol",
+            "AuxiliaryWeapon"
         ],
         "damage": "4d6",
         "rate_of_fire": 1,
@@ -192,7 +190,8 @@
         ],
         "tags": [
             "RangedWeapon",
-            "HeavyPistol"
+            "HeavyPistol",
+            "AuxiliaryWeapon"
         ],
         "damage": "3d6",
         "rate_of_fire": 1,
