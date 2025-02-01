@@ -27,7 +27,7 @@ jobs:
         run: |
           Compress-Archive -Path cp_red_npc_generator/configs, dist/cp_red_npc_generator.exe -Destination cp_red_npc_generator.zip
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Windows_cp_red_npc_generator
           path: cp_red_npc_generator.zip
