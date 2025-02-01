@@ -136,7 +136,8 @@ def generate_stats_and_skills(npc: Npc, npc_template: NpcTemplate) -> Npc:
         skills_sum += role_streetrat_skills_distributed[i]
 
     # possibly replace Brawling with MartialArts
-    if np.random.uniform(0, 1) < npc_template.role.martial_arts_probability:
+    if (npc_template.generation_rules.allow_martial_arts
+            and np.random.uniform(0, 1) < npc_template.role.martial_arts_probability):
         brawling_skill = next(s for s in npc.skills.keys() if s.name == "Brawling")
         brawling_skill_value = npc.skills[brawling_skill]
 

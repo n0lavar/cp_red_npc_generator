@@ -7,6 +7,7 @@ import logging
 import math
 import sys
 import types
+import dataclasses
 from typing import List
 import numpy as np
 
@@ -89,3 +90,13 @@ def args_to_str(args) -> str:
         result += " "
 
     return result
+
+
+def get_default_value(cls, field_name: str):
+    for f in dataclasses.fields(cls):
+        if f.name == field_name.replace("-", "_"):
+            if f.default is not dataclasses.MISSING:
+                return f.default
+            if f.default_factory is not dataclasses.MISSING:  # Handle default_factory
+                return f.default_factory()
+    return None

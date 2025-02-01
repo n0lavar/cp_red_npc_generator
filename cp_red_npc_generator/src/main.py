@@ -9,7 +9,7 @@ import sys
 import numpy as np
 
 from generate_trauma_team_status import generate_trauma_team_status
-from utils import is_debugger_active, args_to_str
+from utils import is_debugger_active, args_to_str, get_default_value
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
 from generate_cyberware import generate_cyberware
@@ -19,13 +19,14 @@ from generate_junk import generate_junk
 from generate_stats import generate_stats_and_skills
 from generate_weapon import generate_weapon
 from npc import Npc
-from npc_template import NpcTemplate, Rank, Role
+from npc_template import NpcTemplate, Rank, Role, GenerationRules
 
 
 def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"Input:")
     logging.debug(f"\trank: {npc_template.rank.name}")
     logging.debug(f"\trole: {npc_template.role.name}")
+    logging.debug(f"\tgeneration_rules: {npc_template.generation_rules}")
 
     npc = Npc()
     npc = generate_stats_and_skills(npc, npc_template)
@@ -51,11 +52,17 @@ def main(args) -> int:
         seed = int(time.time_ns() % 1e9)
     np.random.seed(seed)
 
-    rank: Rank = dataclass_wizard.fromdict(Rank, next(r for r in ranks if r["name"] == args.rank))
+    if args.rank.isnumeric():
+        rank_json = ranks[int(args.rank)]
+    else:
+        rank_json = next(r for r in ranks if r["name"] == args.rank)
+
+    rank: Rank = dataclass_wizard.fromdict(Rank, rank_json)
     role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
+    generation_rules: GenerationRules = dataclass_wizard.fromdict(GenerationRules, vars(args))
 
     # generation process, there are a lot of log lines with DEBUG level
-    npc: Npc = create_npc(NpcTemplate(rank, role, args.use_borgware))
+    npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules))
     npc_str: str = npc.to_string(args.flat)
 
     # usually you have multiple npcs in one file and it's convenient to split them visually
@@ -84,7 +91,7 @@ if __name__ == "__main__":
                              "and general is a world-class character. "
                              "Rank determines how advanced an NPC's skills are and "
                              "how cool his equipment is.",
-                        choices=[r["name"] for r in ranks],
+                        choices=[r["name"] for r in ranks] + [str(i) for i in range(len(ranks))],
                         default="captain")
     parser.add_argument("--role",
                         type=str,
@@ -108,10 +115,58 @@ if __name__ == "__main__":
                         help="Logging level. Default is INFO.",
                         choices=list(logging.getLevelNamesMapping()),
                         default=logging.getLevelName(logging.INFO))
-    parser.add_argument("--use-borgware",
+    parser.add_argument("--allow-non-basic-ammo",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow non-basic ammo, such as armor piercing and expansive.",
+                        default=get_default_value(GenerationRules, "allow-non-basic-ammo"))
+    parser.add_argument("--allow-grenades",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow grenades",
+                        default=get_default_value(GenerationRules, "allow-grenades"))
+    parser.add_argument("--allow-armor",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow armor items (cyberware armor will still be there).",
+                        default=get_default_value(GenerationRules, "allow-armor"))
+    parser.add_argument("--allow-cyberware",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow cyberware.",
+                        default=get_default_value(GenerationRules, "allow-cyberware"))
+    parser.add_argument("--allow-borgware",
                         action=argparse.BooleanOptionalAction,
                         help="If specified, allow borgware. "
-                             "Usually you don't want the regular mooks to use that cool stuff.")
+                             "Usually you don't want the regular mooks to use that cool stuff.",
+                        default=get_default_value(GenerationRules, "allow-borgware"))
+    parser.add_argument("--allow-drugs",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow adding drugs. "
+                             "Drugs may be added or not depending on airhypo generation.",
+                        default=get_default_value(GenerationRules, "allow-drugs"))
+    parser.add_argument("--allow-equipment",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow equipment, such as flashlight and airhypo "
+                             "(cyberware equipment will still be there). ",
+                        default=get_default_value(GenerationRules, "allow-equipment"))
+    parser.add_argument("--allow-money",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow money.",
+                        default=get_default_value(GenerationRules, "allow-money"))
+    parser.add_argument("--allow-junk",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow useless junk for flavor. ",
+                        default=get_default_value(GenerationRules, "allow-junk"))
+    parser.add_argument("--allow-melee-weapon",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow melee weapon "
+                             "(brawling, martial arts and cyberware weapons will still be there).",
+                        default=get_default_value(GenerationRules, "allow-melee-weapon"))
+    parser.add_argument("--allow-ranged-weapon",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow ranged weapon (cyberware weapons will still be there).",
+                        default=get_default_value(GenerationRules, "allow-ranged-weapon"))
+    parser.add_argument("--allow-martial-arts",
+                        action=argparse.BooleanOptionalAction,
+                        help="Is specified, allow martial arts (brawling will still be there).",
+                        default=get_default_value(GenerationRules, "allow-martial-arts"))
 
     return_code = main(parser.parse_args())
     sys.exit(return_code)

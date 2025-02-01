@@ -22,11 +22,11 @@ class ItemWithNames(Item):
 
 def pick_weapon(budget: int,
                 preferred_weapons: Set[str],
-                min_items_quality: ItemQuality,
+                npc_template: NpcTemplate,
                 all_weapons: List[ItemWithNames],
                 npc: Npc) -> Tuple[Optional[Item], int]:
     preferred_qualities: List[ItemQuality]
-    match min_items_quality:
+    match npc_template.rank.min_items_quality:
         case ItemQuality.POOR:
             preferred_qualities = [ItemQuality.POOR, ItemQuality.STANDARD, ItemQuality.EXCELLENT]
         case ItemQuality.STANDARD:
@@ -47,9 +47,20 @@ def pick_weapon(budget: int,
 
     for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         logging.debug(f"\tGenerating, attempt {num_attempt}")
-        preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
 
+        preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
         preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.unique_tags)
+
+        if (not npc_template.generation_rules.allow_melee_weapon
+                and "MeleeWeapon" in preferred_weapon_item.get_all_tags()):
+            logging.debug(f"\t\tallow_melee_weapon=False, skipping")
+            return None, 0
+
+        if (not npc_template.generation_rules.allow_ranged_weapon
+                and "RangedWeapon" in preferred_weapon_item.get_all_tags()):
+            logging.debug(f"\t\tallow_ranged_weapon=False, skipping")
+            return None, 0
+
         for item in npc.get_all_items():
             if "AuxiliaryWeapon" not in item.tags and preferred_weapon_item.contains_any_unique_tag_from(item):
                 logging.debug(f"\t\t{item} already acts like this weapon, skipping")
@@ -139,7 +150,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     primary_weapon, primary_weapon_money_spent = pick_weapon(
         round(total_weapons_budget * 0.8),
         npc_template.role.preferred_primary_weapons,
-        npc_template.rank.min_items_quality,
+        npc_template,
         all_weapons,
         npc)
 
@@ -148,7 +159,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
         primary_weapon, primary_weapon_money_spent = pick_weapon(
             total_weapons_budget,
             npc_template.role.preferred_primary_weapons,
-            npc_template.rank.min_items_quality,
+            npc_template,
             all_weapons,
             npc)
 
@@ -159,7 +170,7 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     secondary_weapon, _ = pick_weapon(
         total_weapons_budget - primary_weapon_money_spent,
         npc_template.role.preferred_secondary_weapons,
-        npc_template.rank.min_items_quality,
+        npc_template,
         all_weapons,
         npc)
 

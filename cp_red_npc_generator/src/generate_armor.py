@@ -42,6 +42,8 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
         logging.debug(f"\tArmor cyberware found: {armor_cyberware})")
         npc.armor.add(armor_cyberware.clone(name=f"Head: {armor_cyberware.name}", price=0))
         npc.armor.add(armor_cyberware.clone(name=f"Body: {armor_cyberware.name}", price=0))
+    elif not npc_template.generation_rules.allow_armor:
+        logging.debug(f"\tallow_armor=False, skipped armor generation")
     else:
         data = load_data("configs/items/armor.json")
 
@@ -85,6 +87,12 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
         else:
             logging.debug(f"\tFailed to add a head armor")
 
+    # if there is a shield (in cyberware or equipment), add it as well
+    shields = [item for item in npc.get_all_items() if "Shield" in item.unique_tags]
+    for shield in shields:
+        logging.debug(f"\tAdded shield: {shield}")
+        npc.armor.add(shield)
+
     if len(npc.armor):
         # erase all the negative modifiers
         all_armor_negative_modifiers: Dict[str, int] = dict()
@@ -105,11 +113,5 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
                               modifiers=armor_with_negative_modifiers.modifiers
                                         + [Modifier(name, value) for name, value in
                                            all_armor_negative_modifiers.items()]))
-
-    # if there is a shield (in cyberware or equipment), add it as well
-    shields = [item for item in npc.get_all_items() if "Shield" in item.unique_tags]
-    for shield in shields:
-        logging.debug(f"\tAdded shield: {shield}")
-        npc.armor.add(shield)
 
     return npc

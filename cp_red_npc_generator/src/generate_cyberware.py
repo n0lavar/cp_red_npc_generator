@@ -72,7 +72,11 @@ def add_cyberware(
         -> Optional[CyberwareGenerationState]:
     logging.debug(left_align(f"Trying to add: {item.name}", depth))
 
-    if item.max_humanity_loss >= 4 and not npc_template.use_borgware:
+    if not npc_template.generation_rules.allow_drugs and "Airhypo" in item.get_all_tags():
+        logging.debug(left_align(f"allow_drugs=False, a cyberware with \"Airhypo\" tag is useless, skipping", depth))
+        return None
+
+    if item.max_humanity_loss >= 4 and not npc_template.generation_rules.allow_borgware:
         logging.debug(left_align(f"The item is a borgware and use_borgware is false", depth))
         return None
 
@@ -237,6 +241,8 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
         data = load_data(str(path))
         all_cyberware += [dataclass_wizard.fromdict(Item, x) for x in data]
 
+    npc.cyberware = InventoryNode(next(cw for cw in all_cyberware if cw.name == "Meatbody"))
+
     cyberware_budget: int = round(npc_template.rank.items_budget[ItemType.CYBERWARE].generate())
     logging.debug(f"\t{cyberware_budget=}")
 
@@ -246,27 +252,28 @@ def generate_cyberware(npc: Npc, npc_template: NpcTemplate) -> Npc:
 
     logging.debug(f"\t{npc_template.role.preferred_cyberware=}")
 
-    npc.cyberware = InventoryNode(next(cw for cw in all_cyberware if cw.name == "Meatbody"))
+    if not npc_template.generation_rules.allow_cyberware:
+        logging.debug(f"\tallow_cyberware=False, cyberware generating skipped")
+    else:
+        state = CyberwareGenerationState(None, npc.cyberware, cyberware_budget, humanity_budget)
+        for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+            logging.debug(f"\n\tGenerating cyberware, attempt {i}")
+            chosen_cyberware: str = choose_exponential_random_element(npc_template.role.preferred_cyberware)
+            chosen_cyberware_item: Item = next(cw for cw in all_cyberware if cw.name == chosen_cyberware)
+            cyberware_adding_result: Optional[CyberwareGenerationState] = add_cyberware(
+                chosen_cyberware_item,
+                replace(state, root=copy.deepcopy(state.root)),
+                npc_template,
+                all_cyberware,
+                npc,
+                1)
 
-    state = CyberwareGenerationState(None, npc.cyberware, cyberware_budget, humanity_budget)
-    for i in range(RANDOM_GENERATING_NUM_ATTEMPTS):
-        logging.debug(f"\n\tGenerating cyberware, attempt {i}")
-        chosen_cyberware: str = choose_exponential_random_element(npc_template.role.preferred_cyberware)
-        chosen_cyberware_item: Item = next(cw for cw in all_cyberware if cw.name == chosen_cyberware)
-        cyberware_adding_result: Optional[CyberwareGenerationState] = add_cyberware(
-            chosen_cyberware_item,
-            replace(state, root=copy.deepcopy(state.root)),
-            npc_template,
-            all_cyberware,
-            npc,
-            1)
+            if cyberware_adding_result:
+                state = cyberware_adding_result
 
-        if cyberware_adding_result:
-            state = cyberware_adding_result
-
-    npc.cyberware = state.root
-    humanity_spent: int = humanity_budget - state.humanity_budget
-    npc.stats[StatType.EMP] = math.floor((npc.stats[StatType.EMP] * 10 - humanity_spent) / 10)
+        npc.cyberware = state.root
+        humanity_spent: int = humanity_budget - state.humanity_budget
+        npc.stats[StatType.EMP] = math.floor((npc.stats[StatType.EMP] * 10 - humanity_spent) / 10)
 
     logging.debug(f"\n")
     logging.debug(f"\tHumanity left: {humanity_budget}")

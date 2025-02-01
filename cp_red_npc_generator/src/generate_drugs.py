@@ -15,7 +15,11 @@ MAX_UNIQUE_DRUG_ITEMS: int = 1
 
 def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating drugs...")
-    if len(list(filter(lambda i: "Airhypo" in i.unique_tags, npc.get_all_items()))):
+    if not npc_template.generation_rules.allow_drugs:
+        logging.debug("\tallow_drugs=False, skipping...")
+    elif len(list(filter(lambda i: "Airhypo" in i.unique_tags, npc.get_all_items()))) == 0:
+        logging.debug("\tThere is no Airhypo, skipping...")
+    else:
         logging.debug("\tFound Airhypo, continuing...")
         data = load_data("configs/items/drugs.json")
 
@@ -56,7 +60,5 @@ def generate_drugs(npc: Npc, npc_template: NpcTemplate) -> Npc:
             logging.debug(f"\t\tMoney left: {drugs_budget}")
 
             num_drugs_items += 1
-    else:
-        logging.debug("\tThere is no Airhypo, skipping...")
 
     return npc

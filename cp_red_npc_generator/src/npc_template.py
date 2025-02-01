@@ -58,7 +58,23 @@ class Role:
 
 
 @dataclass
+class GenerationRules:
+    allow_non_basic_ammo: bool = field(default=True)
+    allow_grenades: bool = field(default=True)
+    allow_armor: bool = field(default=True)
+    allow_cyberware: bool = field(default=True)
+    allow_borgware: bool = field(default=False)
+    allow_drugs: bool = field(default=True)
+    allow_equipment: bool = field(default=True)
+    allow_money: bool = field(default=True)
+    allow_junk: bool = field(default=True)
+    allow_melee_weapon: bool = field(default=True)
+    allow_ranged_weapon: bool = field(default=True)
+    allow_martial_arts: bool = field(default=True)
+
+
+@dataclass
 class NpcTemplate:
     rank: Rank = field(default_factory=Rank)
     role: Role = field(default_factory=Role)
-    use_borgware: bool = field(default=False)
+    generation_rules: GenerationRules = field(default_factory=GenerationRules)

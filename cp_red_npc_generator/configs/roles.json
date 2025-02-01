@@ -365,7 +365,6 @@
             "Anti-Smog Breathing Mask",
             "Bug Detector",
             "Duct Tape",
-            "Bulletproof Shield",
             "Flashlight",
             "Grapple Gun",
             "Airhypo",
@@ -449,7 +448,6 @@
             "Radio Communicator",
             "Medtech Bag",
             "Chemical Analyzer",
-            "Bulletproof Shield",
             "Flashlight",
             "Airhypo",
             "Handcuffs",
@@ -726,6 +724,8 @@
         ],
         "preferred_primary_weapons": [
             "AssaultRifle",
+            "HeavyPistol",
+            "VeryHeavyPistol",
             "SMG",
             "HeavySMG"
         ],

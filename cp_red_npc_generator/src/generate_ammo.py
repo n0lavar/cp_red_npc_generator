@@ -47,8 +47,13 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
     def try_add_ammo(ammo_type: str, ammo_modification: str, amount: int, budget: int) -> int:
         nonlocal data
         nonlocal npc
+        nonlocal npc_template
 
         logging.debug(f"\tTrying to add ammo: {ammo_type=}, {ammo_modification=}, {amount=}")
+
+        if not npc_template.generation_rules.allow_grenades and ammo_type == "Grenades":
+            logging.debug(f"\t\tFailed, allow_grenades=False")
+            return 0
 
         if ammo_modification not in data:
             logging.debug(f"\t\tFailed, unknown modification: {ammo_modification}")
@@ -85,15 +90,19 @@ def generate_ammo(npc: Npc, npc_template: NpcTemplate) -> Npc:
         return price_per_amount
 
     logging.debug(f"Adding preferred ammo...")
-    for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
-        required_ammo_type = list(required_ammo_types.keys())[np.random.choice(len(required_ammo_types))]
-        money_spent: int = try_add_ammo(required_ammo_type,
-                                        choose_exponential_random_element(preferred_ammo_modifications),
-                                        required_ammo_types[required_ammo_type].magazine_size,
-                                        ammo_budget)
-        if money_spent != 0:
-            ammo_budget -= money_spent
-            required_ammo_types[required_ammo_type].ammo_added += required_ammo_types[required_ammo_type].magazine_size
+    if not npc_template.generation_rules.allow_non_basic_ammo:
+        logging.debug(f"allow_non_basic_ammo=False, skipped")
+    else:
+        for _ in range(RANDOM_GENERATING_NUM_ATTEMPTS):
+            required_ammo_type = list(required_ammo_types.keys())[np.random.choice(len(required_ammo_types))]
+            money_spent: int = try_add_ammo(required_ammo_type,
+                                            choose_exponential_random_element(preferred_ammo_modifications),
+                                            required_ammo_types[required_ammo_type].magazine_size,
+                                            ammo_budget)
+            if money_spent != 0:
+                ammo_budget -= money_spent
+                required_ammo_types[required_ammo_type].ammo_added += required_ammo_types[
+                    required_ammo_type].magazine_size
 
     logging.debug(f"Adding basic ammo...")
     for required_ammo_type_name, required_ammo_type_data in required_ammo_types.items():
