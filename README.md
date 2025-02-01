@@ -3,10 +3,7 @@
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
-
-<a href="https://buymeacoffee.com/n0lavar" target="_blank" title="buymeacoffee">
-  <img src="https://iili.io/JIYMmUN.gif"  alt="buymeacoffee-animated-badge" style="width: 160px;">
-</a>
+[![Donate](https://img.shields.io/badge/Donate-8A2BE2)](https://revolut.me/n0lavar)
 
 ## Info
 
@@ -93,16 +90,27 @@ arguments will generate a solo with a captain rank.
 
 ```
 usage: cp_red_npc_generator.exe 
-    [-h] 
-    [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}]
-    [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
-    [--seed SEED] [--flat | --no-flat]
-    [--log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
-    [--use-borgware | --no-use-borgware]
+               [-h]
+               [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general,0,1,2,3,4,5,6}]
+               [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
+               [--seed SEED] [--flat | --no-flat]
+               [--log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+               [--allow-non-basic-ammo | --no-allow-non-basic-ammo]
+               [--allow-grenades | --no-allow-grenades]
+               [--allow-armor | --no-allow-armor]
+               [--allow-cyberware | --no-allow-cyberware]
+               [--allow-borgware | --no-allow-borgware]
+               [--allow-drugs | --no-allow-drugs]
+               [--allow-equipment | --no-allow-equipment]
+               [--allow-money | --no-allow-money]
+               [--allow-junk | --no-allow-junk]
+               [--allow-melee-weapon | --no-allow-melee-weapon]
+               [--allow-ranged-weapon | --no-allow-ranged-weapon]
+               [--allow-martial-arts | --no-allow-martial-arts]
 
 options:
   -h, --help            show this help message and exit
-  --rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general}
+  --rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general,0,1,2,3,4,5,6}
                         A measure of the development of a given NPC, where
                         private is an unskilled and unknown newcomer, and
                         general is a world-class character. Rank determines
@@ -121,9 +129,38 @@ options:
                         and copy-pasting, but takes much more space.
   --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
                         Logging level. Default is INFO.
-  --use-borgware, --no-use-borgware
+  --allow-non-basic-ammo, --no-allow-non-basic-ammo
+                        Is specified, allow non-basic ammo, such as armor
+                        piercing and expansive.
+  --allow-grenades, --no-allow-grenades
+                        Is specified, allow grenades
+  --allow-armor, --no-allow-armor
+                        Is specified, allow armor items (cyberware armor will
+                        still be there).
+  --allow-cyberware, --no-allow-cyberware
+                        Is specified, allow cyberware.
+  --allow-borgware, --no-allow-borgware
                         If specified, allow borgware. Usually you don't want
                         the regular mooks to use that cool stuff.
+  --allow-drugs, --no-allow-drugs
+                        Is specified, allow adding drugs. Drugs may be added
+                        or not depending on airhypo generation.
+  --allow-equipment, --no-allow-equipment
+                        Is specified, allow equipment, such as flashlight and
+                        airhypo (cyberware equipment will still be there).
+  --allow-money, --no-allow-money
+                        Is specified, allow money.
+  --allow-junk, --no-allow-junk
+                        Is specified, allow useless junk for flavor.
+  --allow-melee-weapon, --no-allow-melee-weapon
+                        Is specified, allow melee weapon (brawling, martial
+                        arts and cyberware weapons will still be there).
+  --allow-ranged-weapon, --no-allow-ranged-weapon
+                        Is specified, allow ranged weapon (cyberware weapons
+                        will still be there).
+  --allow-martial-arts, --no-allow-martial-arts
+                        Is specified, allow martial arts (brawling will still
+                        be there).
 ```
 
 ## Examples of input and output data
