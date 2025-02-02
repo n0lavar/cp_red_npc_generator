@@ -562,7 +562,7 @@
             "RangedWeapon",
             "AuxiliaryWeapon"
         ],
-        "damage": "4d6",
+        "damage": "5d6",
         "rate_of_fire": 1,
         "magazine": 2,
         "ammo_types": [
