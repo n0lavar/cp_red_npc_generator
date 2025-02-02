@@ -46,6 +46,12 @@
         "name": "Cybersnake",
         "type": "cyberware",
         "price": 1000,
+        "unique_tags": [
+            "VeryHeavyMeleeWeapon",
+            "MeleeWeapon"
+        ],
+        "damage": "4d6",
+        "rate_of_fire": 1,
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -57,6 +63,9 @@
         "name": "Gills",
         "type": "cyberware",
         "price": 1000,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -88,6 +97,9 @@
         "name": "Independent Air Supply",
         "type": "cyberware",
         "price": 1000,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AirProtection"
         ],
@@ -102,6 +114,12 @@
         "name": "Midnight Lady™ Sexual Implant",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
+        "unique_tags": [
+            "SexualImplant"
+        ],
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -113,6 +131,12 @@
         "name": "Mr. Studd™ Sexual Implant",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
+        "unique_tags": [
+            "SexualImplant"
+        ],
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -166,6 +190,13 @@
         "name": "Vampyres",
         "type": "cyberware",
         "price": 500,
+        "unique_tags": [
+            "LightMeleeWeapon",
+            "MeleeWeapon"
+        ],
+        "quality": "excellent",
+        "damage": "1d6",
+        "rate_of_fire": 2,
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -199,6 +230,9 @@
         "name": "Trauma Response Nanomatrix",
         "type": "cyberware",
         "price": 1000,
+        "tags": [
+            "Action"
+        ],
         "required_containers": [
             "Internal Cyberware"
         ],
@@ -213,6 +247,9 @@
         "name": "Appetite Controller",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Internal Cyberware"
         ],

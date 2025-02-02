@@ -15,6 +15,9 @@
         "name": "Grip Foot",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberleg"
         ],
@@ -27,6 +30,9 @@
         "name": "Jump Booster",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberleg"
         ],
@@ -39,6 +45,9 @@
         "name": "Skate Foot",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberleg"
         ],
@@ -55,6 +64,8 @@
             "LightMeleeWeapon",
             "MeleeWeapon"
         ],
+        "damage": "1d6",
+        "rate_of_fire": 2,
         "required_containers": [
             "Cyberleg",
             "Hips"
@@ -67,6 +78,9 @@
         "name": "Web Foot",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberleg"
         ],

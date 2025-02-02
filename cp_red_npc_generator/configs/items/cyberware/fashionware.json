@@ -105,6 +105,9 @@
         "name": "Mood Eye",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Fashionware"
         ],

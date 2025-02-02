@@ -70,6 +70,8 @@ def main(args) -> int:
 
     # print the args you can use to receive exactly the same result
     args_dict = dict(vars(args))
+    for key, value in args_dict.copy().items():
+        args_dict[key.replace("_", "-")] = args_dict.pop(key)
     args_dict["seed"] = seed
     logging.info(f"\n{args_to_str(args_dict)}")
 

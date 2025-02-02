@@ -15,6 +15,9 @@
         "name": "Braindance Recorder",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AudioRecorder",
             "VideoCamera"
@@ -83,6 +86,9 @@
         "name": "Sandevistan",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Action"
+        ],
         "unique_tags": [
             "Speedware"
         ],
@@ -103,6 +109,9 @@
         "name": "Chemical Analyzer",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "ChemicalAnalyzer"
         ],
@@ -118,6 +127,9 @@
         "name": "Olfactory Boost",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
@@ -142,6 +154,9 @@
         "name": "Tactile Boost",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Chipware Socket",
             "Budget Chipware Socket"
@@ -154,6 +169,9 @@
         "name": "Explicit Memory Stimulator",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "modifiers": [
             {
                 "name": "Concentration",

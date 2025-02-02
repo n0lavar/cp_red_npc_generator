@@ -2,51 +2,81 @@
     {
         "name": "Black Lace",
         "type": "drug",
-        "price": 50
+        "price": 50,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Blue Glass",
         "type": "drug",
-        "price": 20
+        "price": 20,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Boost",
         "type": "drug",
-        "price": 50
+        "price": 50,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Smash",
         "type": "drug",
-        "price": 10
+        "price": 10,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Synthcoke",
         "type": "drug",
-        "price": 20
+        "price": 20,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Berserker",
         "type": "drug",
-        "price": 100
+        "price": 100,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Prime Time",
         "type": "drug",
-        "price": 50
+        "price": 50,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Sixgun",
         "type": "drug",
-        "price": 100
+        "price": 100,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Timewarp",
         "type": "drug",
-        "price": 100
+        "price": 100,
+        "tags": [
+            "Action"
+        ]
     },
     {
         "name": "Piranha Smash",
         "type": "drug",
-        "price": 10
+        "price": 10,
+        "tags": [
+            "Action"
+        ]
     }
 ]

@@ -46,6 +46,9 @@
         "name": "Audio Recorder",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AudioRecorder"
         ],
@@ -62,6 +65,9 @@
         "name": "Bug Detector",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "BugDetector"
         ],
@@ -78,6 +84,9 @@
         "name": "Homing Tracer",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "HomingTracer"
         ],
@@ -177,6 +186,9 @@
         "name": "Radio Communicator",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadioCommunicator"
         ],
@@ -193,6 +205,9 @@
         "name": "Radio Scanner / Music Player",
         "type": "cyberware",
         "price": 50,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadioScannerMusicPlayer"
         ],
@@ -209,6 +224,9 @@
         "name": "Radar Detector",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadarDetector"
         ],
@@ -225,6 +243,9 @@
         "name": "Scrambler / Descrambler",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "ScramblerDescrambler"
         ],

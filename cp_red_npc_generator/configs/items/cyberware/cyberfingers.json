@@ -43,6 +43,9 @@
         "name": "Ballpoint Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -88,6 +91,9 @@
         "name": "Flashlight Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Flashlight"
         ],
@@ -103,6 +109,9 @@
         "name": "Homing Tracer Cyberfinger",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "HomingTracer"
         ],
@@ -118,6 +127,9 @@
         "name": "Laser Pointer Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -129,6 +141,9 @@
         "name": "Lighter Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -141,6 +156,9 @@
         "name": "Lockpick Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Lockpick"
         ],
@@ -156,6 +174,9 @@
         "name": "Microphone Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AudioRecorder"
         ],
@@ -171,6 +192,9 @@
         "name": "Mini Air Supply Cyberfinger",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AirProtection"
         ],
@@ -210,6 +234,9 @@
         "name": "Spray Paint Cyber Finger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -222,6 +249,9 @@
         "name": "Squirt Cyberfinger",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"
@@ -245,6 +275,9 @@
         "name": "Wirecutter/Scissor Cyberfingers",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Dynalar Modular Finger Enthusiast Cyberhand",
             "Modular Finger Cyberhand"

@@ -85,13 +85,13 @@ class Npc:
         total_price = sum([x.price for x in all_items])
         npc_str += f"Has items total worth of {total_price}\n\n"
 
-        stats_conditions_table_view = TableView(1 if flat else 2)
+        stats_conditions_table_view = TableView(1 if flat else 4)
 
         conditions_rows: List[str] = list()
 
         max_hp = 10 + (5 * math.ceil(
             0.5 * (stats_modifiers[StatType.BODY].get_total() + stats_modifiers[StatType.WILL].get_total())))
-        temp_str = f"\tHP: {max_hp}/{max_hp} (Seriously Wounded: "
+        temp_str = f"    HP: {max_hp}/{max_hp} (Seriously Wounded: "
         if next((True for cw in self.cyberware if cw.item.name == "Pain Editor"), None):
             temp_str += f"No, Pain Editor"
         else:
@@ -99,14 +99,14 @@ class Npc:
         temp_str += ")"
         conditions_rows.append(temp_str)
 
-        temp_str = f"\tTraumaTeam status: {self.trauma_team_status.name}"
+        temp_str = f"    TraumaTeam status: {self.trauma_team_status.name}"
         conditions_rows.append(temp_str)
 
         can_evade_bullets_ref: bool = stats_modifiers[StatType.REF].get_total() >= 8
         can_evade_bullets_co_proc_ref: bool = bool(next(
             (cw for cw in self.cyberware if cw.item.name == "Reflex Co-Processor"), None))
         can_evade_bullets: bool = can_evade_bullets_ref or can_evade_bullets_co_proc_ref
-        temp_str = f"\tCan evade bullets: {can_evade_bullets}"
+        temp_str = f"    Can evade bullets: {can_evade_bullets}"
         if can_evade_bullets:
             temp_str += f" ("
             if can_evade_bullets_ref:
@@ -117,25 +117,25 @@ class Npc:
         conditions_rows.append(temp_str)
 
         item_allowing_see_in_dark_smoke = next((i for i in all_items if "ImprovedVision" in i.unique_tags), None)
-        temp_str = f"\tNo intangible obscurement penalties: {item_allowing_see_in_dark_smoke is not None}"
+        temp_str = f"    No intangible obscurement penalties: {item_allowing_see_in_dark_smoke is not None}"
         if item_allowing_see_in_dark_smoke:
             temp_str += f" ({item_allowing_see_in_dark_smoke.name})"
         conditions_rows.append(temp_str)
 
         item_light_flashes_protection = next((i for i in all_items if "LightFlashesProtection" in i.unique_tags), None)
-        temp_str = f"\tHas flashes of light protection: {item_light_flashes_protection is not None}"
+        temp_str = f"    Has flashes of light protection: {item_light_flashes_protection is not None}"
         if item_light_flashes_protection:
             temp_str += f" ({item_light_flashes_protection.name})"
         conditions_rows.append(temp_str)
 
         item_ears_protection = next((i for i in all_items if "EarsProtection" in i.unique_tags), None)
-        temp_str = f"\tHas ears protection: {item_ears_protection is not None}"
+        temp_str = f"    Has ears protection: {item_ears_protection is not None}"
         if item_ears_protection:
             temp_str += f" ({item_ears_protection.name})"
         conditions_rows.append(temp_str)
 
         item_air_protection = next((i for i in all_items if "AirProtection" in i.unique_tags), None)
-        temp_str = f"\tHas breath protection: {item_air_protection is not None}"
+        temp_str = f"    Has breath protection: {item_air_protection is not None}"
         if item_air_protection:
             temp_str += f" ({item_air_protection.name})"
         conditions_rows.append(temp_str)
@@ -145,7 +145,7 @@ class Npc:
         stats_rows: List[str] = list()
         for stat in self.stats.keys():
             stat_value: StatSkillValue = stats_modifiers[stat]
-            temp_str = f"\t[{stat_value.value}"
+            temp_str = f"    [{stat_value.value}"
             for stat_modifier in stat_value.modifiers:
                 temp_str += f"{stat_modifier.value:+}({stat_modifier.item_name})"
             if stat_value.total_modifier != 0:
@@ -153,6 +153,12 @@ class Npc:
             temp_str += f"] {stat.name}"
             stats_rows.append(temp_str)
         stats_conditions_table_view.add(stats_rows, "Stats:", 0)
+
+        actions_rows: List[str] = [f"    {x.name}" for x in all_items if "Action" in x.get_all_tags()]
+        stats_conditions_table_view.add(actions_rows, "Actions:", 2)
+
+        abilities_rows: List[str] = [f"    {x.name}" for x in all_items if "Ability" in x.get_all_tags()]
+        stats_conditions_table_view.add(abilities_rows, "Abilities:", 3)
 
         npc_str += str(stats_conditions_table_view)
         npc_str += "\n"

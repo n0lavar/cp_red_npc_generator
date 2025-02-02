@@ -33,6 +33,9 @@
         "name": "Audio Recorder",
         "type": "equipment",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "AudioRecorder"
         ]
@@ -49,6 +52,9 @@
         "name": "Binoculars",
         "type": "equipment",
         "price": 50,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Telescope"
         ]
@@ -56,12 +62,18 @@
     {
         "name": "Braindance Viewer",
         "type": "equipment",
-        "price": 1000
+        "price": 1000,
+        "tags": [
+            "Ability"
+        ]
     },
     {
         "name": "Bug Detector",
         "type": "equipment",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "BugDetector"
         ]
@@ -78,6 +90,9 @@
         "name": "Chemical Analyzer",
         "type": "equipment",
         "price": 1000,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "ChemicalAnalyzer"
         ]
@@ -108,12 +123,18 @@
     {
         "name": "Music Instrument",
         "type": "equipment",
-        "price": 500
+        "price": 500,
+        "tags": [
+            "Ability"
+        ]
     },
     {
         "name": "Flashlight",
         "type": "equipment",
         "price": 20,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Flashlight"
         ]
@@ -121,17 +142,26 @@
     {
         "name": "Grapple Gun",
         "type": "equipment",
-        "price": 100
+        "price": 100,
+        "tags": [
+            "Ability"
+        ]
     },
     {
         "name": "Handcuffs",
         "type": "equipment",
-        "price": 50
+        "price": 50,
+        "tags": [
+            "Ability"
+        ]
     },
     {
         "name": "Homing Tracer",
         "type": "equipment",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "HomingTracer"
         ]
@@ -140,6 +170,9 @@
         "name": "Inflatable Bed & Sleep-bag",
         "type": "equipment",
         "price": 20,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "SleepingPlace"
         ]
@@ -148,6 +181,9 @@
         "name": "Lock Picking Set",
         "type": "equipment",
         "price": 20,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Lockpick"
         ]
@@ -192,6 +228,9 @@
         "name": "Radar Detector",
         "type": "equipment",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadarDetector"
         ]
@@ -205,6 +244,9 @@
         "name": "Radio Communicator",
         "type": "equipment",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadioCommunicator"
         ]
@@ -213,6 +255,9 @@
         "name": "Radio Scanner / Music Player",
         "type": "equipment",
         "price": 50,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "RadioScannerMusicPlayer"
         ]
@@ -226,6 +271,9 @@
         "name": "Scrambler / Descrambler",
         "type": "equipment",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "ScramblerDescrambler"
         ]
@@ -297,6 +345,9 @@
         "name": "Techtool",
         "type": "equipment",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Techtool"
         ]
@@ -305,6 +356,9 @@
         "name": "Tent and Camping Equipment",
         "type": "equipment",
         "price": 50,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "SleepingPlace"
         ]
@@ -313,6 +367,9 @@
         "name": "Video Camera",
         "type": "equipment",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "VideoCamera"
         ]

@@ -64,6 +64,9 @@
         "name": "Grapple Hand",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Action"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -179,6 +182,9 @@
         "name": "Popup Shield",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Action"
+        ],
         "unique_tags": [
             "Shield"
         ],
@@ -295,6 +301,9 @@
         "name": "Quick Change Mount",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Action"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -344,6 +353,9 @@
         "name": "Shoulder Cam",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "VideoCamera"
         ],
@@ -448,6 +460,9 @@
         "name": "Tool Hand",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Techtool"
         ],
@@ -483,6 +498,9 @@
         "name": "Flashbulb",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Action"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -563,6 +581,9 @@
         "name": "Cyberscanner, Integrated",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -575,6 +596,9 @@
         "name": "Cyberpillow",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -586,6 +610,9 @@
         "name": "Holo Projector Palm",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",
@@ -599,6 +626,9 @@
         "name": "PersonalPak KibbleWarmer",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -611,6 +641,9 @@
         "name": "Pursuit Security Inc. Personal Shredder",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm"
@@ -641,6 +674,9 @@
         "name": "Cybermatrix Gang Jazzler",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Action"
+        ],
         "required_containers": [
             "Cyberarm",
             "Neo-Soviet Cyberarm",

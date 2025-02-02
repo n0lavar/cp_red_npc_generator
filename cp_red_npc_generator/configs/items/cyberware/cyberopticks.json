@@ -147,6 +147,9 @@
         "name": "MicroOptics",
         "type": "cyberware",
         "price": 100,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -161,6 +164,9 @@
         "name": "MicroVideo",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "VideoCamera"
         ],
@@ -178,6 +184,9 @@
         "name": "Radiation Detector",
         "type": "cyberware",
         "price": 1000,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -192,6 +201,9 @@
         "name": "Targeting Scope",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "required_containers": [
             "Cyclops International Bug Eye",
             "Kiroshi MonoVision",
@@ -206,6 +218,9 @@
         "name": "TeleOptics",
         "type": "cyberware",
         "price": 500,
+        "tags": [
+            "Ability"
+        ],
         "unique_tags": [
             "Telescope"
         ],
