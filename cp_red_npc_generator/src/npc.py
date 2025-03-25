@@ -208,23 +208,32 @@ class Npc:
                 weapon_skills_data: Dict[str, str] = load_data("configs/weapon_skills.json")
 
                 def add_skill_value(weapon: Item) -> Item:
+                    weapon_tags = weapon.get_all_tags()
                     skill_name: Optional[str] = None
                     if weapon.skill:
                         skill_name = weapon.skill
                     else:
-                        for tag in weapon.get_all_tags():
+                        for tag in weapon_tags:
                             if tag in weapon_skills_data.keys():
                                 skill_name = weapon_skills_data[tag]
                                 break
 
                     assert skill_name
                     skill_value: int = self.get_skill_total_value(skill_name)
+
+                    additional_skill_value: Optional[int] = None
+                    if "SMG" in weapon_tags or "HeavySMG" in weapon_tags or "AssaultRifle" in weapon_tags:
+                        additional_skill_value = self.get_skill_total_value("Autofire")
+
                     if weapon.quality == ItemQuality.EXCELLENT:
                         skill_value += 1
 
-                    return replace(
-                        weapon,
-                        name=f"[{skill_value}] {weapon.name}")
+                    if not additional_skill_value:
+                        new_name: str = f"[{skill_value}] {weapon.name}"
+                    else:
+                        new_name: str = f"[{skill_value}(S)/{additional_skill_value}(A)] {weapon.name}"
+                        
+                    return replace(weapon, name=new_name)
 
                 sorted_melee_weapon = sorted(
                     [add_skill_value(x) for x in self.weapons if "MeleeWeapon" in x.get_all_tags()],
