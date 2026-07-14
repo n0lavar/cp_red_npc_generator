@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import math
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 from result import Ok, Err
 
@@ -14,6 +14,12 @@ from utils import left_align, get_allowed_items
 class InventoryNode:
     item: Item = field(default=Item)
     children: List = field(default_factory=list)
+
+    def to_dict_foundry_vvt(self) -> Dict[str, Any]:
+        return {
+            "item": self.item.to_dict_foundry_vvt(),
+            "children": [child.to_dict_foundry_vvt() for child in self.children],
+        }
 
     def can_add_child(self,
                       child: Item,

@@ -3,7 +3,7 @@
 
 import logging
 from dataclasses import dataclass, field
-from typing import List
+from typing import Any, Dict, List
 
 
 @dataclass
@@ -15,6 +15,9 @@ class Modifier:
 
     # lines of Python code that should set `new_modifier` value
     complicated: List[str] = field(default_factory=list)
+
+    def to_dict_foundry_vvt(self) -> Dict[str, Any]:
+        return {"name": self.name, "simple": self.simple, "complicated": self.complicated}
 
     def apply(self, source: str, name: str, start_value: int, current_modifier: int) -> int:
         new_modifier: int = current_modifier
@@ -39,3 +42,6 @@ class Modifier:
 class ModifierSource:
     item_name: str
     value: int = 0
+
+    def to_dict_foundry_vvt(self) -> Dict[str, Any]:
+        return {"item_name": self.item_name, "value": self.value}

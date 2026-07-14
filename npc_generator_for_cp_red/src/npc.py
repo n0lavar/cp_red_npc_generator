@@ -5,7 +5,7 @@ import copy
 import logging
 import math
 from functools import cmp_to_key
-from typing import Dict, List, Tuple, Set, Optional
+from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
 from npc_generator_for_cp_red.src.utils import load_data
@@ -26,6 +26,21 @@ class Npc:
     weapons: Set[Item] = field(default_factory=set)
     inventory: Dict[Item, int] = field(default_factory=dict)
     trauma_team_status: TraumaTeamStatusType = field(default=TraumaTeamStatusType.NONE)
+
+    def to_dict_foundry_vvt(self) -> Dict[str, Any]:
+        return {
+            "stats": {stat.name: value for stat, value in self.stats.items()},
+            "skills": {skill.name: value for skill, value in self.skills.items()},
+            "cyberware": self.cyberware.to_dict_foundry_vvt() if self.cyberware is not None else None,
+            "armor": [item.to_dict_foundry_vvt() for item in sorted(self.armor, key=lambda item: item.name)],
+            "weapons": [item.to_dict_foundry_vvt() for item in sorted(self.weapons, key=lambda item: item.name)],
+            "inventory": [
+                {
+                    "item": item.to_dict_foundry_vvt(),
+                    "amount": amount
+                } for item, amount in sorted(self.inventory.items(), key=lambda entry: entry[0].name)],
+            "trauma_team_status": self.trauma_team_status.name
+        }
 
     def get_all_items(self) -> List[Item]:
         equipped_items: List[Item] = copy.deepcopy(self.cyberware.get_all_items())
@@ -232,7 +247,7 @@ class Npc:
                         new_name: str = f"[{skill_value}] {weapon.name}"
                     else:
                         new_name: str = f"[{skill_value}(S)/{additional_skill_value}(A)] {weapon.name}"
-                        
+
                     return replace(weapon, name=new_name)
 
                 sorted_melee_weapon = sorted(

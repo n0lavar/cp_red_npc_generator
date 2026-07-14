@@ -3,6 +3,7 @@
 
 import argparse
 import dataclass_wizard
+import json
 import logging
 import time
 import sys
@@ -52,9 +53,10 @@ def create_and_parse_args(ranks, roles) -> argparse.Namespace:
                         action=argparse.BooleanOptionalAction,
                         help="If specified, don't use columns. "
                              "Easier for editing and copy-pasting, but takes much more space.")
-    parser.add_argument("--json",
+    parser.add_argument("--foundry-json",
                         action=argparse.BooleanOptionalAction,
-                        help="If specified, output results in JSON format in stdout.")
+                        help="If specified, output results in JSON format that is suitable for Foundry VVT.",
+                        default=False)
     parser.add_argument("--log-level",
                         type=str,
                         help="Logging level. Default is INFO.",
@@ -161,7 +163,7 @@ def main() -> int:
     # generation process, there are a lot of log lines with DEBUG level
     npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules))
 
-    if not args.json:
+    if not args.foundry_json:
         # usually you have multiple npcs in one file and it's convenient to split them visually
         logging.info(
             f"<=================================================================================================>")
@@ -177,7 +179,7 @@ def main() -> int:
         npc_str: str = npc.to_string(args.flat)
         logging.info(npc_str)
     else:
-        print()
+        print(json.dumps(npc.to_dict_foundry_vvt(), ensure_ascii=False, indent=2))
 
     return 0
 

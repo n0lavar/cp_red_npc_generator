@@ -3,7 +3,7 @@
 
 import uuid
 import time
-from typing import List, Optional, Set
+from typing import Any, Dict, List, Optional, Set
 from dataclasses import dataclass, field, replace
 from enum import StrEnum, auto
 
@@ -66,6 +66,12 @@ class Item:
     paired_container: bool = field(default=False, compare=False)
     required_cyberware: List[str] = field(default_factory=list, compare=False)
     required_condition: List[str] = field(default_factory=list, compare=False)  # Python code
+
+    def to_dict_foundry_vvt(self) -> Dict[str, Any]:
+        return {
+            "name": self.name,
+            "quality": getattr(self.quality, "value", self.quality)
+        }
 
     def clone(self, *args, **kwargs):
         return replace(self, id=str(uuid.uuid4()), creation_time=int(time.time_ns()), *args, **kwargs)

@@ -25,7 +25,7 @@ def is_debugger_active() -> bool:
 
 
 def setup_logging(args: argparse.Namespace):
-    if args.json:
+    if args.foundry_json:
         logging.disable(logging.CRITICAL)
     else:
         logging.basicConfig(level=logging.DEBUG if is_debugger_active() else logging.getLevelName(args.log_level),

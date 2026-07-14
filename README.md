@@ -2,9 +2,12 @@
 
 An unofficial generator for use with Cyberpunk RED.
 
-[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
 [![PEP8](https://img.shields.io/badge/code%20style-pep8-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+![lines](https://sloc.xyz/github/n0lavar/cp_red_npc_generator?category=code)
+![lines](https://sloc.xyz/github/n0lavar/cp_red_npc_generator?category=comments)
+![lines](https://sloc.xyz/github/n0lavar/cp_red_npc_generator?category=effort)
+[![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 [![Patreon](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/cw/n0lavar)
 

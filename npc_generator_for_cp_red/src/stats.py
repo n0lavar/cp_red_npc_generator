@@ -3,7 +3,7 @@
 
 from dataclasses import dataclass, field
 from enum import StrEnum, auto, Enum
-from typing import List
+from typing import Dict, List
 
 from modifier import ModifierSource
 
@@ -48,6 +48,9 @@ class Skill:
     name: str = "Empty skill"
     link: StatType = StatType.INT
     type: SkillType = SkillType.EDUCATION
+
+    def to_dict_foundry_vvt(self) -> Dict[str, str]:
+        return {"name": self.name}
 
     def to_string(self, linked_stat_value: StatSkillValue, skill_value: StatSkillValue) -> str:
         result: str = "["

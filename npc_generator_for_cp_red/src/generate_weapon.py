@@ -5,13 +5,13 @@ import copy
 import logging
 import dataclass_wizard
 import numpy as np
-from typing import List, Optional, Set, Tuple, Dict
+from typing import List, Optional, Set, Tuple
 from dataclasses import dataclass, field, replace
 
 from item import Item, ItemType, ItemQuality, PriceCategory
 from npc import Npc
 from npc_template import NpcTemplate
-from stats import StatType, SkillType
+from stats import StatType
 from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS
 
 
