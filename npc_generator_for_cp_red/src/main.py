@@ -5,15 +5,14 @@ import argparse
 import dataclass_wizard
 import json
 import logging
-import time
 import sys
-import numpy as np
 
 from pathlib import Path
 
 from generate_trauma_team_status import generate_trauma_team_status
+from generate_description import generate_description, choose_nationality, NATIONALITIES
 from logger import setup_logging
-from utils import args_to_str, get_default_value
+from utils import args_to_str, get_default_value, setup_random
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
 from generate_cyberware import generate_cyberware
@@ -66,6 +65,12 @@ def create_and_parse_args(ranks, roles) -> argparse.Namespace:
                         help="A number for a random engine. The same seed will always give the same result when "
                              "the other arguments are unchanged. The default is 0, which means \"use unix epoch\".",
                         default=0)
+    parser.add_argument("--nationality",
+                        type=str,
+                        help="Faker locale used to generate the NPC name, e.g. ru_RU or en_US. "
+                             "If omitted, a random nationality is used.",
+                        choices=NATIONALITIES,
+                        default=None)
     parser.add_argument("--flat",
                         action=argparse.BooleanOptionalAction,
                         help="If specified, don't use columns. "
@@ -149,6 +154,7 @@ def create_npc(npc_template: NpcTemplate) -> Npc:
     logging.debug(f"\tgeneration_rules: {npc_template.generation_rules}")
 
     npc = Npc()
+    npc = generate_description(npc, npc_template)
     npc = generate_stats_and_skills(npc, npc_template)
     npc = generate_cyberware(npc, npc_template)
     npc = generate_weapon(npc, npc_template)
@@ -167,13 +173,9 @@ def main() -> int:
     args: argparse.Namespace = create_and_parse_args(ranks, roles)
 
     setup_logging(args)
-
-    seed: int = 0
-    if args.seed != 0:
-        seed = args.seed
-    else:
-        seed = int(time.time_ns() % 1e9)
-    np.random.seed(seed)
+    seed: int = setup_random(args)
+    
+    args.nationality = args.nationality or choose_nationality()
 
     if args.rank.isnumeric():
         rank_json = ranks[int(args.rank)]
@@ -185,7 +187,7 @@ def main() -> int:
     generation_rules: GenerationRules = dataclass_wizard.fromdict(GenerationRules, vars(args))
 
     # generation process, there are a lot of log lines with DEBUG level
-    npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules))
+    npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules, args.nationality))
 
     if not args.foundry_json:
         # usually you have multiple npcs in one file and it's convenient to split them visually

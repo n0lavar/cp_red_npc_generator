@@ -2,6 +2,7 @@
   "rank": "captain",
   "role": "solo",
   "seed": 0,
+  "nationality": null,
   "flat": null,
   "foundry-json": false,
   "log-level": "INFO",

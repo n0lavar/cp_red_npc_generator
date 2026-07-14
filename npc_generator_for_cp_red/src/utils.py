@@ -1,9 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
+import argparse
 import builtins
 import json
 import math
+import time
 import types
 import dataclasses
 from typing import List
@@ -80,3 +81,12 @@ def get_default_value(cls, field_name: str):
             if f.default_factory is not dataclasses.MISSING:  # Handle default_factory
                 return f.default_factory()
     return None
+
+
+def setup_random(args: argparse.Namespace) -> int:
+    if args.seed != 0:
+        seed: int = args.seed
+    else:
+        seed: int = int(time.time_ns() % 1e9)
+    np.random.seed(seed)
+    return seed

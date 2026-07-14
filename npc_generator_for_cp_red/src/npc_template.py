@@ -78,3 +78,4 @@ class NpcTemplate:
     rank: Rank = field(default_factory=Rank)
     role: Role = field(default_factory=Role)
     generation_rules: GenerationRules = field(default_factory=GenerationRules)
+    nationality: str = None

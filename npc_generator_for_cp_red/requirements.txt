@@ -3,3 +3,5 @@ dataclass_wizard
 numpy
 result
 tzdata
+Faker
+Unidecode
