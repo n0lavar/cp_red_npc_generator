@@ -1,0 +1,20 @@
+{
+  "rank": "captain",
+  "role": "solo",
+  "seed": 0,
+  "flat": null,
+  "foundry-json": false,
+  "log-level": "INFO",
+  "allow-non-basic-ammo": true,
+  "allow-grenades": true,
+  "allow-armor": true,
+  "allow-cyberware": true,
+  "allow-borgware": false,
+  "allow-drugs": true,
+  "allow-equipment": true,
+  "allow-money": true,
+  "allow-junk": true,
+  "allow-melee-weapon": true,
+  "allow-ranged-weapon": true,
+  "allow-martial-arts": true
+}

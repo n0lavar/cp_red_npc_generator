@@ -9,6 +9,8 @@ import time
 import sys
 import numpy as np
 
+from pathlib import Path
+
 from generate_trauma_team_status import generate_trauma_team_status
 from logger import setup_logging
 from utils import args_to_str, get_default_value
@@ -22,6 +24,21 @@ from generate_stats import generate_stats_and_skills
 from generate_weapon import generate_weapon
 from npc import Npc
 from npc_template import NpcTemplate, Rank, Role, GenerationRules
+
+
+def load_settings() -> dict:
+    base_path = Path.cwd()
+    settings_path = base_path / "settings.json"
+    if not settings_path.exists():
+        return {}
+
+    with settings_path.open(encoding="utf-8") as settings_file:
+        settings = json.load(settings_file)
+
+    if not isinstance(settings, dict):
+        raise ValueError(f"{settings_path} must contain a JSON object")
+
+    return {key.replace("-", "_"): value for key, value in settings.items()}
 
 
 def create_and_parse_args(ranks, roles) -> argparse.Namespace:
@@ -114,6 +131,13 @@ def create_and_parse_args(ranks, roles) -> argparse.Namespace:
                         action=argparse.BooleanOptionalAction,
                         help="Is specified, allow martial arts (brawling will still be there).",
                         default=get_default_value(GenerationRules, "allow-martial-arts"))
+
+    known_arguments = {action.dest for action in parser._actions}
+    settings = load_settings()
+    unknown_settings = settings.keys() - known_arguments
+    if unknown_settings:
+        parser.error(f"unknown settings: {', '.join(sorted(unknown_settings))}")
+    parser.set_defaults(**settings)
 
     return parser.parse_args()
 
