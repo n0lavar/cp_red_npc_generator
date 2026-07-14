@@ -8,7 +8,7 @@ from functools import cmp_to_key
 from typing import Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
-from cp_red_npc_generator.src.utils import load_data
+from npc_generator_for_cp_red.src.utils import load_data
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode

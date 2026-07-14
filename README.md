@@ -81,16 +81,16 @@ You may be a netrunner and not need such explanations, but not everyone here kno
 This is a console application, which means that you need to do the following to get a sensible result:
 
 1. On the right side of the github page there is a releases section, open the last one.
-2. Download `cp_red_npc_generator.zip`, unzip it anywhere you want.
-3. Open Explorer where the `cp_red_npc_generator.exe` file is, type "cmd" in the address bar and press Enter.
+2. Download `npc_generator_for_cp_red.zip`, unzip it anywhere you want.
+3. Open Explorer where the `npc_generator_for_cp_red.exe` file is, type "cmd" in the address bar and press Enter.
 4. Now you should see a command prompt opened in the right directory where you can type commands from examples.  
-   Try this for starters: `cp_red_npc_generator.exe --rank=captain --role=solo`.
+   Try this for starters: `npc_generator_for_cp_red.exe --rank=captain --role=solo`.
 
-Here is the full list of available arguments and their explanation. Calling `cp_red_npc_generator.exe` without any
+Here is the full list of available arguments and their explanation. Calling `npc_generator_for_cp_red.exe` without any
 arguments will generate a solo with a captain rank.
 
 ```
-usage: cp_red_npc_generator.exe 
+usage: npc_generator_for_cp_red.exe 
                [-h]
                [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general,0,1,2,3,4,5,6}]
                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
@@ -171,7 +171,7 @@ options:
   Input:
 
   ```
-cp_red_npc_generator.exe --rank=private --role=solo
+npc_generator_for_cp_red.exe --rank=private --role=solo
   ```
 
 Possible output:
@@ -243,7 +243,7 @@ Inventory:
   Input:
 
   ```
-cp_red_npc_generator.exe --rank=captain --role=solo
+npc_generator_for_cp_red.exe --rank=captain --role=solo
   ```
 
 Possible output:
@@ -320,7 +320,7 @@ Inventory:
   Input:
 
   ```
-cp_red_npc_generator.exe --rank=general --role=solo --use-borgware
+npc_generator_for_cp_red.exe --rank=general --role=solo --use-borgware
   ```
 
 Possible output:

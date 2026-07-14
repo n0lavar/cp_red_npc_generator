@@ -18,19 +18,19 @@ jobs:
           architecture: 'x64'
       - name: Install requirements
         run: |
-          pip install -r cp_red_npc_generator/requirements.txt
+          pip install -r npc_generator_for_cp_red/requirements.txt
       - name: Run PyInstaller
         run: |
-          python -m PyInstaller cp_red_npc_generator/cp_red_npc_generator.spec
+          python -m PyInstaller npc_generator_for_cp_red/npc_generator_for_cp_red.spec
       - name: Zip files
         shell: pwsh
         run: |
-          Compress-Archive -Path cp_red_npc_generator/configs, dist/cp_red_npc_generator.exe -Destination cp_red_npc_generator.zip
+          Compress-Archive -Path npc_generator_for_cp_red/configs, dist/npc_generator_for_cp_red.exe -Destination npc_generator_for_cp_red.zip
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Windows_cp_red_npc_generator
-          path: cp_red_npc_generator.zip
+          name: Windows_npc_generator_for_cp_red
+          path: npc_generator_for_cp_red.zip
       - name: Create release
         id: create_release
         uses: actions/create-release@v1
@@ -52,6 +52,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: cp_red_npc_generator.zip
-          asset_name: cp_red_npc_generator.zip
+          asset_path: npc_generator_for_cp_red.zip
+          asset_name: npc_generator_for_cp_red.zip
           asset_content_type: application/zip

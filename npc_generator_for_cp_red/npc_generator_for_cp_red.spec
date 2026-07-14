@@ -22,7 +22,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='cp_red_npc_generator',
+    name='npc_generator_for_cp_red',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
