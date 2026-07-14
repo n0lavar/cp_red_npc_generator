@@ -12,11 +12,12 @@ from result import Result, is_err
 
 from item import Item, ItemType
 from npc import Npc
+from logger import LoggerLevelScope
 from npc_template import NpcTemplate
 from inventory_node import InventoryNode
 from stats import StatType
-from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element, \
-    LoggerLevelScope, clamp, get_allowed_items
+from utils import left_align, load_data, RANDOM_GENERATING_NUM_ATTEMPTS, choose_exponential_random_element, clamp, \
+    get_allowed_items
 
 
 def create_paired_item(item: Item) -> Item:

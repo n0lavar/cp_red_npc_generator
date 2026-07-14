@@ -3,9 +3,7 @@
 
 import builtins
 import json
-import logging
 import math
-import sys
 import types
 import dataclasses
 from typing import List
@@ -44,24 +42,6 @@ def clamp(n, min_value, max_value):
         return max_value
     else:
         return n
-
-
-class LoggerLevelScope:
-    def __init__(self, temp_level: int):
-        self.temp_level = temp_level
-
-    def __enter__(self):
-        logger = logging.getLogger()
-        self.initial_level = logger.getEffectiveLevel()
-        logger.setLevel(max(self.temp_level, self.initial_level))
-
-    def __exit__(self, exception_type, exception_value, traceback):
-        logger = logging.getLogger()
-        logger.setLevel(self.initial_level)
-
-
-def is_debugger_active() -> bool:
-    return hasattr(sys, 'gettrace') and sys.gettrace() is not None
 
 
 def get_allowed_items(items: List[str], normalized_index: float) -> List[str]:

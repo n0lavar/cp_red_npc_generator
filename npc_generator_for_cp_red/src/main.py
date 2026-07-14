@@ -9,7 +9,8 @@ import sys
 import numpy as np
 
 from generate_trauma_team_status import generate_trauma_team_status
-from utils import is_debugger_active, args_to_str, get_default_value
+from logger import setup_logging
+from utils import args_to_str, get_default_value
 from generate_ammo import generate_ammo
 from generate_armor import generate_armor
 from generate_cyberware import generate_cyberware
@@ -22,70 +23,9 @@ from npc import Npc
 from npc_template import NpcTemplate, Rank, Role, GenerationRules
 
 
-def create_npc(npc_template: NpcTemplate) -> Npc:
-    logging.debug(f"Input:")
-    logging.debug(f"\trank: {npc_template.rank.name}")
-    logging.debug(f"\trole: {npc_template.role.name}")
-    logging.debug(f"\tgeneration_rules: {npc_template.generation_rules}")
-
-    npc = Npc()
-    npc = generate_stats_and_skills(npc, npc_template)
-    npc = generate_cyberware(npc, npc_template)
-    npc = generate_weapon(npc, npc_template)
-    npc = generate_ammo(npc, npc_template)
-    npc = generate_equipment(npc, npc_template)
-    npc = generate_armor(npc, npc_template)
-    npc = generate_drugs(npc, npc_template)
-    npc = generate_junk(npc, npc_template)
-    npc = generate_trauma_team_status(npc, npc_template)
-    return npc
-
-
-def main(args) -> int:
-    logging.basicConfig(level=logging.DEBUG if is_debugger_active() else logging.getLevelName(args.log_level),
-                        format="%(message)s")
-
-    seed: int = 0
-    if args.seed != 0:
-        seed = args.seed
-    else:
-        seed = int(time.time_ns() % 1e9)
-    np.random.seed(seed)
-
-    if args.rank.isnumeric():
-        rank_json = ranks[int(args.rank)]
-    else:
-        rank_json = next(r for r in ranks if r["name"] == args.rank)
-
-    rank: Rank = dataclass_wizard.fromdict(Rank, rank_json)
-    role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
-    generation_rules: GenerationRules = dataclass_wizard.fromdict(GenerationRules, vars(args))
-
-    # generation process, there are a lot of log lines with DEBUG level
-    npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules))
-    npc_str: str = npc.to_string(args.flat)
-
-    # usually you have multiple npcs in one file and it's convenient to split them visually
-    logging.info(f"<=================================================================================================>")
-
-    # print the args you can use to receive exactly the same result
-    args_dict = dict(vars(args))
-    for key, value in args_dict.copy().items():
-        args_dict[key.replace("_", "-")] = args_dict.pop(key)
-    args_dict["seed"] = seed
-    logging.info(f"\n{args_to_str(args_dict)}")
-
-    # the long string with npc info
-    logging.info(npc_str)
-
-    return 0
-
-
-if __name__ == "__main__":
+def create_and_parse_args(ranks, roles) -> argparse.Namespace:
     parser = argparse.ArgumentParser()
 
-    ranks = Rank.load()
-    roles = Role.load()
     parser.add_argument("--rank",
                         type=str,
                         help="A measure of the development of a given NPC, "
@@ -112,6 +52,9 @@ if __name__ == "__main__":
                         action=argparse.BooleanOptionalAction,
                         help="If specified, don't use columns. "
                              "Easier for editing and copy-pasting, but takes much more space.")
+    parser.add_argument("--json",
+                        action=argparse.BooleanOptionalAction,
+                        help="If specified, output results in JSON format in stdout.")
     parser.add_argument("--log-level",
                         type=str,
                         help="Logging level. Default is INFO.",
@@ -170,5 +113,74 @@ if __name__ == "__main__":
                         help="Is specified, allow martial arts (brawling will still be there).",
                         default=get_default_value(GenerationRules, "allow-martial-arts"))
 
-    return_code = main(parser.parse_args())
-    sys.exit(return_code)
+    return parser.parse_args()
+
+
+def create_npc(npc_template: NpcTemplate) -> Npc:
+    logging.debug(f"Input:")
+    logging.debug(f"\trank: {npc_template.rank.name}")
+    logging.debug(f"\trole: {npc_template.role.name}")
+    logging.debug(f"\tgeneration_rules: {npc_template.generation_rules}")
+
+    npc = Npc()
+    npc = generate_stats_and_skills(npc, npc_template)
+    npc = generate_cyberware(npc, npc_template)
+    npc = generate_weapon(npc, npc_template)
+    npc = generate_ammo(npc, npc_template)
+    npc = generate_equipment(npc, npc_template)
+    npc = generate_armor(npc, npc_template)
+    npc = generate_drugs(npc, npc_template)
+    npc = generate_junk(npc, npc_template)
+    npc = generate_trauma_team_status(npc, npc_template)
+    return npc
+
+
+def main() -> int:
+    ranks = Rank.load()
+    roles = Role.load()
+    args: argparse.Namespace = create_and_parse_args(ranks, roles)
+
+    setup_logging(args)
+
+    seed: int = 0
+    if args.seed != 0:
+        seed = args.seed
+    else:
+        seed = int(time.time_ns() % 1e9)
+    np.random.seed(seed)
+
+    if args.rank.isnumeric():
+        rank_json = ranks[int(args.rank)]
+    else:
+        rank_json = next(r for r in ranks if r["name"] == args.rank)
+
+    rank: Rank = dataclass_wizard.fromdict(Rank, rank_json)
+    role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
+    generation_rules: GenerationRules = dataclass_wizard.fromdict(GenerationRules, vars(args))
+
+    # generation process, there are a lot of log lines with DEBUG level
+    npc: Npc = create_npc(NpcTemplate(rank, role, generation_rules))
+
+    if not args.json:
+        # usually you have multiple npcs in one file and it's convenient to split them visually
+        logging.info(
+            f"<=================================================================================================>")
+
+        # print the args you can use to receive exactly the same result
+        args_dict = dict(vars(args))
+        for key, value in args_dict.copy().items():
+            args_dict[key.replace("_", "-")] = args_dict.pop(key)
+        args_dict["seed"] = seed
+        logging.info(f"\n{args_to_str(args_dict)}")
+
+        # the long string with npc info
+        npc_str: str = npc.to_string(args.flat)
+        logging.info(npc_str)
+    else:
+        print()
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,4 +1,6 @@
-# NPC generator for Cyberpunk RED
+# NPC generator
+
+An unofficial generator for use with Cyberpunk RED.
 
 [![License: GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 ![Python](https://img.shields.io/badge/python-3.12-blue.svg)
@@ -420,13 +422,11 @@ The original source code of this project is licensed under GNU GPLv3.
 
 ### Third-party intellectual property
 
+This tool is not intended to replace the Cyberpunk RED Core Rulebook.
+
 Cyberpunk, Cyberpunk RED, Night City, and related names, terminology, game data, and other intellectual property belong
 to R. Talsorian Games and/or their respective licensors. Such material is not licensed under GNU GPLv3 by this
 repository.
 
-Use of referenced game material is governed by the R. Talsorian Games Homebrew Content Policy.
-
-This tool is not intended to replace the Cyberpunk RED Core Rulebook.
-
-This project is an unofficial fan-made utility. It is not affiliated with, approved by, or endorsed by R. Talsorian
-Games. A legal copy of the relevant Cyberpunk RED sourcebooks is required.
+NPC Generator is unofficial content provided under the Homebrew Content Policy of R. Talsorian Games and is not approved
+or endorsed by RTG. This content references materials that are the property of R. Talsorian Games and its licensees.
