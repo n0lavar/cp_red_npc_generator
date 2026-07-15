@@ -174,15 +174,17 @@ def main() -> int:
 
     setup_logging(args)
     seed: int = setup_random(args)
-    
+
     args.nationality = args.nationality or choose_nationality()
 
     if args.rank.isnumeric():
-        rank_json = ranks[int(args.rank)]
+        rank_number = int(args.rank)
+        rank_json = ranks[rank_number]
     else:
-        rank_json = next(r for r in ranks if r["name"] == args.rank)
+        rank_number, rank_json = next((index, rank) for index, rank in enumerate(ranks) if rank["name"] == args.rank)
 
     rank: Rank = dataclass_wizard.fromdict(Rank, rank_json)
+    rank.rank_number = rank_number
     role: Role = dataclass_wizard.fromdict(Role, next(r for r in roles if r["name"] == args.role))
     generation_rules: GenerationRules = dataclass_wizard.fromdict(GenerationRules, vars(args))
 

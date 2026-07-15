@@ -8,6 +8,8 @@ from functools import cmp_to_key
 from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
+from marshmallow.fields import Boolean
+
 from npc_generator_for_cp_red.src.utils import load_data
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
@@ -19,6 +21,9 @@ from table_view import TableView
 
 @dataclass
 class Npc:
+    sex: bool = False  # True: male, False: female
+    nationality: str = None
+    age: int = 0
     name: str = ""
     surname: str = ""
     stats: Dict[StatType, int] = field(default_factory=dict)
@@ -31,6 +36,9 @@ class Npc:
 
     def to_dict_foundry_vvt(self) -> Dict[str, Any]:
         return {
+            "sex": self.sex,
+            "nationality": self.nationality,
+            "age": self.age,
             "name": self.name,
             "surname": self.surname,
             "stats": {stat.name: value for stat, value in self.stats.items()},
@@ -99,10 +107,10 @@ class Npc:
         for stat in self.stats.keys():
             stats_modifiers[stat] = self.get_stat_or_skill_value(stat.name)
 
-        npc_str: str = f"Name: {self.name}\nSurname: {self.surname}\n\n"
+        npc_str: str = f"{self.name} {self.surname} ({self.nationality}, {self.age} yo)\n"
 
         total_price = sum([x.price for x in all_items])
-        npc_str += f"Has items total worth of {total_price}\n\n"
+        npc_str += f"Has items total worth of {total_price}eb\n\n"
 
         stats_conditions_table_view = TableView(1 if flat else 4)
 

@@ -18,7 +18,8 @@ class TraumaTeamStatusType(Enum):
 
 @dataclass
 class Rank:
-    name: str
+    name: str = field(default="")
+    rank_number: int = field(default=0)
     min_items_quality: ItemQuality = field(default=ItemQuality.POOR)
     items_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)
     items_num_budget: Dict[ItemType, NormalDistribution] = field(default_factory=dict)

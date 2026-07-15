@@ -7,8 +7,9 @@ import math
 import time
 import types
 import dataclasses
-from typing import List
 import numpy as np
+from typing import List
+from faker import Faker
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
 
@@ -88,5 +89,8 @@ def setup_random(args: argparse.Namespace) -> int:
         seed: int = args.seed
     else:
         seed: int = int(time.time_ns() % 1e9)
+
     np.random.seed(seed)
+    Faker.seed(seed)
+
     return seed

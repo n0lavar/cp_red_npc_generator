@@ -11,6 +11,7 @@ from unidecode import unidecode
 from npc import Npc
 from npc_template import NpcTemplate
 from utils import load_data
+from normal_distribution import NormalDistribution
 
 POPULATIONS = load_data("configs/nationality_weights.json")["populations"]
 NATIONALITIES = sorted(
@@ -34,9 +35,18 @@ def choose_nationality() -> str:
 
 
 def generate_description(npc: Npc, npc_template: NpcTemplate) -> Npc:
-    """Generate an ASCII-only NPC name for the requested nationality."""
+    npc.sex = np.random.choice([True, False])
+    npc.nationality = npc_template.nationality
+
+    age_distribution = NormalDistribution(20 + 5 * npc_template.rank.rank_number, 2)
+    npc.age = round(age_distribution.generate())
+
     faker = Faker(npc_template.nationality)
-    faker.seed_instance(int(np.random.randint(0, 2 ** 32, dtype=np.uint32)))
-    npc.name = unidecode(faker.first_name())
-    npc.surname = unidecode(faker.last_name())
+    if npc.sex:
+        npc.name = unidecode(faker.first_name_male())
+        npc.surname = unidecode(faker.last_name_male())
+    else:
+        npc.name = unidecode(faker.first_name_female())
+        npc.surname = unidecode(faker.last_name_female())
+
     return npc
