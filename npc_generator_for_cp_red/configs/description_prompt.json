@@ -4,6 +4,7 @@
     "Describe what a player sees when they encounter a character based on the information provided.",
     "Don't simply list everything described in the text; instead, highlight the most striking features.",
     "Do not describe implants that cannot be seen and small items.",
+    "Do not mention his name and the exact age.",
     "Also, add a touch of uniqueness through descriptions of their appearance and personality."
   ]
 }

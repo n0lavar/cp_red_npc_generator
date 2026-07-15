@@ -1,12 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+
 import argparse
 import builtins
 import json
 import math
 import time
 import types
-import dataclasses
 import numpy as np
 from typing import List
 from faker import Faker
@@ -72,16 +72,6 @@ def args_to_str(args) -> str:
         result += " "
 
     return result
-
-
-def get_default_value(cls, field_name: str):
-    for f in dataclasses.fields(cls):
-        if f.name == field_name.replace("-", "_"):
-            if f.default is not dataclasses.MISSING:
-                return f.default
-            if f.default_factory is not dataclasses.MISSING:  # Handle default_factory
-                return f.default_factory()
-    return None
 
 
 def setup_random(args: argparse.Namespace) -> int:
