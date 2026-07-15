@@ -4,6 +4,7 @@
 import copy
 import logging
 import math
+import textwrap
 from functools import cmp_to_key
 from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
@@ -26,6 +27,7 @@ class Npc:
     age: int = 0
     name: str = ""
     surname: str = ""
+    description: str = ""
     stats: Dict[StatType, int] = field(default_factory=dict)
     skills: Dict[Skill, int] = field(default_factory=dict)
     cyberware: InventoryNode = field(default=None)
@@ -41,6 +43,7 @@ class Npc:
             "age": self.age,
             "name": self.name,
             "surname": self.surname,
+            "description": self.description,
             "stats": {stat.name: value for stat, value in self.stats.items()},
             "skills": {skill.name: value for skill, value in self.skills.items()},
             "cyberware": self.cyberware.to_dict_foundry_vvt() if self.cyberware is not None else None,
@@ -108,6 +111,22 @@ class Npc:
             stats_modifiers[stat] = self.get_stat_or_skill_value(stat.name)
 
         npc_str: str = f"{self.name} {self.surname} ({self.nationality}, {self.age} yo)\n"
+
+        if self.description:
+            description = "\n".join(
+                textwrap.fill(
+                    line,
+                    width=116,
+                    initial_indent="    ",
+                    subsequent_indent="    ",
+                    replace_whitespace=False,
+                )
+                if line
+                else ""
+                for line in self.description.split("\n")
+            )
+
+            npc_str += f"\n{description}\n\n"
 
         total_price = sum([x.price for x in all_items])
         npc_str += f"Has items total worth of {total_price}eb\n\n"
