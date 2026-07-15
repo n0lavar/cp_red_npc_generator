@@ -7,6 +7,7 @@ import json
 import logging
 from dataclasses import fields, is_dataclass
 from enum import Enum
+from pathlib import Path
 from typing import Any, Optional
 from urllib import error, request
 import numpy as np
@@ -21,7 +22,9 @@ from utils import load_data
 from normal_distribution import NormalDistribution
 
 _POPULATIONS = load_data("configs/nationality_weights.json")["populations"]
-_DESCRIPTION_PROMPT = " ".join(load_data("configs/description_prompt.json")["system_prompt"])
+_DESCRIPTION_PROMPT = Path("configs/description_prompt.md").read_text(
+    encoding="utf-8"
+).strip()
 NATIONALITIES = sorted(
     locale for locale in AVAILABLE_LOCALES
     if locale.rsplit("_", 1)[-1] in _POPULATIONS
@@ -100,7 +103,7 @@ def _generate_ai_description(npc: Npc,
                 "content": json.dumps(context, ensure_ascii=False)
             },
         ],
-        "temperature": 0.0,
+        "temperature": 0.5,
         "seed": seed,
     }
     http_request = request.Request(
