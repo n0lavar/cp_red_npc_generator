@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from enum import auto, Enum
-from typing import Dict, List, Set
+from typing import Dict, List, Tuple
 from dataclasses import dataclass, field
 
 from item import ItemQuality, ItemType
@@ -43,8 +43,8 @@ class Role:
     skills: Dict[str, int] = field(default_factory=dict, compare=False)
 
     preferred_cyberware: List[str] = field(default_factory=list, compare=False)
-    preferred_primary_weapons: Set[str] = field(default_factory=set, compare=False)
-    preferred_secondary_weapons: Set[str] = field(default_factory=set, compare=False)
+    preferred_primary_weapons: Tuple[str, ...] = field(default_factory=tuple, compare=False)
+    preferred_secondary_weapons: Tuple[str, ...] = field(default_factory=tuple, compare=False)
     preferred_ammo: List[str] = field(default_factory=list, compare=False)
     # npc won't try to buy armor with a greater armor class
     preferred_armor_class: int = field(default=11, compare=False)
@@ -52,6 +52,10 @@ class Role:
     preferred_equipment: List[str] = field(default_factory=list, compare=False)
     min_empathy: int = field(default=0, compare=False)
     martial_arts_probability: float = field(default=0, compare=False)
+
+    def __post_init__(self):
+        object.__setattr__(self, "preferred_primary_weapons", tuple(sorted(self.preferred_primary_weapons)))
+        object.__setattr__(self, "preferred_secondary_weapons", tuple(sorted(self.preferred_secondary_weapons)))
 
     @staticmethod
     def load():

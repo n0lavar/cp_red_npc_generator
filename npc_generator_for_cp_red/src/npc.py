@@ -5,19 +5,35 @@ import copy
 import logging
 import math
 import textwrap
-from functools import cmp_to_key
 from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
 from marshmallow.fields import Boolean
 
-from npc_generator_for_cp_red.src.utils import load_data
+from npc_generator_for_cp_red.src.utils import load_data, SortedSet
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode
 from item import Item, ItemType, ItemQuality
 from stats import StatType, Skill, SkillType, StatSkillValue
 from table_view import TableView
+
+
+def armor_sort_key(item: Item) -> Tuple[int, str]:
+    if item.name.startswith("Head"):
+        category = 1
+    elif item.name.startswith("Body"):
+        category = 2
+    elif "Shield" in item.name:
+        category = 3
+    else:
+        category = 4
+    return category, item.name
+
+
+def weapon_sort_key(item: Item) -> Tuple[int, str]:
+    damage = int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire
+    return -damage, item.name
 
 
 @dataclass
@@ -31,8 +47,8 @@ class Npc:
     stats: Dict[StatType, int] = field(default_factory=dict)
     skills: Dict[Skill, int] = field(default_factory=dict)
     cyberware: InventoryNode = field(default=None)
-    armor: Set[Item] = field(default_factory=set)
-    weapons: Set[Item] = field(default_factory=set)
+    armor: Set[Item] = field(default_factory=lambda: SortedSet(key=armor_sort_key))
+    weapons: Set[Item] = field(default_factory=lambda: SortedSet(key=weapon_sort_key))
     inventory: Dict[Item, int] = field(default_factory=dict)
     trauma_team_status: TraumaTeamStatusType = field(default=TraumaTeamStatusType.NONE)
 
@@ -47,8 +63,8 @@ class Npc:
             "stats": {stat.name: value for stat, value in self.stats.items()},
             "skills": {skill.name: value for skill, value in self.skills.items()},
             "cyberware": self.cyberware.to_dict_foundry_vvt() if self.cyberware is not None else None,
-            "armor": [item.to_dict_foundry_vvt() for item in sorted(self.armor, key=lambda item: item.name)],
-            "weapons": [item.to_dict_foundry_vvt() for item in sorted(self.weapons, key=lambda item: item.name)],
+            "armor": [item.to_dict_foundry_vvt() for item in self.armor],
+            "weapons": [item.to_dict_foundry_vvt() for item in self.weapons],
             "inventory": [
                 {
                     "item": item.to_dict_foundry_vvt(),
@@ -70,14 +86,9 @@ class Npc:
 
         equipped_items: List[Item] = self.get_all_items()
 
-        def cmp_equipped_items_order(left: Item, right: Item) -> int:
-            if (left.modifier_applying_priority < right.modifier_applying_priority
-                    or left.creation_time < right.creation_time):
-                return 1
-            else:
-                return -1
-
-        equipped_items.sort(key=cmp_to_key(cmp_equipped_items_order))
+        equipped_items.sort(
+            key=lambda item: (item.modifier_applying_priority, item.creation_time),
+            reverse=True)
 
         if name in [s.name for s in StatType] and StatType[name] in self.stats:
             start_value = self.stats[StatType[name]]
@@ -234,23 +245,9 @@ class Npc:
             armor_weapon_table_view = TableView(1 if flat else 2)
 
             if len(self.armor):
-                def armor_sorter(item: Item) -> int:
-                    if item.name.startswith("Head"):
-                        return 1
-                    elif item.name.startswith("Body"):
-                        return 2
-                    elif "Shield" in item.name:
-                        return 3
-                    else:
-                        return 4
-
-                sorted_armor = sorted(self.armor, key=armor_sorter)
-                armor_weapon_table_view.add(["    " + str(armor) for armor in sorted_armor], "Armor:", 0)
+                armor_weapon_table_view.add(["    " + str(armor) for armor in self.armor], "Armor:", 0)
 
             if len(self.weapons):
-                def weapon_sorter(item: Item) -> int:
-                    return int(item.damage[0]) * int(item.damage[2]) * item.rate_of_fire
-
                 weapon_skills_data: Dict[str, str] = load_data("configs/weapon_skills.json")
 
                 def add_skill_value(weapon: Item) -> Item:
@@ -281,22 +278,19 @@ class Npc:
 
                     return replace(weapon, name=new_name)
 
-                sorted_melee_weapon = sorted(
-                    [add_skill_value(x) for x in self.weapons if "MeleeWeapon" in x.get_all_tags()],
-                    key=weapon_sorter,
-                    reverse=True)
+                melee_weapons = [
+                    add_skill_value(x) for x in self.weapons if "MeleeWeapon" in x.get_all_tags()
+                ]
+                ranged_weapons = [
+                    add_skill_value(x) for x in self.weapons if "RangedWeapon" in x.get_all_tags()
+                ]
 
-                sorted_ranged_weapon = sorted(
-                    [add_skill_value(x) for x in self.weapons if "RangedWeapon" in x.get_all_tags()],
-                    key=weapon_sorter,
-                    reverse=True)
-
-                assert len(sorted_melee_weapon) + len(sorted_ranged_weapon) == len(self.weapons)
+                assert len(melee_weapons) + len(ranged_weapons) == len(self.weapons)
 
                 armor_weapon_table_view.add(
-                    ["    " + str(weapon) for weapon in sorted_ranged_weapon], "Ranged weapons:", 1)
+                    ["    " + str(weapon) for weapon in ranged_weapons], "Ranged weapons:", 1)
                 armor_weapon_table_view.add(
-                    ["    " + str(weapon) for weapon in sorted_melee_weapon], "Melee weapons:", 1)
+                    ["    " + str(weapon) for weapon in melee_weapons], "Melee weapons:", 1)
 
             npc_str += str(armor_weapon_table_view) + "\n"
 

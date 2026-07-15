@@ -97,7 +97,7 @@ def generate_armor(npc: Npc, npc_template: NpcTemplate) -> Npc:
         # erase all the negative modifiers
         all_armor_negative_modifiers: Dict[str, int] = dict()
         armor_with_negative_modifiers: Optional[Item] = None
-        for armor in npc.armor:
+        for armor in list(npc.armor):
             for modifier in armor.modifiers:
                 if modifier.simple < 0:
                     all_armor_negative_modifiers.setdefault(modifier.name, 0)

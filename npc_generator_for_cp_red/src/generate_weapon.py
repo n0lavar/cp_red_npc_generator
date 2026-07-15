@@ -5,7 +5,7 @@ import copy
 import logging
 import dataclass_wizard
 import numpy as np
-from typing import List, Optional, Set, Tuple
+from typing import List, Optional, Sequence, Tuple
 from dataclasses import dataclass, field, replace
 
 from item import Item, ItemType, ItemQuality, PriceCategory
@@ -17,11 +17,15 @@ from utils import load_data, RANDOM_GENERATING_NUM_ATTEMPTS
 
 @dataclass(frozen=True, eq=True)
 class ItemWithNames(Item):
-    possible_names: Set[str] = field(default_factory=set, compare=False)
+    possible_names: Tuple[str, ...] = field(default_factory=tuple, compare=False)
+
+    def __post_init__(self):
+        super().__post_init__()
+        object.__setattr__(self, "possible_names", tuple(sorted(self.possible_names)))
 
 
 def pick_weapon(budget: int,
-                preferred_weapons: Set[str],
+                preferred_weapons: Sequence[str],
                 npc_template: NpcTemplate,
                 all_weapons: List[ItemWithNames],
                 npc: Npc) -> Tuple[Optional[Item], int]:
@@ -48,7 +52,7 @@ def pick_weapon(budget: int,
     for num_attempt in range(RANDOM_GENERATING_NUM_ATTEMPTS):
         logging.debug(f"\tGenerating, attempt {num_attempt}")
 
-        preferred_weapon: str = np.random.choice(sorted(list(preferred_weapons)))
+        preferred_weapon: str = np.random.choice(preferred_weapons)
         preferred_weapon_item: ItemWithNames = next(w for w in all_weapons if preferred_weapon in w.unique_tags)
 
         if (not npc_template.generation_rules.allow_melee_weapon
@@ -92,7 +96,7 @@ def pick_weapon(budget: int,
             weapon_copy,
             price=price,
             quality=preferred_quality,
-            name=f"{np.random.choice(list(weapon_copy.possible_names))} ({weapon_copy.name})")
+            name=f"{np.random.choice(weapon_copy.possible_names)} ({weapon_copy.name})")
 
         logging.debug(f"\t\tPicked weapon: {weapon}")
         logging.debug(f"\t\tMoney left: {budget - price}")
@@ -120,7 +124,7 @@ def get_brawling_weapon_item(npc: Npc, all_weapons: List[ItemWithNames]) -> Item
         martial_arts_item = next(i for i in all_weapons if i.name == "Martial Arts")
         return replace(
             martial_arts_item,
-            name=np.random.choice(list(martial_arts_item.possible_names)),
+            name=np.random.choice(martial_arts_item.possible_names),
             damage=boxing_dmg)
     else:
         return Item(

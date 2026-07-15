@@ -3,7 +3,7 @@
 
 import uuid
 import time
-from typing import Any, Dict, List, Optional, Set
+from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field, replace
 from enum import StrEnum, auto
 
@@ -57,7 +57,7 @@ class Item:
     damage: Optional[str] = field(default=None, compare=False)
     rate_of_fire: Optional[int] = field(default=None, compare=False)
     magazine: Optional[int] = field(default=None, compare=False)
-    ammo_types: Set[str] = field(default_factory=set, compare=False)
+    ammo_types: Tuple[str, ...] = field(default_factory=tuple, compare=False)
     skill: str = field(default=None, compare=False)
 
     # cyberware
@@ -66,6 +66,9 @@ class Item:
     paired_container: bool = field(default=False, compare=False)
     required_cyberware: List[str] = field(default_factory=list, compare=False)
     required_condition: List[str] = field(default_factory=list, compare=False)  # Python code
+
+    def __post_init__(self):
+        object.__setattr__(self, "ammo_types", tuple(sorted(self.ammo_types)))
 
     def to_dict_foundry_vvt(self) -> Dict[str, Any]:
         return {

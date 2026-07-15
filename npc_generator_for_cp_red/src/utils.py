@@ -8,10 +8,42 @@ import math
 import time
 import types
 import numpy as np
-from typing import List
+from bisect import bisect_right
+from collections.abc import Callable, Iterable, Iterator, MutableSet
+from typing import Generic, List, TypeVar
 from faker import Faker
 
 RANDOM_GENERATING_NUM_ATTEMPTS: int = 200
+T = TypeVar("T")
+
+
+class SortedSet(MutableSet[T], Generic[T]):
+    def __init__(self, iterable: Iterable[T] = (), key: Callable[[T], object] = lambda value: value):
+        self._items = []
+        self._key = key
+        for item in iterable:
+            self.add(item)
+
+    def __contains__(self, item: T) -> bool:
+        return item in self._items
+
+    def __iter__(self) -> Iterator[T]:
+        return iter(self._items)
+
+    def __len__(self) -> int:
+        return len(self._items)
+
+    def add(self, item: T) -> None:
+        if item in self:
+            return
+        keys = [self._key(existing) for existing in self._items]
+        self._items.insert(bisect_right(keys, self._key(item)), item)
+
+    def discard(self, item: T) -> None:
+        try:
+            self._items.remove(item)
+        except ValueError:
+            pass
 
 
 def left_align(obj, offset: int = 0, char: str = "\t") -> str:
