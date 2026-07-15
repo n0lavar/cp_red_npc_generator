@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import Counter
+from collections.abc import Set
 import json
 import logging
 from dataclasses import fields, is_dataclass
@@ -35,6 +36,7 @@ _probability_order = np.argsort(-_nationality_weights, kind="stable")
 NATIONALITIES = [NATIONALITIES[index] for index in _probability_order]
 _nationality_weights = _nationality_weights[_probability_order]
 NATIONALITY_PROBABILITIES = _nationality_weights / _nationality_weights.sum()
+_VOLATILE_DATACLASS_FIELDS = {"id", "creation_time"}
 
 
 def choose_nationality() -> str:
@@ -57,12 +59,15 @@ def _json_value(value: Any) -> Any:
     if isinstance(value, Enum):
         return value.name
     if is_dataclass(value):
-        return {item.name: _json_value(getattr(value, item.name)) for item in fields(value)}
+        return {
+            item.name: _json_value(getattr(value, item.name))
+            for item in fields(value)
+            if item.name not in _VOLATILE_DATACLASS_FIELDS
+        }
     if isinstance(value, dict):
         return {str(_json_value(key)): _json_value(item) for key, item in value.items()}
-    if isinstance(value, set):
-        converted = [_json_value(item) for item in value]
-        return sorted(converted, key=lambda item: json.dumps(item, sort_keys=True, ensure_ascii=False))
+    if isinstance(value, Set):
+        return [_json_value(item) for item in value]
     if isinstance(value, (list, tuple)):
         return [_json_value(item) for item in value]
     if value is None or isinstance(value, (str, int, float, bool)):
