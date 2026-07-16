@@ -234,6 +234,12 @@ Has items total worth of ...
 
 Descriptions use the OpenAI-compatible `POST /chat/completions` API. Defaults target LM Studio:
 
+```console
+npc_generator_for_cp_red.exe --rank=captain --role=solo --model-id=... --model-api-key=... --model-base-url=... --model-language=English
+```
+
+Replace `...` with the model identifier, API key, and server base URL. The equivalent `settings.json` values are:
+
 ```json
 {
   "model_id": "qwen/qwen3.6-35b-a3b",
@@ -263,7 +269,7 @@ layout that is easier to edit and copy, but takes considerably more vertical spa
   Input:
 
 ```console
-npc_generator_for_cp_red.exe --rank=private --role=solo --seed=101 --nationality=en_US --model-id= --model-language=English
+npc_generator_for_cp_red.exe --rank=private --role=solo --seed=101 --nationality=en_US --model-id=... --model-api-key=... --model-base-url=... --model-language=English
 ```
 
 Possible output:
@@ -271,8 +277,20 @@ Possible output:
 ```text
 <=================================================================================================>
 
---rank=private --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=101 --model-id= --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
+--rank=private --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=101 --model-id=qwen/qwen3.6-35b-a3b --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
 Kevin Lee (en_US, 21 yo)
+
+    A scuffed leather cap pulls low over a tangle of ash-blond hair, casting the eyes in shadow. His frame is lean
+    and unremarkable, built for endurance rather than brute force. Clothing consists of a faded tactical vest over a
+    plain thermal shirt, paired with scuffed boots and reinforced trousers. The lack of visible cyberware leaves his
+    skin pale and unmarked, save for faint calluses on his palms from gripping tools and weapons. He has a quiet,
+    watchful presence, often pausing to double-check straps or adjust his grip before speaking. When others are
+    tense, he notices first, offering a nod or a practical suggestion without fanfare. His face is plain but alert,
+    with a sharp jawline softened by a habit of chewing his lower lip when processing information. He speaks in
+    measured tones, preferring to listen and map out contingencies rather than dominate a room. In the neon-drenched
+    sprawl, he blends into the background, a survivor who trusts preparation over bravado and keeps his guard
+    perpetually raised.
+
 Has items total worth of 282eb
 
 Stats:          Conditions:                                                   
@@ -341,7 +359,7 @@ Inventory:
   Input:
 
 ```console
-npc_generator_for_cp_red.exe --rank=captain --role=solo --seed=102 --nationality=en_US --model-id= --model-language=English
+npc_generator_for_cp_red.exe --rank=captain --role=solo --seed=102 --nationality=en_US --model-id=... --model-api-key=... --model-base-url=... --model-language=English
 ```
 
 Possible output:
@@ -349,8 +367,22 @@ Possible output:
 ```text
 <=================================================================================================>
 
---rank=captain --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=102 --model-id= --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
+--rank=captain --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=102 --model-id=qwen/qwen3.6-35b-a3b --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
 Charles Gilbert (en_US, 35 yo)
+
+    A sharp jawline cuts through the grime of the Badlands, framed by a close-cropped fade trimmed to military
+    precision. His face carries a polished, almost sculpted attractiveness—high cheekbones, a straight nose, and
+    eyes that track movement with unnerving stillness. A faint chrome trim glints along his jawline, part of a Kill
+    Display that pulses with a soft, calculating glow. His movement speed is steady and unremarkable, a measured
+    pace that never rushes but never lags. His build is lean but dense, built for endurance rather than bulk,
+    wrapped in a tailored light armorjack that hugs his frame without sacrificing mobility. The fabric is dark,
+    matte, and impeccably maintained, a stark contrast to the rusted sprawl around him. He moves with a fluid,
+    economical grace, every step light and deliberate. A heavy bulletproof shield rests against his forearm, its
+    surface scarred but clean. His habits betray a restless need to prove himself: he constantly adjusts his collar,
+    checks his reflection in polished metal, and watches others with a quiet, measuring intensity, always ready to
+    outpace or outmaneuver them in conversation or combat. There’s a sharp, competitive edge to his posture, like a
+    coiled spring that never quite relaxes, even when the job is done.
+
 Has items total worth of 2182eb
 
 Stats:          Conditions:                                                   Actions:          Abilities:                 
@@ -423,7 +455,7 @@ Inventory:
   Input:
 
 ```console
-npc_generator_for_cp_red.exe --rank=general --role=solo --seed=103 --nationality=en_US --model-id= --model-language=English
+npc_generator_for_cp_red.exe --rank=general --role=solo --seed=103 --nationality=en_US --model-id=... --model-api-key=... --model-base-url=... --model-language=English
 ```
 
 Possible output:
@@ -431,8 +463,22 @@ Possible output:
 ```text
 <=================================================================================================>
 
---rank=general --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=103 --model-id= --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
+--rank=general --role=solo --nationality=en_US --allow-non-basic-ammo --allow-grenades --allow-armor --allow-cyberware --no-allow-borgware --allow-drugs --allow-equipment --allow-money --allow-junk --allow-melee-weapon --allow-ranged-weapon --allow-martial-arts --seed=103 --model-id=qwen/qwen3.6-35b-a3b --model-api-key=lm-studio --model-base-url=http://localhost:1234/v1 --model-language=English --no-flat --no-foundry-json --log-level=INFO 
 William Bryant (en_US, 49 yo)
+
+    A jagged scar traces his jawline, disappearing into the stiff collar of a charcoal tactical trench coat. His
+    face carries a striking physical attractiveness, all sharp angles and weathered skin, framed by a close-cropped,
+    silver-dusted undercut. The eyes are glassy and unblinking, calibrated to scan environments rather than people.
+    He wears a reinforced ballistic vest beneath the coat, the heavy fabric stretched taut over a dense, heavily
+    muscled physique. His posture is rigid, shoulders squared, movements exceptionally agile and startlingly fast
+    when he shifts his weight. Every step covers ground with practiced speed. He checks his gear with methodical
+    precision, fingers tapping a steady rhythm against his thigh. When speaking, he cuts straight to the point,
+    rarely waiting for others to finish. A faint scowl lingers when conversations drag, and he adjusts his collar
+    with a sharp tug whenever the ambient noise spikes. He doesn’t offer comfort; he offers solutions, delivered
+    with a cold, unyielding focus. The neon bleed from the street outside catches the polished plating on his
+    forearms, where matte-black cybernetics contrast with scarred flesh. A kill counter glows faintly on his wrist,
+    ticking upward with quiet indifference.
+
 Has items total worth of 24342eb
 
 Stats:                                             Conditions:                                                                  Actions:           Abilities:                 
