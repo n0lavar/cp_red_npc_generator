@@ -95,6 +95,9 @@ This is a console application, which means that you need to do the following to 
 
 Calling `npc_generator_for_cp_red.exe` without arguments generates a captain-rank solo.
 
+<details>
+  <summary>Full <code>-h</code> output</summary>
+
 ```text
 usage: npc_generator_for_cp_red.exe [-h]
                [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general,0,1,2,3,4,5,6}]
@@ -192,6 +195,8 @@ Appearance:
   --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
                         Logging level. Default is INFO.
 ```
+
+</details>
 
 Every Boolean option has a positive and negative form. Command-line arguments override values loaded from
 `settings.json`.
