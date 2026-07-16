@@ -7,6 +7,8 @@ import json
 import logging
 import sys
 
+import numpy as np
+
 from generate_trauma_team_status import generate_trauma_team_status
 from generate_description import choose_nationality, generate_description
 from generate_ammo import generate_ammo
@@ -95,7 +97,7 @@ def main() -> int:
         npc_str: str = npc.to_string(args.flat)
         logging.info(npc_str)
     else:
-        print(json.dumps(npc.to_dict_foundry_vvt(), ensure_ascii=False, indent=2))
+        print(json.dumps(npc.to_dict_foundry_vvt(), ensure_ascii=False, indent=2, default=np.generic.item))
 
     return 0
 

@@ -139,7 +139,12 @@ def generate_weapon(npc: Npc, npc_template: NpcTemplate) -> Npc:
     logging.debug("\nGenerating weapons...")
 
     weapons_data = load_data("configs/items/weapon.json")
-    all_weapons: List[ItemWithNames] = [dataclass_wizard.fromdict(ItemWithNames, x) for x in weapons_data]
+    all_weapons: List[ItemWithNames] = []
+    for weapon_data in weapons_data:
+        weapon = dataclass_wizard.fromdict(ItemWithNames, weapon_data)
+        if not isinstance(weapon, ItemWithNames):
+            weapon = ItemWithNames(**vars(weapon), possible_names=weapon_data.get("possible_names", ()))
+        all_weapons.append(weapon)
 
     total_weapons_budget: int = round(npc_template.rank.items_budget[ItemType.WEAPON].generate())
     logging.debug(f"\t{total_weapons_budget=}")

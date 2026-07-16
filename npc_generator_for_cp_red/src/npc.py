@@ -8,7 +8,7 @@ import textwrap
 from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
-from npc_generator_for_cp_red.src.utils import load_data, SortedSet
+from utils import load_data, SortedSet
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource
 from inventory_node import InventoryNode
