@@ -25,7 +25,8 @@ jobs:
       - name: Zip files
         shell: pwsh
         run: |
-          Compress-Archive -Path npc_generator_for_cp_red/configs, dist/npc_generator_for_cp_red.exe -Destination npc_generator_for_cp_red.zip
+          Copy-Item settings.example.json dist/settings.json
+          Compress-Archive -Path npc_generator_for_cp_red/configs, dist/npc_generator_for_cp_red.exe, dist/settings.json -Destination npc_generator_for_cp_red.zip
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
