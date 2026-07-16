@@ -8,8 +8,6 @@ import textwrap
 from typing import Any, Dict, List, Tuple, Set, Optional
 from dataclasses import dataclass, field, replace
 
-from marshmallow.fields import Boolean
-
 from npc_generator_for_cp_red.src.utils import load_data, SortedSet
 from npc_template import TraumaTeamStatusType
 from modifier import ModifierSource

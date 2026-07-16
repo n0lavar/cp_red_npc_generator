@@ -216,13 +216,9 @@ overrides the corresponding saved value.
   "nationality": "en_US",
   "model_id": null,
   "allow-borgware": false,
-  "allow-junk": true,
-  "foundry-json": false
+  "allow-junk": true
 }
 ```
-
-Set `model_id`, `model_api_key`, or `model_base_url` to `null` to disable only AI description generation. The NPC's
-name, nationality, sex, and age are generated regardless.
 
 ## Generated identity and description
 
@@ -247,13 +243,18 @@ Descriptions use the OpenAI-compatible `POST /chat/completions` API. Defaults ta
 }
 ```
 
+Set `model_id`, `model_api_key`, or `model_base_url` to `null` to disable AI description generation. The NPC's name,
+nationality, sex, and age are generated regardless.
+
 Start the model server before generating an NPC. The NPC and its template are sent to the configured server as JSON; the
 system prompt lives in `configs/description_prompt.md`. Connection errors, timeouts, and invalid responses produce an
 `AI description was not generated` warning but do not abort NPC generation. The random seed is sent to the model, though
 exact repeatability depends on whether the server and model honor it.
 
-Use `--flat` for a single-column text layout. Use `--foundry-json` to output only Foundry VTT-compatible JSON, including
-identity, description, stats, skills, cyberware, armor, weapons, inventory, and Trauma Team status.
+## Text output layout
+
+By default, the character sheet uses multiple columns to keep the output compact. Use `--flat` for a single-column
+layout that is easier to edit and copy, but takes considerably more vertical space.
 
 ## Examples of input and output data
 
