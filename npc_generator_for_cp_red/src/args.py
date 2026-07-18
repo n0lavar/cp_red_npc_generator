@@ -51,8 +51,10 @@ def _load_settings() -> dict:
 
 
 def create_and_parse_args(ranks, roles) -> argparse.Namespace:
-    parser = argparse.ArgumentParser()
-
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
+    )
+    
     npc_customization_group = parser.add_argument_group("NPC Customization")
     npc_customization_group.add_argument("--rank",
                                          type=str,

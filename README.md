@@ -99,7 +99,7 @@ Calling `npc_generator_for_cp_red.exe` without arguments generates a captain-ran
   <summary>Full <code>-h</code> output</summary>
 
 ```text
-usage: npc_generator_for_cp_red.exe [-h]
+usage: main.py [-h]
                [--rank {private,corporal,lieutenant,captain,lieutenant_colonel,lieutenant_general,general,0,1,2,3,4,5,6}]
                [--role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}]
                [--nationality {en_US,es_MX,ja_JP,zh_CN,ru_RU,vi_VN,es_CO,pt_BR,ko_KR,id_ID,en_AU,es_AR,de_DE,en_GB,en_PH,fil_PH,tl_PH,es_CL,en_CA,es_CA,fr_CA,en_PK,fr_FR,uk_UA,it_IT,es_ES,pl_PL,en_IN,gu_IN,hi_IN,mr_IN,or_IN,ta_IN,en_NZ,tr_TR,en_TH,th_TH,nl_NL,ar_EG,zu_ZA,am_ET,pt_PT,bn_BD,en_BD,ne_NP,ro_RO,fa_IR,sv_SE,de_AT,en_KE,cs_CZ,uz_UZ,el_GR,tw_GH,hu_HU,no_NO,ar_SA,fi_FI,bg_BG,az_AZ,ar_AE,he_IL,sk_SK,fr_BE,nl_BE,hr_HR,ka_GE,ar_JO,en_NG,ha_NG,ig_NG,ng_NG,yo_NG,en_IE,ga_IE,lt_LT,hy_AM,da_DK,dk_DK,el_CY,ar_DZ,fr_DZ,lv_LV,sq_AL,de_CH,fr_CH,it_CH,sl_SI,et_EE,ar_PS,mk_MK,mt_MT,is_IS,bs_BA,sr_BA,ar_BH,de_LU,lb_LU,de_LI}]
@@ -130,70 +130,81 @@ NPC Customization:
                         private is an unskilled and unknown newcomer, and
                         general is a world-class character. Rank determines
                         how advanced an NPC's skills are and how cool his
-                        equipment is.
+                        equipment is. (default: captain)
   --role {rockerboy,solo,netrunner,tech,medtech,media,exec,lawman,fixer,nomad,civilian}
                         An occupation the NPC is known by on The Street.
                         `civilian` means that this is just a regular human.
                         The role can determine the equipment and the direction
                         of the NPC's skills. The default value is `solo`.
+                        (default: solo)
   --nationality {en_US,es_MX,ja_JP,zh_CN,ru_RU,vi_VN,es_CO,pt_BR,ko_KR,id_ID,en_AU,es_AR,de_DE,en_GB,en_PH,fil_PH,tl_PH,es_CL,en_CA,es_CA,fr_CA,en_PK,fr_FR,uk_UA,it_IT,es_ES,pl_PL,en_IN,gu_IN,hi_IN,mr_IN,or_IN,ta_IN,en_NZ,tr_TR,en_TH,th_TH,nl_NL,ar_EG,zu_ZA,am_ET,pt_PT,bn_BD,en_BD,ne_NP,ro_RO,fa_IR,sv_SE,de_AT,en_KE,cs_CZ,uz_UZ,el_GR,tw_GH,hu_HU,no_NO,ar_SA,fi_FI,bg_BG,az_AZ,ar_AE,he_IL,sk_SK,fr_BE,nl_BE,hr_HR,ka_GE,ar_JO,en_NG,ha_NG,ig_NG,ng_NG,yo_NG,en_IE,ga_IE,lt_LT,hy_AM,da_DK,dk_DK,el_CY,ar_DZ,fr_DZ,lv_LV,sq_AL,de_CH,fr_CH,it_CH,sl_SI,et_EE,ar_PS,mk_MK,mt_MT,is_IS,bs_BA,sr_BA,ar_BH,de_LU,lb_LU,de_LI}
                         Faker locale used to generate the NPC name, e.g. ru_RU
                         or en_US. If omitted, a random nationality is used.
+                        (default: None)
   --allow-non-basic-ammo, --no-allow-non-basic-ammo
                         Is specified, allow non-basic ammo, such as armor
-                        piercing and expansive.
+                        piercing and expansive. (default: True)
   --allow-grenades, --no-allow-grenades
-                        Is specified, allow grenades
+                        Is specified, allow grenades (default: True)
   --allow-armor, --no-allow-armor
                         Is specified, allow armor items (cyberware armor will
-                        still be there).
+                        still be there). (default: True)
   --allow-cyberware, --no-allow-cyberware
-                        Is specified, allow cyberware.
+                        Is specified, allow cyberware. (default: True)
   --allow-borgware, --no-allow-borgware
                         If specified, allow borgware. Usually you don't want
-                        the regular mooks to use that cool stuff.
+                        the regular mooks to use that cool stuff. (default:
+                        False)
   --allow-drugs, --no-allow-drugs
                         Is specified, allow adding drugs. Drugs may be added
-                        or not depending on airhypo generation.
+                        or not depending on airhypo generation. (default:
+                        True)
   --allow-equipment, --no-allow-equipment
                         Is specified, allow equipment, such as flashlight and
                         airhypo (cyberware equipment will still be there).
+                        (default: True)
   --allow-money, --no-allow-money
-                        Is specified, allow money.
+                        Is specified, allow money. (default: True)
   --allow-junk, --no-allow-junk
-                        Is specified, allow useless junk for flavor.
+                        Is specified, allow useless junk for flavor. (default:
+                        True)
   --allow-melee-weapon, --no-allow-melee-weapon
                         Is specified, allow melee weapon (brawling, martial
                         arts and cyberware weapons will still be there).
+                        (default: True)
   --allow-ranged-weapon, --no-allow-ranged-weapon
                         Is specified, allow ranged weapon (cyberware weapons
-                        will still be there).
+                        will still be there). (default: True)
   --allow-martial-arts, --no-allow-martial-arts
                         Is specified, allow martial arts (brawling will still
-                        be there).
+                        be there). (default: True)
 
 Generation settings:
   --seed SEED           A number for a random engine. The same seed will
                         always give the same result when the other arguments
                         are unchanged. The default is 0, which means "use unix
-                        epoch".
+                        epoch". (default: 0)
   --model-id MODEL_ID   Model identifier used to generate the NPC description.
+                        (default: qwen/qwen3.6-35b-a3b)
   --model-api-key MODEL_API_KEY
                         API key for the OpenAI-compatible model server.
+                        (default: lm-studio)
   --model-base-url MODEL_BASE_URL
                         Base URL of the OpenAI-compatible model server.
+                        (default: http://localhost:1234/v1)
   --model-language MODEL_LANGUAGE
                         Language in which the model generates the NPC
-                        description.
+                        description. (default: English)
 
 Appearance:
   --flat, --no-flat     If specified, don't use columns. Easier for editing
-                        and copy-pasting, but takes much more space.
+                        and copy-pasting, but takes much more space. (default:
+                        None)
   --foundry-json, --no-foundry-json
                         If specified, output results in JSON format that is
-                        suitable for Foundry VVT.
+                        suitable for Foundry VVT. (default: False)
   --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
-                        Logging level. Default is INFO.
+                        Logging level. Default is INFO. (default: INFO)
 ```
 
 </details>
